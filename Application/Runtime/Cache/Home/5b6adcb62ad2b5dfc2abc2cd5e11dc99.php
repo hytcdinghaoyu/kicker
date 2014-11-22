@@ -50,7 +50,7 @@
 			</ul>
 		</div>
 	</div>
-	<a class="reg_link" href="../Reg/index"></a>
+	<a class="reg_link" href="<?php echo U('Home/Reg/index');?>"></a>
 </div>
 
 <div class="hr_25"></div>

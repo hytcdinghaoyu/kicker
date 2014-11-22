@@ -354,9 +354,9 @@
 .login_logo .comWidth{width:460px;}
 .welcome_title{font:22px/85px "Microsoft YaHei", "微软雅黑"; color:#FFF; float:left; padding-left:24px;}
 .loginBox{min-height:450px; width:458px; border:#999 solid 1px; margin:10px auto; position:relative;}
-.login_cont{padding:15px 56px;}
+.login_cont{padding:15px;}
 .l_tit{color:#666; line-height:20px;}
-.login_input{border:#999 solid 1px; height:32px; line-height:32px\9; text-indent:5px; width:300px;}
+.login_input{border:#999 solid 1px; height:32px; line-height:32px\9; text-indent:5px; width:270px;}
 .user_icon{background:url(../images/icon/user_icon.jpg) right center no-repeat;}
 .mb_10{margin-bottom:10px;}
 .autoLogin{padding-top:10px; padding-bottom:12px;}
@@ -367,13 +367,13 @@
 .login_list span{color:#999; margin:0 2px;}
 .reg_link{width:115px; height:31px; background:url(../images/icon/red_link.jpg) left top no-repeat; position:absolute; right: 0; bottom:-31px;}
 .red_logo .comWidth{width:630px;}
-.regBox{width:628px; margin:10px auto; border:#CCC solid 1px;}
+.regBox{width:570px; margin:10px auto; border:#CCC solid 1px;}
 .reg_item{font:14px/34px "宋体"; width:110px; text-align:right; float:left;}
 .reg_item i{color:red; font-style:normal; margin-right:5px;}
-.input_item{width:306px; float:left;}
+.input_item{width:380px; float:left;position: relative;}
 .regBox li{height:70px; vertical-align:top;}
 .regBox .autoLogin{height:46px; padding:0;}
-.regBox .login_cont{padding:45px 76px 20px 36px;}
+.regBox .login_cont{padding:25px 15px;}
 
 /*图片合并*/
 .stars,
@@ -387,6 +387,9 @@
 .l_tit{padding-top: 10px;font-size: 15px;font-weight: bold;}
 
 
+/*注册*/
+#regform label.error{color:#ff0000;position: absolute;left: 0;top: 34px;}
+#checkuser{padding-left: 15px;color: #ff0000;}
 
 
 
