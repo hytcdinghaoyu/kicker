@@ -27,7 +27,7 @@ Class LoginController extends Controller{
 			$this->success("登录成功！",U("Home/index/index"));
 		}
 		else{
-			$this->error("用户名或者密码不正确",U("Home/login/index"));
+			$this->error("用户名或者密码不正确!",U("Home/login/index"));
 		}
 
 	}

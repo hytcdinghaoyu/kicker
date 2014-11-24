@@ -1,5 +1,6 @@
 $(function(){
 
+
 	//前端输入格式验证
 	$("#regform").validate({				
 			rules: {
@@ -46,31 +47,32 @@ $(function(){
 	$("#username").keyup(function(){
 
 		var username = $(this).val().toString();
-		if (username != "") {
+		if (username!="") {
 			$.ajax({
-
-			type : "POST",
-			url : checkUrl,
-			data : {username:username},
-			success : function(res){
-
-				if (res.status==1) {
-					//alert(res.msg);
-					$("#checkuser").html(res.msg);
-					$("#checkuser").css({"color":"#ff0000"});
-				}
-				else{
-					$("#checkuser").html(res.msg);
-					$("#checkuser").css({"color":"#66ff00"});
-				}
-
-			}
-
-
-			});
-		};		
-		
-
+					type : "POST",
+					url : checkUrl,
+					data : {username:username},
+					success : function(res){
+						//用户名已存在
+						if (res.status==1) {
+							$("#checkuser").html(res.msg);
+							$("#checkuser").css({"color":"#ff0000"});
+							$(".ok_btn").attr("disabled",true);
+						}
+						//用户名不存在
+						else{
+							$("#checkuser").html(res.msg);
+							$("#checkuser").css({"color":"#66ff00"});
+							$(".ok_btn").attr("disabled",false);
+						}									
+					}
+			});		
+		}
+		else{
+			$("#checkuser").css({"color":"#ff0000"});
+			$("#checkuser").html("用户名不能为空！");
+			$(".ok_btn").attr("disabled",true);
+		}
 	});
 
 })
