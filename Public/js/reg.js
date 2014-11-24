@@ -1,6 +1,6 @@
 $(function(){
 
-	//前端验证
+	//前端输入格式验证
 	$("#regform").validate({				
 			rules: {
 				username:{
@@ -42,6 +42,7 @@ $(function(){
         	}
 	});
 
+	//动态验证用户名是否被占用
 	$("#username").keyup(function(){
 
 		var username = $(this).val().toString();

@@ -25,16 +25,28 @@ Class RegController extends Controller{
 		$this->ajaxReturn($data,'json');
 	}
 
-	// public function AddUser(){
+	public function AddUser(){
 
-	// 	$data = array(
-	// 		"uname" => I("username"),
-	// 		"password" => I("password"),
-	// 		"email" => I("usermail")
-	// 	);
+		if (IS_POST === false) throw new Exception("错误请求！");
+		
+
+		$data = array(
+			"uname" => I("username"),
+			"password" => md5(I("password")),
+			"email" => I("usermail")
+		);
+
+		$id = M("user")->data($data)->add();
+
+		if ($id) {
+			$this->success('注册成功！',U("Home/login/index"));
+		}
+		else{
+			$this->error('注册失败',U("Home/reg/index"));
+		}
 
 
-	// }
+	}
 }
 
  ?>

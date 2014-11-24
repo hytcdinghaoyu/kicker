@@ -5,6 +5,39 @@
 <title>登陆</title>
 <link type="text/css" rel="stylesheet" href="__PUBLIC__/style/reset.css">
 <link type="text/css" rel="stylesheet" href="__PUBLIC__/style/main.css">
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+var checkUrl = '{:U("Home/Login/checklogin")}';
+var verifyURL = '{:U("Home/Login/verify")}';
+function change_code(obj){
+	$("#code").attr("src",verifyURL+'?rnd='+Math.random());
+	return false;
+}
+$(function(){
+	$(".login_btn").click(function(){
+		var username = $("#username").val();
+		var password = $("#password").val();
+		if (username == "" || password == "") {
+			alert("用户名或者密码不能为空！");
+		}
+		else{
+			$(this).attr("type","submit");
+		}
+		// else{
+		// 	$.ajax({
+
+		// 		type : "POST",
+		// 		url : checkUrl,
+		// 		data : {username:username,password:password},
+		// 		success:function(res){
+		// 			alert("用户名或者密码不正确！");
+		// 		}
+
+		// 	})
+		// }
+	});
+})
+</script>
 <!--[if IE 6]>
 <script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
 <script type="text/javascript" src="js/ie6Fixpng.js"></script>
@@ -26,12 +59,20 @@
 <div class="loginBox">
 	<div class="login_cont">
 		<ul class="login">
-			<li class="l_tit">邮箱/用户名/手机号</li>
-			<li class="mb_10"><input type="text" class="login_input user_icon"></li>
-			<li class="l_tit">密码</li>
-			<li class="mb_10"><input type="text" class="login_input user_icon"></li>
-			<li class="autoLogin"><input type="checkbox" id="a1" class="checked"><label for="a1">自动登陆</label></li>
-			<li><input type="button" value="" class="login_btn"></li>
+			<form action="{:U("Home/login/checklogin")}" method="POST" >
+				<li class="l_tit">用户名</li>
+				<li class="mb_10"><input type="text" name="username"  id="username" class="login_input user_icon"></li>
+				<li class="l_tit">密码</li>
+				<li class="mb_10"><input type="text" name="password" id="password" class="login_input"></li>
+				<li class="l_tit">验证码</li>
+				<li class="mb_10">
+					<input type="text" name="code" class="login_input">
+				</li>
+				<li>
+					<img src="{:U('Home/Login/verify','','')}" id="code"/> <a href="javascript:void(change_code(this));">看不清</a>
+				</li>
+				<li><input type="button" value="" class="login_btn"></li>
+			</form>
 		</ul>
 		<div class="login_partners">
 			<p class="l_tit">使用合作方账号登陆网站</p>
