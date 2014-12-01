@@ -5,6 +5,8 @@
 <title>首页</title>
 <link type="text/css" rel="stylesheet" href="__PUBLIC__/style/reset.css">
 <link type="text/css" rel="stylesheet" href="__PUBLIC__/style/main.css">
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
 <!--[if IE 6]>
 <script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
 <script type="text/javascript" src="js/ie6Fixpng.js"></script>
@@ -14,7 +16,7 @@
 <body>
 <div class="headerBar">
 	<div class="topBar">
-		<div class="comWidth">
+		<div class="comWrap">
 			<div class="leftArea">
 				<a href="#" class="collection">收藏踢球者！</a>
 			</div>
@@ -24,7 +26,7 @@
 		</div>
 	</div>
 	<div class="logoBar">
-		<div class="comWidth">
+		<div class="comWrap">
 			<div class="logo fl">
 
 			</div>
@@ -39,7 +41,7 @@
 		</div>
 	</div>
 	<div class="navBox">
-		<div class="comWidth clearfix">
+		<div class="comWrap clearfix">
 			<div class="shopClass fl">
 				<h3>全部商品分类<i class="shopClass_icon"></i></h3>
 				<div class="shopClass_show">
@@ -113,187 +115,93 @@
 		</div>
 	</div>
 </div>
-<div class="banner comWidth clearfix">
+<div class="banner clearfix">
 	<div class="banner_bar banner_big">
 		<ul class="imgBox">
-			<li><a href="#"><img src="images/banner/banner_01.jpg" alt="banner"></a></li>
-			<li><a href="#"><img src="images/banner/banner_02.jpg" alt="banner"></a></li>
+			<li class="imgBoxLi img1" style="display:none;"><a href="#"></a></li>
+			<li class="imgBoxLi img2"><a href="#"></a></li>
 		</ul>
 		<div class="imgNum">
-			<a href="#" class="active"></a><a href="#"></a><a href="#"></a><a href="#"></a>
+			<a href="javascript:;" class="imgA" imgid = "1"></a>
+			<a href="javascript:;" class="imgA active" imgid="2"></a>
 		</div>
+		<a href="javascript:;" class="prev"></a>
+		<a href="javascript:;" class="next"></a>
 	</div>
 </div>
-<div class="shopTit comWidth">
-	<span class="icon"></span><h3>家用电脑</h3>
-	<a href="#" class="more">更多&gt;&gt;</a>
-</div>
-<div class="shopList comWidth clearfix">
-	<div class="leftArea">
-		<div class="banner_bar banner_sm">
-			<ul class="imgBox">
-				<li><a href="#"><img src="images/banner/banner_sm_01.jpg" alt="banner"></a></li>
-				<li><a href="#"><img src="images/banner/banner_sm_02.jpg" alt="banner"></a></li>
-			</ul>
-			<div class="imgNum">
-				<a href="#" class="active"></a><a href="#"></a><a href="#"></a><a href="#"></a>
-			</div>
-		</div>
+<div class="shopArea">
+	<div class="shopTit comWidth">
+		<span class="icon"></span><h3>1F 球衣</h3>
+		<a href="#" class="more">更多&gt;&gt;</a>
 	</div>
-	<div class="rightArea">
-		<div class="shopList_top clearfix">
-			<div class="shop_item">
-				<div class="shop_img">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
+	<div class="shopList comWidth clearfix">
+		<div class="leftArea">
+			<div class="banner_bar banner_sm">
+				<ul class="imgBox">
+					<li><a href="#"><img src="__PUBLIC__/images/left1.png" alt="banner"></a></li>
+					<li><a href="#"><img src="__PUBLIC__/images/left1.png" alt="banner"></a></li>
+				</ul>
+				<div class="imgNum">
+					<a href="#" class="active">
 				</div>
-				<h3>HTC新渴望8系列</h3>
-				<p>1899元</p>
-			</div>
-			<div class="shop_item">
-				<div class="shop_img">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<h3>HTC新渴望8系列</h3>
-				<p>1899元</p>
-			</div>
-			<div class="shop_item">
-				<div class="shop_img">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<h3>HTC新渴望8系列</h3>
-				<p>1899元</p>
-			</div>
-			<div class="shop_item">
-				<div class="shop_img">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<h3>HTC新渴望8系列</h3>
-				<p>1899元</p>
 			</div>
 		</div>
-		<div class="shopList_sm clearfix">
-			<div class="shopItem_sm">
-				<div class="shopItem_smImg">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<div class="shopItem_text">
-					<p>NFC技术一碰轻松配对！接触屏幕</p>
-					<h3>￥149.00	</h3>
-				</div>
-			</div>
-			<div class="shopItem_sm">
-				<div class="shopItem_smImg">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<div class="shopItem_text">
-					<p>NFC技术一碰轻松配对！接触屏幕</p>
-					<h3>￥149.00	</h3>
-				</div>
-			</div>
-			<div class="shopItem_sm">
-				<div class="shopItem_smImg">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<div class="shopItem_text">
-					<p>NFC技术一碰轻松配对！接触屏幕</p>
-					<h3>￥149.00	</h3>
-				</div>
-			</div>
-			<div class="shopItem_sm">
-				<div class="shopItem_smImg">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<div class="shopItem_text">
-					<p>NFC技术一碰轻松配对！接触屏幕</p>
-					<h3>￥149.00	</h3>
-				</div>
+		<div class="rightArea">
+			<div class="shopList_top clearfix">
+				<foreach name="close_goods" item="good">
+					<div class="shop_item">
+						<div class="shop_img">
+							<a href="#"><img src="__PUBLIC__/{$good.goods_img}" alt=""></a>
+						</div>
+						<div class="goods_info">
+							<h3>{$good.main_title}</h3>
+							<p>
+								<span style="margin-right:10px;">￥{$good.old_price}</span>
+								已售
+								<span>{$good.buy}</span>
+								件
+							</p>
+						</div>
+					</div>
+				</foreach>		
 			</div>
 		</div>
 	</div>
 </div>
-<div class="shopTit comWidth">
-	<span class="icon"></span><h3>家用电脑</h3>
-	<a href="#" class="more">更多&gt;&gt;</a>
-</div>
-<div class="shopList comWidth clearfix">
-	<div class="leftArea">
-		<div class="banner_bar banner_sm">
-			<ul class="imgBox">
-				<li><a href="#"><img src="images/banner/banner_sm_01.jpg" alt="banner"></a></li>
-				<li><a href="#"><img src="images/banner/banner_sm_02.jpg" alt="banner"></a></li>
-			</ul>
-			<div class="imgNum">
-				<a href="#" class="active"></a><a href="#"></a><a href="#"></a><a href="#"></a>
-			</div>
-		</div>
+<div class="shopArea">
+	<div class="shopTit comWidth">
+		<span class="icon"></span><h3>2F 球鞋</h3>
+		<a href="#" class="more">更多&gt;&gt;</a>
 	</div>
-	<div class="rightArea">
-		<div class="shopList_top clearfix">
-			<div class="shop_item">
-				<div class="shop_img">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
+	<div class="shopList comWidth clearfix">
+		<div class="leftArea">
+			<div class="banner_bar banner_sm">
+				<ul class="imgBox">
+					<li><a href="#"><img src="__PUBLIC__/images/left3.png" alt="banner"></a></li>
+				</ul>
+				<div class="imgNum">
+					<a href="#" class="active">
 				</div>
-				<h3>HTC新渴望8系列</h3>
-				<p>1899元</p>
-			</div>
-			<div class="shop_item">
-				<div class="shop_img">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<h3>HTC新渴望8系列</h3>
-				<p>1899元</p>
-			</div>
-			<div class="shop_item">
-				<div class="shop_img">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<h3>HTC新渴望8系列</h3>
-				<p>1899元</p>
-			</div>
-			<div class="shop_item">
-				<div class="shop_img">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<h3>HTC新渴望8系列</h3>
-				<p>1899元</p>
 			</div>
 		</div>
-		<div class="shopList_sm clearfix">
-			<div class="shopItem_sm">
-				<div class="shopItem_smImg">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<div class="shopItem_text">
-					<p>NFC技术一碰轻松配对！接触屏幕</p>
-					<h3>￥149.00	</h3>
-				</div>
-			</div>
-			<div class="shopItem_sm">
-				<div class="shopItem_smImg">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<div class="shopItem_text">
-					<p>NFC技术一碰轻松配对！接触屏幕</p>
-					<h3>￥149.00	</h3>
-				</div>
-			</div>
-			<div class="shopItem_sm">
-				<div class="shopItem_smImg">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<div class="shopItem_text">
-					<p>NFC技术一碰轻松配对！接触屏幕</p>
-					<h3>￥149.00	</h3>
-				</div>
-			</div>
-			<div class="shopItem_sm">
-				<div class="shopItem_smImg">
-					<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-				</div>
-				<div class="shopItem_text">
-					<p>NFC技术一碰轻松配对！接触屏幕</p>
-					<h3>￥149.00	</h3>
-				</div>
+		<div class="rightArea">
+			<div class="shopList_top clearfix">
+				<foreach name="shoes_goods" item="good">
+					<div class="shop_item">
+						<div class="shop_img">
+							<a href="#"><img src="__PUBLIC__/{$good.goods_img}" alt=""></a>
+						</div>
+						<div class="goods_info">
+							<h3>{$good.main_title}</h3>
+							<p>
+								<span style="margin-right:10px;">￥{$good.old_price}</span>
+								已售
+								<span>{$good.buy}</span>
+								件
+							</p>
+						</div>
+					</div>
+				</foreach>		
 			</div>
 		</div>
 	</div>

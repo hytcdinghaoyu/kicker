@@ -27,8 +27,7 @@ Class RegController extends Controller{
 
 	public function AddUser(){
 
-		if (IS_POST === false) throw new Exception("错误请求！");
-		
+		if (IS_POST === false) throw new Exception("非法请求！");
 
 		$data = array(
 			"uname" => I("username"),

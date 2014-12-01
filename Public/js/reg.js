@@ -49,23 +49,23 @@ $(function(){
 		var username = $(this).val().toString();
 		if (username!="") {
 			$.ajax({
-					type : "POST",
-					url : checkUrl,
-					data : {username:username},
-					success : function(res){
-						//用户名已存在
-						if (res.status==1) {
-							$("#checkuser").html(res.msg);
-							$("#checkuser").css({"color":"#ff0000"});
-							$(".ok_btn").attr("disabled",true);
-						}
-						//用户名不存在
-						else{
-							$("#checkuser").html(res.msg);
-							$("#checkuser").css({"color":"#66ff00"});
-							$(".ok_btn").attr("disabled",false);
-						}									
+				type : "POST",
+				url : checkUrl,
+				data : {username:username},
+				success : function(res){
+					//用户名已存在
+					if (res.status==1) {
+						$("#checkuser").html(res.msg);
+						$("#checkuser").css({"color":"#ff0000"});
+						$(".ok_btn").attr("disabled",true);
 					}
+					//用户名不存在
+					else{
+						$("#checkuser").html(res.msg);
+						$("#checkuser").css({"color":"#66ff00"});
+						$(".ok_btn").attr("disabled",false);
+					}									
+				}
 			});		
 		}
 		else{
