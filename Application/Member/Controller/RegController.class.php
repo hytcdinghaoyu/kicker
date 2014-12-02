@@ -1,5 +1,5 @@
 <?php 
-namespace Home\Controller;
+namespace Member\Controller;
 use Think\Controller;
 Class RegController extends Controller{
 
@@ -38,10 +38,10 @@ Class RegController extends Controller{
 		$id = M("user")->data($data)->add();
 
 		if ($id) {
-			$this->success('注册成功！',U("Home/login/index"));
+			$this->success('注册成功！',U("Member/login/index"));
 		}
 		else{
-			$this->error('注册失败',U("Home/reg/index"));
+			$this->error('注册失败',U("Member/reg/index"));
 		}
 
 

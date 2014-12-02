@@ -10,8 +10,8 @@
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/login.css">
 <script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.js"></script>
 <script type="text/javascript">
-var checkUrl = '{:U("Home/Login/checklogin")}';
-var verifyURL = '{:U("Home/Login/verify")}';
+var checkUrl = '{:U("Member/Login/checklogin")}';
+var verifyURL = '{:U("Member/Login/verify")}';
 function change_code(obj){
 	$("#code").attr("src",verifyURL+'?rnd='+Math.random());
 	return false;
@@ -51,8 +51,8 @@ $(function(){
 				<div class="wrap topbar">
 			<ul>
 				<li><span>您好，请</span></li>
-				<li><a href="{:U("Home/login/index")}"><span>[登录]</span></a></li>
-				<li><a href="{:U("Home/reg/index")}" target="_blank"><span>[注册]</span></a></li>
+				<li><a href="{:U("Member/login/index")}"><span>[登录]</span></a></li>
+				<li><a href="{:U("Member/reg/index")}" target="_blank"><span>[注册]</span></a></li>
                 				<li class="line"><span>|</span></li>
 				<li class="pull_link">
 					<span>客户服务<i class="arrow"></i></span>
@@ -71,7 +71,7 @@ $(function(){
 			<p><a class="backHome" href="{:U("Home/index/index")}" target="_blank"><i></i>返回首页</a></p>
 			<h2>欢迎登陆&nbsp;<a href="{:U("Home/index/index")}"><em>踢球者商城</em></a></h2>
 			<span class="weifeng_logo"></span>
-			<form name="loginForm" id="loginForm" method="post" action="{:U("Home/login/checklogin")}" >
+			<form name="loginForm" id="loginForm" method="post" action="{:U("Member/login/checklogin")}" >
 			<input type="hidden" id="needWekey" name="needWekey" value="0" />
 				<dl>
 					<dt>用户名</dt>
@@ -110,7 +110,7 @@ $(function(){
 						<span id="remember_tips">为了账户安全，请勿在公用电脑上勾选此项。</span>
 					</dd>
 					<dd class="create_id">
-						<a href="{:U("Home/reg/index")}"><i></i>创建账户</a>
+						<a href="{:U("Member/reg/index")}"><i></i>创建账户</a>
 					</dd>
 				</dl>
 			</form>

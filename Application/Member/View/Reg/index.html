@@ -13,7 +13,7 @@
 <script type="text/javascript" src="__PUBLIC__/JS/jquery.validate.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/JS/reg.js"></script>
 <script type="text/javascript">
-		var checkUrl = '{:U("Home/Reg/checkUser",'','')}'
+		var checkUrl = '{:U("Member/Reg/checkUser",'','')}'
 </script>
 
 
@@ -33,7 +33,7 @@
 					<div id="email_register" class="login_form email_register_form">
 						<div class="noform">
 							<ul>
-								<form method="post" action="{:U('Home/Reg/AddUser')}" id="regform">
+								<form method="post" action="{:U('Member/Reg/AddUser')}" id="regform">
 									<li class="pic"><span class="user_pic"><img src="__PUBLIC__/images/noavatar_middle.gif" height="132" width="132" alt="" name="user_face" id="user_face" /></span>
 									<input type="hidden" name="face" id="face" /><a href="javascript:;" class="edit" title="上传头像"><span>上传头像</span><input type="file" name="face_file" id="face_file" /></a>
 									</li>
@@ -49,7 +49,7 @@
 									</li>
 								</form>
 							</ul>
-							<div class="ext_links"><a href="{:U("Home/login/index")}"><i class="arrow"></i>立即登录</a></div>
+							<div class="ext_links"><a href="{:U("Member/login/index")}"><i class="arrow"></i>立即登录</a></div>
 						</div>
 					</div>				
 				</div>				
