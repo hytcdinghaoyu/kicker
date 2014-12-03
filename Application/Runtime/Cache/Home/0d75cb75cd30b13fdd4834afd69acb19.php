@@ -116,35 +116,30 @@
 	</div>
 </div>
 <div class="userPosition comWrap">
-	<strong><a href="#">首页</a></strong>
+	<strong><a href="<?php echo U("Home/Index/index");?>">首页</a></strong>
 	<span>&nbsp;&gt;&nbsp;</span>
 	<a href="#">平板电脑</a>
 	<span>&nbsp;&gt;&nbsp;</span>
-	<em>MD531CH/A</em>
+	<em><?php echo ($title); ?></em>
 </div>
 <div class="description_info comWrap">
 	<div class="description clearfix">
 		<div class="leftArea">
-			<div class="description_imgs">
-				<div class="big">
-					<img src="images/des_big.jpg" alt="">
-				</div>
+			<div class="description_imgs">				
+					<?php if(is_array($big_img)): foreach($big_img as $key=>$val): ?><div class="big">
+							<img src="<?php echo ($val); ?>" alt="">
+						</div><?php endforeach; endif; ?>								
 				<ul class="des_smimg clearfix">
-					<li><a href="#"><img src="images/des_sm.jpg" class="active" alt=""></a></li>
-					<li><a href="#"><img src="images/des_sm2.jpg" alt=""></a></li>
-					<li><a href="#"><img src="images/des_sm.jpg" alt=""></a></li>
-					<li><a href="#"><img src="images/des_sm2.jpg" alt=""></a></li>
-					<li><a href="#"><img src="images/des_sm.jpg" alt=""></a></li>
+					<?php if(is_array($sm_img)): foreach($sm_img as $key=>$val): ?><li><a href="#"><img src="<?php echo ($val); ?>" class="active" alt=""></a></li><?php endforeach; endif; ?>					
 				</ul>
 			</div>
 		</div>
 		<div class="rightArea">
 			<div class="des_content">
-				<h3 class="des_content_tit">全网底价 Apple 苹果 iPad mini 16G wifi版 平板电脑 前白后银 MD531CH/A 银白两色生
-产批次不同混合发货</h3>
+				<h3 class="des_content_tit"><?php echo ($sub_title); ?></h3>
 				<div class="dl clearfix">
 					<div class="dt">原价</div>
-					<div class="dd clearfix"><span class="des_money"><em>￥</em>999.00</span></div>
+					<div class="dd clearfix"><span class="des_money"><em>￥</em><?php echo ($price); ?></span></div>
 				</div>
 				<div class="dl clearfix">
 					<div class="dt">优惠</div>
@@ -154,15 +149,9 @@
 					<div class="dl clearfix">
 						<div class="dt colorSelect">选择尺码</div>
 						<div class="dd clearfix">
-							<div class="des_item des_item_acitve">
-								S
-							</div>
-							<div class="des_item">
-								M
-							</div>
-							<div class="des_item">
-								XL
-							</div>
+							<?php if(is_array($goods_attr)): foreach($goods_attr as $key=>$val): ?><div class="des_item des_item_acitve">
+									<?php echo ($val); ?>
+								</div><?php endforeach; endif; ?>
 						</div>
 					</div>
 					<div class="dl">
@@ -175,7 +164,7 @@
 								</div>
 								<div class="plus">+</div>
 							</div>
-							<span class="xg">限购<em>9</em>件</span>
+							<span class="xg">库存<em>9</em>件</span>
 						</div>
 					</div>
 				</div>
@@ -198,64 +187,29 @@
 <div class="des_info comWrap clearfix">
 	<div class="leftArea">
 		<div class="recommend">
-			<h3 class="tit">同价位</h3>
+			<h3 class="tit">热卖商品</h3>
 			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-				</div>
+				<?php if(is_array($hot_goods)): foreach($hot_goods as $key=>$good): ?><div class="item_cont">
+						<div class="img_item">
+							<a href="<?php echo U("Home/Detail/index");?>?gid=<?php echo ($good["gid"]); ?>"><img src="/kicker/Public/<?php echo ($good["goods_img"]); ?>" alt=""></a>
+						</div>
+						<p><a href="<?php echo U("Home/Detail/index");?>?gid=<?php echo ($good["gid"]); ?>"><?php echo ($good["main_title"]); ?></a></p>
+						<p class="money">￥<?php echo ($good["price"]); ?></p>
+						<p>已售：<?php echo ($good["buy"]); ?>件</p>
+					</div><?php endforeach; endif; ?>
 			</div>
 		</div>
 		<div class="hr_15"></div>
 		<div class="recommend">
-			<h3 class="tit">同价位</h3>
+			<h3 class="tit">相关商品</h3>
 			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-				</div>
+				<?php if(is_array($related_goods)): foreach($related_goods as $key=>$good): ?><div class="item_cont">
+						<div class="img_item">
+							<a href="<?php echo U("Home/Detail/index");?>?gid=<?php echo ($good["gid"]); ?>"><img src="/kicker/Public/<?php echo ($good["goods_img"]); ?>" alt=""></a>
+						</div>
+						<p><a href="<?php echo U("Home/Detail/index");?>?gid=<?php echo ($good["gid"]); ?>"><?php echo ($good["main_title"]); ?></a></p>
+						<p class="money">￥<?php echo ($good["price"]); ?></p>
+					</div><?php endforeach; endif; ?>
 			</div>
 		</div>
 	</div>
@@ -265,18 +219,16 @@
 				<li class="active"><span>产品介绍</span></li>
 				<li><span>产品评价(12312)</span></li>
 			</ul>
-			<div class="ad">
-				<a href="#"><img src="images/ad.jpg"></a>
-			</div>
 			<div class="info_text">
 				<div class="info_tit">
 					<h3>强烈推荐</h3><h4>货比三家，还选</h4>
 				</div>
-				<p>现在就是买mini的好时候！换代清仓直降，但苹果品质不变！A5双核，内置Lightning闪电接口，正反可插，方便人性。小身材，炫丽的7.9英寸显示屏，7.2mm的厚度，薄如铅笔。女生包包随身携带更时尚！facetime视频通话，与密友24小时畅聊不断线。微信倾力打造，你的智能助理。苹果的牌子就不用我说了，1111补仓，存货不多哦！</p>
-				<div class="hr_45"></div>
-				<img src="images/pad.jpg" class="center">
+				<p><?php echo ($des_txt); ?></p>
 				<div class="hr_45"></div>
 			</div>
+			<div class="ad">
+				<?php if(is_array($des_img)): foreach($des_img as $key=>$val): ?><img src="<?php echo ($val); ?>"><?php endforeach; endif; ?>
+			</div>		
 		</div>
 		<div class="hr_15"></div>
 		<div class="des_infoContent">
