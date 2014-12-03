@@ -7,6 +7,40 @@
 <link type="text/css" rel="stylesheet" href="__PUBLIC__/style/main.css">
 <script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//选择尺寸
+		$(".des_item").click(function(){
+			var attr = $(this).html();
+			$(".des_item").removeClass("des_item_acitve");
+			$(this).addClass("des_item_acitve");
+			$(".des_select span").html(attr);
+		});
+
+		//选择数量
+		$(".plus").click(function(){
+			var num =  parseInt($(".des_input input").val());
+			$(".des_input input").val(num+1);
+		});
+		$(".reduction").click(function(){
+			var num =  parseInt($(".des_input input").val());
+			if (num>=2) {
+				$(".des_input input").val(num-1);
+			};
+		});
+
+		//切换图片
+		$(".big[mid='0']").show();
+		$(".sm_li[mid='0'] img").addClass("active");
+		$(".des_smimg li").click(function(){
+			var mid = $(this).attr("mid");
+			$(".des_smimg img").removeClass("active");
+			$(this).find("img").addClass("active");
+			$(".big").hide();
+			$(".big[mid="+mid+"]").show();
+		});
+	});
+</script>
 <!--[if IE 6]>
 <script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
 <script type="text/javascript" src="js/ie6Fixpng.js"></script>
@@ -26,14 +60,14 @@
 	<div class="description clearfix">
 		<div class="leftArea">
 			<div class="description_imgs">				
-					<foreach name="big_img" item="val">
-						<div class="big">
-							<img src="{$val}" alt="">
+					<foreach name="big_img" item="val" key="key">
+						<div class="big" mid="{$key}" style="display:none;">
+							<img src="{$val}">
 						</div>
 					</foreach>								
 				<ul class="des_smimg clearfix">
-					<foreach name="sm_img" item="val">
-						<li><a href="#"><img src="{$val}" class="active" alt=""></a></li>	
+					<foreach name="sm_img" item="val" key="key">
+						<li mid="{$key}" class="sm_li"><a href="javascript:;"><img src="{$val}"></a></li>	
 					</foreach>					
 				</ul>
 			</div>
@@ -54,7 +88,7 @@
 						<div class="dt colorSelect">选择尺码</div>
 						<div class="dd clearfix">
 							<foreach name="goods_attr" item="val">							
-								<div class="des_item des_item_acitve">
+								<div class="des_item">
 									{$val}
 								</div>
 							</foreach>
@@ -66,7 +100,7 @@
 							<div class="des_number">
 								<div class="reduction">-</div>
 								<div class="des_input">
-									<input type="text">
+									<input type="text" value="1">
 								</div>
 								<div class="plus">+</div>
 							</div>
@@ -75,7 +109,7 @@
 					</div>
 				</div>
 				<div class="des_select">
-					已选择尺寸：<span>M</span>
+					已选择尺寸：<span></span>
 				</div>
 				<div class="shop_buy">
 					<a href="#" class="shopping_btn"></a>

@@ -7,6 +7,40 @@
 <link type="text/css" rel="stylesheet" href="/kicker/Public/style/main.css">
 <script type="text/javascript" src="/kicker/Public/js/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="/kicker/Public/js/index.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//选择尺寸
+		$(".des_item").click(function(){
+			var attr = $(this).html();
+			$(".des_item").removeClass("des_item_acitve");
+			$(this).addClass("des_item_acitve");
+			$(".des_select span").html(attr);
+		});
+
+		//选择数量
+		$(".plus").click(function(){
+			var num =  parseInt($(".des_input input").val());
+			$(".des_input input").val(num+1);
+		});
+		$(".reduction").click(function(){
+			var num =  parseInt($(".des_input input").val());
+			if (num>=2) {
+				$(".des_input input").val(num-1);
+			};
+		});
+
+		//切换图片
+		$(".big[mid='0']").show();
+		$(".sm_li[mid='0'] img").addClass("active");
+		$(".des_smimg li").click(function(){
+			var mid = $(this).attr("mid");
+			$(".des_smimg img").removeClass("active");
+			$(this).find("img").addClass("active");
+			$(".big").hide();
+			$(".big[mid="+mid+"]").show();
+		});
+	});
+</script>
 <!--[if IE 6]>
 <script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
 <script type="text/javascript" src="js/ie6Fixpng.js"></script>
@@ -126,11 +160,11 @@
 	<div class="description clearfix">
 		<div class="leftArea">
 			<div class="description_imgs">				
-					<?php if(is_array($big_img)): foreach($big_img as $key=>$val): ?><div class="big">
-							<img src="<?php echo ($val); ?>" alt="">
+					<?php if(is_array($big_img)): foreach($big_img as $key=>$val): ?><div class="big" mid="<?php echo ($key); ?>" style="display:none;">
+							<img src="<?php echo ($val); ?>">
 						</div><?php endforeach; endif; ?>								
 				<ul class="des_smimg clearfix">
-					<?php if(is_array($sm_img)): foreach($sm_img as $key=>$val): ?><li><a href="#"><img src="<?php echo ($val); ?>" class="active" alt=""></a></li><?php endforeach; endif; ?>					
+					<?php if(is_array($sm_img)): foreach($sm_img as $key=>$val): ?><li mid="<?php echo ($key); ?>" class="sm_li"><a href="javascript:;"><img src="<?php echo ($val); ?>"></a></li><?php endforeach; endif; ?>					
 				</ul>
 			</div>
 		</div>
@@ -149,7 +183,7 @@
 					<div class="dl clearfix">
 						<div class="dt colorSelect">选择尺码</div>
 						<div class="dd clearfix">
-							<?php if(is_array($goods_attr)): foreach($goods_attr as $key=>$val): ?><div class="des_item des_item_acitve">
+							<?php if(is_array($goods_attr)): foreach($goods_attr as $key=>$val): ?><div class="des_item">
 									<?php echo ($val); ?>
 								</div><?php endforeach; endif; ?>
 						</div>
@@ -160,7 +194,7 @@
 							<div class="des_number">
 								<div class="reduction">-</div>
 								<div class="des_input">
-									<input type="text">
+									<input type="text" value="1">
 								</div>
 								<div class="plus">+</div>
 							</div>
@@ -169,7 +203,7 @@
 					</div>
 				</div>
 				<div class="des_select">
-					已选择尺寸：<span>M</span>
+					已选择尺寸：<span></span>
 				</div>
 				<div class="shop_buy">
 					<a href="#" class="shopping_btn"></a>
