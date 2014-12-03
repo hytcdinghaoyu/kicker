@@ -150,7 +150,7 @@
 			<div class="shopList_top clearfix">
 				<?php if(is_array($close_goods)): foreach($close_goods as $key=>$good): ?><div class="shop_item">
 						<div class="shop_img">
-							<a href="#"><img src="/kicker/Public/<?php echo ($good["goods_img"]); ?>" alt=""></a>
+							<a href="<?php echo U("Home/Detail/index");?>?gid=<?php echo ($good["gid"]); ?>"><img src="/kicker/Public/<?php echo ($good["goods_img"]); ?>" alt=""></a>
 						</div>
 						<div class="goods_info">
 							<h3><?php echo ($good["main_title"]); ?></h3>
@@ -186,7 +186,7 @@
 			<div class="shopList_top clearfix">
 				<?php if(is_array($shoes_goods)): foreach($shoes_goods as $key=>$good): ?><div class="shop_item">
 						<div class="shop_img">
-							<a href="#"><img src="/kicker/Public/<?php echo ($good["goods_img"]); ?>" alt=""></a>
+							<a href="<?php echo U("Home/Detail/index");?>?gid=<?php echo ($good["gid"]); ?>"><img src="/kicker/Public/<?php echo ($good["goods_img"]); ?>" alt=""></a>
 						</div>
 						<div class="goods_info">
 							<h3><?php echo ($good["main_title"]); ?></h3>
@@ -222,7 +222,7 @@
 			<div class="shopList_top clearfix">
 				<?php if(is_array($soccer_goods)): foreach($soccer_goods as $key=>$good): ?><div class="shop_item">
 						<div class="shop_img">
-							<a href="#"><img src="/kicker/Public/<?php echo ($good["goods_img"]); ?>" alt=""></a>
+							<a href="<?php echo U("Home/Detail/index");?>?gid=<?php echo ($good["gid"]); ?>"><img src="/kicker/Public/<?php echo ($good["goods_img"]); ?>" alt=""></a>
 						</div>
 						<div class="goods_info">
 							<h3><?php echo ($good["main_title"]); ?></h3>
