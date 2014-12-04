@@ -11,16 +11,20 @@ Class DetailController extends Controller{
 		//商品标题
 		$this->assign("title",$goods_detail["main_title"]);
 		$this->assign("sub_title",$goods_detail["sub_title"]);
+
 		//商品价格
 		$this->assign("price",$goods_detail["price"]);
+
 		//商品图片
 		$big_img = explode(',',$goods_detail["big_images"]);
 		$this->assign("big_img",$big_img);
 		$sm_img = explode(',',$goods_detail["sm_images"]);
 		$this->assign("sm_img",$sm_img);
+
 		//商品属性
 		$goods_attr = explode(",", $goods_detail["attr"]);
 		$this->assign("goods_attr",$goods_attr);
+		
 		//商品描述
 		$des_img = explode(',',$goods_detail["des_img"]);
 		$this->assign("des_img",$des_img);

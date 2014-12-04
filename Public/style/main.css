@@ -135,7 +135,7 @@
 .img_item{height:158px; text-align:center;}
 .img_item img{height:158px;width: 158px;}
 .item p{line-height:20px;}
-.item a{color:#000;}
+.item a{color:#0479CA;}
 .item a:hover{text-decoration:underline;}
 .money{color:#D4105A; font-weight:bold; padding-top:10px;}
 .stars{width:13px; height:12px; overflow:hidden; background-position:0 0;display:inline-block; margin-right:1px;}
@@ -201,7 +201,7 @@
 .des_smimg{padding-left:1px; width:265px; margin:0 auto;position: absolute;left: 65px;bottom: -65px;}
 .des_smimg li{float:left; margin-left:-1px;}
 .des_smimg img{border:#CCC solid 1px;}
-.des_smimg .active{border-color:#317EE7; position:relative;}
+.des_smimg .active{border:2px solid #317EE7; position:relative;}
 .des_content{padding:10px;}
 .des_content_tit{font:bold 16px/22px "Microsoft YaHei", "微软雅黑"; padding:13px 25px;}
 .des_content .dl{margin-bottom:8px;}
@@ -248,8 +248,8 @@
 .recommend .item{float:none; height:auto;}
 .recommend .money{padding-top:0;}
 /*详细介绍*/
-.des_infoContent{border:#CCC solid 1px; background-color:#FFF;}
-.des_tit{height:39px; border-bottom: #CCC solid 1px; background:url(../images/icon/des_title.jpg) left top repeat-x;}
+.des_infoContent,.des_infoComment{border:#CCC solid 1px; background-color:#FFF;}
+.des_tit{height:39px; border-bottom: #CCC solid 1px; background:url(../images/icon/des_title.jpg) left top repeat-x;cursor: pointer;width: 790px;}
 .des_tit li{float:left; width:50%; font:14px/39px "宋体"; text-align:center; border-left:solid 1px #ccc; margin-left:-1px;}
 .des_tit .active{background-color:#0479CA; font-weight:bold; color:#FFF; position:relative;}
 .des_tit span{background:url(../images/icon/des_title_icon.png) left center no-repeat; padding-left:32px; display:inline-block; line-height:39px;}
@@ -405,7 +405,7 @@
 .comWrap{margin: 0 auto;width: 1008px;}
 
 .reduction,.plus{cursor: pointer;}
-
+.sm_li{margin-right: 10px;}
 
 
 

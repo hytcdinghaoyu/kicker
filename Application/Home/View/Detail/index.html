@@ -39,6 +39,31 @@
 			$(".big").hide();
 			$(".big[mid="+mid+"]").show();
 		});
+
+		$(".des_tit li").click(function(){
+			$(".des_tit li").removeClass("active");
+			$(this).addClass("active");
+		});
+
+		//滚动条
+		$(window).scroll(function(){
+			var top = $(window).scrollTop();
+			if (top>612) {
+				$(".des_tit").css({"position":"fixed","top":"0"});
+			}else{
+				$(".des_tit").css({"position":"","top":""});
+			}
+		});
+
+		//产品介绍，产品评价
+		$(".descrip").click(function(){
+			var top = $(".des_infoContent").offset().top;
+			$('body').animate({ scrollTop: top }, 300);
+		});
+		$(".comment").click(function(){
+			var top = $(".des_infoComment").offset().top-39;
+			$('body').animate({ scrollTop: top }, 300);
+		});
 	});
 </script>
 <!--[if IE 6]>
@@ -160,8 +185,8 @@
 	<div class="rightArea">
 		<div class="des_infoContent">
 			<ul class="des_tit">
-				<li class="active"><span>产品介绍</span></li>
-				<li><span>产品评价(12312)</span></li>
+				<li class="descrip active"><span>产品介绍</span></li>
+				<li class="comment"><span>产品评价(12312)</span></li>
 			</ul>
 			<div class="info_text">
 				<div class="info_tit">
@@ -177,7 +202,7 @@
 			</div>		
 		</div>
 		<div class="hr_15"></div>
-		<div class="des_infoContent">
+		<div class="des_infoComment">
 			<h3 class="shopDes_tit">商品评价</h3>
 			<div class="score_box clearfix">
 				<div class="score">
@@ -222,24 +247,7 @@
 							<div class="starsBox fl"><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span></div>
 							<span class="stars_text fl">5分 满意</span>
 						</div>
-						<p>赖慕课挺不错的信赖慕课挺不错的，信赖慕课</p>
-						<p><a href="#" class="ding">顶(0)</a><a href="#" class="cai">踩(0)</a></p>
-					</div>
-				</div>
-				<div class="review_list clearfix">
-					<div class="review_userHead fl">
-						<div class="review_user">
-							<img src="images/userhead.jpg" alt="">
-							<p>61***42</p>
-							<p>金色会员</p>
-						</div>
-					</div>
-					<div class="review_cont">
-						<div class="review_t clearfix">
-							<div class="starsBox fl"><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span></div>
-							<span class="stars_text fl">5分 满意</span>
-						</div>
-						<p>赖慕课挺不错的信赖慕课挺不错的，信赖慕课</p>
+						<p>这是我见过的最帅的球鞋了！</p>
 						<p><a href="#" class="ding">顶(0)</a><a href="#" class="cai">踩(0)</a></p>
 					</div>
 				</div>
