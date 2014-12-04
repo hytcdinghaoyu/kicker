@@ -287,7 +287,7 @@
 .review_list{padding-top:18px; margin-bottom:10px;}
 .review_userHead{width:170px;}
 .review_user{width:60px; text-align:center; margin-left:40px;}
-.review_user img{width:60px; height:60px; display:block;}
+.review_user img{width:60px; height:60px; display:block;border-radius: 50%;}
 .review_user p{line-height:20px;}
 .review_cont{padding-left:170px;}
 .starsBox .stars{margin-top:1px;}
@@ -406,6 +406,8 @@
 
 .reduction,.plus{cursor: pointer;}
 .sm_li{margin-right: 10px;}
+.pubTime{color: #bbb;}
+.com_num{font-size: 15px;font-weight: bold;color: #ffcc00;}
 
 
 

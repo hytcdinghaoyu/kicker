@@ -31,11 +31,21 @@ Class DetailController extends Controller{
 		$this->assign("des_txt",$goods_detail["des_txt"]);
 
 		$db = D("goods");
-		$related_goods = $db->getRelatedGoods($goods_detail["cid"]);
-		$hot_goods = $db->getHotGoods();
+		$related_goods = $db->getRelatedGoods($goods_detail["cid"]);//相关商品
+		$hot_goods = $db->getHotGoods();//热卖商品
 		$this->assign('related_goods',$related_goods);
 		$this->assign('hot_goods',$hot_goods);
 
+		//商品评论
+		$db = D("CommentView");
+		$comments = $db->getComments($gid);
+		$this->assign("comments",$comments);
+		$this->assign("comments_num",count($comments));
+
+		//商品评分
+		$rating = $db->getAvgRating($gid);
+		$this->assign("rating",$rating);
+		
 		$this->display();
 	}
 

@@ -29,7 +29,7 @@
 			};
 		});
 
-		//切换图片
+		//点击小图切换大图
 		$(".big[mid='0']").show();
 		$(".sm_li[mid='0'] img").addClass("active");
 		$(".des_smimg li").click(function(){
@@ -38,11 +38,6 @@
 			$(this).find("img").addClass("active");
 			$(".big").hide();
 			$(".big[mid="+mid+"]").show();
-		});
-
-		$(".des_tit li").click(function(){
-			$(".des_tit li").removeClass("active");
-			$(this).addClass("active");
 		});
 
 		//滚动条
@@ -55,7 +50,11 @@
 			}
 		});
 
-		//产品介绍，产品评价
+		//产品介绍，产品评价按钮
+		$(".des_tit li").click(function(){
+			$(".des_tit li").removeClass("active");
+			$(this).addClass("active");
+		});
 		$(".descrip").click(function(){
 			var top = $(".des_infoContent").offset().top;
 			$('body').animate({ scrollTop: top }, 300);
@@ -206,7 +205,7 @@
 			<h3 class="shopDes_tit">商品评价</h3>
 			<div class="score_box clearfix">
 				<div class="score">
-					<span>4.7</span><em>分</em>
+					<span>{$rating}</span><em>分</em>
 				</div>
 				<div class="score_speed">
 					<ul class="score_speed_text">
@@ -217,9 +216,11 @@
 						<li>非常满意</li>
 					</ul>
 					<div class="score_num">
-						4.7<i></i>
+						<i></i>
 					</div>
-					<p>共18939位慕课网友参与评分</p>
+					<p>共
+						<span class="com_num">{$comments_num}</span>
+						位球迷朋友参与评分</p>
 				</div>
 			</div>
 			<div class="review_tab">
@@ -234,24 +235,26 @@
 				</div>
 			</div>
 			<div class="review_listBox">
-				<div class="review_list clearfix">
-					<div class="review_userHead fl">
-						<div class="review_user">
-							<img src="images/userhead.jpg" alt="">
-							<p>61***42</p>
-							<p>金色会员</p>
+				<foreach name="comments" item="val">
+					<div class="review_list clearfix">
+						<div class="review_userHead fl">
+							<div class="review_user">
+								<img src="__PUBLIC__/{$val.head_image}" alt="">
+								<p>{$val.uname}</p>
+								<p>金色会员</p>
+							</div>
+						</div>
+						<div class="review_cont">
+							<div class="review_t clearfix">
+								<div class="starsBox fl"><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span></div>
+								<span class="stars_text fl">5分 满意</span>
+							</div>
+							<p>{$val.content}</p>
+							<p class="pubTime">{$val.time|date="Y-m-d H:i:s",###}</p>
 						</div>
 					</div>
-					<div class="review_cont">
-						<div class="review_t clearfix">
-							<div class="starsBox fl"><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span></div>
-							<span class="stars_text fl">5分 满意</span>
-						</div>
-						<p>这是我见过的最帅的球鞋了！</p>
-						<p><a href="#" class="ding">顶(0)</a><a href="#" class="cai">踩(0)</a></p>
-					</div>
-				</div>
-				<div class="hr_25"></div>
+					<div class="hr_25"></div>
+				</foreach>			
 			</div>
 		</div>
 	</div>
