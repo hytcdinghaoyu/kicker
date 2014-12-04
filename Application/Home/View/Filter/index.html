@@ -7,12 +7,61 @@
 <link type="text/css" rel="stylesheet" href="__PUBLIC__/style/main.css">
 <script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".screening_list a").hover(function(){
+			$(this).addClass("choose");
+		},function(){
+			$(this).removeClass("choose");
+		});
+	});
+
+var band = "";
+var size = "";
+var min_price = "";
+var max_price = "";
+var filter_url = '{:U("Home/Filter/filter")}';
+var cid = "";
+
+function buildFilterUrl(){
+	var url = "?cid="+cid;
+	
+	if (band!="") {
+		url +="&band="+band;
+	}
+	if (size!="") {
+		url +="&size="+size;
+	}
+	if (min_price!=""&&max_price!="") {
+		url +="&min_price="+min_price;
+		url +="&max_price="+max_price;
+	}
+	return filter_url+url;
+}
+
+function filterData(type,value){
+	if (type=="band") {
+		band = value;
+	};
+	if (type=="size") {
+		size = value;
+	};
+	url = buildFilterUrl();
+	window.location = url;
+}
+function filterPrice(minprice,maxprice){
+	min_price = minprice;
+	max_price = maxprice;
+	url = buildFilterUrl();
+	window.location = url;
+
+}
+</script>
 <!--[if IE 6]>
 <script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
 <script type="text/javascript" src="js/ie6Fixpng.js"></script>
 <![endif]-->
 </head>
-
 <body>
 <include file="./Public/tpl/header.html"/>
 <div class="hr_15"></div>
@@ -21,27 +70,27 @@
 		<div class="leftNav vertical">
 			<h3 class="nav_title">分类目录</h3>
 			<div class="nav_cont">
-				<h3>球衣</h3>
+				<h3 class="active">球衣</h3>
 				<ul class="navCont_list clearfix">
-					<li><a href="#">俱乐部</a></li>
-					<li><a href="#">国家队</a></li>
+					<li><a href="javascript:;">俱乐部</a></li>
+					<li><a href="javascript:;">国家队</a></li>
 				</ul>
 			</div>
 			<div class="nav_cont">
 				<h3>球鞋</h3>
 				<ul class="navCont_list clearfix">
-					<li><a href="#">NIKE</a></li>
-					<li><a href="#">ADIDAS</a></li>
-					<li><a href="#">茵宝</a></li>
-					<li><a href="#">美津浓</a></li>
+					<li><a href="javascript:;">NIKE</a></li>
+					<li><a href="javascript:;">ADIDAS</a></li>
+					<li><a href="javascript:;">茵宝</a></li>
+					<li><a href="javascript:;">美津浓</a></li>
 				</ul>
 			</div>
 			<div class="nav_cont">
 				<h3>足球</h3>
 				<ul class="navCont_list clearfix">
-					<li><a href="#">ADIDAS</a></li>
-					<li><a href="#">火车头</a></li>
-					<li><a href="#">茵宝</a></li>
+					<li><a href="javascript:;">ADIDAS</a></li>
+					<li><a href="javascript:;">火车头</a></li>
+					<li><a href="javascript:;">茵宝</a></li>
 				</ul>
 			</div>
 		</div>
@@ -50,40 +99,40 @@
 		<div class="screening_box">
 			<dl class="screening clearfix">
 				<dt>尺寸</dt>
-				<dd class="limit"><a href="#" class="active">不限</a></dd>
+				<dd class="limit"><a href="javascript:;" class="active">不限</a></dd>
 				<dd class="screening_list">
 					<ul class="clearfix">
-						<li><a href="#">S</a></li>
-						<li><a href="#">M</a></li>
-						<li><a href="#">XL</a></li>
-						<li><a href="#">XXL</a></li>
+						<li><a href="javascript:;" onclick="filterData('size','S')">S</a></li>
+						<li><a href="javascript:;" onclick="filterData('size','M')">M</a></li>
+						<li><a href="javascript:;" onclick="filterData('size','XL')">XL</a></li>
+						<li><a href="javascript:;" onclick="filterData('size','XXL')">XXL</a></li>
 					</ul>
 				</dd>
 			</dl>
 			<dl class="screening clearfix">
 				<dt>品牌</dt>
-				<dd class="limit"><a href="#" class="active">不限</a></dd>
+				<dd class="limit"><a href="javascript:;" class="active">不限</a></dd>
 				<dd class="screening_list">
 					<ul class="clearfix">
-						<li><a href="#">NIKE</a></li>
-						<li><a href="#">ADIDAS</a></li>
-						<li><a href="#">茵宝</a></li>
-						<li><a href="#">美津浓</a></li>
+						<li><a href="javascript:;" onclick="filterData('band','nike')">NIKE</a></li>
+						<li><a href="javascript:;" onclick="filterData('band','adidas')">ADIDAS</a></li>
+						<li><a href="javascript:;" onclick="filterData('band','yinbao')">茵宝</a></li>
+						<li><a href="javascript:;" onclick="filterData('band','mjn')">美津浓</a></li>
 					</ul>
 				</dd>
 			</dl>
 			<dl class="screening clearfix">
 				<dt>价格</dt>
-				<dd class="limit"><a href="#" class="active">不限</a></dd>
+				<dd class="limit"><a href="javascript:;" class="active">不限</a></dd>
 				<dd class="screening_list">
 					<ul class="clearfix">
-						<li><a href="#">0-100</a></li>
-						<li><a href="#">100-200</a></li>
-						<li><a href="#">200-300</a></li>
-						<li><a href="#">300-500</a></li>
-						<li><a href="#">500-800</a></li>
-						<li><a href="#">800-1000</a></li>
-						<li><a href="#">1000以上</a></li>
+						<li><a href="javascript:;" onclick="filterPrice('1','100')">0-100</a></li>
+						<li><a href="javascript:;" onclick="filterPrice('101','200')">100-200</a></li>
+						<li><a href="javascript:;">200-300</a></li>
+						<li><a href="javascript:;">300-500</a></li>
+						<li><a href="javascript:;">500-800</a></li>
+						<li><a href="javascript:;">800-1000</a></li>
+						<li><a href="javascript:;">1000以上</a></li>
 					</ul>
 				</dd>
 			</dl>

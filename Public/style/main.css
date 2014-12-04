@@ -146,6 +146,7 @@
 .limit{width:55px; float:left; line-height:32px;}
 .screening .active{background-color:#1D7AD9; color:#FFF;}
 .screening a{padding:2px; }
+.screening a :hover{background-color: #ccc;color: #333;}
 .screening_list{line-height:32px; width:626px; float:left;}
 .screening_list li{width:20%; float:left;}
 .screen_more{border:#CCC solid 1px; height:23px; line-height:23px; margin-top:4px; float:left;  padding-right:11px; padding-left:11px; margin-right:10px;}
@@ -408,6 +409,8 @@
 .sm_li{margin-right: 10px;}
 .pubTime{color: #bbb;}
 .com_num{font-size: 15px;font-weight: bold;color: #ffcc00;}
+
+.choose{background-color: #ccc;color: #333;}
 
 
 
