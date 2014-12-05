@@ -43,7 +43,7 @@
 	<div class="navBox">
 		<div class="comWrap clearfix">
 			<div class="shopClass fl">
-				<h3>全部商品分类<i class="shopClass_icon"></i></h3>
+				<h3><a href="<?php echo U("Home/index/index");?>">全部商品分类</a><i class="shopClass_icon"></i></h3>
 				<div class="shopClass_show">
 					<dl class="shopClass_item">
 						<dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
@@ -132,7 +132,7 @@
 <div class="shopArea">
 	<div class="shopTit comWidth">
 		<span class="icon"></span><h3>1F 球衣</h3>
-		<a href="#" class="more">更多&gt;&gt;</a>
+		<a href="<?php echo U("Home/Filter/index");?>?cid=1" class="more">更多&gt;&gt;</a>
 	</div>
 	<div class="shopList comWidth clearfix">
 		<div class="leftArea">
@@ -169,7 +169,7 @@
 <div class="shopArea">
 	<div class="shopTit comWidth">
 		<span class="icon"></span><h3>2F 球鞋</h3>
-		<a href="#" class="more">更多&gt;&gt;</a>
+		<a href="<?php echo U("Home/Filter/index");?>?cid=3" class="more">更多&gt;&gt;</a>
 	</div>
 	<div class="shopList comWidth clearfix">
 		<div class="leftArea">
@@ -205,7 +205,7 @@
 <div class="shopArea">
 	<div class="shopTit comWidth">
 		<span class="icon"></span><h3>3F 足球</h3>
-		<a href="#" class="more">更多&gt;&gt;</a>
+		<a href="<?php echo U("Home/Filter/index");?>?cid=4" class="more">更多&gt;&gt;</a>
 	</div>
 	<div class="shopList comWidth clearfix">
 		<div class="leftArea">

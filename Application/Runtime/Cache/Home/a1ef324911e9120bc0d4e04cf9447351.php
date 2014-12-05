@@ -9,21 +9,38 @@
 <script type="text/javascript" src="/kicker/Public/js/index.js"></script>
 <script type="text/javascript">
 	$(function(){
+
+		cid = $(".cur_cid").html();
+		size = $(".cur_size").html();
+		band = $(".cur_band").html();
+		var price_range =  $(".cur_range").html();
+		var price_range_arr = $(".cur_range").html().split('-');
+		min_price = price_range_arr[0];
+		max_price = price_range_arr[1];
+
 		$(".screening_list a").hover(function(){
 			$(this).addClass("choose");
 		},function(){
 			$(this).removeClass("choose");
 		});
+		
+		$(".nav_cont h3[cid="+cid+"]").addClass("active");
+		$(".size li[size="+size+"] a").addClass("active");
+		$(".band li[band="+band+"] a").addClass("active");
+		$(".range li[range="+price_range+"] a").addClass("active");
+
+
 	});
 
 var band = "";
 var size = "";
 var min_price = "";
 var max_price = "";
-var filter_url = '<?php echo U("Home/Filter/filter");?>';
+var filter_url = '<?php echo U("Home/Filter/index");?>';
 var cid = "";
 
 function buildFilterUrl(){
+
 	var url = "?cid="+cid;
 	
 	if (band!="") {
@@ -92,7 +109,7 @@ function filterPrice(minprice,maxprice){
 	<div class="navBox">
 		<div class="comWrap clearfix">
 			<div class="shopClass fl">
-				<h3>全部商品分类<i class="shopClass_icon"></i></h3>
+				<h3><a href="<?php echo U("Home/index/index");?>">全部商品分类</a><i class="shopClass_icon"></i></h3>
 				<div class="shopClass_show">
 					<dl class="shopClass_item">
 						<dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
@@ -169,15 +186,16 @@ function filterPrice(minprice,maxprice){
 	<div class="leftArea">
 		<div class="leftNav vertical">
 			<h3 class="nav_title">分类目录</h3>
+			<div class="cur_cid" style="display:none;"><?php echo ($cur_cid); ?></div>
 			<div class="nav_cont">
-				<h3 class="active">球衣</h3>
+				<h3 cid="1"><a href="<?php echo U("Home/filter/index");?>?cid=1">球衣</a></h3>
 				<ul class="navCont_list clearfix">
 					<li><a href="javascript:;">俱乐部</a></li>
 					<li><a href="javascript:;">国家队</a></li>
 				</ul>
 			</div>
 			<div class="nav_cont">
-				<h3>球鞋</h3>
+				<h3 cid="3"><a href="<?php echo U("Home/filter/index");?>?cid=3">球鞋</a></h3>
 				<ul class="navCont_list clearfix">
 					<li><a href="javascript:;">NIKE</a></li>
 					<li><a href="javascript:;">ADIDAS</a></li>
@@ -186,7 +204,7 @@ function filterPrice(minprice,maxprice){
 				</ul>
 			</div>
 			<div class="nav_cont">
-				<h3>足球</h3>
+				<h3 cid="4"><a href="<?php echo U("Home/filter/index");?>?cid=4">足球</a></h3>
 				<ul class="navCont_list clearfix">
 					<li><a href="javascript:;">ADIDAS</a></li>
 					<li><a href="javascript:;">火车头</a></li>
@@ -199,40 +217,37 @@ function filterPrice(minprice,maxprice){
 		<div class="screening_box">
 			<dl class="screening clearfix">
 				<dt>尺寸</dt>
-				<dd class="limit"><a href="javascript:;" class="active">不限</a></dd>
-				<dd class="screening_list">
+				<dd class="screening_list size">
+					<div class="cur_size" style="display:none;"><?php echo ($cur_size); ?></div>
 					<ul class="clearfix">
-						<li><a href="javascript:;" onclick="filterData('size','S')">S</a></li>
-						<li><a href="javascript:;" onclick="filterData('size','M')">M</a></li>
-						<li><a href="javascript:;" onclick="filterData('size','XL')">XL</a></li>
-						<li><a href="javascript:;" onclick="filterData('size','XXL')">XXL</a></li>
+						<li size=""><a href="javascript:;" onclick="filterData('size','')">不限</a></li>
+						<?php if(is_array($size)): foreach($size as $key=>$val): ?><li size="<?php echo ($val); ?>"><a href="javascript:;" onclick="filterData('size','<?php echo ($val); ?>')"><?php echo ($val); ?></a></li><?php endforeach; endif; ?>
 					</ul>
 				</dd>
 			</dl>
 			<dl class="screening clearfix">
 				<dt>品牌</dt>
-				<dd class="limit"><a href="javascript:;" class="active">不限</a></dd>
-				<dd class="screening_list">
+				<dd class="screening_list band">
+					<div class="cur_band" style="display:none;"><?php echo ($cur_band); ?></div>
 					<ul class="clearfix">
-						<li><a href="javascript:;" onclick="filterData('band','nike')">NIKE</a></li>
-						<li><a href="javascript:;" onclick="filterData('band','adidas')">ADIDAS</a></li>
-						<li><a href="javascript:;" onclick="filterData('band','yinbao')">茵宝</a></li>
-						<li><a href="javascript:;" onclick="filterData('band','mjn')">美津浓</a></li>
+						<li band=""><a href="javascript:;" onclick="filterData('band','')">不限</a></li>
+						<?php if(is_array($band)): foreach($band as $key=>$val): ?><li band="<?php echo ($val); ?>"><a href="javascript:;" onclick="filterData('band','<?php echo ($val); ?>')"><?php echo ($val); ?></a></li><?php endforeach; endif; ?>
 					</ul>
 				</dd>
 			</dl>
 			<dl class="screening clearfix">
 				<dt>价格</dt>
-				<dd class="limit"><a href="javascript:;" class="active">不限</a></dd>
-				<dd class="screening_list">
+				<dd class="screening_list range">
+					<div class="cur_range" style="display:none;"><?php echo ($cur_range); ?></div>
 					<ul class="clearfix">
-						<li><a href="javascript:;" onclick="filterPrice('1','100')">0-100</a></li>
-						<li><a href="javascript:;" onclick="filterPrice('101','200')">100-200</a></li>
-						<li><a href="javascript:;">200-300</a></li>
-						<li><a href="javascript:;">300-500</a></li>
-						<li><a href="javascript:;">500-800</a></li>
-						<li><a href="javascript:;">800-1000</a></li>
-						<li><a href="javascript:;">1000以上</a></li>
+						<li range="-"><a href="javascript:;" onclick="filterPrice('','')">不限</a></li>
+						<li range="0-100"><a href="javascript:;" onclick="filterPrice('0','100')">0-100</a></li>
+						<li range="100-200"><a href="javascript:;" onclick="filterPrice('100','200')">100-200</a></li>
+						<li range="200-300"><a href="javascript:;" onclick="filterPrice('200','300')">200-300</a></li>
+						<li range="300-500"><a href="javascript:;" onclick="filterPrice('300','500')">300-500</a></li>
+						<li range="500-800"><a href="javascript:;" onclick="filterPrice('500','800')">500-800</a></li>
+						<li range="800-1000"><a href="javascript:;" onclick="filterPrice('800','1000')">800-1000</a></li>
+						<li range="1000-10000"><a href="javascript:;" onclick="filterPrice('1000','10000')">1000以上</a></li>
 					</ul>
 				</dd>
 			</dl>
@@ -271,127 +286,16 @@ function filterPrice(minprice,maxprice){
 			</div>
 		</div>
 		<div class="products_list screening_list_more clearfix">
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
+			<?php if(is_array($goods)): foreach($goods as $key=>$val): ?><div class="item">
+					<div class="item_cont">
+						<div class="img_item">
+							<a href="#"><img src="/kicker/Public/<?php echo ($val["goods_img"]); ?>" alt=""></a>
+						</div>
+						<p><a href="#"><?php echo ($val["main_title"]); ?></a></p>
+						<p class="money">￥<?php echo ($val["price"]); ?></p>
+						<p><a href="#" class="addCar">加入购物车</a></p>
 					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-					<p><a href="#" class="addCar">加入购物车</a></p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-					<p><a href="#" class="addCar">加入购物车</a></p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-					<p><a href="#" class="addCar">加入购物车</a></p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-					<p><a href="#" class="addCar">加入购物车</a></p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-					<p><a href="#" class="addCar">加入购物车</a></p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-					<p><a href="#" class="addCar">加入购物车</a></p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-					<p><a href="#" class="addCar">加入购物车</a></p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-					<p><a href="#" class="addCar">加入购物车</a></p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-					<p><a href="#" class="addCar">加入购物车</a></p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-					<p><a href="#" class="addCar">加入购物车</a></p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-					<p><a href="#" class="addCar">加入购物车</a></p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="item_cont">
-					<div class="img_item">
-						<a href="#"><img src="images/shopImg.jpg" alt=""></a>
-					</div>
-					<p><a href="#">文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</a></p>
-					<p class="money">￥888</p>
-					<p><a href="#" class="addCar">加入购物车</a></p>
-				</div>
-				<div class="hot"></div>
-			</div>
+				</div><?php endforeach; endif; ?>
 		</div>
 		<div class="hr_25"></div>
 		<div class="page">

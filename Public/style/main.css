@@ -28,7 +28,8 @@
 /*导航*/
 .navBox{height:35px; background-color:#1369C0; color:#FFF;}
 .shopClass{width:190px; position:relative;cursor: pointer;z-index: 10;}
-.shopClass h3{text-align:center; line-height:35px;}
+.shopClass h3{text-align: center;}
+.shopClass h3 a{text-align:center; line-height:35px;color: #fff;}
 .shopClass_icon{width:11px; height:7px; overflow:hidden; background-position:0 -39px; display:inline-block; margin-left:11px;}
 .nav,.shopClass h3{font-family:"Microsoft YaHei", "微软雅黑";}
 .nav{line-height:35px;}
@@ -119,11 +120,14 @@
 /*产品分类导航*/
 .leftNav{background-color:#F3F3F3; border:#D7D7D7 solid 1px;}
 .nav_title{height:34px; line-height:34px; font-size:14px; border-bottom:#D7D7D7 solid 1px;  text-align:center;}
-.nav_cont{padding:0 18px 4px;/*上 左右 下*/ border-bottom:#D7D7D7 1px dotted; margin-bottom:-1px;}
-.nav_cont h3{font-size:12px; height:30px; line-height:30px;}
+.nav_cont{ border-bottom:#D7D7D7 1px dotted; margin-bottom:-1px;}
+.nav_cont h3{padding: 0 10px; font-size:12px; height:30px; line-height:30px;}
+.nav_cont .active{background-color: #1D7AD9;}
+.nav_cont .active a{color: #fff;}
+.nav_cont h3 a{color: #333;display: block;width: 183px;height: 30px;}
 .navCont_list{line-height:25px;}
 .navCont_list li{float:left; width:50%;}
-.vertical li{width:auto; float:none; padding-left:8px;}
+.vertical li{width:auto; float:none; padding-left:15px;}
 .vertical .nav_title,
 .vertical .nav_cont h3{font-family:"Microsoft YaHei", "微软雅黑"; font-size:14px;}
 /*标题*/
