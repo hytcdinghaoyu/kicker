@@ -32,8 +32,9 @@ Class GoodsModel extends Model{
 	/**
 	 * 筛选商品
 	 */
-	public function filterGoods($cid,$band,$size,$minprice,$maxprice){
+	public function filterGoods($cid,$band,$size,$minprice,$maxprice,$order,$sort,$page){
 		$where = "";
+		$order_str="";
 		if (!empty($cid)) {
 			$where = "cid=".$cid;
 		}else{
@@ -48,9 +49,17 @@ Class GoodsModel extends Model{
 		if (!empty($maxprice)) {
 			$where .=' and (price between '.$minprice.' and '.$maxprice.')';
 		}
+		if (!empty($order) && !empty($sort)) {
+			$order_str .= $order." ".$sort;
+		}
+		if (!empty($page)) {
+			$page = 3*(intval($page)-1);
+			$limit = $page.',3';
+		}
 		//return $where;
-		return $this->field('gid,main_title,price,goods_img,buy')->where($where)->select();
+		return $this->field('gid,main_title,price,goods_img,buy')->where($where)->order($order_str)->limit($limit)->select();
 	}
+
 
 
 }
