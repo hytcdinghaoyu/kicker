@@ -18,12 +18,20 @@ Class FilterController extends Controller{
 		$max_price = I('max_price');
 		$this->assign("cur_range",$min_price."-".$max_price);
 
+		$order = I('order');
+		$this->assign("order",$order);
+		$sort =  I('sort');
+		$sort = empty($sort)?'desc':$sort;
+		$this->assign("sort",$sort);
+
 		$db = D("goods");
-		$goods = $db->filterGoods($cid,$band,$size,$min_price,$max_price);
+		$goods = $db->filterGoods($cid,$band,$size,$min_price,$max_price,$order,$sort);
+		$goods_count = count($goods);
+		$this->assign("goods_count",$goods_count);
 		$this->assign("goods",$goods);
 		
 		/**
-		 * 
+		 * 根据分类id获取分类的尺寸和品牌
 		 */
 		$db = M("category");
 	    $res = $db->field('attr,band')->where(array('cid'=>$cid))->find();

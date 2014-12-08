@@ -13,12 +13,19 @@
 		cid = $(".cur_cid").html();
 		size = $(".cur_size").html();
 		band = $(".cur_band").html();
+		order = $(".order").html();
+		sort = $(".sort").html();
+		if (sort == "asc") {
+			$(".price_btn span").html("∧");
+		}else{
+			$(".price_btn span").html("∨");
+		}
 		var price_range =  $(".cur_range").html();
 		var price_range_arr = $(".cur_range").html().split('-');
 		min_price = price_range_arr[0];
 		max_price = price_range_arr[1];
 
-		$(".screening_list a").hover(function(){
+		$(".screening a").hover(function(){
 			$(this).addClass("choose");
 		},function(){
 			$(this).removeClass("choose");
@@ -28,6 +35,7 @@
 		$(".size li[size="+size+"] a").addClass("active");
 		$(".band li[band="+band+"] a").addClass("active");
 		$(".range li[range="+price_range+"] a").addClass("active");
+		$(".screening_list div[order="+order+"] a").addClass("active");
 
 
 	});
@@ -38,21 +46,27 @@ var min_price = "";
 var max_price = "";
 var filter_url = '{:U("Home/Filter/index")}';
 var cid = "";
+var order="";
+var sort="";
 
 function buildFilterUrl(){
 
 	var url = "?cid="+cid;
 	
-	if (band!="") {
-		url +="&band="+band;
+	if (band != "") {
+		url += "&band="+band;
 	}
-	if (size!="") {
+	if (size != "") {
 		url +="&size="+size;
 	}
-	if (min_price!=""&&max_price!="") {
+	if (min_price != "" && max_price != "") {
 		url +="&min_price="+min_price;
 		url +="&max_price="+max_price;
 	}
+	if (order != "" && sort != "") {
+		url += "&order=" + order;
+		url += "&sort=" + sort;
+	};
 	return filter_url+url;
 }
 
@@ -71,7 +85,20 @@ function filterPrice(minprice,maxprice){
 	max_price = maxprice;
 	url = buildFilterUrl();
 	window.location = url;
-
+}
+function setSort(orderby,sortby){
+	order = orderby;
+	if (sortby == "desc" && orderby == "price") {
+		sort = "asc";
+	};
+	if (sortby == "asc" && orderby == "price") {
+		sort = "desc";
+	};
+	if (orderby == "buy") {
+		sort = sortby;
+	};
+	url = buildFilterUrl();
+	window.location = url;
 }
 </script>
 <!--[if IE 6]>
@@ -156,47 +183,42 @@ function filterPrice(minprice,maxprice){
 				</dd>
 			</dl>
 			<dl class="screening clearfix">
-				<dt>更多选项</dt>
+				<dt>排序</dt>
 				<dd class="screening_list">
-					<div class="screen_more">
-						<a href="#">销量</a>
+					<div style="display:none;" class="order">{$order}</div>
+					<div style="display:none;" class="sort">{$sort}</div>
+					<div order="buy">
+						<a href="javascript:;" onclick="setSort('buy','desc')">销量<span>∨</span></a>
 					</div>
-					<div class="screen_more">
-						<a href="#">价格</a>
+					<div order="price">					
+						<a href="javascript:;" onclick="setSort('price','{$sort}')" class="price_btn">
+							价格
+							<span>∨</span>
+						</a>
 					</div>
 				</dd>
 			</dl>
 		</div>
 		<div class="hr_15"></div>
 		<div class="addInfo">
-			<div class="address">
-				<span class="add_text">送至</span>
-				<div class="select">
-					<h3>海淀区五环内</h3><span></span>
-					<ul class="show_select">
-						<li>上帝</li>
-						<li>五道口</li>
-						<li>上帝</li>
-					</ul>
-				</div>
-			</div>
-			<div class="fr screen_text">
-				<span class="check">
-					<input type="checkbox" id="check"><label for="check"></label>
-				</span>
+			<div class="fl screen_text">
 				<span class="shop_number">
-					共<em>11123</em>件
+					为您找到：<em>{$goods_count}</em>件商品
 				</span>
 			</div>
 		</div>
 		<div class="products_list screening_list_more clearfix">
+			<if condition="empty($goods)">
+				<div class="sorry">抱歉，没有找到符合条件的商品！</div>
+			</if>
 			<foreach name="goods" item="val">		
 				<div class="item">
 					<div class="item_cont">
 						<div class="img_item">
-							<a href="#"><img src="__PUBLIC__/{$val.goods_img}" alt=""></a>
+							<a href="{:U("Home/Detail/index")}?gid={$val.gid}"><img src="__PUBLIC__/{$val.goods_img}" alt=""></a>
 						</div>
 						<p><a href="#">{$val.main_title}</a></p>
+						<p>已售：{$val.buy}件</p>
 						<p class="money">￥{$val.price}</p>
 						<p><a href="#" class="addCar">加入购物车</a></p>
 					</div>

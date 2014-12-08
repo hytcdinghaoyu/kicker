@@ -136,12 +136,13 @@
 /*商品*/
 .item{float:left; height:265px; position:relative;}
 .item_cont{padding:15px 15px 5px 15px;border-bottom: 1px dotted #ccc;}
+.item_cont p{text-align: center;}
 .img_item{height:158px; text-align:center;}
 .img_item img{height:158px;width: 158px;}
 .item p{line-height:20px;}
 .item a{color:#0479CA;}
 .item a:hover{text-decoration:underline;}
-.money{color:#D4105A; font-weight:bold; padding-top:10px;}
+.money{color:#D4105A; font-weight:bold; padding-top:2px;}
 .stars{width:13px; height:12px; overflow:hidden; background-position:0 0;display:inline-block; margin-right:1px;}
 .hot{width:52px; height:52px; background-position:-35px 0; position:absolute; right:0; top:0;}
 /*筛选*/
@@ -149,7 +150,7 @@
 .screening dt{line-height:32px; width:74px; text-align:right; float:left; margin-right:42px;}
 .limit{width:55px; float:left; line-height:32px;}
 .screening .active{background-color:#1D7AD9; color:#FFF;}
-.screening a{padding:2px; }
+.screening a{padding:5px; }
 .screening a :hover{background-color: #ccc;color: #333;}
 .screening_list{line-height:32px; width:626px; float:left;}
 .screening_list li{width:20%; float:left;}
@@ -161,10 +162,10 @@
 .addInfo .select{margin-top:4px;}
 .screen_text{line-height:31px; padding-right:80px;}
 .check{position:relative; top:-1px; _top:4px;}
-.shop_number{position:relative; _top:4px;}
+.shop_number{position:relative; _top:4px;padding-left: 10px;}
 .check input,
 .check label{vertical-align:middle;}
-.shop_number em{color:#F00; font-style:normal; font-weight:bold;}
+.shop_number em{color:#F00; font-style:normal; font-weight:bold;padding: 5px;}
 .addCar{border:#999 solid 1px; height:22px; line-height:22px; display:inline-block; padding:0 6px 0 23px; background:url(../images/icon/car.jpg) 6px center no-repeat;}
 .screening_list_more{padding-left:0.5%;}
 .screening_list_more .item{width:33.3%;}
@@ -415,6 +416,6 @@
 .com_num{font-size: 15px;font-weight: bold;color: #ffcc00;}
 
 .choose{background-color: #ccc;color: #333;}
-
+.sorry{padding: 15px;color: #b1b1b1;font-size: 15px;width: 100%;height: 100px;text-align: center;line-height: 1em;}
 
 
