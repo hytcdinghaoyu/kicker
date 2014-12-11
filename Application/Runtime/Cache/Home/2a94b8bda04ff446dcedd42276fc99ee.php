@@ -44,7 +44,7 @@
 				<span class="shopNum fr total_num"><?php echo ($total_num); ?></span>
 				<div class="cart_inner">
 					<ul>
-						<?php if(is_array($carts)): foreach($carts as $key=>$val): ?><li>
+						<?php if(is_array($carts)): foreach($carts as $key=>$val): ?><li gid=<?php echo ($val["gid"]); ?>>
 								<a href="" class="pic">
 									<img src="/kicker/Public/<?php echo ($val["goods_img"]); ?>">
 								</a>
@@ -53,9 +53,9 @@
 									单价:
 									<em>￥<?php echo ($val["price"]); ?></em>
 									数量：
-									<em><?php echo ($val["goods_num"]); ?></em>
+									<em class="gnum"><?php echo ($val["goods_num"]); ?></em>
 								</div>
-								<a href="" class="del"></a>
+								<a href="javascript:;" class="del" gid=<?php echo ($val["gid"]); ?>></a>
 							</li><?php endforeach; endif; ?>
 					</ul>
 					<div class="cart_funs">

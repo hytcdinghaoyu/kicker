@@ -21,7 +21,7 @@ class CartController extends Controller{
 	 */	
 	public function index(){
 		$cart = $this->getCartData();
-		var_dump($cart);
+		var_dump($_SESSION['cart']['goods']);
 		die();
 		if(IS_AJAX === false){
 			$this->assign('cart',$data[0]);
@@ -97,7 +97,7 @@ class CartController extends Controller{
 				'id'=>intval(I('gid')),
 				'name'=>'',
 				'num'=>intval(I('gnum')),
-				'price'=>0			
+				'price'=>0,	
 			);
 			\Org\Util\Cart::add($data);
 			$total = count($_SESSION['cart']['goods']);
@@ -118,7 +118,6 @@ class CartController extends Controller{
 				$result = array('status'=>true,'total'=>$total);
 			}
 		}
-		//exit(json_encode($result));
 	}
 	/**
 	 * 把session的数据，写入到数据库
@@ -190,7 +189,7 @@ class CartController extends Controller{
 	 */
 	public function del(){
 		if(IS_AJAX === false) exit;
-		$gid = $this->_get('gid','intval');
+		$gid = I('gid');
 		/**
 		 * 用户没有登录
 		 */
@@ -215,6 +214,11 @@ class CartController extends Controller{
 	}
 	
 	
+	public function getTotalPrice(){
+		$data = $this->getCartData();
+		$this->ajaxReturn($data,'json');
+	}
+
 	/**
 	 * 设置导航
 	 */

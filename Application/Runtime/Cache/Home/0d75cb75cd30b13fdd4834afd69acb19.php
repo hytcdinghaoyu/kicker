@@ -64,10 +64,11 @@
 			$('body').animate({ scrollTop: top }, 300);
 		});
 
-		/*添加购物车*/
+		/*ajax添加购物车*/
 		$(".cart_btn").click(function(){
 			var gid = $(".gid").html();
 			var gnum = $(".des_input input").val();
+			var size = $(".des_item_acitve").html();
 			$.ajax({
 				type : 'POST',
 				url : '<?php echo U("Member/Cart/Add");?>',
@@ -75,13 +76,12 @@
 				success : function(res){
 					alert("添加购物车成功！");
 					var total_num = res["total_num"];
-					$(".total_num").html(total_num);
 					var total_price = res['total_price'];
+					$(".total_num").html(total_num);				
 					$(".total_price").html(total_price);
-					//alert(total_price);
 					var html = "";
 					$.each(res['carts'],function(key,val){
-						html += '<li>';
+						html += '<li gid='+val.gid+'>';
 						html += '	<a href="" class="pic">';
 						html += '		<img src="/kicker/Public/'+val.goods_img+'">';
 						html += '	</a>';
@@ -90,14 +90,41 @@
 						html += '		单价:';
 						html += '		<em>￥'+val.price+'</em>';
 						html += '	数量：';
-						html += '		<em>'+val.goods_num+'</em>';
+						html += '		<em class="gnum">'+val.goods_num+'</em>';
 						html += '	</div>';
-						html += '	<a href="" class="del"></a>';
+						html += '	<a href="javascript:;" class="del" gid='+val.gid+'></a>';
 						html += '</li>';
 					});
 					$(".cart_inner ul").html(html);
 					$(".cart_inner").show();
-
+				}
+			});
+		});
+		/*删除购物车中的商品*/
+		$("body").on("click",".del",function(){
+			var gid = $(this).attr("gid");
+			// var tt_num = $(".total_num").html();
+			// var num = $(this).parent().find('.gnum').html();
+			//ajax删除相应的session
+			$.ajax({
+				type : "POST",
+				url : '<?php echo U("Member/Cart/del");?>',
+				data : {gid : gid},
+				success : function(){				
+					$("li[gid ="+gid+"]").remove();
+					//$(".total_num").html(tt_num-num);
+					//再次获取商品的总价
+					$.ajax({
+						type : 'POST',
+						url : '<?php echo U("Member/Cart/getTotalPrice");?>',
+						data : {},
+						success : function(res){
+							var total_num = res["total_num"];
+							var total_price = res['total_price'];
+							$(".total_num").html(total_num);				
+							$(".total_price").html(total_price);
+						}
+					});
 				}
 			});
 		});
@@ -140,7 +167,7 @@
 				<span class="shopNum fr total_num"><?php echo ($total_num); ?></span>
 				<div class="cart_inner">
 					<ul>
-						<?php if(is_array($carts)): foreach($carts as $key=>$val): ?><li>
+						<?php if(is_array($carts)): foreach($carts as $key=>$val): ?><li gid=<?php echo ($val["gid"]); ?>>
 								<a href="" class="pic">
 									<img src="/kicker/Public/<?php echo ($val["goods_img"]); ?>">
 								</a>
@@ -149,9 +176,9 @@
 									单价:
 									<em>￥<?php echo ($val["price"]); ?></em>
 									数量：
-									<em><?php echo ($val["goods_num"]); ?></em>
+									<em class="gnum"><?php echo ($val["goods_num"]); ?></em>
 								</div>
-								<a href="" class="del"></a>
+								<a href="javascript:;" class="del" gid=<?php echo ($val["gid"]); ?>></a>
 							</li><?php endforeach; endif; ?>
 					</ul>
 					<div class="cart_funs">

@@ -31,7 +31,7 @@
 				<div class="cart_inner">
 					<ul>
 						<foreach name="carts" item="val">					
-							<li>
+							<li gid={$val.gid}>
 								<a href="" class="pic">
 									<img src="__PUBLIC__/{$val.goods_img}">
 								</a>
@@ -40,9 +40,9 @@
 									单价:
 									<em>￥{$val.price}</em>
 									数量：
-									<em>{$val.goods_num}</em>
+									<em class="gnum">{$val.goods_num}</em>
 								</div>
-								<a href="" class="del"></a>
+								<a href="javascript:;" class="del" gid={$val.gid}></a>
 							</li>
 						</foreach>
 					</ul>
