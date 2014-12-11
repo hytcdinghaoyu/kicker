@@ -63,6 +63,44 @@
 			var top = $(".des_infoComment").offset().top-39;
 			$('body').animate({ scrollTop: top }, 300);
 		});
+
+		/*添加购物车*/
+		$(".cart_btn").click(function(){
+			var gid = $(".gid").html();
+			var gnum = $(".des_input input").val();
+			$.ajax({
+				type : 'POST',
+				url : '{:U("Member/Cart/Add")}',
+				data : {gid : gid , gnum : gnum},
+				success : function(res){
+					alert("添加购物车成功！");
+					var total_num = res["total_num"];
+					$(".total_num").html(total_num);
+					var total_price = res['total_price'];
+					$(".total_price").html(total_price);
+					//alert(total_price);
+					var html = "";
+					$.each(res['carts'],function(key,val){
+						html += '<li>';
+						html += '	<a href="" class="pic">';
+						html += '		<img src="__PUBLIC__/'+val.goods_img+'">';
+						html += '	</a>';
+						html += '	<p class="tit">'+val.main_title+'</p>';
+						html += '	<div class="prop">';
+						html += '		单价:';
+						html += '		<em>￥'+val.price+'</em>';
+						html += '	数量：';
+						html += '		<em>'+val.goods_num+'</em>';
+						html += '	</div>';
+						html += '	<a href="" class="del"></a>';
+						html += '</li>';
+					});
+					$(".cart_inner ul").html(html);
+					$(".cart_inner").show();
+
+				}
+			});
+		});
 	});
 </script>
 <!--[if IE 6]>
@@ -78,6 +116,7 @@
 	<span>&nbsp;&gt;&nbsp;</span>
 	<a href="#">平板电脑</a>
 	<span>&nbsp;&gt;&nbsp;</span>
+	<div class="gid" style="display:none;">{$goods_id}</div>
 	<em>{$title}</em>
 </div>
 <div class="description_info comWrap">
@@ -136,12 +175,9 @@
 					已选择尺寸：<span></span>
 				</div>
 				<div class="shop_buy">
-					<a href="#" class="shopping_btn"></a>
+					<a href="javascript:;" class="buy_btn">立即购买</a>
 					<span class="line"></span>
-					<a href="#" class="buy_btn"></a>
-				</div>
-				<div class="notes">
-					注意：此商品可提供普通发票，不提供增值税发票。
+					<a href="javascript:;" class="cart_btn">添加购物车</a>
 				</div>
 			</div>
 		</div>

@@ -20,15 +20,20 @@
 			<div class="leftArea">
 				<a href="#" class="collection">收藏踢球者！</a>
 			</div>
-			<div class="rightArea">
-				欢迎来到踢球者！<a href="<?php echo U('Member/login/index');?>">[登录]</a><a href="<?php echo U('Member/Reg/index');?>">[免费注册]</a>
+			<div class="rightNav">
+				<?php if($userIsLogin): ?><div>欢迎您：<?php echo ($userName); ?></div>
+					<div><a href=":U('Member/index/index')">[个人中心]</a></div>
+					<div><a href="<?php echo U('Member/Login/logout');?>">[注销]</a></div>
+					<?php else: ?>	
+						<!--登录注册-->
+						<div><a class='title' href="<?php echo U('Member/Reg/index');?>">[注册]</a></div>
+						<div><a class='title' href="<?php echo U('Member/Login/index');?>">[登录]</a></div><?php endif; ?>	
 			</div>
 		</div>
 	</div>
 	<div class="logoBar">
 		<div class="comWrap">
 			<div class="logo fl">
-
 			</div>
 			<div class="search_box fl">
 				<input type="text" class="search_text fl">
@@ -36,7 +41,38 @@
 			</div>
 			<div class="shopCar fr">
 				<span class="shopText fl">购物车</span>
-				<span class="shopNum fl">0</span>
+				<span class="shopNum fr total_num"><?php echo ($total_num); ?></span>
+				<div class="cart_inner">
+					<ul>
+						<?php if(is_array($carts)): foreach($carts as $key=>$val): ?><li>
+								<a href="" class="pic">
+									<img src="/kicker/Public/<?php echo ($val["goods_img"]); ?>">
+								</a>
+								<p class="tit"><?php echo ($val["main_title"]); ?></p>
+								<div class="prop">
+									单价:
+									<em>￥<?php echo ($val["price"]); ?></em>
+									数量：
+									<em><?php echo ($val["goods_num"]); ?></em>
+								</div>
+								<a href="" class="del"></a>
+							</li><?php endforeach; endif; ?>
+					</ul>
+					<div class="cart_funs">
+						<div class="total">
+							共有
+							<span class="total_num"><?php echo ($total_num); ?></span>
+							件商品
+							小计:￥
+							<span class="total_price"><?php echo ($total_price); ?></span>
+						</div>
+						<div class="btns">
+							<a href="">
+							去购物车并结算
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -132,7 +168,7 @@
 <div class="shopArea">
 	<div class="shopTit comWidth">
 		<span class="icon"></span><h3>1F 球衣</h3>
-		<a href="<?php echo U("Home/Filter/index");?>?cid=1" class="more">更多&gt;&gt;</a>
+		<a href="<?php echo U("Home/Filter/index");?>?cid=1&page=1" class="more">更多&gt;&gt;</a>
 	</div>
 	<div class="shopList comWidth clearfix">
 		<div class="leftArea">
@@ -169,7 +205,7 @@
 <div class="shopArea">
 	<div class="shopTit comWidth">
 		<span class="icon"></span><h3>2F 球鞋</h3>
-		<a href="<?php echo U("Home/Filter/index");?>?cid=3" class="more">更多&gt;&gt;</a>
+		<a href="<?php echo U("Home/Filter/index");?>?cid=3&page=1" class="more">更多&gt;&gt;</a>
 	</div>
 	<div class="shopList comWidth clearfix">
 		<div class="leftArea">
@@ -205,7 +241,7 @@
 <div class="shopArea">
 	<div class="shopTit comWidth">
 		<span class="icon"></span><h3>3F 足球</h3>
-		<a href="<?php echo U("Home/Filter/index");?>?cid=4" class="more">更多&gt;&gt;</a>
+		<a href="<?php echo U("Home/Filter/index");?>?cid=4&page=1" class="more">更多&gt;&gt;</a>
 	</div>
 	<div class="shopList comWidth clearfix">
 		<div class="leftArea">

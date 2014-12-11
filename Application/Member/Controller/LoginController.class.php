@@ -21,10 +21,13 @@ Class LoginController extends Controller{
 		$username = I("username");
 		$password = md5(I("password"));
 
-		$id = M("user")->where(array("uname" => $username,"password" => $password))->select();
+		$id = M("user")->where(array("uname" => $username,"password" => $password))->find();
 
-		if ($id) {
+		if ($id) {	
+			$_SESSION["userid"] = $id["uid"];
+			$_SESSION["username"] = $id["uname"];
 			$this->success("登录成功！",U("Home/index/index"));
+		
 		}
 		else{
 			$this->error("用户名或者密码不正确!",U("Member/login/index"));
@@ -46,6 +49,15 @@ Class LoginController extends Controller{
 
 		$Verify = new \Think\Verify($config);
 		$Verify->entry();
+	}
+
+	/**
+	 * 用户退出
+	 */
+	public function logout(){
+		session_unset();
+		session_destroy();
+		$this->success('退出成功',U("Home/index/index"));
 	}
 }
 

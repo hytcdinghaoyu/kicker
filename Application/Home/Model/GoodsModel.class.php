@@ -60,6 +60,19 @@ Class GoodsModel extends Model{
 		return $this->field('gid,main_title,price,goods_img,buy')->where($where)->order($order_str)->limit($limit)->select();
 	}
 
+	/**
+	 * 获取单个商品信息
+	 */
+	public function getOneGood($where){
+		$fields = array(
+			'main_title',
+			'gid',
+			'goods_img',
+			'price',
+		);
+		return $this->field($fields)->where($where)->find();
+	}
+
 
 
 }

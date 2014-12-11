@@ -19,6 +19,13 @@ $(function(){
 		$(".img"+imgid).fadeIn();
 	});
 
+	/*购物车*/
+	$(".shopCar").hover(function(){
+		$(".cart_inner").show();
+	},function(){
+		$(".cart_inner").hide();
+	});
+
 })
 
 // function turnImg(){

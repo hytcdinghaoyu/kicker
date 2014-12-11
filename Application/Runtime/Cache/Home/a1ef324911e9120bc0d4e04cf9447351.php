@@ -15,6 +15,7 @@
 		band = $(".cur_band").html();
 		order = $(".order").html();
 		sort = $(".sort").html();
+		page = $(".cur_page").html();
 		if (sort == "asc") {
 			$(".price_btn span").html("∧");
 		}else{
@@ -36,6 +37,7 @@
 		$(".band li[band="+band+"] a").addClass("active");
 		$(".range li[range="+price_range+"] a").addClass("active");
 		$(".screening_list div[order="+order+"] a").addClass("active");
+		$(".page a[page="+page+"]").addClass("active");
 
 
 	});
@@ -48,6 +50,7 @@ var filter_url = '<?php echo U("Home/Filter/index");?>';
 var cid = "";
 var order="";
 var sort="";
+var page = "1";
 
 function buildFilterUrl(){
 
@@ -67,10 +70,14 @@ function buildFilterUrl(){
 		url += "&order=" + order;
 		url += "&sort=" + sort;
 	};
+	if (page != "") {
+		url += "&page=" + page;
+	};
 	return filter_url+url;
 }
 
 function filterData(type,value){
+	page = "1";
 	if (type=="band") {
 		band = value;
 	};
@@ -81,6 +88,7 @@ function filterData(type,value){
 	window.location = url;
 }
 function filterPrice(minprice,maxprice){
+	page = "1";
 	min_price = minprice;
 	max_price = maxprice;
 	url = buildFilterUrl();
@@ -88,6 +96,7 @@ function filterPrice(minprice,maxprice){
 }
 function setSort(orderby,sortby){
 	order = orderby;
+	page = "1";
 	if (sortby == "desc" && orderby == "price") {
 		sort = "asc";
 	};
@@ -99,6 +108,28 @@ function setSort(orderby,sortby){
 	};
 	url = buildFilterUrl();
 	window.location = url;
+}
+function setPage(page_count){
+	if (page_count != "") {
+		page = page_count;
+	};
+	url = buildFilterUrl();
+	window.location = url;
+}
+function prev_page(){
+	if (page != "" && page !="1") {
+		page = parseInt(page)-1;
+	};
+	url = buildFilterUrl();
+	window.location = url;	
+}
+function next_page(){
+	var total_page = $(".morePage em").html();
+	if (page != "" && page<total_page) {
+		page = parseInt(page)+1;
+	};
+	url = buildFilterUrl();
+	window.location = url;	
 }
 </script>
 <!--[if IE 6]>
@@ -113,15 +144,20 @@ function setSort(orderby,sortby){
 			<div class="leftArea">
 				<a href="#" class="collection">收藏踢球者！</a>
 			</div>
-			<div class="rightArea">
-				欢迎来到踢球者！<a href="<?php echo U('Member/login/index');?>">[登录]</a><a href="<?php echo U('Member/Reg/index');?>">[免费注册]</a>
+			<div class="rightNav">
+				<?php if($userIsLogin): ?><div>欢迎您：<?php echo ($userName); ?></div>
+					<div><a href=":U('Member/index/index')">[个人中心]</a></div>
+					<div><a href="<?php echo U('Member/Login/logout');?>">[注销]</a></div>
+					<?php else: ?>	
+						<!--登录注册-->
+						<div><a class='title' href="<?php echo U('Member/Reg/index');?>">[注册]</a></div>
+						<div><a class='title' href="<?php echo U('Member/Login/index');?>">[登录]</a></div><?php endif; ?>	
 			</div>
 		</div>
 	</div>
 	<div class="logoBar">
 		<div class="comWrap">
 			<div class="logo fl">
-
 			</div>
 			<div class="search_box fl">
 				<input type="text" class="search_text fl">
@@ -129,7 +165,38 @@ function setSort(orderby,sortby){
 			</div>
 			<div class="shopCar fr">
 				<span class="shopText fl">购物车</span>
-				<span class="shopNum fl">0</span>
+				<span class="shopNum fr total_num"><?php echo ($total_num); ?></span>
+				<div class="cart_inner">
+					<ul>
+						<?php if(is_array($carts)): foreach($carts as $key=>$val): ?><li>
+								<a href="" class="pic">
+									<img src="/kicker/Public/<?php echo ($val["goods_img"]); ?>">
+								</a>
+								<p class="tit"><?php echo ($val["main_title"]); ?></p>
+								<div class="prop">
+									单价:
+									<em>￥<?php echo ($val["price"]); ?></em>
+									数量：
+									<em><?php echo ($val["goods_num"]); ?></em>
+								</div>
+								<a href="" class="del"></a>
+							</li><?php endforeach; endif; ?>
+					</ul>
+					<div class="cart_funs">
+						<div class="total">
+							共有
+							<span class="total_num"><?php echo ($total_num); ?></span>
+							件商品
+							小计:￥
+							<span class="total_price"><?php echo ($total_price); ?></span>
+						</div>
+						<div class="btns">
+							<a href="">
+							去购物车并结算
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -215,14 +282,14 @@ function setSort(orderby,sortby){
 			<h3 class="nav_title">分类目录</h3>
 			<div class="cur_cid" style="display:none;"><?php echo ($cur_cid); ?></div>
 			<div class="nav_cont">
-				<h3 cid="1"><a href="<?php echo U("Home/filter/index");?>?cid=1">球衣</a></h3>
+				<h3 cid="1"><a href="<?php echo U("Home/filter/index");?>?cid=1&page=1">球衣</a></h3>
 				<ul class="navCont_list clearfix">
 					<li><a href="javascript:;">俱乐部</a></li>
 					<li><a href="javascript:;">国家队</a></li>
 				</ul>
 			</div>
 			<div class="nav_cont">
-				<h3 cid="3"><a href="<?php echo U("Home/filter/index");?>?cid=3">球鞋</a></h3>
+				<h3 cid="3"><a href="<?php echo U("Home/filter/index");?>?cid=3&page=1">球鞋</a></h3>
 				<ul class="navCont_list clearfix">
 					<li><a href="javascript:;">NIKE</a></li>
 					<li><a href="javascript:;">ADIDAS</a></li>
@@ -231,7 +298,7 @@ function setSort(orderby,sortby){
 				</ul>
 			</div>
 			<div class="nav_cont">
-				<h3 cid="4"><a href="<?php echo U("Home/filter/index");?>?cid=4">足球</a></h3>
+				<h3 cid="4"><a href="<?php echo U("Home/filter/index");?>?cid=4&page=1">足球</a></h3>
 				<ul class="navCont_list clearfix">
 					<li><a href="javascript:;">ADIDAS</a></li>
 					<li><a href="javascript:;">火车头</a></li>
@@ -283,7 +350,7 @@ function setSort(orderby,sortby){
 				<dd class="screening_list">
 					<div style="display:none;" class="order"><?php echo ($order); ?></div>
 					<div style="display:none;" class="sort"><?php echo ($sort); ?></div>
-					<div order="buy">
+					<div order="buy" style="margin-right:15px;">
 						<a href="javascript:;" onclick="setSort('buy','desc')">销量<span>∨</span></a>
 					</div>
 					<div order="price">					
@@ -319,7 +386,12 @@ function setSort(orderby,sortby){
 		</div>
 		<div class="hr_25"></div>
 		<div class="page">
-			<a href="#">上一页</a><a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><span class="hl">...</span><a href="#">200</a><a href="#">下一页</a><span class="morePage">共200页，到第</span><input type="text" class="pageNum"><span class="ye">页</span><input type="button" value="确定" class="page_btn">
+			<div class="cur_page" style="display:none;"><?php echo ($page); ?></div>
+			<a href="javascript:;" onclick="prev_page()">上一页</a>
+			<?php if(is_array($page_arr)): foreach($page_arr as $key=>$val): ?><a href="javascript:;" onclick="setPage('<?php echo ($val); ?>')" page="<?php echo ($val); ?>"><?php echo ($val); ?></a><?php endforeach; endif; ?>
+			<!-- <a href="#">6</a><span class="hl">...</span>
+			<a href="#">200</a> -->
+			<a href="javascript:;" onclick="next_page()">下一页</a><span class="morePage">共<em><?php echo ($page_num); ?></em>页，到第</span><input type="text" class="pageNum"><span class="ye">页</span><input type="button" value="确定" class="page_btn">
 		</div>
 	</div>
 </div>

@@ -63,6 +63,44 @@
 			var top = $(".des_infoComment").offset().top-39;
 			$('body').animate({ scrollTop: top }, 300);
 		});
+
+		/*添加购物车*/
+		$(".cart_btn").click(function(){
+			var gid = $(".gid").html();
+			var gnum = $(".des_input input").val();
+			$.ajax({
+				type : 'POST',
+				url : '<?php echo U("Member/Cart/Add");?>',
+				data : {gid : gid , gnum : gnum},
+				success : function(res){
+					alert("添加购物车成功！");
+					var total_num = res["total_num"];
+					$(".total_num").html(total_num);
+					var total_price = res['total_price'];
+					$(".total_price").html(total_price);
+					//alert(total_price);
+					var html = "";
+					$.each(res['carts'],function(key,val){
+						html += '<li>';
+						html += '	<a href="" class="pic">';
+						html += '		<img src="/kicker/Public/'+val.goods_img+'">';
+						html += '	</a>';
+						html += '	<p class="tit">'+val.main_title+'</p>';
+						html += '	<div class="prop">';
+						html += '		单价:';
+						html += '		<em>￥'+val.price+'</em>';
+						html += '	数量：';
+						html += '		<em>'+val.goods_num+'</em>';
+						html += '	</div>';
+						html += '	<a href="" class="del"></a>';
+						html += '</li>';
+					});
+					$(".cart_inner ul").html(html);
+					$(".cart_inner").show();
+
+				}
+			});
+		});
 	});
 </script>
 <!--[if IE 6]>
@@ -78,15 +116,20 @@
 			<div class="leftArea">
 				<a href="#" class="collection">收藏踢球者！</a>
 			</div>
-			<div class="rightArea">
-				欢迎来到踢球者！<a href="<?php echo U('Member/login/index');?>">[登录]</a><a href="<?php echo U('Member/Reg/index');?>">[免费注册]</a>
+			<div class="rightNav">
+				<?php if($userIsLogin): ?><div>欢迎您：<?php echo ($userName); ?></div>
+					<div><a href=":U('Member/index/index')">[个人中心]</a></div>
+					<div><a href="<?php echo U('Member/Login/logout');?>">[注销]</a></div>
+					<?php else: ?>	
+						<!--登录注册-->
+						<div><a class='title' href="<?php echo U('Member/Reg/index');?>">[注册]</a></div>
+						<div><a class='title' href="<?php echo U('Member/Login/index');?>">[登录]</a></div><?php endif; ?>	
 			</div>
 		</div>
 	</div>
 	<div class="logoBar">
 		<div class="comWrap">
 			<div class="logo fl">
-
 			</div>
 			<div class="search_box fl">
 				<input type="text" class="search_text fl">
@@ -94,7 +137,38 @@
 			</div>
 			<div class="shopCar fr">
 				<span class="shopText fl">购物车</span>
-				<span class="shopNum fl">0</span>
+				<span class="shopNum fr total_num"><?php echo ($total_num); ?></span>
+				<div class="cart_inner">
+					<ul>
+						<?php if(is_array($carts)): foreach($carts as $key=>$val): ?><li>
+								<a href="" class="pic">
+									<img src="/kicker/Public/<?php echo ($val["goods_img"]); ?>">
+								</a>
+								<p class="tit"><?php echo ($val["main_title"]); ?></p>
+								<div class="prop">
+									单价:
+									<em>￥<?php echo ($val["price"]); ?></em>
+									数量：
+									<em><?php echo ($val["goods_num"]); ?></em>
+								</div>
+								<a href="" class="del"></a>
+							</li><?php endforeach; endif; ?>
+					</ul>
+					<div class="cart_funs">
+						<div class="total">
+							共有
+							<span class="total_num"><?php echo ($total_num); ?></span>
+							件商品
+							小计:￥
+							<span class="total_price"><?php echo ($total_price); ?></span>
+						</div>
+						<div class="btns">
+							<a href="">
+							去购物车并结算
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -178,6 +252,7 @@
 	<span>&nbsp;&gt;&nbsp;</span>
 	<a href="#">平板电脑</a>
 	<span>&nbsp;&gt;&nbsp;</span>
+	<div class="gid" style="display:none;"><?php echo ($goods_id); ?></div>
 	<em><?php echo ($title); ?></em>
 </div>
 <div class="description_info comWrap">
@@ -230,12 +305,9 @@
 					已选择尺寸：<span></span>
 				</div>
 				<div class="shop_buy">
-					<a href="#" class="shopping_btn"></a>
+					<a href="javascript:;" class="buy_btn">立即购买</a>
 					<span class="line"></span>
-					<a href="#" class="buy_btn"></a>
-				</div>
-				<div class="notes">
-					注意：此商品可提供普通发票，不提供增值税发票。
+					<a href="javascript:;" class="cart_btn">添加购物车</a>
 				</div>
 			</div>
 		</div>

@@ -1,11 +1,12 @@
 <?php 
 namespace Home\Controller;
 use Think\Controller;
-Class DetailController extends Controller{
+Class DetailController extends CommonController{
 
 	public function Index(){
 
 		$gid = I("gid");
+		$this->assign("goods_id",$gid);
 		$goods_detail = M("goods")->where(array("gid"=>$gid))->find();
 
 		//商品标题
