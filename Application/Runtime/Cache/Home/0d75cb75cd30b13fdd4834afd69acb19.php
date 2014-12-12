@@ -68,11 +68,16 @@
 		$(".cart_btn").click(function(){
 			var gid = $(".gid").html();
 			var gnum = $(".des_input input").val();
-			var size = $(".des_item_acitve").html();
+			var size = $(".des_select span").html();
+			//alert(size);
+			if (size == '') {
+				alert('请选择尺寸！');
+				return;
+			};
 			$.ajax({
 				type : 'POST',
 				url : '<?php echo U("Member/Cart/Add");?>',
-				data : {gid : gid , gnum : gnum},
+				data : {gid : gid , gnum : gnum ,size : size},
 				success : function(res){
 					alert("添加购物车成功！");
 					var total_num = res["total_num"];
@@ -117,6 +122,10 @@
 						url : '<?php echo U("Member/Cart/getTotalPrice");?>',
 						data : {},
 						success : function(res){
+							if (res == false) {
+								$(".total_num").html('0');				
+								$(".total_price").html('0');
+							};
 							var total_num = res["total_num"];
 							var total_price = res['total_price'];
 							$(".total_num").html(total_num);				
@@ -222,7 +231,7 @@
 						</div>
 						<div class="btns clear">
 							<a href="javascript:;" class="cart_btns clear_btn">清空购物车</a>
-							<a href="javascript:;" class="cart_btns count_btn">立即结算</a>
+							<a href="<?php echo U('Member/Cart/index');?>" class="cart_btns count_btn">立即结算</a>
 						</div>
 					</div>
 				</div>

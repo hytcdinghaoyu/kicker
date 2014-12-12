@@ -7,28 +7,33 @@ class CartController extends Controller{
 	/**
 	 * 初始化
 	 */
-	// public function __init(){
-	// 	if(isset($_SESSION[C('RBAC_AUTH_KEY')])){
-	// 		$this->uid = $_SESSION["userid"];
-	// 		//把session里的购物车数据，写入数据库
-	// 		//$this->writeCart();
-	// 	}
-	// 	//$this->setNav();
-	// 	$this->assign('userIsLogin',isset($_SESSION[C('RBAC_AUTH_KEY')]));
-	// }
+	public function _initialize(){
+		if(isset($_SESSION['userid'])){
+			//$this->uid = $_SESSION["userid"];
+			//把session里的购物车数据，写入数据库
+			//$this->writeCart();
+		}
+		//$this->setNav();
+		//$this->assign('userIsLogin',isset($_SESSION[C('RBAC_AUTH_KEY')]));
+	}
 	/**
 	 * 显示购物车页
 	 */	
 	public function index(){
-		$cart = $this->getCartData();
 		var_dump($_SESSION['cart']['goods']);
 		die();
+		if(!isset($_SESSION['userid'])){
+			$this->redirect("Member/login/index");
+			//$this->uid = $_SESSION["userid"];
+			//把session里的购物车数据，写入数据库
+			//$this->writeCart();
+		}
 		if(IS_AJAX === false){
-			$this->assign('cart',$data[0]);
-			$this->assign('total',$data[1]);
-			$db = K('user');
-			$address = $db->getAddress($this->uid);
-			$this->assign('address', $address);
+			// $this->assign('cart',$data[0]);
+			// $this->assign('total',$data[1]);
+			// $db = K('user');
+			// $address = $db->getAddress($this->uid);
+			// $this->assign('address', $address);
 			$this->display();
 		}else{
 			if(isset($data[0])){
@@ -48,7 +53,9 @@ class CartController extends Controller{
 		$result = array();
 		//用户没有登录
 		if(is_null($this->uid)){
-			if(!isset($_SESSION['cart']['goods'])) return ;
+			if(!isset($_SESSION['cart']['goods'])){
+				return;
+			};		
 			$carts = $_SESSION['cart']['goods'];
 			foreach ($carts as $v){
 				$data = $db->getOneGood(array('gid'=>$v['id']));
@@ -97,7 +104,8 @@ class CartController extends Controller{
 				'id'=>intval(I('gid')),
 				'name'=>'',
 				'num'=>intval(I('gnum')),
-				'price'=>0,	
+				'price'=>0,
+				'size'=>I('size')	
 			);
 			\Org\Util\Cart::add($data);
 			$total = count($_SESSION['cart']['goods']);
@@ -154,8 +162,8 @@ class CartController extends Controller{
 	 */
 	public function updateGoodsNum(){
 		if(IS_AJAX === false) return false;
-		$gid = $this->_post('gid','intval');
-		$num = $this->_post('num','intval');
+		$gid = intval(I('gid'));
+		$num = intval(I('num'));
 		$result = array();
 		//用户没有登录
 		if(is_null($this->uid)){
@@ -213,12 +221,18 @@ class CartController extends Controller{
 		exit(json_encode($result));
 	}
 	
-	
+	/**
+	 * 获得商品总价和总数
+	 */
 	public function getTotalPrice(){
+		//if (IS_AJAX === false) exit();		
 		$data = $this->getCartData();
 		$this->ajaxReturn($data,'json');
 	}
 
+	/**
+	 * 清空购物车
+	 */
 	public function clearCart(){
 		if (IS_AJAX === false) {
 			exit();

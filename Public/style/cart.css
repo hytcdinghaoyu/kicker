@@ -1,0 +1,35 @@
+.shoppingCart{padding: 10px 0;width: 942px;margin: 0 auto;min-height: 300px;}
+.inner_cart{background-color: #fff;border: 1px solid #f0f0f0;}
+.inner_cart .title{background: #476db9;color: #fff;text-shadow: 0 1px 0 #395ca1;}
+.inner_cart .title h2{font-size: 16px;font-weight: normal;line-height: 35px;padding: 0px 20px;height: 35px;font-family: 微软雅黑;}
+.cart_order{background: #fafafa;border: 1px solid #f0f0f0;padding: 3px 0;height: 24px;}
+.cart_order li{line-height: 24px;float: left;padding: 0 8px 0 12px;}
+.cart_order .chk{padding: 0 8px;overflow: hidden;}
+.chk input{margin: -3px 3px 0 0;height: 13px;width: 13px;vertical-align: middle;}
+.chk label{text-align: left;font-size: 12px;}
+.cart_order .tit{padding-left: 55px;width: 424px;}
+.cart_order .price{width: 78px;}
+.cart_order .count{width: 64px;}
+.cart_ul{border-bottom: 1px solid #e6e6e6;}
+.cart_item{background: #FFF;padding: 12px 0 0 182px;position: relative;vertical-align: top;min-height: 102px;_height: 102px;}
+.cart_item .chk{margin: 35px 0 0 -170px;position: absolute;}
+.pro_info{border-bottom: 1px solid #e0e0e0;padding-bottom: 12px;margin-left: -10px;}
+.pro_props{border-bottom: 1px solid #f1f1f1;padding-bottom: 5px;}
+.cart_item .pic{border: 1px solid #F0F0F0;margin-top: 2px;position: absolute;left: 58px;}
+.pic img{width: 100px;height: 100px;vertical-align: top;}
+.cart_item .tit{float: left;font-size: 12px;font-weight: normal;padding-right: 20px;width: 424px;word-break: break-all;word-wrap: break-word;}
+.cart_item .price{float: left;color: #333;font: bold 12px Arial;padding: 0 10px 0 0;width: 60px;}
+.cart_item .count_warp{float: left;font-size: 0;padding: 0 20px 0 0;width: 90px;white-space: nowrap;}
+.count_wrap{float: left;padding-right: 20px;}
+.count_wrap a{display: inline-block;background: url(../images/bg_hor.png) no-repeat 0 -102px;height: 18px;width: 18px;vertical-align: middle;overflow: hidden;}
+.count_wrap .plus{background-position: -18px -102px;}
+.count_wrap input{ border: 1px solid #d6d6d6;padding: 3px;color: #333;font-size: 12px;margin: 0 3px;height: 14px;width: 36px;vertical-align: middle;line-height: 14px\9;}
+.cart_item .price{float: left;color: #333;font: bold 12px Arial;padding: 0 10px 0 0;width: 60px;}
+.cart_item .total_price{color: #f30;}
+.del_cart{padding-right: 9px;}
+.attr_info{padding-top: 8px;line-height: 1.5em;width: 77%;float: left;}
+.stock_info{float: right;color: #969696;line-height: 1.72;padding: 5px 40px 5px 10px;text-align: center;height: 55px;font-size: 16px;color: #4f85cf;}
+.cart_total_num{line-height: 2.5em;text-align: right;padding-right: 10px;font-size: 16px;}
+.cart_total_num span{color: #f30;}
+.cart_buy{padding: 10px;text-align: right;}
+.cal_btn{float: right; display: block;width: 65px;height: 35px;text-align: center;line-height: 35px;background-color: #466dbd;color: #fff;font-size: 15px;padding:0 10px ;}
