@@ -27,37 +27,54 @@
 			</div>
 			<div class="shopCar fr">
 				<span class="shopText fl">购物车</span>
-				<span class="shopNum fr total_num">{$total_num}</span>
+				<span class="shopNum fr total_num">
+					<if condition="$total_num">{$total_num}
+						<else/>0
+					</if>
+				</span>
 				<div class="cart_inner">
 					<ul>
-						<foreach name="carts" item="val">					
-							<li gid={$val.gid}>
-								<a href="" class="pic">
-									<img src="__PUBLIC__/{$val.goods_img}">
-								</a>
-								<p class="tit">{$val.main_title}</p>
-								<div class="prop">
-									单价:
-									<em>￥{$val.price}</em>
-									数量：
-									<em class="gnum">{$val.goods_num}</em>
+						<if condition="$carts">
+							<foreach name="carts" item="val">					
+								<li gid={$val.gid}>
+									<a href="" class="pic">
+										<img src="__PUBLIC__/{$val.goods_img}">
+									</a>
+									<p class="tit">{$val.main_title}</p>
+									<div class="prop">
+										单价:
+										<em>￥{$val.price}</em>
+										数量：
+										<em class="gnum">{$val.goods_num}</em>
+									</div>
+									<a href="javascript:;" class="del" gid={$val.gid}></a>
+								</li>
+							</foreach>
+							<else/>
+								<div class="no_carts">
+									购物车中还没有商品，去逛逛吧^_^
 								</div>
-								<a href="javascript:;" class="del" gid={$val.gid}></a>
-							</li>
-						</foreach>
+						</if>			
 					</ul>
 					<div class="cart_funs">
 						<div class="total">
 							共有
-							<span class="total_num">{$total_num}</span>
+							<span class="total_num">
+								<if condition="$total_num">{$total_num}
+									<else/>0
+								</if>								
+							</span>
 							件商品
 							小计:￥
-							<span class="total_price">{$total_price}</span>
+							<span class="total_price">
+								<if condition="$total_price">{$total_price}
+									<else/>0
+								</if>
+							</span>
 						</div>
-						<div class="btns">
-							<a href="">
-							去购物车并结算
-							</a>
+						<div class="btns clear">
+							<a href="javascript:;" class="cart_btns clear_btn">清空购物车</a>
+							<a href="javascript:;" class="cart_btns count_btn">立即结算</a>
 						</div>
 					</div>
 				</div>

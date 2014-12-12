@@ -10554,3 +10554,36 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
 
+[ 2014-12-11T17:38:35+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=11
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 8 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005001s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 3 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' LIMIT 1   [ RunTime:0.001001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+

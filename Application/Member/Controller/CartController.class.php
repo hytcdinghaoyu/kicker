@@ -219,6 +219,13 @@ class CartController extends Controller{
 		$this->ajaxReturn($data,'json');
 	}
 
+	public function clearCart(){
+		if (IS_AJAX === false) {
+			exit();
+		}
+		\Org\Util\Cart::delAll();
+		$this->ajaxReturn(array('status'=>1),'json');
+	}
 	/**
 	 * 设置导航
 	 */

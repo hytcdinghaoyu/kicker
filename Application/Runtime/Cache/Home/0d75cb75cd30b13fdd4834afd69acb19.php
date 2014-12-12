@@ -95,16 +95,15 @@
 						html += '	<a href="javascript:;" class="del" gid='+val.gid+'></a>';
 						html += '</li>';
 					});
+					$(".no_carts").remove();
 					$(".cart_inner ul").html(html);
 					$(".cart_inner").show();
 				}
 			});
 		});
-		/*删除购物车中的商品*/
+		/*删除购物车中的某个商品*/
 		$("body").on("click",".del",function(){
 			var gid = $(this).attr("gid");
-			// var tt_num = $(".total_num").html();
-			// var num = $(this).parent().find('.gnum').html();
 			//ajax删除相应的session
 			$.ajax({
 				type : "POST",
@@ -112,7 +111,6 @@
 				data : {gid : gid},
 				success : function(){				
 					$("li[gid ="+gid+"]").remove();
-					//$(".total_num").html(tt_num-num);
 					//再次获取商品的总价
 					$.ajax({
 						type : 'POST',
@@ -125,6 +123,26 @@
 							$(".total_price").html(total_price);
 						}
 					});
+				}
+			});
+		});
+		/*清空购物车*/
+		$(".clear_btn").click(function(){
+			$.ajax({
+				type : "POST",
+				url : '<?php echo U("Member/Cart/clearCart");?>',
+				data : {},
+				success : function(res){
+					if (res.status == 1) {
+						var html = "";
+						html += '<div class="no_carts">';
+						html += '购物车中还没有商品，去逛逛吧^_^';
+						html += '</div>';
+						$(".cart_inner ul").html('');
+						$(".total_num").html('0');
+						$(".total_price").html('0');
+						$(".cart_inner").prepend(html);
+					};
 				}
 			});
 		});
@@ -164,35 +182,47 @@
 			</div>
 			<div class="shopCar fr">
 				<span class="shopText fl">购物车</span>
-				<span class="shopNum fr total_num"><?php echo ($total_num); ?></span>
+				<span class="shopNum fr total_num">
+					<?php if($total_num): echo ($total_num); ?>
+						<?php else: ?>0<?php endif; ?>
+				</span>
 				<div class="cart_inner">
 					<ul>
-						<?php if(is_array($carts)): foreach($carts as $key=>$val): ?><li gid=<?php echo ($val["gid"]); ?>>
-								<a href="" class="pic">
-									<img src="/kicker/Public/<?php echo ($val["goods_img"]); ?>">
-								</a>
-								<p class="tit"><?php echo ($val["main_title"]); ?></p>
-								<div class="prop">
-									单价:
-									<em>￥<?php echo ($val["price"]); ?></em>
-									数量：
-									<em class="gnum"><?php echo ($val["goods_num"]); ?></em>
-								</div>
-								<a href="javascript:;" class="del" gid=<?php echo ($val["gid"]); ?>></a>
-							</li><?php endforeach; endif; ?>
+						<?php if($carts): if(is_array($carts)): foreach($carts as $key=>$val): ?><li gid=<?php echo ($val["gid"]); ?>>
+									<a href="" class="pic">
+										<img src="/kicker/Public/<?php echo ($val["goods_img"]); ?>">
+									</a>
+									<p class="tit"><?php echo ($val["main_title"]); ?></p>
+									<div class="prop">
+										单价:
+										<em>￥<?php echo ($val["price"]); ?></em>
+										数量：
+										<em class="gnum"><?php echo ($val["goods_num"]); ?></em>
+									</div>
+									<a href="javascript:;" class="del" gid=<?php echo ($val["gid"]); ?>></a>
+								</li><?php endforeach; endif; ?>
+							<?php else: ?>
+								<div class="no_carts">
+									购物车中还没有商品，去逛逛吧^_^
+								</div><?php endif; ?>			
 					</ul>
 					<div class="cart_funs">
 						<div class="total">
 							共有
-							<span class="total_num"><?php echo ($total_num); ?></span>
+							<span class="total_num">
+								<?php if($total_num): echo ($total_num); ?>
+									<?php else: ?>0<?php endif; ?>								
+							</span>
 							件商品
 							小计:￥
-							<span class="total_price"><?php echo ($total_price); ?></span>
+							<span class="total_price">
+								<?php if($total_price): echo ($total_price); ?>
+									<?php else: ?>0<?php endif; ?>
+							</span>
 						</div>
-						<div class="btns">
-							<a href="">
-							去购物车并结算
-							</a>
+						<div class="btns clear">
+							<a href="javascript:;" class="cart_btns clear_btn">清空购物车</a>
+							<a href="javascript:;" class="cart_btns count_btn">立即结算</a>
 						</div>
 					</div>
 				</div>

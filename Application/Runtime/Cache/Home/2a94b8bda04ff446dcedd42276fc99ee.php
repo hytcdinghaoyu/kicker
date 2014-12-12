@@ -66,10 +66,9 @@
 							小计:￥
 							<span class="total_price"><?php echo ($total_price); ?></span>
 						</div>
-						<div class="btns">
-							<a href="">
-							去购物车并结算
-							</a>
+						<div class="btns clear">
+							<a href="javascript:;" class="cart_btns clear_btn">清空购物车</a>
+							<a href="javascript:;" class="cart_btns count_btn">立即结算</a>
 						</div>
 					</div>
 				</div>
