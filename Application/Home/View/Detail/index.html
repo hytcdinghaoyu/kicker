@@ -136,7 +136,7 @@
 			});
 		});
 		/*清空购物车*/
-		$(".clear_btn").click(function(){
+		$("body").on('click','.clear_btn',function(){
 			$.ajax({
 				type : "POST",
 				url : '{:U("Member/Cart/clearCart")}',

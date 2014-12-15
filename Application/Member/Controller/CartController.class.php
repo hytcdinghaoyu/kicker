@@ -11,7 +11,7 @@ class CartController extends Controller{
 		if(isset($_SESSION['userid'])){
 			$this->uid = $_SESSION["userid"];
 			//把session里的购物车数据，写入数据库
-			//$this->writeCart();
+			$this->writeCart();
 		}
 		//$this->setNav();
 		//$this->assign('userIsLogin',isset($_SESSION[C('RBAC_AUTH_KEY')]));
@@ -22,9 +22,6 @@ class CartController extends Controller{
 	public function index(){
 		if(!isset($_SESSION['userid'])){
 			$this->redirect("Member/login/index");
-			//$this->uid = $_SESSION["userid"];
-			//把session里的购物车数据，写入数据库
-			//$this->writeCart();
 		}
 		if(IS_AJAX === false){
 			// $this->assign('cart',$data[0]);
@@ -113,8 +110,6 @@ class CartController extends Controller{
 			\Org\Util\Cart::add($data);
 			$total = count($_SESSION['cart']['goods']);
 			$result = array('status'=>true,'total'=>$total);
-			$carts = $this->getCartData();
-			$this->ajaxReturn($carts,'JSON');	
 		}else{//用户登录了
 			$data = array();
 			$data['goods_id'] = intval( I('gid'));
@@ -129,6 +124,8 @@ class CartController extends Controller{
 				$result = array('status'=>true,'total'=>$total);
 			}
 		}
+		$carts = $this->getCartData();
+		$this->ajaxReturn($carts,'JSON');
 		
 	}
 	/**
@@ -182,7 +179,7 @@ class CartController extends Controller{
 				}
 			}
 		}else{ //用户登录
-			$db = K('cart');
+			$db = D('Member/cart');
 			$where = array(
 				'goods_id'=>$gid,
 				'user_id'=>$this->uid		
@@ -217,20 +214,19 @@ class CartController extends Controller{
 			} 
 		}else{	//用户登录了
 			$where = array('user_id'=>$this->uid,'goods_id'=>$gid);
-			$db = K('cart');
+			$db = D('Member/cartView');
 			if($db->delCart($where)){
 				$result['status'] = true;
 			}
 		}
-		
-		exit(json_encode($result));
+		$this->ajaxReturn($result,'json');
 	}
 	
 	/**
 	 * 获得商品总价和总数
 	 */
 	public function getTotalPrice(){
-		//if (IS_AJAX === false) exit();		
+		if (IS_AJAX === false) exit();		
 		$data = $this->getCartData();
 		$this->ajaxReturn($data,'json');
 	}
@@ -242,8 +238,17 @@ class CartController extends Controller{
 		if (IS_AJAX === false) {
 			exit();
 		}
-		\Org\Util\Cart::delAll();
-		$this->ajaxReturn(array('status'=>1),'json');
+		if(is_null($this->uid)) {
+			\Org\Util\Cart::delAll();
+			$this->ajaxReturn(array('status'=>1),'json');
+		}else{
+			$where = array('user_id'=>intval($this->uid));
+			$db = D('Member/CartView');
+			if($db->delCart($where)){
+				$this->ajaxReturn(array('status'=>1),'json');
+			}
+		}
+		
 	}
 	/**
 	 * 设置导航

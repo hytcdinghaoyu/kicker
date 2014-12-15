@@ -9,8 +9,6 @@ class CartViewModel extends ViewModel{
 		'Cart' => array('goods_num','goods_attr','user_id'),
 		'Goods' => array('main_title','price','goods_img','gid','_on' => 'Cart.goods_id = Goods.gid','_type' => 'INNER'),
 	);
-
-	public $tt = array('1'=>'2');
 	/**
 	 * 获取商品的数据
 	 */
@@ -21,7 +19,7 @@ class CartViewModel extends ViewModel{
 			'goods_img',
 			'price',
 		);
-		return $this->table('hy_goods')->field($fields)->where($where)->find();
+		return $this->field($fields)->where($where)->find();
 	}
 	/**
 	 * 添加购物车
@@ -41,7 +39,7 @@ class CartViewModel extends ViewModel{
 	 * 自增购物车
 	 */
 	public function incCart($id,$num){
-		return $this->inc('goods_num','cart_id='.$id,$num);
+		return $this->table('hy_cart')->where(array('cart_id'=>$id))->setInc('goods_num',$num);
 	}
 	/**
 	 * 统计购物车总数
@@ -77,7 +75,8 @@ class CartViewModel extends ViewModel{
 	 *删除购物车
 	 */
 	public function delCart($where){
-		return $this->where($where)->del();
+		$db = M('Cart');
+		return $db->where($where)->delete();
 	}
 
 }
