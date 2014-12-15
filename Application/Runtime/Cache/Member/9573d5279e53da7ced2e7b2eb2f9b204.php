@@ -60,73 +60,42 @@
 			</div>
 			<div class="cart_list">
 				<ul class="cart_ul">
-					<li class="cart_item">
+					<?php if(is_array($carts)): foreach($carts as $key=>$val): ?><li class="cart_item">
 						<span class="chk">
 							<input type="checkbox">
 						</span>
 						<div class="pro_info">
 							<div class="pro_props clear">
 								<a href="" class="pic">
-									<img src="http://www.fengbuy.com/media/catalog/product/cache/1/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone6plus_1.jpg">
+									<img src="/kicker/Public/<?php echo ($val["goods_img"]); ?>">
 								</a>
 								<h4 class="tit">
-									<a href="">FENGENIUS/富基仕 9H超强纳米防爆钢化玻璃膜 0.15mm极致超薄 for iPhone 6 Plus</a>
+									<a href=""><?php echo ($val["main_title"]); ?></a>
 								</h4>
-								<em class="price">￥48</em>
+								<em class="price">￥<?php echo ($val["price"]); ?></em>
 								<span class="count_wrap">
 									<a href="javascript:;" class="cut"></a>
-									<input type="text">
+									<input type="text" value="<?php echo ($val["goods_num"]); ?>">
 									<a href="javascript:;" class="plus"></a>
 								</span>
 								<em class="price total_price">
 									￥
-									<span>48</span>
+									<span><?php echo ($val["xiaoji"]); ?></span>
 								</em>
 								<a href="javascript:;" class="move_to_fav">删除</a>
 								<a href="javascript:;" class="del_cart">收藏</a>
 							</div>
 							<div class="pro_infos clear">
-								<div class="attr_info">已选尺寸：S</div>
+								<div class="attr_info">已选尺寸：<?php echo ($val["goods_attr"]); ?></div>
 								<div class="stock_info">现货供应</div>
 							</div>
 						</div>
-					</li>
-					<li class="cart_item">
-						<span class="chk">
-							<input type="checkbox">
-						</span>
-						<div class="pro_info">
-							<div class="pro_props clear">
-								<a href="" class="pic">
-									<img src="http://www.fengbuy.com/media/catalog/product/cache/1/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone6plus_1.jpg">
-								</a>
-								<h4 class="tit">
-									<a href="">FENGENIUS/富基仕 9H超强纳米防爆钢化玻璃膜 0.15mm极致超薄 for iPhone 6 Plus</a>
-								</h4>
-								<em class="price">￥48</em>
-								<span class="count_wrap">
-									<a href="javascript:;" class="cut"></a>
-									<input type="text">
-									<a href="javascript:;" class="plus"></a>
-								</span>
-								<em class="price total_price">
-									￥
-									<span>48</span>
-								</em>
-								<a href="javascript:;" class="move_to_fav">删除</a>
-								<a href="javascript:;" class="del_cart">收藏</a>
-							</div>
-							<div class="pro_infos clear">
-								<div class="attr_info">已选尺寸：S</div>
-								<div class="stock_info">现货供应</div>
-							</div>
-						</div>
-					</li>
+					</li><?php endforeach; endif; ?>			
 				</ul>
 			</div>
 			<div class="cart_total_num">
 			订单总计：￥
-			<span>1455.0</span>
+			<span><?php echo ($total_price); ?></span>
 			</div>
 			<div class="cart_buy clear">
 				<a href="" class="cal_btn">现在结账</a>

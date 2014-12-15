@@ -54,21 +54,24 @@ final class Cart {
             $options = isset($v['options']) ? $v['options'] : '';
             $sid = substr(md5($v['id'] . serialize($options)), 0, 8); //生成维一ID用于处理相同商品有不同属性时
             if (isset($goods[$sid])) {
-                if ($v['num'] == 0) {//如果数量为0删除商品
-                    unset($goods[$sid]);
-                    continue;
-                }
                 //已经存在相同商品时增加商品数量
+                // foreach ($goods[$sid]['size'] as $key => $value) {
+                //     if(array_key_exists($v['size'], $value)){
+                //         foreach ($value as $k => $val) {
+                //              $goods[$sid]['size'][$key][$k] = $v['num']+$goods[$sid]['size'][$key][$k];
+                //         }                  
+                //     }else{
+                //         array_push($goods[$sid]['size'],array($v['size']=>$v['num']));
+                //     }
+                // }
                 $goods[$sid]['num'] = $goods[$sid]['num'] + $v['num'];
                 $goods[$sid]['total'] = $goods[$sid]['num'] * $goods[$sid]['price'];
-            } else {
-                if ($v['num'] == 0)
-                    continue;
+            }else{       
                 $goods[$sid] = $v;
+                //$goods[$sid]['size'] = array(0=>array($v['size']=>$v['num']));
                 $goods[$sid]['total'] = $v['num'] * $v['price'];
             }
         }
-
         self::save($goods);
     }
 

@@ -4,12 +4,13 @@
  */
 namespace Member\Model;
 use Think\Model\ViewModel;
-class CartModel extends ViewModel{
-	public $view = array(
-		
+class CartViewModel extends ViewModel{
+	public $viewFields = array(
+		'Cart' => array('goods_num','goods_attr','user_id'),
+		'Goods' => array('main_title','price','goods_img','gid','_on' => 'Cart.goods_id = Goods.gid','_type' => 'INNER'),
 	);
-	
 
+	public $tt = array('1'=>'2');
 	/**
 	 * 获取商品的数据
 	 */
@@ -26,7 +27,7 @@ class CartModel extends ViewModel{
 	 * 添加购物车
 	 */
 	public function addCart($data){
-		return $this->add($data);
+		return $this->table('hy_cart')->add($data);
 	}
 	/**
 	 * 验证购物车信息是否存在
@@ -60,20 +61,15 @@ class CartModel extends ViewModel{
 	 * 获取所有购物车的数据
 	 */
 	public function getCartAll($uid){
-		$this->view = array(
-			'goods'=>array(
-				'type'=>'inner',
-				'on'=>'goods.gid=cart.goods_id'						
-			)
-		);
+		//return $this->viewFields;
 		$fields = array(
 			'main_title',
 			'gid',
 			'goods_img',
 			'price',
-			'end_time',
 			'cart_id',
-			'goods_num'	
+			'goods_num',
+			'goods_attr'
 		);
 		return $this->field($fields)->where(array('user_id'=>$uid))->select();
 	}

@@ -9,7 +9,7 @@ class CartController extends Controller{
 	 */
 	public function _initialize(){
 		if(isset($_SESSION['userid'])){
-			//$this->uid = $_SESSION["userid"];
+			$this->uid = $_SESSION["userid"];
 			//把session里的购物车数据，写入数据库
 			//$this->writeCart();
 		}
@@ -20,8 +20,6 @@ class CartController extends Controller{
 	 * 显示购物车页
 	 */	
 	public function index(){
-		var_dump($_SESSION['cart']['goods']);
-		die();
 		if(!isset($_SESSION['userid'])){
 			$this->redirect("Member/login/index");
 			//$this->uid = $_SESSION["userid"];
@@ -34,6 +32,10 @@ class CartController extends Controller{
 			// $db = K('user');
 			// $address = $db->getAddress($this->uid);
 			// $this->assign('address', $address);
+			//$this->writeCart();
+			$carts = $this->getCartData();
+			$this->assign('carts',$carts['carts']);
+			$this->assign('total_price',$carts['total_price']);
 			$this->display();
 		}else{
 			if(isset($data[0])){
@@ -49,7 +51,7 @@ class CartController extends Controller{
 	 */
 	public  function getCartData(){
 		//$db = D('cart');
-		$db = new \Member\Model\CartModel();
+		$db = new \Member\Model\CartViewModel();
 		$result = array();
 		//用户没有登录
 		if(is_null($this->uid)){
@@ -80,6 +82,7 @@ class CartController extends Controller{
 		$total_price = 0;
 		foreach ($cart as $k=>$v){
 			$carts[$k]['goods_num'] = $v['goods_num'];
+			$carts[$k]['goods_attr'] = $v['goods_attr'];
 			$carts[$k]['price'] = $v['price'];
 			$carts[$k]['xiaoji'] = $v['goods_num']*$v['price'];
 			$carts[$k]['gid'] = $v['gid'];
@@ -111,33 +114,35 @@ class CartController extends Controller{
 			$total = count($_SESSION['cart']['goods']);
 			$result = array('status'=>true,'total'=>$total);
 			$carts = $this->getCartData();
-			$this->ajaxReturn($carts,'JSON');
-			
-		}else{	//用户登录了
+			$this->ajaxReturn($carts,'JSON');	
+		}else{//用户登录了
 			$data = array();
-			$data['goods_id'] = $this->_get('gid','intval');
-			$data['user_id'] = $this->uid;
-			$data['goods_num'] = 1;
+			$data['goods_id'] = intval( I('gid'));
+			$data['user_id'] = intval($this->uid);
+			$data['goods_num'] = intval(I('gnum'));
+			$data['goods_attr'] = I('size');
 			$result = $this->checkAdd($data);
 			if($result){
-				$db = K('cart');
+				$db = D('Member/cartView');
 				$where = array('user_id'=>$data['user_id']);
 				$total = $db->countCart($where);
 				$result = array('status'=>true,'total'=>$total);
 			}
 		}
+		
 	}
 	/**
 	 * 把session的数据，写入到数据库
 	 */
 	private function writeCart(){
 		if(!isset($_SESSION['cart']['goods'])) return ;
-		$carts = $_SESSION['cart']['goods'];		
+		$carts = $_SESSION['cart']['goods'];	
 		foreach ($carts as $v){
 			$data = array();
-			$data['user_id'] = $this->uid;
+			$data['user_id'] = intval($this->uid);
 			$data['goods_id'] = $v['id'];
 			$data['goods_num'] = $v['num'];
+			$data['goods_attr'] = $v['size'];
 			$this->checkAdd($data);
 		}
 		unset($_SESSION['cart']);
@@ -145,11 +150,11 @@ class CartController extends Controller{
 	/**
 	 * 验证添加 
 	 * 存在自增加购物车商品数
-	 * 不存呢，添加新数据
+	 * 不存在，添加新数据
 	 */
 	private function checkAdd($data){
 		$where = array('user_id'=>$data['user_id'],'goods_id'=>$data['goods_id']);
-		$db = K('cart');
+		$db = D('Member/cartView');
 		$cart_id  = $db->checkCart($where);
 		if($cart_id){
 			return $db->incCart($cart_id,$data['goods_num']);
