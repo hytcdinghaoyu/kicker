@@ -31,6 +31,8 @@ class CartController extends Controller{
 			// $this->assign('address', $address);
 			//$this->writeCart();
 			$carts = $this->getCartData();
+			$address = $this->getAddress();
+			$this->assign('address',$address);
 			$this->assign('carts',$carts['carts']);
 			$this->assign('total_price',$carts['total_price']);
 			$this->display();
@@ -273,12 +275,32 @@ class CartController extends Controller{
 		}
 	}
 	/**
-	 * 设置导航
+	 * 添加收货地址
 	 */
-	private function setNav(){
-		$db = K('category');
-		$nav = $db->getCategoryLevel(0);
-		$this->assign('nav',$nav);
+	public function addAddress(){
+		if (IS_POST === false) {
+			exit();
+		}
+		$data = array(
+			'user_id' => $this->uid,
+			'province' => I('province'),
+			'city' => I('city'),
+			'country' => I('country'),
+			'street' => I('street'),
+			'tel' => I('mobile'),
+			'postcode' =>I('postcode'),
+			'consignee' => I('firstname')
+		);
+		$db = M('user_address')->add($data);
+		if ($db) {
+			$this->success('添加收货地址成功',U('Member/cart/index'));
+		}
+	}
+	/**
+	 * 获得收货地址
+	 */
+	public function getAddress(){
+		return M('user_address')->where(array('user_id'=>$this->uid))->select();
 	}
 }
 ?>

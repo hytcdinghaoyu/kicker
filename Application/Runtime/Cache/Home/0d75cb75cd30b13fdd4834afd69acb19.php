@@ -119,6 +119,8 @@ function addCart(){
 	var delCartUrl = '<?php echo U("Member/Cart/del");?>';
 	var clearCartUrl = '<?php echo U("Member/Cart/clearCart");?>';
 	var updateUrl = '<?php echo U("Member/Cart/updateGoodsNum");?>';
+	var IncUrl = '<?php echo U("Member/Cart/IncCartNum");?>';
+	var DecUrl = '<?php echo U("Member/Cart/DecCartNum");?>';
 </script>
 <div class="headerBar">
 	<div class="topBar">

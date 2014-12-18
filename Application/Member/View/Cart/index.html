@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>购物车</title>
+<title>提交订单</title>
 <link type="text/css" rel="stylesheet" href="__PUBLIC__/style/reset.css">
 <link type="text/css" rel="stylesheet" href="__PUBLIC__/style/main.css">
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/base.css">
@@ -81,6 +81,29 @@ function decCartNum(cart_id){
 	};
 	
 }
+
+/*验证收货地址*/
+function checkAddress(){
+	var errorStr = '';
+	if ($("#firstname").val() == '') {
+		errorStr = '请填写收货人！';
+	};
+	if ($("#s_province").val()=='省份' || $("#s_city").val()=='地级市' || $("#s_county").val()=='市、县级市') {
+		errorStr = '请填写省市县！';
+	};
+	if ($("#street").val()=='') {
+		errorStr = '请填写街道地址！';
+	};
+	if ($("#mobile").val()=='' && $("#telephone_number").val()=='') {
+		errorStr = '请填写联系方式';
+	};
+	if (errorStr != '') {
+		alert(errorStr);
+		return false;
+	};
+	$("#addressForm").submit();
+	
+}
 </script>
 <!--[if IE 6]>
 <script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
@@ -129,13 +152,20 @@ function decCartNum(cart_id){
 			<div class="one_step addr_step">
 					<div class="step_title"><h3><em class="index">1</em>选择收货地址</h3></div>
 					<div class="step_main" id="addressUl">
-						<div class="clearfix step_radio_wrap"></div>
+						<div class="clearfix step_radio_wrap">
+							<foreach name="address" item="val">
+								<div class="step_radio selected">
+								<input type="radio" name="billing_address_id" id="billing_address_id_86425" provinceid="2" cityid="2" value="86425" checked=""><label for="addr_1"><span class="city_name">{$val.province} {$val.city}<em>{$val.country}</em><strong class="name">（<em>{$val.consignee}</em>收）</strong></span>	<span class="addr_tel">{$val.street}&nbsp;（{$val.consignee}&nbsp;收）<em>联系电话：{$val.tel} </em> 
+		                        </span></label><div class="btns"><a href="javascript:;" data-addrid="86425" class="btn edit"><span>修改地址</span></a><a href="javascript:;" onclick="saveAddressDefault(86425)" class="btn set_def"><span>设为默认</span></a></div><i class="arrow"></i>
+	                        	</div>
+							</foreach>	
+                        </div>
 						<div class="add_addr">	
 						<a href="javascript:;" class="add_address_btn"><i class="add"></i><span>新增收货地址</span></a>
 						</div>
 						<div class="new_address" style="display:none">
-							<form id="addressForm" name="addressForm" action="./" method="post">
-							<input type="submit" class="add_input" value="确定">
+							<form id="addressForm" name="addressForm" action="{:U("Member/Cart/addAddress")}" method="post" >
+							<input type="button" class="add_input" value="确定" onclick="checkAddress()">
 							<input type="hidden" name="id" id="id" value="0">
 							<input type="hidden" name="country_id" id="country_id" value="CN">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0"> 
@@ -145,9 +175,12 @@ function decCartNum(cart_id){
 										<td><input name="firstname" id="firstname" type="text" value=""><em id="firstname_error" class="error_em"></em></td>
 									</tr>
 									<tr>
-										<th><em>*</em><label for="region_id">省：</label></th> 
-										<td><select name="region_id" id="region_id" data-value="0"><option value="0">--请选择--</option><option value="1">北京市</option><option value="9">上海市</option><option value="19">广东省</option><option value="2">天津市</option><option value="27">重庆市</option><option value="10">江苏省</option><option value="11">浙江省</option><option value="6">辽宁省</option><option value="13">福建省</option><option value="28">四川省</option><option value="3">河北省</option><option value="17">湖北省</option><option value="18">湖南省</option><option value="15">山东省</option><option value="23">陕西省</option><option value="4">山西省</option><option value="8">黑龙江省</option><option value="16">河南省</option><option value="12">安徽省</option><option value="20">海南省</option><option value="7">吉林省</option><option value="21">广西省</option><option value="29">贵州省</option><option value="30">云南省</option><option value="22">甘肃省</option><option value="31">西藏藏族自治区</option><option value="25">青海省</option><option value="24">新疆维吾尔自治区</option><option value="14">江西省</option><option value="5">内蒙古自治区</option><option value="26">宁夏回族自治区</option></select><em>市：</em><select name="city_id" id="city_id" data-value="0"><option value="0">--请选择--</option></select><em>区县：</em><select name="district_id" id="district_id" data-value="0"><option value="0">--请选择--</option></select><em id="address_error" class="error_em"></em>
-										<p class="note">若列表中没有您需要的区县地址信息，请将您的区县地址填入街道地址中</p> </td> 
+										<th><em>*</em>省：</th> 
+										<td><label for="region_id"><select id="s_province" name="province"></select></label><em>市：<select id="s_city" name="city" ></select></em><em>区县：<select id="s_county" name="country"></select></em><em id="address_error" class="error_em"></em>
+										<p class="note">
+										<script type="text/javascript" src="__PUBLIC__/js/area.js"></script>
+										<script type="text/javascript">_init_area();</script>
+										若列表中没有您需要的区县地址信息，请将您的区县地址填入街道地址中</p> </td> 
 									</tr>
 									<tr>
 										<th><em>*</em><label for="postcode">邮编：</label></th> 
