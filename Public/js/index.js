@@ -28,8 +28,52 @@ $(function(){
 
 })
 
-// function turnImg(){
 
+/*删除购物车中的商品*/
+function delCart(gid){
+	$.ajax({
+		type : "POST",
+		url : delCartUrl,
+		data : {gid : gid},
+		success : function(){				
+			$("li[gid ="+gid+"]").remove();
+			//再次获取商品的总价
+			$.ajax({
+				type : 'POST',
+				url : '{:U("Member/Cart/getTotalPrice")}',
+				data : {},
+				success : function(res){
+					if (res == false) {
+						$(".total_num").html('0');				
+						$(".total_price").html('0');
+					};
+					var total_num = res["total_num"];
+					var total_price = res['total_price'];
+					$(".total_num").html(total_num);				
+					$(".total_price").html(total_price);
+				}
+			});
+		}
+	});
+}
 
-// }
-
+/*清空购物车*/
+function clearCart(){
+	$.ajax({
+		type : "POST",
+		url : clearCartUrl,
+		data : {},
+		success : function(res){
+			if (res.status == 1) {
+				var html = "";
+				html += '<div class="no_carts">';
+				html += '购物车中还没有商品，去逛逛吧^_^';
+				html += '</div>';
+				$(".cart_inner ul").html('');
+				$(".total_num").html('0');
+				$(".total_price").html('0');
+				$(".cart_inner").prepend(html);
+			};
+		}
+	});
+}

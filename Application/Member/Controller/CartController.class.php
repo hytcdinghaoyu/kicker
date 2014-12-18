@@ -83,6 +83,7 @@ class CartController extends Controller{
 			$carts[$k]['price'] = $v['price'];
 			$carts[$k]['xiaoji'] = $v['goods_num']*$v['price'];
 			$carts[$k]['gid'] = $v['gid'];
+			$carts[$k]['cart_id'] = $v['cart_id'];
 			$carts[$k]['goods_img'] = $v['goods_img'];
 			$carts[$k]['main_title'] = $v['main_title'];
 			$total_num += $carts[$k]['goods_num'];
@@ -108,25 +109,16 @@ class CartController extends Controller{
 				'size'=>I('size')	
 			);
 			\Org\Util\Cart::add($data);
-			$total = count($_SESSION['cart']['goods']);
-			$result = array('status'=>true,'total'=>$total);
 		}else{//用户登录了
 			$data = array();
 			$data['goods_id'] = intval( I('gid'));
 			$data['user_id'] = intval($this->uid);
 			$data['goods_num'] = intval(I('gnum'));
 			$data['goods_attr'] = I('size');
-			$result = $this->checkAdd($data);
-			if($result){
-				$db = D('Member/cartView');
-				$where = array('user_id'=>$data['user_id']);
-				$total = $db->countCart($where);
-				$result = array('status'=>true,'total'=>$total);
-			}
+			$this->checkAdd($data);
 		}
 		$carts = $this->getCartData();
-		$this->ajaxReturn($carts,'JSON');
-		
+		$this->ajaxReturn($carts,'JSON');	
 	}
 	/**
 	 * 把session的数据，写入到数据库
@@ -179,19 +171,21 @@ class CartController extends Controller{
 				}
 			}
 		}else{ //用户登录
-			$db = D('Member/cart');
+			$db = D('Member/cartView');
 			$where = array(
 				'goods_id'=>$gid,
 				'user_id'=>$this->uid		
 			);
 			if($db->updateCartNum($where,$num)){
+				$carts = $this->getCartData();
 				$result = array(
 						'status'=>true,
-						'num'=>$num
+						'carts'=>$carts
 				);
 			}
 		}
-		exit(json_encode($result));
+
+		$this->ajaxReturn($result,'json');
 	}
 	
 	/**
@@ -247,8 +241,36 @@ class CartController extends Controller{
 			if($db->delCart($where)){
 				$this->ajaxReturn(array('status'=>1),'json');
 			}
+		}	
+	}
+	/**
+	 * 自增购物车数量
+	 */
+	public function IncCartNum(){
+		if (IS_AJAX === false) {
+			exit();
 		}
-		
+		$cart_id = I('cart_id');
+		$db = M('cart')->where(array('cart_id'=>$cart_id))->setInc('goods_num',1);
+		if ($db) {
+			$data = $this->getCartData();
+			$this->ajaxReturn($data,'json');
+		}
+	}
+
+	/**
+	 * 自减购物车数量
+	 */
+	public function DecCartNum(){
+		if (IS_AJAX === false) {
+			exit();
+		}
+		$cart_id = I('cart_id');
+		$db = M('cart')->where(array('cart_id'=>$cart_id))->setDec('goods_num',1);
+		if ($db) {
+			$data = $this->getCartData();
+			$this->ajaxReturn($data,'json');
+		}
 	}
 	/**
 	 * 设置导航

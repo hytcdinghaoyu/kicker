@@ -165,35 +165,47 @@ function next_page(){
 			</div>
 			<div class="shopCar fr">
 				<span class="shopText fl">购物车</span>
-				<span class="shopNum fr total_num"><?php echo ($total_num); ?></span>
+				<span class="shopNum fr total_num">
+					<?php if($total_num): echo ($total_num); ?>
+						<?php else: ?>0<?php endif; ?>
+				</span>
 				<div class="cart_inner">
 					<ul>
-						<?php if(is_array($carts)): foreach($carts as $key=>$val): ?><li>
-								<a href="" class="pic">
-									<img src="/kicker/Public/<?php echo ($val["goods_img"]); ?>">
-								</a>
-								<p class="tit"><?php echo ($val["main_title"]); ?></p>
-								<div class="prop">
-									单价:
-									<em>￥<?php echo ($val["price"]); ?></em>
-									数量：
-									<em><?php echo ($val["goods_num"]); ?></em>
-								</div>
-								<a href="" class="del"></a>
-							</li><?php endforeach; endif; ?>
+						<?php if($carts): if(is_array($carts)): foreach($carts as $key=>$val): ?><li gid=<?php echo ($val["gid"]); ?>>
+									<a href="" class="pic">
+										<img src="/kicker/Public/<?php echo ($val["goods_img"]); ?>">
+									</a>
+									<p class="tit"><?php echo ($val["main_title"]); ?></p>
+									<div class="prop">
+										单价:
+										<em>￥<?php echo ($val["price"]); ?></em>
+										数量：
+										<em class="gnum"><?php echo ($val["goods_num"]); ?></em>
+									</div>
+									<a href="javascript:;" class="del" gid=<?php echo ($val["gid"]); ?>></a>
+								</li><?php endforeach; endif; ?>
+							<?php else: ?>
+								<div class="no_carts">
+									购物车中还没有商品，去逛逛吧^_^
+								</div><?php endif; ?>			
 					</ul>
 					<div class="cart_funs">
 						<div class="total">
 							共有
-							<span class="total_num"><?php echo ($total_num); ?></span>
+							<span class="total_num">
+								<?php if($total_num): echo ($total_num); ?>
+									<?php else: ?>0<?php endif; ?>								
+							</span>
 							件商品
 							小计:￥
-							<span class="total_price"><?php echo ($total_price); ?></span>
+							<span class="total_price">
+								<?php if($total_price): echo ($total_price); ?>
+									<?php else: ?>0<?php endif; ?>
+							</span>
 						</div>
-						<div class="btns">
-							<a href="">
-							去购物车并结算
-							</a>
+						<div class="btns clear">
+							<a href="javascript:;" class="cart_btns clear_btn">清空购物车</a>
+							<a href="<?php echo U('Member/Cart/index');?>" class="cart_btns count_btn">立即结算</a>
 						</div>
 					</div>
 				</div>

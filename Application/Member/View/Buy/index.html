@@ -1,0 +1,1629 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta property="qc:admins" content="4440264177665672516375" />
+<meta name="description" content="威锋商城" />
+<meta name="keywords" content="威锋商城" />
+<title>威锋商城--结账</title>
+<link rel="stylesheet" type="text/css" href="http://www.fengbuy.com/skin/frontend/fengbuy/default/css/base.css?v=606" />
+<link rel="stylesheet" type="text/css" href="http://www.fengbuy.com/skin/frontend/fengbuy/default/css/cart.css" />
+<link rel="stylesheet" type="text/css" href="http://www.fengbuy.com/skin/frontend/fengbuy/default/css/chkout_print.css" media="print" />
+<script type="text/javascript" src="http://www.fengbuy.com/skin/frontend/fengbuy/default/js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="http://www.fengbuy.com/skin/frontend/fengbuy/default/js/common.js?v=725"></script>
+<script type="text/javascript" src="http://www.fengbuy.com/skin/frontend/fengbuy/default/js/util.js"></script>
+<script type="text/javascript" src="http://www.fengbuy.com/skin/frontend/fengbuy/default/js/NumberUtils.js"></script>
+<script type="text/javascript" src="http://www.fengbuy.com/skin/frontend/fengbuy/default/js/checkout.js"></script>
+<script type="text/javascript">
+//base
+var _baseUrl = 'http://www.fengbuy.com/';
+var baseJSUrl = 'http://www.fengbuy.com/skin/frontend/fengbuy/default/js/';
+var baseCSSUrl = 'http://www.fengbuy.com/skin/frontend/fengbuy/default/css/';
+</script>
+</head>
+<body id="checkout">
+<!-- Topbar -->
+<div class="topbar_wrap">
+	<div id="global_topbar" class="wrap topbar">
+		<ul>
+			<div id="topbar_userinfo" class="fl">
+				<li class="greetings"><span>您好，请</span></li><li><a href="http://www.fengbuy.com/customer/account/login/" id="topbar_login"><span>[登录]</span></a></li><li><a href="http://passport.feng.com/?r=user/register" target="_blank"><span>[注册]</span></a></li>
+			</div>
+			<li class="line"><span>|</span></li>
+			<li class="pull_link">
+				<span>我的订单<i class="arrow"></i></span>
+				<div class="pull_list">
+					<a target="_blank" href="http://www.fengbuy.com/account/favorite/">我的收藏</a>
+					<a target="_blank" href="http://www.fengbuy.com/account/accountInfo/accountInfo/">账户管理</a>
+					<a target="_blank" href="http://www.fengbuy.com/account/order/myComments/">商品评价</a>
+					<a target="_blank" href="http://www.fengbuy.com/account/consult/productConsult/">商品咨询</a>
+					<a target="_blank" href="http://www.fengbuy.com/account/message/">我的留言</a>
+					<a target="_blank" href="http://www.fengbuy.com/account/alerts/">到货提醒</a>
+					<a target="_blank" href="http://www.fengbuy.com/account/notification/">降价通知</a>
+					<a target="_blank" href="http://www.fengbuy.com/account/try/">我的试用</a>
+				</div>
+			</li>
+			<li class="line"><span>|</span></li>
+			<li class="pull_link">
+				<span>客户服务<i class="arrow"></i></span>
+				<div class="pull_list">
+					<a href="http://www.fengbuy.com/account/return/index/" target="_blank">我的退换货</a>
+		  			<a href="http://www.fengbuy.com/account/message/index/" target="_blank">投诉/建议</a>
+		  			<a href="http://www.fengbuy.com/others?id=19" target="_blank">联系我们</a>
+				</div>
+			</li>
+		</ul>
+		<ul class="fr">
+			<li><a href="http://www.feng.com" target="_blank" class="topbarSmallLogo">威锋网</a></li>
+			<li class="line"><span>|</span></li>
+			<li class="customer_tel"><i></i>400-607-8090</li>
+			<li class="line"><span>|</span></li>
+			<li id="follow_us" class="follow_us"></li>
+		</ul>		
+	</div>
+</div>
+
+<!-- Header -->
+<div class="header_wrap">
+	<div class="wrap header">
+		<h2 class="logo"><a href="http://www.fengbuy.com/" title="威锋商城"><img src="http://www.fengbuy.com/skin/frontend/fengbuy/default/images/logo.jpg" height="67" width="314" alt="威锋商城" /></a></h2>
+		<div class="header_treasure"><a href="http://www.fengbuy.com/activity/topic_50.html" target="_blank" class="link"></a></div>
+		<div class="sch_form">
+			<form id="searchForm" action="http://www.fengbuy.com/catalogsearch/result/" method="get" autocomplete="off">
+								<input type="text" name="q" style="color:#dadada" id="sch_keyword" data-default="iPhone6" autocomplete="off" x-webkit-grammar="builtin:translate" x-webkit-speech />	
+				<button type="submit" class="searchBtn" >点击搜索</button>				
+			</form>	
+		</div>
+	</div>
+</div>
+
+<!-- Navigator -->
+<div class="navigator_wrap">
+	<div id="navigator_inner" class="navigator_inner">
+		<div class="wrap navigator">
+			<div id="gloabl_categorys" class="categorys">
+				<div class="title">
+					<h2>
+						<a class="allcategorys" href="http://www.fengbuy.com/catalog/category/all/">
+							全部分类
+							<i></i>
+						</a>
+					</h2>
+				</div>
+				<div id="global_categorys_inner" class="inner">
+					<div id="global_categorys_catwrap" class="nav_cat_wrap">
+						<div class="nav_cats">
+							<ul>
+															<li data-target="nav_subcat_0"><a href="http://www.fengbuy.com/iphone-accessories.html"><i class="arrow"></i><i class="iphone"></i>iPhone 配件</a></li>
+														<li data-target="nav_subcat_1"><a href="http://www.fengbuy.com/ipad-accessories.html"><i class="arrow"></i><i class="ipad"></i>iPad  配件</a></li>
+														<li data-target="nav_subcat_2"><a href="http://www.fengbuy.com/mac-accessories.html"><i class="arrow"></i><i class="mac"></i>MacBook  配件</a></li>
+														<li data-target="nav_subcat_3"><a href="http://www.fengbuy.com/e-oeaoe-a-aeoezaoe.html"><i class="arrow"></i><i class="bag"></i>功能箱包</a></li>
+														<li data-target="nav_subcat_4"><a href="http://www.fengbuy.com/c-ae-a-e-e.html"><i class="arrow"></i><i class="power"></i>电源 • 车载</a></li>
+														<li data-target="nav_subcat_5"><a href="http://www.fengbuy.com/e-aeoe-a-e-c.html"><i class="arrow"></i><i class="sound"></i>耳机 • 音箱 </a></li>
+														<li data-target="nav_subcat_6"><a href="http://www.fengbuy.com/originality.html"><i class="arrow"></i><i class="apple"></i>应用 • 周边</a></li>
+														</ul>
+						</div>
+						<div class="nav_subcat_wrap">
+												<div id="nav_subcat_0" class="nav_subcat_panel"><textarea id="nav_subcat_0_tmpl" class="tmpl" style="display:none">
+															<div class="nav_sub_cat_tit"><h4><a href="http://www.fengbuy.com/iphone-accessories.html">iPhone 配件</a><i class="line"></i></h4></div>
+								<ul class="nav_subcats">
+				                    										<li><a href="http://www.fengbuy.com/iphone-case.html" title="保护壳">保护壳</a></li>
+																		<li><a href="http://www.fengbuy.com/iphone-frame.html" title="保护框">保护框</a></li>
+																		<li><a href="http://www.fengbuy.com/iphone-sleeve.html" title="保护套">保护套</a></li>
+																		<li><a href="http://www.fengbuy.com/iphone-film.html" title="保护膜">保护膜</a></li>
+																		<li><a href="http://www.fengbuy.com/e-oee.html" title="个性背贴">个性背贴</a></li>
+																		<li><a href="http://www.fengbuy.com/iphone-line.html" title="线材">线材</a></li>
+																		<li><a href="http://www.fengbuy.com/apple-original-binding-others.html" title="支架 • 底座">支架 • 底座</a></li>
+																</ul>
+																					<a href="http://www.fengbuy.com/power-support-air-jacket-for-iphone6-6905.html" target="_blank" class="subcat_treasure" style="margin:0 -20px 0 0"><img src="http://www.fengbuy.com/media/catalog/photos/otherImage/17/_02_.png" width="500" height="380" alt="" /></a>
+														</textarea>
+						</div>
+												<div id="nav_subcat_1" class="nav_subcat_panel"><textarea id="nav_subcat_1_tmpl" class="tmpl" style="display:none">
+															<div class="nav_sub_cat_tit"><h4><a href="http://www.fengbuy.com/ipad-accessories.html">iPad  配件</a><i class="line"></i></h4></div>
+								<ul class="nav_subcats">
+				                    										<li><a href="http://www.fengbuy.com/a-aes-a.html" title="保护壳">保护壳</a></li>
+																		<li><a href="http://www.fengbuy.com/a-aes-a-1.html" title="保护套">保护套</a></li>
+																		<li><a href="http://www.fengbuy.com/a-aes-e-oe.html" title="保护膜">保护膜</a></li>
+																		<li><a href="http://www.fengbuy.com/e-e.html" title="线材">线材</a></li>
+																		<li><a href="http://www.fengbuy.com/c-ae-a-a.html" title="支架 • 底座">支架 • 底座</a></li>
+																</ul>
+																					<a href="http://www.fengbuy.com/hoco-pu-for-ipad-air-2-7299.html" target="_blank" class="subcat_treasure" style="margin:0 -20px 0 0"><img src="http://www.fengbuy.com/media/catalog/photos/otherImage/17/_10__1.png" width="500" height="380" alt="" /></a>
+														</textarea>
+						</div>
+												<div id="nav_subcat_2" class="nav_subcat_panel"><textarea id="nav_subcat_2_tmpl" class="tmpl" style="display:none">
+															<div class="nav_sub_cat_tit"><h4><a href="http://www.fengbuy.com/mac-accessories.html">MacBook  配件</a><i class="line"></i></h4></div>
+								<ul class="nav_subcats">
+				                    										<li><a href="http://www.fengbuy.com/a-aes-a-5.html" title="保护类">保护类</a></li>
+																		<li><a href="http://www.fengbuy.com/e-ae-a-e-c.html" title="鼠标 • 键盘 ">鼠标 • 键盘 </a></li>
+																		<li><a href="http://www.fengbuy.com/c-ae-a-a-3.html" title="线材 • 底座">线材 • 底座</a></li>
+																</ul>
+																					<a href="http://www.fengbuy.com/mac-accessories.html?page=1&brand=69&order=created_at&orderDirection=desc" target="_blank" class="subcat_treasure" style="margin:0 -20px 0 0"><img src="http://www.fengbuy.com/media/catalog/photos/otherImage/17/_6_.png" width="500" height="380" alt="" /></a>
+														</textarea>
+						</div>
+												<div id="nav_subcat_3" class="nav_subcat_panel"><textarea id="nav_subcat_3_tmpl" class="tmpl" style="display:none">
+															<div class="nav_sub_cat_tit"><h4><a href="http://www.fengbuy.com/e-oeaoe-a-aeoezaoe.html">功能箱包</a><i class="line"></i></h4></div>
+								<ul class="nav_subcats">
+				                    										<li><a href="http://www.fengbuy.com/e-oeaoe.html" title="背包">背包</a></li>
+																		<li><a href="http://www.fengbuy.com/aeoezaoe.html" title="挎包">挎包</a></li>
+																		<li><a href="http://www.fengbuy.com/a-e-aoe.html" title="内胆 • 收纳">内胆 • 收纳</a></li>
+																</ul>
+																					<a href="http://www.fengbuy.com/e-oeaoe-a-aeoezaoe.html?page=1&brand=1717&order=created_at&orderDirection=desc" target="_blank" class="subcat_treasure" style="margin:0 -20px 0 0"><img src="http://www.fengbuy.com/media/catalog/photos/otherImage/17/_2_.png" width="500" height="380" alt="" /></a>
+														</textarea>
+						</div>
+												<div id="nav_subcat_4" class="nav_subcat_panel"><textarea id="nav_subcat_4_tmpl" class="tmpl" style="display:none">
+														    								<div class="nav_sub_cat_tit"><h4><a href="http://www.fengbuy.com/iphone-battery.html">电源</a><i class="line"></i></h4></div>
+								<ul class="nav_subcats">
+				                    										<li><a href="http://www.fengbuy.com/c-ae-a.html" title="电池套">电池套</a></li>
+																		<li><a href="http://www.fengbuy.com/a-c-c-ae.html" title="外置电池">外置电池</a></li>
+																		<li><a href="http://www.fengbuy.com/a-c-a-6.html" title="充电器">充电器</a></li>
+																</ul>
+																<div class="nav_sub_cat_tit"><h4><a href="http://www.fengbuy.com/car-accessories.html">车载</a><i class="line"></i></h4></div>
+								<ul class="nav_subcats">
+				                    										<li><a href="http://www.fengbuy.com/a-c-a.html" title="充电器">充电器</a></li>
+																		<li><a href="http://www.fengbuy.com/ae-aez.html" title="支架">支架</a></li>
+																</ul>
+																													<a href="http://www.fengbuy.com/exquis-10400mah-7146.html" target="_blank" class="subcat_treasure" style="margin:0 -20px 0 0"><img src="http://www.fengbuy.com/media/catalog/photos/otherImage/17/_9__1.png" width="500" height="380" alt="" /></a>
+														</textarea>
+						</div>
+												<div id="nav_subcat_5" class="nav_subcat_panel"><textarea id="nav_subcat_5_tmpl" class="tmpl" style="display:none">
+														    								<div class="nav_sub_cat_tit"><h4><a href="http://www.fengbuy.com/iphone-headsets.html">耳机</a><i class="line"></i></h4></div>
+								<ul class="nav_subcats">
+				                    										<li><a href="http://www.fengbuy.com/e-c.html" title="蓝牙耳机">蓝牙耳机</a></li>
+																		<li><a href="http://www.fengbuy.com/aeoe-c-e-aeoe.html" title="线控">线控</a></li>
+																		<li><a href="http://www.fengbuy.com/a-e-a.html" title="入耳式">入耳式</a></li>
+																		<li><a href="http://www.fengbuy.com/e-c-a.html" title="耳罩式">耳罩式</a></li>
+																</ul>
+																<div class="nav_sub_cat_tit"><h4><a href="http://www.fengbuy.com/e-aeoe-e-c.html">音箱</a><i class="line"></i></h4></div>
+								<ul class="nav_subcats">
+				                    								</ul>
+																													<a href="http://www.fengbuy.com/beats-mixr-mic-dj-6172.html" target="_blank" class="subcat_treasure" style="margin:0 -20px 0 0"><img src="http://www.fengbuy.com/media/catalog/photos/otherImage/17/_4_.png" width="500" height="380" alt="" /></a>
+														</textarea>
+						</div>
+												<div id="nav_subcat_6" class="nav_subcat_panel"><textarea id="nav_subcat_6_tmpl" class="tmpl" style="display:none">
+															<div class="nav_sub_cat_tit"><h4><a href="http://www.fengbuy.com/originality.html">应用 • 周边</a><i class="line"></i></h4></div>
+								<ul class="nav_subcats">
+				                    										<li><a href="http://www.fengbuy.com/app-enablede-a.html" title="App应用配件">App应用配件</a></li>
+																		<li><a href="http://www.fengbuy.com/ae-e-c-ae-1.html" title="智能穿戴">智能穿戴</a></li>
+																		<li><a href="http://www.fengbuy.com/ae-e-a-c.html" title="智能生活">智能生活</a></li>
+																		<li><a href="http://www.fengbuy.com/a-a-e-a-1.html" title="健康 • 运动">健康 • 运动</a></li>
+																		<li><a href="http://www.fengbuy.com/ae-a-e-a.html" title="拍照 • 摄影">拍照 • 摄影</a></li>
+																		<li><a href="http://www.fengbuy.com/cz-a-a-a.html" title="游戏 • 娱乐">游戏 • 娱乐</a></li>
+																		<li><a href="http://www.fengbuy.com/e-c-a-a-c.html" title="话筒 • 听筒">话筒 • 听筒</a></li>
+																		<li><a href="http://www.fengbuy.com/a-a-c.html" title="存储">存储</a></li>
+																		<li><a href="http://www.fengbuy.com/ae-a-c.html" title="手写笔">手写笔</a></li>
+																		<li><a href="http://www.fengbuy.com/e-c-a-e.html" title="键盘外设">键盘外设</a></li>
+																		<li><a href="http://www.fengbuy.com/ae-ae-e-a-1.html" title="清洁套装">清洁套装</a></li>
+																		<li><a href="http://www.fengbuy.com/a-a-e-a.html" title="其它配件">其它配件</a></li>
+																</ul>
+																					<a href="http://www.fengbuy.com/gyenno-one-for-ios-and-android-6555.html" target="_blank" class="subcat_treasure" style="margin:0 -20px 0 0"><img src="http://www.fengbuy.com/media/catalog/photos/otherImage/17/_7_.jpg" width="500" height="380" alt="" /></a>
+														</textarea>
+						</div>
+												</div>
+					</div>
+					<div class="nav_hbg"><i></i></div>
+					<div class="nav_lbg"><i></i></div>
+					<div class="nav_rbg"><i></i></div>
+				</div>	
+			</div>
+						<ul class="navs">
+				<li class=""><a href="http://www.fengbuy.com/home/">威锋商城</a></li>
+				<li class=""><a href="http://www.fengbuy.com/" target="_blank">限时特卖</a></li>
+	 			<li class=""><a href="http://www.fengbuy.com/brand/index/zone/" target="_blank">品牌专区</a></li>
+				<li class=""><a href="http://www.fengbuy.com/productExt/index/new/" target="_blank">新品上市</a></li>
+				<li class=""><a href="http://www.fengbuy.com/shaidan/look/index/" target="_blank">晒单专区</a></li>
+ 				<li class="apple "><a href="http://www.fengbuy.com/apple/index/index/" target="_blank"><i></i>Apple 教育优惠</a></li>
+			</ul>
+					</div>
+	</div>
+</div><script type="text/javascript">
+var cartSubtotal=98;
+var oldOrderNo = "";
+var getCityUrl = "http://www.fengbuy.com/directory/city/getCity/";
+var getDistrictUrl = "http://www.fengbuy.com/directory/district/getDistrict/";
+var getRegionCityAndDistrictUrl = "http://www.fengbuy.com/checkout/onepage/getRegionCityAndDistrictAjax/";
+var getAddressSaveAjaxUrl = "http://www.fengbuy.com/customer/address/saveAjax/";
+var getAddressSetDefaultAjaxUrl = "http://www.fengbuy.com/account/accountInfo/setDefaultAddressAjax/";
+var getCurrentCustomerAddressesAjaxUrl = "http://www.fengbuy.com/customer/address/getCurrentCustomerAddressesAjax/";
+var getCrosssellItemsAjaxUrl = "http://www.fengbuy.com/checkout/cart/getCrosssellItemsAjax/";
+var getActiveShippingListUrl = "http://www.fengbuy.com/checkout/onepage/getShippingListAjaxJson/";
+var getShippingMethodInfoAjaxJsonUrl = "http://www.fengbuy.com/checkout/onepage/getShippingMethodInfoAjaxJson/";
+var saveOrderAjaxUrl = "http://www.fengbuy.com/checkout/onepage/saveOrder/";
+var validateOrderUrl = "http://www.fengbuy.com/checkout/onepage/validateOrder/";
+var loginUrl = "http://www.fengbuy.com/customer/account/login/";
+var failureinfoUrl = "http://www.fengbuy.com/checkout/onepage/failureinfo/";
+var homeUrl = "http://www.fengbuy.com/";
+var orderUrl = "http://www.fengbuy.com/account/order/vieworder/";
+var payinfoUrl = "http://www.fengbuy.com/checkout/onepage/payinfo/";
+var allWeight = "0";
+var getPostCodeUrl = "http://www.fengbuy.com/directory/city/getPostCodeByCity/";
+var getPostCodeUrlByDistrict = "http://www.fengbuy.com/directory/city/getPostCodeByDistrict/";
+var getBasePhotoUrl = "http://www.fengbuy.com/media/";
+var getAddressByIdAjaxUrl = "http://www.fengbuy.com/account/accountInfo/getAddressByIdAjax/";
+var maxpay= "10000";
+var amountFreeShipPrice= "59";
+var shippingPrice = "10";
+var taxrate= "0";
+var billingAddressId = "0";
+var getUserWeTicketUrl= "http://www.fengbuy.com/checkout/onepage/getUserWeTicket/";
+var getGiftCardUrl= "http://www.fengbuy.com/checkout/onepage/getGiftCard/";
+var getCashCardUrl= "http://www.fengbuy.com/checkout/onepage/getCashCard/";
+var getActivityProductUrl= "http://www.fengbuy.com/checkout/onepage/getActivityProduct/";
+var getActivityProductGroupUrl= "http://www.fengbuy.com/checkout/onepage/getActivityProductGroup/";
+var getActivityProductByPIDUrl= "http://www.fengbuy.com/checkout/onepage/getActivityProductByPID/";
+var getUserJifenUrl = "http://www.fengbuy.com/checkout/onepage/getUserJifen/";
+var updateShippingMethodId = "0";
+var getAccountMessageUrl = "http://www.fengbuy.com/account/message/index/";
+var getCartUrl = "http://www.fengbuy.com/checkout/cart/";
+var saveDefaultInvoiceUrl = "http://www.fengbuy.com/checkout/onepage/saveDefaultInvoice/";
+var saveVatInvoiceUrl = "http://www.fengbuy.com/checkout/onepage/saveVatInvoice/";
+var cancelInvoiceUrl = "http://www.fengbuy.com/checkout/onepage/cancelInvoice/";
+var checkPromotionCodeUrl ="http://www.fengbuy.com/checkout/onepage/checkPromotionCode/";
+var checkDianxinCodeUrl = "http://www.fengbuy.com/checkout/onepage/checkDianxinCode/";
+var cancelOrderUrl = "http://www.fengbuy.com/account/order/cancelOrderAjax/";
+var getOrderStatusUrl = "http://www.fengbuy.com/ucenter-client/index/getOrderStatusByWepay/";
+
+var basicUsedWe = 0;
+var basicUsedJifen = 0;
+var basicGiftCardDiscount = 0;
+var basicPromotion = 0;
+var basicPromotionCode = '';
+var unSelected = 0;
+var icoBasePath = 'http://www.fengbuy.com/skin/frontend/fengbuy/default/images/';
+var loadingStr = '<img alt="数据加载中..." src="http://www.fengbuy.com/skin/frontend/fengbuy/default/images/loading.gif"  />';
+var invoiceType = '';
+var disc = 0;
+var greencardNum = 1000;
+var bluecardNum = 1;
+var redcardNum = 0;
+var NotReceiveJifenAmount = 0;
+var jifenMultiple= 1.00;
+
+var orderFreeShip = "n";
+var isYouZhi = false;
+var isPuTong = false;
+var moreShippingCosts = 10 ; 
+var currentDefaultShippingCode = '' ;
+function saveNewAddress()
+{
+	jQuery.ajax({
+		type:'post',
+		url: getAddressSaveAjaxUrl, 
+		data:$("#addressForm").serialize(),
+		dataType:"json",
+		cache: false,
+		async: true,
+		success: function(value) 
+		{
+			var success = value.success;
+			var info = value.info;
+			if(success==1)
+			{
+				cleanAddressTable();
+				refreshAddress();
+			}
+			else
+			{
+				showInfoTip(info);
+			}
+		}
+	});
+}
+
+//取消修改地址
+function cancelSaveAdderss(){
+	var addrUl = $("#addressUl");
+	jQuery("#newAddressDiv").hide();
+	
+	addrUl.find('li').removeClass('checked');
+	var defaultli = addrUl.find("li").eq(0);
+	defaultli.find("input").attr("checked",true);
+	defaultli.addClass('checked');
+}
+
+function showNewAdderss(){
+	var addrUl = $("#addressUl");
+	addrUl.find('li').removeClass('checked');
+	var lis = addrUl.find("li");
+	lis.eq(lis.length-2).show();
+	lis.eq(lis.length-2).find("input").attr("checked",true);
+	var provinceId = lis.eq(lis.length-2).find("input").attr("provinceId");
+	var cityId = lis.eq(lis.length-2).find("input").attr("cityId");
+	changeAddress(provinceId,cityId);
+	lis.eq(lis.length-2).addClass('checked');
+}
+
+$(function(){
+	//添加至购物车
+	(function(){
+		var 
+		pop = $('#cart_pop'),
+		offset = {
+			left : pop.width() / 2,
+			top : pop.height() / 2
+		},
+		_currOffset = function(e){
+			return {
+				left : e.pageX - offset.left,
+				top : e.pageY - offset.top
+			};
+		},
+		//此处统一处理回调结束
+		//@Param type 回调类型
+		//@Param offset 决定弹出为位置，可以调用 _currOffset(event) 获得
+		callbackDone = function(type, offset){
+			//处理回调
+			//some code by type...
+			//switch(type){ ... }
+			//回调结束
+			pop.css({
+				left : offset.left,
+				top : offset.top
+			})
+			.show();
+		};
+		//添加至购物车 按钮
+		$('.add_cart').click(function(e){
+			var offset = _currOffset(e);
+			//此处提交交互，交互完成后，回调以下语句
+			var id = this.id.replace('p_', '');
+			jQuery.ajax({
+				type:'post',
+				url: "http://www.fengbuy.com/checkout/cart/addAjax/",
+				data:'product='+id+'&qty=1',
+				dataType:"json",
+				cache: false,
+				async: true,
+				beforeSend:function()
+				{
+//					jQuery("#loading_state_addtocart").show();
+				},
+				complete:function()
+				{
+//					jQuery("#loading_state_addtocart").hide();
+				},
+				success: function(value) 
+				{
+					if(value.success==1)
+					{
+						location.hash ="#product_list_tit_print";
+						window.location.reload();
+					}
+					else
+					{
+						if(value.info=="notlogin")
+						{
+							//showPop("请先登录","error");
+							
+							ds.dialog({
+								   title : '消息提示',
+								   content : "请先登录",
+								   onyes : function(){
+										window.location="http://www.fengbuy.com/customer/account/login/";
+								   },
+								   width : 300,
+								   lock : true,
+								   icoBasePath : 'http://www.fengbuy.com/skin/frontend/fengbuy/default/images/',
+								   icon : "info.gif"
+								});
+						}
+						else
+						{
+//							showPop(value.info,"error");
+							showInfoTip(value.info,"error");
+						}
+					}
+				},
+				error:function()
+				{
+					showInfoTip("添加商品到购物车失败","error")
+				}
+			});
+			//回调结束
+			e.preventDefault();
+		});
+//		pop.find('.close').click(function(){
+//			pop.hide();
+//		});
+//		pop.find('.goon').click(function(){
+//			pop.hide();
+//		});
+	})();
+
+});
+</script>
+<form id="onepageForm" method="post">
+<input id="noQtyGifts" name="noQtyGifts" type="hidden" value="">
+<input name="weight" type="hidden" value="0">
+<!-- Container -->
+	<div id="container" class="clearfix wrap container checkout_shell">
+		<!-- Main -->
+		<div id="checout_content" class="content">
+			<div class="cart_inner checkout_inner">
+				<div class="title">
+				<h2>
+					<i class="cart"></i>
+						结账
+							</h2>
+			</div>
+			<div class="funs">
+				<ul>
+										<li><a href="http://www.fengbuy.com/checkout/cart/" class="btn"><span>返回购物车</span></a></li>
+				</ul>
+			</div>
+
+				<!-- 收货地址 -->
+				<div class="one_step addr_step">
+					<div class="step_title"><h3><em class="index">1</em>选择收货地址</h3></div>
+					<div class="step_main" id="addressUl">
+						
+					</div>
+				</div>
+				
+				<!-- 支付和配送 -->
+				<div class="one_step ship_step">
+					<div class="step_title has_err"><h3><em class="index">2</em>支付和配送</h3></div>
+					<div class="step_main">
+												<div class="clearfix step_radio_wrap">
+							<div class="step_radio_tit">请选择支付方式<!-- <em>（在线支付享双倍积分）</em> --></div>
+							 			            	<div id="pay_type_1" class="step_radio selected">
+							  <label for="pay_mode1" style="background-image:url(http://www.fengbuy.com/skin/frontend/fengbuy/default/images/pay_type_1.png)">
+							    <em>
+							      在线支付<b>享双倍积分</b>
+							    </em>
+							  </label>
+							  <label for="pay_mode1" class="ext" style="background-image:url(http://www.fengbuy.com/skin/frontend/fengbuy/default/images/support_pay_online.png);width:190px">
+							    <span>
+	
+							      支持银联和支付宝
+							    </span>
+							  </label>
+							  <input name="pay_mode" id="pay_mode1" type="radio" value="online" onchange="changeShippingMethod(this); return false ;" checked="checked"							  />
+							  <i class="arrow">
+							  </i>
+							</div>
+							<div id="pay_type_2" class="step_radio ">
+							  <label for="pay_mode2" style="background-image:url(http://www.fengbuy.com/skin/frontend/fengbuy/default/images/pay_type_0.png)">
+							    <em>
+							      货到付款
+							    </em>
+							  </label>
+							  <input type="radio" name="pay_mode" id="pay_mode2" value="cod" onchange="changeShippingMethod(this); return false ;" 							  />
+							  <i class="arrow">
+							  </i>
+							</div>		
+			                						</div>
+						<div class="clearfix step_radio_wrap ship_radio_wrap">
+							<div class="step_radio_tit">
+								<span>请选择运送方式</span>
+								<span class="hintInfo">商品金额满<em>59</em>元圆通申通包邮，满<em>188</em>元顺丰EMS包邮</span>
+								<a class="fareInfo" href="http://www.fengbuy.com/others?id=41/" title="运费说明" target="_blank" id="ship_notes">运费说明</a>
+								<a class="limitation" href="javascript:;" title="配送时效" id="fareInfo">配送时效</a>
+							</div>
+							<div id="shippingContent">
+								
+							</div>
+						</div>
+						<!-- <div class="intro">主要大中城市能按时到达（包含次日达1天，隔日达2-3天），偏远及非派送区需要转其它快递。</div> -->
+					</div>
+				</div>
+				
+				<!-- 优惠工具 -->
+				<div class="one_step save_tool_step">
+					<div class="step_title"><h3><em class="index">3</em>使用优惠工具</h3></div>
+					<div class="step_main">
+						<!-- 礼品卡 -->
+						<div class="giftcard">
+						 	<p id="use_giftcard_tip" ><input type="checkbox" id="need_giftcard" /><label for="need_giftcard">使用优惠券</label><a href="http://www.fengbuy.com/others?id=27/" target="_blank" class="help_tips"><em>您可以使用您威锋网帐号中的优惠券来抵扣部分货款<i><b></b></i></em></a></p>
+							<p id="use_giftcard" style="display:none"><input type="checkbox" id="useGiftcard" name="useGiftcard" value="1" /><label for="useGiftcard">使用<em id="use_giftcard_em">0</em>张优惠券，抵扣<em id="use_giftcard_money">0</em>元</label><a id="modify_giftcard" href="javascript;">修改</a></p>
+							<div class="twrap" id="giftcard_twrap" style="display:none">
+								<div class="card_list_panel">
+									<table id="giftcard_table" width="96%" border="0" cellspacing="0" cellpadding="0" class="list">
+										<thead id="giftcard_table_head">
+											<tr>
+												<th>选择</th>
+												 <th>类型</th>
+												 <th>卡号</th>
+												 <th>金额</th>
+												 <th>有效期</th>
+												 <th>说明内容</th>
+											</tr>
+										</thead>
+										<tbody id="giftcard_table_body">
+										</tbody>
+									</table>
+									<ul class="used" id="giftcard_used">
+								    </ul>
+								</div>
+								<div class="btns">
+									<p class="giftpay combut"><button id="use_giftcard_ok" class="ok">确定</button></p>
+								</div>
+							</div>	
+	            		</div>
+	            		<!-- 现金卡 -->
+						<div class="giftcard">
+						 	<p id="use_cashcard_tip" ><input type="checkbox" id="need_cashcard" /><label for="need_cashcard">使用现金卡</label><a href="http://www.fengbuy.com/others?id=27/" target="_blank" class="help_tips"><em>您可以使用您威锋网帐号中的现金卡来抵扣部分货款<i><b></b></i></em></a></p>
+							<p id="use_cashcard" style="display:none"><input type="checkbox" id="useCashcard" name="useCashcard" value="1" /><label for="useCashcard">使用<em id="use_cashcard_em">0</em>张现金卡，抵扣<em id="use_cashcard_money">0</em>元</label><a id="modify_cashcard" href="javascript;">修改</a></p>
+							<div class="twrap" id="cashcard_twrap" style="display:none">
+								<div class="card_list_panel">
+									<table id="cashcard_table" width="96%" border="0" cellspacing="0" cellpadding="0" class="list">
+										<thead id="cashcard_table_head">
+											<tr>
+												<th>选择</th>
+												 <th>类型</th>
+												 <th>卡号</th>
+												 <th>金额</th>
+												 <th>有效期</th>
+												 <th>说明内容</th>
+											</tr>
+										</thead>
+										<tbody id="cashcard_table_body">
+										</tbody>
+									</table>
+									<ul class="used" id="cashcard_used">
+								    </ul>
+								</div>
+								<div class="btns">
+									<p class="giftpay combut"><button id="use_cashcard_ok" class="ok">确定</button></p>
+								</div>
+							</div>	
+	            		</div>
+	            		<!-- 优惠代码 -->
+						<div class="giftcard">
+						 	<p id="promotioncode_tip" ><input type="checkbox" id="need_promotioncode" /><label for="need_promotioncode">使用优惠代码</label></p>
+							<p id="use_promotioncode" style="display:none"><input type="checkbox" id="usePromotioncode" name="usePromotioncode" value="1" /><label for="usePromotioncode">使用优惠代码抵扣<em id="promotioncode_money">0</em>元</label></p>
+							<div class="twrap" id="promotioncode_twrap" style="display:none">
+								<em class="f14"><label for="giftcard_no" style="font-weight:normal;margin:0">直接输入优惠代码：</label></em>
+								<div class="card_input" style="margin:10px 0"><input id="promotionCode" name="promotionCode" type="text" size="30" class="card_num" style="margin-left:0;width:220px" value=""/></div>
+								<div class="btns">
+									<p class="giftpay combut" style="padding-left:0"><button id="promotioncode_ok" class="ok">确定</button></p>
+								</div>
+							</div>	
+		            	</div>
+		            	
+		            	<!-- 积分 -->
+						<div class="we_exchange">
+							<p id="use_jifen_tip" ><input type="checkbox" id="need_jifen_exchange" /><label for="need_jifen_exchange">使用积分</label><a href="http://www.fengbuy.com/others?id=26/" target="_blank" class="help_tips"><em>您可以使用您威锋网帐号中的We券来抵扣部分货款<i><b></b></i></em></a></p>
+							<p id="use_jifen" style="display:none"><input type="checkbox" id="useJifen" name="useJifen" value="1" /><label for="useJifen">使用<em id="use_jifen_em">0</em>积分，抵扣<em id="use_jifen_money">0</em>元</label><a id="modify_jifen" href="javascript;">修改</a></p>
+			                <div class="twrap" id="need_jifen_exchange_div" style="display:none">
+								<table width="96%" border="0" cellspacing="0" cellpadding="0">
+			                      <tr>
+			                    <td height="24" width="110" style="white-space:nowrap;text-align:right">输入兑换积分数额</td>
+			                    <td  class="we_ex_info">
+									<input id="need_jifen_exchange_input" class="we_input" type="text" size="3" name="need_jifen_exchange_input"/>
+									<span id="need_jifen_exchange_span" canuse="0" ownqty="0" isload="n">正在加载...</span>
+			                    </td>
+								</tr>
+			                      <tr>
+									<td>&nbsp;</td><td style="color:#999; margin-left:10px">积分兑换现金比例为：1积分 = &yen;0.01元<em style="color:#F00; padding-left:10px;">使用时必须为10的整数倍！</em></td>
+								  </tr>
+			                      <tr>
+			                    <td height="24" style="text-align:right">兑换到的金额</td>
+			                    <td><em class="we_exchange_amount">&yen;<span id="need_jifen_exchange_exchange">0</span>元</em></td>
+								</tr>
+								<tr>
+			                    	<td height="24"></td>
+			                    	<td class="combut"><button class="ok" id="use_jifen_ok">确定</button></td>
+								</tr>
+			                  </table>
+							</div>
+	            		</div>
+	            		
+						<!-- WE券 -->
+						<div class="we_exchange">
+	                		<p id="we_exchange_tip" ><input type="checkbox" id="need_we_exchange" /><label for="need_we_exchange">使用We券 (仅支持在线支付)</label><a href="http://www.fengbuy.com/others?id=27/" target="_blank" class="help_tips"><em>您可以使用您威锋网帐号中的We券来抵扣部分货款<i><b></b></i></em></a></p>
+	              			<p id="we_exchange_use" style="display:none"><input type="checkbox" id="useWe" name="useWe" value="1" /><label for="useWe">使用<em id="use_we_juan">0</em>We卷，抵扣<em id="we_discount_money">0</em>元</label><a id="modify_we_exchange" href="javascript;">修改</a></p>
+			                <div class="twrap" id="need_we_exchange_div" style="display:none">
+								<table width="96%" border="0" cellspacing="0" cellpadding="0">
+			                      <tr>
+									<td height="24" width="110" style="white-space:nowrap;text-align:right">输入兑换We券数额</td>
+									<td  class="we_ex_info">
+										<input id="need_we_exchange_input" class="we_input" type="text" size="3" name="need_we_exchange_input">
+										<span id="need_we_exchange_span" canuse="0" ownqty="0" isload="n">正在加载...</span>
+									</td>
+									</tr>
+			                      <tr>
+									<td>&nbsp;</td><td style="color:#999; margin-left:10px">We券兑换现金比例为：1We券 = &yen;0.1元<em style="color:#F00; padding-left:10px;">使用时必须为10的整数倍！</em></td>
+								  </tr>
+			                      <tr>
+			                    	<td height="24" style="text-align:right">兑换到的金额</td>
+			                    	<td><em class="we_exchange_amount">&yen;<span id="need_we_exchange_exchange"></span>元</em></td>
+								</tr>
+								<tr>
+			                    	<td height="24"></td>
+			                    	<td class="combut"><button class="ok" id="we_exchange_ok">确定</button></td>
+								</tr>
+			                  </table>
+							</div>
+	            		</div>
+	            
+					</div>
+				</div>
+				
+				<div class="one_step invoice_step">
+				<div class="step_title"><h3><em class="index">4</em>发票服务</h3></div>
+				<div class="funs"><a href="http://www.fengbuy.com/others/index/index/id/6/" target="_blank" class="high"><span>威锋商城发票制度</span></a></div>
+				<input id="v_need_invoice" name="v_need_invoice" type="hidden" value="0"/>
+	            <input id="v_invoice_type" name="v_invoice_type" type="hidden" value=""/>
+	            <input id="v_invoice_title_type" name="v_invoice_title_type" type="hidden" value=""/>
+	            <input id="v_invoice_title" name="v_invoice_title" type="hidden" value=""/>
+	            <input id="v_company_name" name="v_company_name" type="hidden" value=""/>
+	            <input id="v_identify_number" name="v_identify_number" type="hidden" value=""/>
+	            <input id="v_company_address" name="v_company_address" type="hidden" value=""/>
+	            <input id="v_company_telephone" name="v_company_telephone" type="hidden" value=""/>
+	            <input id="v_bank_name" name="v_bank_name" type="hidden" value=""/>
+	            <input id="v_bank_account" name="v_bank_account" type="hidden" value=""/>
+				<div class="step_main">
+										<div class="invoice">
+						<div class="invoice_choose">
+							<div id="modify_invoice"><em>不需要发票</em><span>【<a href="javascript:;" onclick="invoiceModifiy();">修改</a>】</span></div>
+							<!-- 选择发票类型 -->
+							<div class="invoice_choose_inner" style="display:none">
+								<span>发票类型：</span>
+								<input name="invoice_type" id="invoice_normal" type="radio" value="1" onclick="changeInvoiceType();" checked/>
+								<label for="invoice_normal">普通发票</label>
+								<input name="invoice_type" id="invoice_added" type="radio" value="2" onclick="changeInvoiceType();" />
+								<label for="invoice_added">增值税专用发票</label>
+							</div>
+						</div>
+						<div class="twrap" id="default_invoice" style="display:none">
+							<!-- 普通发票 -->
+							<table width="96%" border="0" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr>
+										<th>发票抬头：</th>
+										<td>
+											<select id="invoice_title">
+												<option value="1" selected>个人</option>
+												<option value="2" >公司</option>
+											</select>
+											<input type="text" name="" id="invoice_title_txt" class="txt" value=""/><em class="req">*</em>
+											<div class="tips"><i></i>温馨提示：您所填的信息将被系统自动打印到发票上，请仔细核对所填发票信息！</div>
+										</td>
+									</tr>
+									<tr>
+										<th>发票内容：</th>
+										<td>
+											<div class="invoice_content">
+												<p>1. 出于产品保修需要，电子类产品均只能开具商品明细；</p>
+												<p>2. iPhone、iPad、iPod保护类产品依据其用途分别开具 【iPhone配件】、【iPad配件】、【iPod配件】；</p>
+												<p>3.MAC保护类及电脑包产品开具【电脑配件】；</p>
+												<p>4.电池套、充电宝、移动电源类产品开具【移动电源】；</p>
+												<p>5.各类线材、手写笔等配件开具【电子配件】；</p>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>&nbsp;</th>
+										<td class="btns">
+											<button class="ok" onclick="saveDefaultInvoice();return false;">保存发票信息</button>
+											<button class="cancel" onclick="cancelInvoice();return false;">暂不需要发票</button>
+											<!-- <a href="javascript:;" class="btn sure"><span>保存发票信息</span></a>
+											<a href="javascript:;" class="btn cancel"><span>暂不需要发票</span></a> -->
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- 增值发票 -->
+						<div class="twrap" id="vat_invoice" style="display:none">
+							<table width="96%" border="0" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr>
+										<th><label for="invoice_company">公司名称：</label></th>
+										<td><input type="text" name="" id="company_name" class="txt" value=""/><em class="req">*</em></td>
+									</tr>
+									<tr>
+										<th><label for="invoice_txt_1"></label>纳税人识别号：</th>
+										<td><input type="text" name="" id="identify_number" class="txt" value=""/><em class="req">*</em></td>
+									</tr>
+									<tr>
+										<th><label for="invoice_txt_2"></label>公司地址：</th>
+										<td><input type="text" name="" id="address" class="txt" value=""/><em class="req">*</em></td>
+									</tr>
+									<tr>
+										<th><label for="invoice_txt_3"></label>公司电话：</th>
+										<td><input type="text" name="" id="telephone" class="txt" value=""/><em class="req">*</em></td>
+									</tr>
+									<tr>
+										<th><label for="invoice_txt_4"></label>开户行名称：</th>
+										<td><input type="text" name="" id="bank_name" class="txt" value=""/><em class="req">*</em></td>
+									</tr>
+									<tr>
+										<th><label for="invoice_txt_5"></label>开户行账号：</th>
+										<td><input type="text" name="" id="bank_account" class="txt" value=""/><em class="req">*</em></td>
+									</tr>
+									<tr>
+										<th>&nbsp;</th>
+										<td>
+											<div class="tips"><i></i>完成请将以下加盖了公章的企业资质证书的彩色扫描件发送至<a href="mailto:fengbuycw@126.com">fengbuycw@126.com</a>；&nbsp;<em>（1）营业执照副本</em><em>（2）税务登记证副本</em><em>（3）开户许可证</em><em>（4）一般纳税人认定通知书</em></div>
+										</td>
+									</tr>
+									<tr>
+										<th>发票内容：</th>
+										<td>
+											<div class="invoice_content">
+												<p>1. 出于产品保修需要，电子类产品均只能开具商品明细；</p>
+												<p>2. iPhone、iPad、iPod保护类产品依据其用途分别开具 【iPhone配件】、【iPad配件】、【iPod配件】；</p>
+												<p>3.MAC保护类及电脑包产品开具【电脑配件】；</p>
+												<p>4.电池套、充电宝、移动电源类产品开具【移动电源】；</p>
+												<p>5.各类线材、手写笔等配件开具【电子配件】；</p>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>&nbsp;</th>
+										<td class="btns">
+											<button class="ok" onclick="saveVatInvoice();return false;">保存发票信息</button>
+											<button class="cancel" onclick="cancelInvoice();return false;">暂不需要发票</button>
+											<!-- <a href="javascript:;" class="btn sure"><span>保存发票信息</span></a>
+											<a href="javascript:;" class="btn cancel"><span>暂不需要发票</span></a> -->
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- 发票信息 -->
+						<div class="twrap" style="display:none" id="defaultInvoiceView">
+							<div class="invoice_infos">
+								<ul>
+									<li><span>发票类型：</span><em id="viewTitleType">增值税专用发票</em></li>
+									<li><span>发票抬头：</span><em id="viewTitle"></em></li>
+									<li><span>发票内容：</span><em>默认内容</em><span style="width:auto"><a href="javascript:;" onclick="var target=$(this.parentNode.parentNode).next(),displayed=target.attr('data-displayed')==1;target[displayed?'hide':'show']();target.attr('data-displayed',displayed?0:1);this.innerHTML='展开查看('+(displayed?'+':'-')+')';return false;">展开查看(+)</a></span></li>
+									<li class="content" style="display:none" data-displayed="0">
+										<div class="invoice_content">
+											<p>1. 出于产品保修需要，电子类产品均只能开具商品明细；</p>
+											<p>2. iPhone、iPad、iPod保护类产品依据其用途分别开具 【iPhone配件】、【iPad配件】、【iPod配件】；</p>
+											<p>3.MAC保护类及电脑包产品开具【电脑配件】；</p>
+											<p>4.电池套、充电宝、移动电源类产品开具【移动电源】；</p>
+											<p>5.各类线材、手写笔等配件开具【电子配件】；</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="twrap" style="display:none" id="vatInvoiceView">
+							<div class="invoice_infos">
+								<ul>
+									<li><span>发票类型：</span><em id="viewVatTitleType">增值税专用发票</em></li>
+									<li><span>开票信息：</span><a href="javascript:;" onclick="var target=$(this.parentNode).next(),displayed=target.attr('data-displayed')==1;target[displayed?'hide':'show']();target.attr('data-displayed',displayed?0:1);this.innerHTML='展开查看('+(displayed?'+':'-')+')';return false;">展开查看(+)</a></li>
+									<li class="content" style="display:none" data-displayed="0">
+										<div class="invoice_content">
+											<table width="96%" border="0" cellspacing="0" cellpadding="0">
+												<tbody>
+													<tr>
+														<th>公司名称：</th><td id="companyNameView"></td>
+													</tr>
+													<tr>
+														<th>纳税人识别号：</th><td id="identifyNumberView"></td>
+													</tr>
+													<tr>
+														<th>公司地址：</th><td id="addressView"></td>
+													</tr>
+													<tr>
+														<th>公司电话：</th><td id="telephoneView"></td>
+													</tr>
+													<tr>
+														<th>开户行名称：</th><td id="bankNameView"></td>
+													</tr>
+													<tr>
+														<th>开户行账号：</th><td id="bankAccountView"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</li>
+									<li><span>发票内容：</span><em>默认内容</em><span style="width:auto"><a href="javascript:;" onclick="var target=$(this.parentNode.parentNode).next(),displayed=target.attr('data-displayed')==1;target[displayed?'hide':'show']();target.attr('data-displayed',displayed?0:1);this.innerHTML='展开查看('+(displayed?'+':'-')+')';return false;">展开查看(+)</a></span></li>
+									<li class="content" style="display:none" data-displayed="0">
+										<div class="invoice_content">
+											<p>1. 出于产品保修需要，电子类产品均只能开具商品明细；</p>
+											<p>2. iPhone、iPad、iPod保护类产品依据其用途分别开具 【iPhone配件】、【iPad配件】、【iPod配件】；</p>
+											<p>3.MAC保护类及电脑包产品开具【电脑配件】；</p>
+											<p>4.电池套、充电宝、移动电源类产品开具【移动电源】；</p>
+											<p>5.各类线材、手写笔等配件开具【电子配件】；</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				
+			<!-- 备注 -->
+			<div class="one_step remark_step">
+				<div class="step_title"><h3><em class="index">5</em>备注说明</h3></div>
+				<div class="step_main">
+					<p class="tit">添加备注：（对订单的要求或特别注明）</p>
+					<div class="txt_area"><p class="count">剩余<em id="remarkLength">120</em>字</p><textarea name="customer_note" id="customer_note" rows="3" cols="100" onKeyUp="checkRemarkLength(this,'remarkLength')"></textarea></div>
+				</div>
+			</div>
+				
+			
+			<!-- 清单 -->
+		<div class="one_step order_list_step" id="product_list_tit_print">
+			<div class="step_title"><h3><em class="index">6</em>商品清单</h3></div>
+				<div class="funs"><a href="http://www.fengbuy.com/checkout/cart/"><span>返回购物车修改</span></a></div>
+				<div class="step_main">
+					<div class="order_list">
+                  	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="list">
+	                    <tr>
+	                          <th>商品编号</th>
+	                          <th>商品名</th>
+	                          <th>价格</th>
+	                          <th>库存状态</th>
+	                          <th>数量</th>
+	    
+	                    </tr>
+                    	                <tr>
+	                      <td>IQ00342</td>
+	                      <td><a href="http://www.fengbuy.com/cocoon-grid-it-18-23cm-7221.html" target="_blank">美国COCOON GRID-IT! 弹性多功能收纳板 数码配件整理收纳 18*23CM-黑色</a>
+	                      		<div class="save_tools_panel">
+										<strong>优惠工具：</strong>
+										<span class="save_tools">
+																							<a href="http://www.fengbuy.com/others?id=26" target="_blank" class="tool_1" title="可享受会员折扣"><span>可享受会员折扣</span></a>
+																							<a href="http://www.fengbuy.com/others?id=26" target="_blank" class="tool_3" title="可获得积分"><span>可获得积分</span></a>
+																							<a href="http://www.fengbuy.com/others?id=26" target="_blank" class="tool_4" title="可使用积分"><span>可使用积分</span></a>
+																							<a href="http://www.fengbuy.com/others?id=27" target="_blank" class="tool_5" title="可使用WE券"><span>可使用WE券</span></a>
+																							<a href="http://www.fengbuy.com/others?id=27" target="_blank" class="tool_7" title="可使用优惠券"><span>可使用优惠券</span></a>
+																					</span>
+																			</div>
+	                      </td>
+	                      <td class="price">&yen;98</td>
+	                      	                      <td>现货供应</td>
+	
+	                      <td>1</td>
+	                    </tr>
+                		              		</table>
+                </div>
+         	</div>
+		 </div>
+				<!-- 订单总计 -->
+		<div class="cart_total_wrap">
+			<div class="cart_total">
+				<div class="cart_total_ext">
+					<h4>结算</h4>
+					<div class="tips">注意：右边为实际总金额。<br />可获赠<em id="receiveJifen">39</em>个积分，于订单完成后发放。
+										<p id="moreCosts" style="display:none;">换选优质物流服务商，收取<em>10元/单</em>运费。</p>
+					</div>
+				</div>
+				<ul class="prop_list">
+					<li><span class="label">购物车商品小计：</span><em class="val price">&yen;<span id="subtotal">98</span></em></li>
+					<li id="we_discont_tr" style="display:none"><span class="label">WE券抵扣：</span><em class="val">- &yen;<span id="we_discont_span">0.0</span></em></li>
+					<li id="jifen_discont_tr" style="display:none"><span class="label">积分抵扣：</span><em class="val">- &yen;<span id="jifen_discont_span">0.0</span></em></li>
+					<li id="gifcard_discount_tr" style="display:none"><span class="label">优惠券：</span><em class="val">- &yen;<span id="gifcard_discount_span">0.0</span></em></li>
+					<li id="cashcard_discount_tr" style="display:none"><span class="label">现金卡：</span><em class="val">- &yen;<span id="cashcard_discount_span">0.0</span></em></li>
+					<li id="pro_discount_tr" style="display:none"><span class="label">优惠代码：</span><em class="val">- &yen;<span id="pro_discount_span">0.0</span></em></li>
+					<li id="dx_discount_tr" style="display:none"><span class="label">优惠代码：</span><em class="val">- &yen;<span id="dx_discount_span">0.0</span></em></li>
+					<li id="use_save_act_tr" style="display:none"><span class="label">换购金额：</span><em class="val">+ &yen;<span id="use_save_act_span">0.0</span></em></li>
+										<li class="subtotal"><span class="label">商品实付金额：</span><em class="val price">&yen;<span id="ordered_amount">0</span></em></li>
+					<li><span class="label">运费：</span><em class="val price">+ &yen;<span id="shippingPrice">0</span></em></li>
+				</ul>
+				<div class="prop_count"><span class="label">订单总计：</span><em class="val price">&yen;<span id="order_totalAmount0">98</span></em></div>
+				<a href="javascript:;" id="saveOrder" class="btn"><span>提交订单</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+		
+<!-- Sliderbar -->
+<div class="sliderbar">
+	<div class="sliderbar_inner">
+		<!-- 订单摘要 -->
+		<div class="slider cart_summary order_summary">
+			<div class="title"><h3>订单摘要</h3></div>
+			<div class="inner">
+				<dl>
+					<dt>商品总金额</dt>
+					<dd class="tips">&yen;98</dd>
+					<dt class="totalMoney"><em>应付总金额</em><span>&yen;<span id="order_totalAmount1">98</span></span></dt>
+					<dd class="price_wrap"><span id="order_type" class="note">（在线支付）</span></dd>
+					<dd class="view"><a href="#product_list_tit_print">查看明细</a></dd>
+					<dd class="btns"><a href="javascript:;" class="btn checkout_now"><span>提交订单</span></a></dd>
+					<dd class="funs">
+						<a href="http://www.fengbuy.com/checkout/cart/" class="return"><i></i><span>返回购物车</span></a>
+						<a href="javascript:;" class="print_list" onclick="window.print();return false;"><i class="print"></i><span>打印购物清单</span></a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+<!-- 	<div class="wea_d_218_245"><a href="http://www.fengbuy.com/activity/topic_weixin_04.html" target="_blank"><img src="http://www.fengbuy.com/media/catalog/photos/otherImage/8/zhongqiubrand.jpg" height="245" width="218" alt="中秋福利：你晒货，我免单！" /></a></div> -->
+	</div>
+</div>
+</div>
+</form>
+<!-- 新增/修改收货地址Tmpl -->
+	<textarea id="edit_addr_tmpl" class="tmpl" style="display:none"><div class="new_address"><form id="addressForm" name="addressForm" action="./" method="post">
+		<input type="hidden" name="id" id="id" value="<%=id%>"/>
+		<input type="hidden" name="country_id" id="country_id" value="CN"/>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+			<tbody>
+				<tr>
+					<th><em>*</em><label for="firstname">收货人：</label></th> 
+					<td><input name="firstname" id="firstname" type="text" value="<%=firstname%>" /><em id="firstname_error" class="error_em"></em></td>
+				</tr>
+				<tr>
+					<th><em>*</em><label for="region_id">省：</label></th> 
+					<td><select name="region_id" id="region_id" data-value="<%=region_id%>"><option value="0">--请选择--</option></select><em>市：</em><select name="city_id" id="city_id" data-value="<%=city_id%>"><option value="0">--请选择--</option></select><em>区县：</em><select name="district_id" id="district_id" data-value="<%=district_id%>"><option value="0">--请选择--</option></select><em id="address_error" class="error_em"></em>
+					<p class="note">若列表中没有您需要的区县地址信息，请将您的区县地址填入街道地址中</p> </td> 
+				</tr>
+				<tr>
+					<th><em>*</em><label for="postcode">邮编：</label></th> 
+					<td><input name="postcode" id="postcode" type="text" size="10" placeholder="6位数字" value="<%=postcode%>" /><em id="postcode_error" class="error_em"></em></td> 
+				</tr>
+				<tr>
+					<th><em>*</em><label for="street">街道地址：</label></th>
+					<td>[textarea name="street" id="street" rows="2" cols="10"><%=street%></textarea]<em id="street_error" class="error_em"></em></td> 
+				</tr>
+				<tr>
+					<th><em>*</em><label for="mobile">手机：</label></th> 
+					<td>
+						<input name="mobile" id="mobile" type="text" value="<%=mobile%>" placeholder="手机号码" /><em id="phone_error" class="error_em"></em>
+						<div class="note">手机、固定电话可任选一项填写</div>
+					</td>
+				</tr>
+				<tr>
+					<th><label for="telephone_area_code">固定电话：</label></th>
+					<td><input name="telephone_area_code" id="telephone_area_code" type="text" value="<%=(telephone.split('-')[0] || '')%>" placeholder="区号" /><em>-</em><input name="telephone_number" id="telephone_number" type="text" value="<%=(telephone.split('-')[1] || '')%>" placeholder="电话号码" /><em>-</em><input id="telephone_ext" name="telephone_ext" value="<%=(telephone.split('-')[2] || '')%>" type="text" placeholder="分机号" /><em id="telephone_error" class="error_em"></em></td> 
+				</tr>
+			</tbody>
+		</table> 
+	</form>
+	</div>
+</textarea>
+
+<!-- 订单提交成功提示模板 -->
+<textarea id="order_success_tmpl" class="tmpl">
+	<div class="clearfix info_box">
+		<div class="con">
+			<div class="con_t">
+				<div class="con_b">
+					<div class="main_info">
+						<form action="<%=order.payUrl%>" method="post" target="_blank">
+							<i class="ico success"></i>
+							<h2>感谢您在威锋商城购物，订单已成功提交！</h2>
+							<ul>
+								<li>订单编号：<a href="<%=order.url%>"><%=order.orderNo%></a><input type="button" value="查看订单" onclick="window.open(this.getAttribute('data-url'), '_blank')" data-url="<%=order.url%>" /></li>
+								<li>支付方式：<%=order.typeText%></li>
+								<%if(order.payType === "online"){%>
+								<li class="tips"><strong><i></i>请于60分钟内完成支付，逾时系统将取消您的订单！</strong></li>
+								<%}%>
+								<li class="price">应付总价：<em>&yen;<%=order.totalAmount%>元</em></li>
+							</ul>
+							<%if(order.payType === "online"){%>
+							<button type="submit" class="btn pay_btn"><span>支付中心支付</span></button>
+							<%}%>
+						</form>
+						<!--广告位-->
+						<!-- <a class="wea_d_300" href="http://www.fengbuy.com/activity/topic_98.html" target="_blank"><img src="http://www.fengbuy.com/skin/frontend/fengbuy/default/images/caipiao_b.gif"></a> -->
+					</div>
+					<div class="info_bottom">您的订单已经在处理中，如果您有任何问题可以与我们联系;<br />电话：400-607-8090（威锋商城客户服务热线）<br />或【<a href="http://www.fengbuy.com/account/message/index/" target="_blank">联系客服</a>】</div>
+					<div class="info_tips">
+						<h4>温馨提示：</h4>
+						<p>您在收货时，若发现下列情形，请您务必<strong>拒收</strong>并与我们联系：</p>
+						<p>1. 外包装有明显污损及其他损坏情况</p>
+						<p>2. 产品原包装已拆封或有明显污损及其他损坏情况</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</textarea>
+
+<!-- 订单前往支付模板 -->
+<textarea id="order_pay_dialog_tmpl" class="tmpl">
+	<div class="order_pay_dialog_inner">
+		<div class="tips">请在新开的支付中心页面完成支付后选择：</div>
+		<div class="list">
+			<ul>
+				<li>
+					<strong><i class="success"></i>支付完成</strong>
+					<span class="pipe">|</span>
+					<a href="http://www.fengbuy.com/account/order/vieworder/?order_id=<%=order.orderId%>">查看订单</a>
+				</li>
+				<li>
+					<strong><i class="error"></i>支付失败</strong>
+					<span class="pipe">|</span>
+					<a href="<%=order.payUrl%>" target="_blank">重新支付</a>
+					<a href="http://www.fengbuy.com/account/message/index/" target="_blank">联系客服</a>
+					<a href="http://www.fengbuy.com/others/index/index/id/10/" target="_blank">查看帮助</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</textarea>
+<script type="text/javascript">
+var stopSell = 'n';
+var _mvq = _mvq || [];
+function sendToJuHe(orderNo,totalAmount)
+{
+	_mvq.push(['$setAccount', 'm-28955-0']);
+	_mvq.push(['$setGeneral', 'ordercreate', '','fe273a3bb07f2a42547a71a64b484277', '274745']);
+	_mvq.push(['$logConversion']);
+	_mvq.push(['$addOrder',orderNo,totalAmount]);
+		_mvq.push(['$addItem', orderNo, '7221','美国COCOON GRID-IT! 弹性多功能收纳板 数码配件整理收纳 18*23CM-黑色', '98', '1','http://www.fengbuy.com/cocoon-grid-it-18-23cm-7221.html','http://www.fengbuy.com/media/catalog/product/cache/1/small_image/360x/9df78eab33525d08d6e5fb8d27136e95/1/2/1200f_4.jpg']);
+		_mvq.push(['$logData']);
+}
+
+jQuery(function($){
+	var 
+	shell = $('.addr_step').eq(0),
+	tmpl = ($('#edit_addr_tmpl').val() || '');
+	tmpl = tmpl.replace(/\[textarea/ig, '<textarea').replace(/textarea\]/ig, 'textarea>');
+	
+	var 
+	//空地址数据
+	addrBlankData = {
+		id:'0',
+		firstname: '',
+		region_id: '0',
+		city_id: '0',
+		district_id: '0',
+		postcode:'',
+		street:'',
+		mobile:'',
+		telephone:''
+	};
+	
+	//Dialog
+	var 
+	cityListCache = {},
+	getCityList = function(type, id, callback){
+		var cache = cityListCache[type];
+		if(!cache){
+			cache = cityListCache[type] = {};
+		}
+		if(type !== 'region' && ~~id === 0){
+			cache[id] = [];
+		}
+		if(!!cache[id]){
+			return (callback || $.noop).call(null, cache[id]);
+		}
+		
+		var url = getRegionCityAndDistrictUrl+'?type=' + type + '&id=' + id;
+		$.get(url, function(data){
+			if(data.success === 1){
+				cache[id] = data.info;
+				(callback || $.noop).call(null, cache[id]);
+			}
+			else{
+				ds.dialog.alert('Oops，数据加载了；请重试！');
+			}
+		}, 'json');
+	},
+	showDialog = function(isEdit, data, target){
+		return ds.dialog({
+			padding: 0,
+			title: isEdit ? '修改收货地址': '新增收货地址',
+			content: ds.tmpl(tmpl, data),
+			onopen: function(){
+				var self = this;
+				setTimeout(function(){
+					self.contentShell.find('input[type=text]').eq(0).focus();
+				}, 100);
+				
+				//初始化省市区数据，同时赋值
+				var shell = this.contentShell;
+
+				//市
+				shell.find('#region_id').bind('change', function(){
+					getCityList('city', this.value, function(list){
+						var field = shell.find('#city_id'), options = field[0].options;
+						var currInx = 0, currVal = field.attr('data-value');
+						options.length = 1;
+						$.each(list, function(i){
+							options[i + 1] = new Option(this.name, this.id);
+							if(currVal === this.id){
+								currInx = i + 1;
+							}
+						});
+						field[0].selectedIndex = currInx;
+						field.trigger('change');
+					});
+				});
+				//区、县, 邮政编码
+				shell.find('#city_id').bind('change', function(){
+					getCityList('district', this.value, function(list){
+						var field = shell.find('#district_id'), options = field[0].options;
+						var currInx = 0, currVal = field.attr('data-value');
+						options.length = 1;
+						$.each(list, function(i){
+							options[i + 1] = new Option(this.name, this.id);
+							if(currVal === this.id){
+								currInx = i + 1;
+							}
+						});
+						field[0].selectedIndex = currInx;
+					});
+
+					var postCode = '', regionId = region.val(), cityId = this.value;
+					$.each(cityListCache['city'][regionId], function(){
+						if(this.id === cityId){
+							postCode = this.post_code;
+						}
+					});
+					shell.find('#postcode').val(postCode);
+				});
+
+				//省
+				var region = shell.find('#region_id'), regionId = region.attr('data-value');
+				getCityList('region', 0, function(list){
+					var field = region, options = field[0].options;
+					var currInx = 0, currVal = regionId;
+					options.length = 1;
+					$.each(list, function(i){
+						options[i + 1] = new Option(this.name, this.id);
+						if(currVal === this.id){
+							currInx = i + 1;
+						}
+					});
+					field[0].selectedIndex = currInx;
+					field.trigger('change');
+				});
+			},
+			onyes: function(){
+				var 
+				shell = this.contentShell,
+				form = this.contentShell.find('form').eq(0);
+				if(form.length > 0){
+					//开始本地效验数据，如果失败 提示错误，并 return false;
+					var flag = checkAddressForm();
+					if(!flag)
+					{
+						return false;
+					}
+					saveNewAddress();
+				}
+			},
+			onno: true,
+			onhide: function(){
+				this.close();
+			}
+		});
+	};
+	
+	shell.delegate('.add_addr .btn, a.edit', 'click', function(e){
+		e.preventDefault();
+		
+		var isEdit = this.className.indexOf('edit') > -1;
+		if(!isEdit){
+			return showDialog(isEdit, addrBlankData, this);
+		}
+		ds.dialog.tips('<div class="loading" style="padding:20px 0"><i></i><span>加载中，请稍候...</span></div>');
+		var self = this;
+		$.ajax({
+			type: 'get',
+			dataType: 'json',
+			url: getAddressByIdAjaxUrl+'?id=' + this.getAttribute('data-addrid'),
+			success: function(data){
+				if(data && data.success === '1'){
+					showDialog(isEdit, data.info, self);
+				}
+				else{
+					ds.dialog.alert('Oops，数据加载了；请重试！');
+				}
+			},
+			complete: function(xhr, status){
+				if(status !== 'success'){
+					ds.dialog.alert('Oops，数据加载了；请重试！');
+				}
+				ds.dialog.items.ds_dialog_tips.hide();
+			}
+		});
+	});
+});
+
+//step_radio
+jQuery(function($){
+	var doc = $(document);
+	$('.checkout_inner').delegate('div.step_radio', 'click', function(e){
+		e.preventDefault();
+		var className = this.className;
+		if(className.indexOf('selected')>-1 || className.indexOf('disabled')>-1){
+			return;
+		}
+		
+		var self = $(this), input = self.find('input[type=radio]');
+		var fields = doc.find('input[name=' + input.attr('name') + ']');
+		fields.prop('checked', false).each(function(){
+			var shell = this.parentNode, className = shell.className;
+			if(className.indexOf('selected')>-1){
+				$(shell).removeClass('selected');
+				this.checked = false;
+			}
+		});
+		input.prop('checked', true).trigger('change');
+		self.addClass('selected');
+		if(input.val() == "online"){
+			$("#order_type").html("(在线支付)");
+		}
+		if(input.val() == "cod"){
+			$("#order_type").html("(货到付款)");
+		}
+	});
+});
+
+jQuery(function($){
+	//订单摘要跟随
+	ds.loadScript('http://www.fengbuy.com/skin/frontend/fengbuy/default/js/jquery.autoFixed.js', function(){
+		$('.sliderbar_inner').autoFixed({
+			container: '#container',
+			offset: 2
+		});
+	});
+});
+
+jQuery(function($){
+	$('#saveOrder,a.checkout_now').bind('click', function(e){
+		e.preventDefault();
+
+		saveOrder();
+	});
+});
+
+//配送方式Tips
+jQuery(function($){
+	var html = '<div class="ship_note_tips"><p><strong>敬请知悉：</strong></p><p>（1）商品总金额（不含运费）不足59元，收取10元/单运费，限申通、圆通；选顺丰或EMS另增加10元/单运费；</p><p>（2）商品总金额大于等于59元但不足188元，申通、圆通免运费；换选顺丰或EMS则收取10元/单运费；</p><p>（3）商品总金额大于等于188元，顺丰、圆通、申通、EMS均免运费；</p></br><p>点击查看详细 <a href="http://www.fengbuy.com/others?id=41/" target="_blank" style="color:#0099FF">运费说明</a></p></div>';
+	$('#ship_notes').tips({
+		width: 360,
+		content: html,
+		offset: [0, 0, 0, -130]
+	});
+});
+
+//配送时效Tips
+jQuery(function($){
+	var html = '<div class="ds_tips_content"><div class="ship_note_tips"><table cellpadding="0" cellspacing="0" class="fareInfoTable"><thead><th width="62"></th><th width="80">配送方式</th><th width="114">配送产品</th><th width="138">配送范围</th><th width="68">配送时间<br/>（预计）</th><th class="last" width="168">备注</th></thead><tbody><tr><td rowspan="7" style="border-bottom:none;">深圳</td><td rowspan="2"><a class="expressName" target="_blank" href="http://www.sf-express.com/cn/sc/">顺丰快递</a></td><td>所有产品<br/>（不含电池、液体类）</td><td rowspan="2"><a class="expressRange" target="_blank" href="http://www.sf-express.com/cn/sc/delivery_step/enquiry/coverageArea.html">顺丰配送区域查询</a></td><td>1-2天</td><td class="last">航空件</td></tr><tr><td>电池、液体类</td><td>2-3天</td>	<td class="last">陆运通、陆运达<br/>（未开通地区默认转发EMS）</td></tr><tr><td rowspan="2"><a class="expressName" target="_blank" href="http://www.sto.cn/">申通快递</a></td><td>所有产品（不含电池、液体类）</td><td rowspan="2"><a class="expressRange" target="_blank" href="http://www.sto.cn/web%20select.asp">申通配送区域查询</a></td><td>1-4天</td><td class="last">航空件</td></tr><tr><td>电池、液体类</td><td>2-5天</td><td class="last">陆运，未开通地区默认转发EMS</td></tr><tr><td rowspan="2"><a class="expressName" target="_blank" href="http://www.yto.net.cn/cn/index/index.html">圆通快递</a></td><td>所有产品<br/>（不含电池、液体类）</td><td rowspan="2"><a class="expressRange" target="_blank" href="http://www.yto.net.cn/cn/index/index.html">圆通配送区域查询</a></td><td>1-3天</td><td class="last">航空件</td></tr><tr><td>电池、液体类</td><td>2-5天</td><td class="last">陆运，未开通地区默认转发EMS</td></tr><tr class="last"><td rowspan="2"><a target="_blank" class="expressName" href="http://www.ems.com.cn/?COLLCC=1813854390&">EMS</a></td><td>所有产品</td><td rowspan="2" style="color:#3264fa;">全 国</td><td>1-10天</td><td class="last"></td></tr></tbody></table></div></div>';
+	$('#fareInfo').tips({
+		width: 640,
+		content: html,
+		offset: [0, 0, 0, -130]
+	});
+});
+</script><!-- Footer -->
+<div class="footer_wrap">
+	<div class="wrap footer">
+		<div class="clearfix our_services">
+			<div class="ours">
+				<div class="weixin">
+					<div class="pic"><img src="http://www.fengbuy.com/skin/frontend/fengbuy/default/images/footer.png" alt="威锋商城官方微信" /></div>
+					<h4>威锋商城官方微信</h4>
+					<div class="desc">扫描二维码，即刻与威威亲密互动，第一时间获取最新优惠！</div>
+				</div>
+				<div class="phone"><span>客服热线：</span><em>400-607-8090</em><small title="服务时间">(9:00-22:30)</small></div>
+			</div>
+						<dl class="service">
+				<dt><i class="guide"></i>购物指南</dt>
+								<dd><a href="http://www.fengbuy.com/others?id=2/" target="_blank"><i></i>用户注册</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=6/" target="_blank"><i></i>发票制度</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=26/" target="_blank"><i></i>会员及积分制度</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=27/" target="_blank"><i></i>We券 / 优惠券</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=42/" target="_blank"><i></i>现金卡说明</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=38/" target="_blank"><i></i>商品优惠工具说明</a></dd>
+				 
+			</dl>
+						<dl class="service">
+				<dt><i class="ship"></i>配送与收货</dt>
+								<dd><a href="http://www.fengbuy.com/others?id=3/" target="_blank"><i></i>配送方式</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=4/" target="_blank"><i></i>配送范围及时间</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=8/" target="_blank"><i></i>签收注意事项</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=41/" target="_blank"><i></i>运费说明</a></dd>
+				 
+			</dl>
+						<dl class="service">
+				<dt><i class="pay"></i>支付方式</dt>
+								<dd><a href="http://www.fengbuy.com/others?id=9/" target="_blank"><i></i>货到付款</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=10/" target="_blank"><i></i>在线支付</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=12/" target="_blank"><i></i>公司转账</a></dd>
+				 
+			</dl>
+						<dl class="service">
+				<dt><i class="fav"></i>售后服务</dt>
+								<dd><a href="http://www.fengbuy.com/others?id=13/" target="_blank"><i></i>退换货政策</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=14/" target="_blank"><i></i>如何退换货</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=15/" target="_blank"><i></i>价格保护</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=16/" target="_blank"><i></i>退款说明</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=39/" target="_blank"><i></i>账户余额提现政策</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=28/" target="_blank"><i></i>正品保障及赔付承诺</a></dd>
+				 
+			</dl>
+						<dl class="service">
+				<dt><i class="qa"></i>常见问题</dt>
+								<dd><a href="http://www.fengbuy.com/others?id=32/" target="_blank"><i></i>账户类</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=33/" target="_blank"><i></i>购物类</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=34/" target="_blank"><i></i>发票类</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=35/" target="_blank"><i></i>支付类</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=36/" target="_blank"><i></i>配送类</a></dd>
+								<dd><a href="http://www.fengbuy.com/others?id=37/" target="_blank"><i></i>退换货与退款</a></dd>
+				 
+			</dl>
+					</div>
+		<div class="our_slogan">
+			<a href="http://www.fengbuy.com/others?id=41/" target="_blank" class="first">满59元全国免邮</a><a href="http://www.fengbuy.com/others?id=13" target="_blank">7天内无理由退换</a><a href="http://www.fengbuy.com/others?id=13/" target="_blank">30天 服务保障</a><a href="http://www.fengbuy.com/others?id=28" target="_blank">正品保障，赔付承诺</a><a href="http://www.fengbuy.com/activity/index/index/id/8" target="_blank">品牌厂家寄语</a>
+		</div>
+		<div class="our_links">
+			<a href="http://www.fengbuy.com/others?id=19" target="_blank">联系我们</a><span class="line">|</span><a href="http://www.feng.com" title="APPLE第一中文互动媒体" target="_blank">威锋网</a><span class="line">|</span><a href="http://www.fengbuy.com/others/index/links/" target="_blank">友情链接</a>
+		</div>
+		<div class="copyright">
+			<p>Copyright&copy; 2013 fengbuy.com 威锋商城 版权所有</p><p>增值电信业务经营许可证：粤B2-20120483&nbsp;丨&nbsp;备案编号：粤ICP备11101875号-1</p>
+		</div>
+		<div class="safe_web">
+			<a href="http://www.sznet110.gov.cn" target="_blank" class="safe_1"><span>深圳网络警察报警平台</span></a>
+			<a href="https://cert.ebs.gov.cn/eecef241-e736-44bc-8cfa-5274ad2f3717" target="_blank" class="safe_6" title="深圳市市场监督管理局企业主体身份公示"><span>深圳市市场监督管理局企业主体身份公示</span></a>
+			<a href="http://www.miitbeian.gov.cn/" target="_blank" class="safe_2"><span>经营性网站备案信息</span></a>
+			<a href="http://www.sznet110.gov.cn/webrecord/innernet/Welcome.jsp?bano=4403101901155" target="_blank" class="safe_3"><span>公安信息安全网络监察</span></a>
+			<a href="https://ss.knet.cn/verifyseal.dll?sn=2010092800100002461&ct=df&pa=840515" target="_blank" class="safe_4"><span>可信网站</span></a>
+			<a href="http://trust.360.cn/search.php" target="_blank" class="safe_5"><span>360绿色网站</span></a>
+		</div>
+	</div>
+</div>
+	
+<script type="text/javascript">
+var account_url="http://www.fengbuy.com/account/order/account/";
+var refreshCartUrl="http://www.fengbuy.com/checkout/cart/refreshCartAjax/";//购物车
+var recentlyViewedUrl="http://www.fengbuy.com/productExt/index/getViewedItemsJson/"; //最近浏览
+var saveMessageUrl="http://www.fengbuy.com/account/message/saveAjax/";//提交留言
+var checkout_Url="http://www.fengbuy.com/checkout/cart/";//去购物车并结算
+var go_buy="http://www.fengbuy.com/all.html";//购买
+var place_url="http://www.fengbuy.com/skin/frontend/fengbuy/default/images/place.png";//loading图片
+var validateCode_url="http://www.fengbuy.com/productcomment/comment/validateCode/";//获取验证码
+var delCart_url="http://www.fengbuy.com/checkout/cart/deleteAjax/";
+var account_order_url="http://www.fengbuy.com/account/order/history/";
+var account_return_url="http://www.fengbuy.com/account/return/index/";
+var account_address_url="http://www.fengbuy.com/account/accountInfo/accountAddress/";
+var account_giftcard_url="http://www.fengbuy.com/account/giftCard/index/";
+var account_cashcard_url="http://www.fengbuy.com/account/cashCard/index/";
+var account_jf_url="http://www.fengbuy.com/account/integral/index/";
+var account_comment_url = "http://www.fengbuy.com/account/order/myComments/";
+var account_consult_url = "http://www.fengbuy.com/account/consult/productConsult/";
+var account_message_url = "http://www.fengbuy.com/account/message/index/";
+var account_arrival_url = "http://www.fengbuy.com/account/alerts/index/";
+var account_reduce_url = "http://www.fengbuy.com/account/notification/index/";
+var unreadNewMsgUrl = "http://www.fengbuy.com/account/msg/new/";
+
+//Dialog icon base path
+ds.Dialog.defaults.iconBasePath = 'http://www.fengbuy.com/skin/frontend/fengbuy/default/images/';
+
+function showInfoTip(content, type, onhide){
+	var icons = {success:'success.png', info: 'info.png'};
+	var icon = icons[type] || 'error.png';
+	return ds.dialog({
+		title: '消息提示',
+		content: content,
+		onhide: onhide,
+		onyes: true,
+		icon: icon,
+		timeout: 3,
+		width: 200
+	});
+}
+
+//购物车tmplHtml
+var sale_car_tmpl='';
+var settle_href = "http://www.fengbuy.com/checkout/cart/";
+sale_car_tmpl += '<div id="global_user_cart" class="user_cart">';
+sale_car_tmpl+='<span class="info"><i class="cart"></i>购物车<em id="cartNum">0</em>件<i class="arrow"></i></span>';
+//sale_car_tmpl+='<a href="'+settle_href+'" class="btn"><span>去结算</span></a>';
+sale_car_tmpl+='<div class="user_cart_inner" id="header_cartlist"></div></div>';
+
+//检查是否登录
+//topbar - 用户登录, 客服消息
+jQuery(function($){
+	var
+	loginUrl = 'http://www.fengbuy.com/customer/account/login/',
+	logoutUrl = 'http://www.fengbuy.com/customer/account/logout/',
+	registerUrl = 'http://passport.feng.com/?r=user/register',
+	checkLoginUrl = 'http://www.fengbuy.com/customer/accountext/checkLoginJson/',
+	notLoginTmpl = '<li><span>您好，请</span></li><li><a href="<%=loginUrl%>" id="topbar_login"><span>[登录]</span></a></li><li><a href="<%=registerUrl%>" target="_blank"><span>[注册]</span></a></li><li class="line"><span>|</span></li>';
+	
+	var 
+	isLoggedIn = false,
+	isCustomerServices = false,
+	orderUrl = 'http://www.fengbuy.com/account/order/history/',
+	accountUrl = 'http://www.fengbuy.com/account/order/account/',
+	mylevelUrl = 'http://www.fengbuy.com/account/mylevel/index/',
+	levelIconPath = 'http://www.fengbuy.com/media/customer/customerlevel/',
+	messageListUrl = 'http://www.fengbuy.com/account/messageList/index/',
+	favoriteUrl = 'http://www.fengbuy.com/account/favorite/index/',
+	accountInfoUrl = 'http://www.fengbuy.com/account/accountInfo/accountInfo/',
+	commentUrl = 'http://www.fengbuy.com/account/order/myComments/',
+	consultUrl = 'http://www.fengbuy.com/account/consult/productConsult/',
+	messageUrl = 'http://www.fengbuy.com/account/message/index/',
+	alertsUrl = 'http://www.fengbuy.com/account/alerts/index/',
+	notificationUrl = 'http://www.fengbuy.com/account/notification/index/',
+	accountTryUrl = 'http://www.fengbuy.com/account/try/index/',
+	loginTmpl = '<li class="face"><a href="<%=accountUrl%>"><img src="<%=uid%>" alt="<%=userName%>" height="21" width="21" /></a></li><li class="name"><span>Hi，</span><a href="<%=accountUrl%>"><span><%=userName%></span></a><span>！</span></li>';
+	loginTmpl += '<%if(isLoggedIn){%><li class="level"><a href="<%=mylevelUrl%>" class="level_icon" title="<%=levelName%>"><img src="<%=myLevelIcon%>" height="20" width="20" alt="<%=levelName%>" /></a></li>';
+	loginTmpl += '<%if(isCustomerServices){%><li class="tips"><a id="pretreatment" target="_blank" href="<%=messageListUrl%>" title="当前需要处理：&#013;0 条客户留言&#013;0 条客户评论&#013;0 条购买咨询">(<em>0</em>)</a></li><%}%>';
+	loginTmpl += '<li><a href="<%=logoutUrl%>" id="topbar_logout"><span>[退出]</span></a></li><%} else{%>';
+	loginTmpl += '<li><a href="<%=loginUrl%>" id="topbar_login"><span>[登录]</span></a></li>';
+	loginTmpl += '<%}%>';
+//	loginTmpl += '<%=showCb%><li class="line"><span>|</span></li><li class="order"><a href="<%=orderUrl%>"><span>我的订单</span></a></li><li class="line"><span>|</span></li>';
+	//loginTmpl += '<li class="order"><%=saleCarTmpl%></li><li class="line"><span>|</span></li>'; 购物车
+	//loginTmpl += '<li class="pull_link"><span>我的威锋<i class="arrow"></i></span><div class="pull_list"><a href="<%=favoriteUrl%>" target="_blank">我的收藏</a><a href="<%=accountInfoUrl%>" target="_blank">账户管理</a><a href="<%=commentUrl%>" target="_blank">商品评价</a><a href="<%=consultUrl%>" target="_blank">商品咨询</a><a href="<%=messageUrl%>" target="_blank">我的留言</a><a href="<%=alertsUrl%>" target="_blank">到货提醒</a><a href="<%=notificationUrl%>" target="_blank">降价通知</a><a href="<%=accountTryUrl%>" target="_blank">我的试用</a></div></li>';
+
+	$.ajax({
+		cache: false,
+		dataType: 'json',
+		url: checkLoginUrl,
+		success: function(data){
+			var userInfo;
+			if(data && (userInfo = data.info) && userInfo.userName){
+				isCustomerServices = userInfo.isCustomerServices === 1;
+				isLoggedIn = userInfo.isLoggedIn === 1;
+				
+				$('#topbar_userinfo').html(ds.tmpl(loginTmpl, {
+					uid: userInfo.uid,
+					showCb :userInfo.showCb,
+					orderUrl: orderUrl,
+					loginUrl: loginUrl,
+					logoutUrl: logoutUrl,
+					isLoggedIn: isLoggedIn,
+					accountUrl: accountUrl,
+					userName: userInfo.userName,
+					levelName: userInfo.levelName,
+					mylevelUrl: mylevelUrl,
+					myLevelIcon: levelIconPath + userInfo.levelPhotoPath,
+					isCustomerServices: isCustomerServices,
+					messageListUrl: messageListUrl,
+					favoriteUrl: favoriteUrl,
+					accountInfoUrl: accountInfoUrl,
+					commentUrl: commentUrl,
+					consultUrl: consultUrl,
+					messageUrl: messageUrl,
+					alertsUrl: alertsUrl,
+					notificationUrl: notificationUrl,
+					accountTryUrl:accountTryUrl,
+                    saleCarTmpl:sale_car_tmpl
+				}));
+				
+				//轮训客服消息
+				if(isCustomerServices){
+					setInterval(getPretreatmentData, 5200);
+					getPretreatmentData();
+				}
+			}
+		},
+		complete: setLoginReturnUrl
+	});
+	
+	//login return url
+	function setLoginReturnUrl(){
+		var rLoginUrl = loginUrl + (loginUrl.indexOf('?')<0 ? '?' : '&') + 'returnUrl=';
+		$('#topbar_login').attr('href', rLoginUrl + encodeURIComponent(location.href));
+	}
+	setLoginReturnUrl();
+	
+	//获取客服消息
+	function getPretreatmentData(){
+		var xhr, tmplRender = getPretreatmentData.tmplRender;
+		if(!tmplRender){
+			tmplRender = getPretreatmentData.tmplRender = 
+				ds.tmpl('当前需要处理：\n<%=messageCount%>条客户留言\n<%=customerCount%>条客户评论\n<%=commentCount%>条购买咨询');
+		}
+		if((xhr = getPretreatmentData.xhr) && xhr.abort){
+			xhr.abort();
+		}
+		getPretreatmentData.xhr = $.ajax({
+			url: 'http://www.fengbuy.com/account/messageList/getPretreatmentAjaxJson/',
+			dataType: 'json',
+			cache: false,
+			success: function(data){
+				var info;
+				if(data && data.success == 1 && (info = data.info)){
+					$('#pretreatment').attr('title', tmplRender(info))
+					.find('em').html(info.messageCount + info.customerCount + info.commentCount);
+				}
+			}
+		});
+		return getPretreatmentData.xhr;
+	}
+});
+
+//购物车
+jQuery(function($){
+	var
+	shell = $('#header_cartlist'),
+	noListTmpl = '<div class="no_product"><i class="big_cart"></i><span>您的购物车中没有商品，<a href="http://www.fengbuy.com/all.html">马上购买</a></span></div>',
+	listTmpl = '<ul><%for(var i=0,len=list.length; i<len; i++){%>';
+	listTmpl += '<li><a href="<%=list[i].productUrl%>" target="_blank" class="pic"><img src="<%=list[i].productImage%>" height="60" width="60" alt="<%=list[i].productName%>" /></a><a href="<%=list[i].productUrl%>" target="_blank" class="tit"><%=list[i].productName%></a>';
+	listTmpl += '<div class="prop"><em class="price" title="单价">&yen;<%=list[i].price%></em><span class="count">数量<em>×<%=list[i].qty%></em></span></div>';
+	listTmpl += '<a href="javascript:;" class="del" title="删除" data-id="<%=list[i].id%>">×</a>';
+	listTmpl += '<%}%></ul><div class="user_cart_funs">';
+	listTmpl += '<div class="total">共有<em><%=cartQty%></em>件商品  购物车小计：<em class="price">&yen;<%=subtotal%></em></div>';
+	listTmpl += '<div class="btns"><a href="http://www.fengbuy.com/checkout/cart/" class="btn"><span>去购物车并结算</span></a></div>';
+	listTmpl += '</div>';
+	function getCartListHTML(data){
+		var html = noListTmpl;
+		if(data && data.list && data.list.length > 0){
+			html = ds.tmpl(listTmpl, data);
+		}
+		return html;
+	}
+	
+	function setCartListHTML(data){
+		if(data && data.list){
+            $('#header_cartlist').html(getCartListHTML(data));
+			$('#cart_subtotal').html('&yen;' + data.subtotal);
+			$('#cart_qty').html(data.cartQty);
+			$('#cartNum').html(data.cartQty);
+		}
+	}
+
+	function getCartList(callback){
+		return $.ajax({
+			url: 'http://www.fengbuy.com/checkout/cart/refreshCartAjax/',
+			dataType: 'json',
+			cache: false,
+			success: function(data){
+				(callback || $.noop)(data);
+			}
+		});
+	}
+	
+	function refreshDisplayCart(data){
+		if(data && data.info){
+			setCartListHTML(data.info);
+			return;
+		}
+		return getCartList(function(data){
+			if(data && data.info && data.success == '1'){
+				setCartListHTML(data.info);
+			}
+		});
+	}
+
+	//删除购物车
+	shell.delegate('a.del', 'click', function(e){
+		e.preventDefault();
+
+		$.ajax({
+			url: 'http://www.fengbuy.com/checkout/cart/deleteAjax/',
+			data: {id: this.getAttribute('data-id')},
+			dataType: 'json',
+			cache: false,
+			success: function(data){
+				if(data && data.success != '1' && data.info){
+					ds.dialog.tips(data.info, 3);
+				}
+			},
+			complete: refreshDisplayCart
+		});
+		$(this.parentNode).remove();
+	});
+
+	//手动刷新
+//	var cartRefreshTimer;
+//	shell.parent().hover(function(){
+//		clearTimeout(cartRefreshTimer);
+//		cartRefreshTimer = setTimeout(refreshDisplayCart, 150);
+//	}, function(){
+//		clearTimeout(cartRefreshTimer);
+//	});
+	refreshDisplayCart();
+
+	//挂载 & 初始化
+	ds.mix(window, {
+		refreshDisplayCart: refreshDisplayCart,
+		getCartListHTML: getCartListHTML,
+		setCartListHTML: setCartListHTML,
+		getCartList: getCartList
+	});
+});
+
+ds.loadScript(baseJSUrl+'quick_links.js');
+</script>
+<script src="http://w.cnzz.com/c.php?id=30064015"></script>
+<script type="text/javascript">
+var _mvq = _mvq || [];
+_mvq.push(['$setAccount', 'm-28955-0']);
+_mvq.push(['$logConversion']);
+(function() {
+	var mvl = document.createElement('script');
+	mvl.type = 'text/javascript'; mvl.async = true;
+	mvl.src = ('https:' == document.location.protocol ? 'https://static-ssl.mediav.com/mvl.js' : 'http://static.mediav.com/mvl.js');
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(mvl, s); 
+})();	
+</script></body>
+</html>

@@ -1,0 +1,2388 @@
+[ 2014-12-16T09:16:55+08:00 ] 127.0.0.1 /kicker/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.011000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T09:16:58+08:00 ] 127.0.0.1 /kicker/Home/Filter/index.html?cid=3&page=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+NOTIC: [2] Missing argument 8 for Home\Model\GoodsModel::filterGoods(), called in C:\xampp\htdocs\kicker\Application\Home\Controller\FilterController.class.php on line 34 and defined C:\xampp\htdocs\kicker\Application\Home\Model\GoodsModel.class.php 第 35 行.
+NOTIC: [8] Undefined variable: limit C:\xampp\htdocs\kicker\Application\Home\Model\GoodsModel.class.php 第 60 行.
+SQL: SELECT `gid`,`main_title`,`price`,`goods_img`,`buy` FROM `hy_goods` WHERE ( cid=3 )  [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`price`,`goods_img`,`buy` FROM `hy_goods` WHERE ( cid=3 ) LIMIT 0,3   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_category` [ RunTime:0.031002s ]
+SQL: SELECT `attr`,`band` FROM `hy_category` WHERE `cid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T09:16:59+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=11
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 3 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.023001s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.006001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T09:17:08+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 11 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T09:17:11+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 11 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T09:17:24+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE `goods_id` = 11 AND Cart.user_id = 4 LIMIT 1   [ RunTime:0.015001s ]
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: UPDATE `hy_cart` SET `goods_num`=goods_num+2 WHERE `cart_id` = '14' [ RunTime:0.052003s ]
+SQL: SELECT * FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE `goods_id` = 3 AND Cart.user_id = 4 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.005001s ]
+SQL: UPDATE `hy_cart` SET `goods_num`=goods_num+1 WHERE `cart_id` = '15' [ RunTime:0.033002s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T09:21:03+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T09:21:34+08:00 ] 127.0.0.1 /kicker/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T09:21:37+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T09:21:56+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T09:22:57+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.005000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2014-12-16T09:40:56+08:00 ] 127.0.0.1 /kicker/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:21:32+08:00 ] 127.0.0.1 /kicker/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:21:42+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.002000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:22:07+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003001s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2014-12-16T10:22:36+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2014-12-16T10:22:39+08:00 ] 127.0.0.1 /kicker/Home/Detail/%7B:U(%22Member/Cart/Add%22)%7D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+ERR: 非法操作:{:U("Member
+
+[ 2014-12-16T10:23:04+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:23:07+08:00 ] 127.0.0.1 /kicker/Home/Detail/%7B:U(%22Member/Cart/Add%22)%7D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+ERR: 非法操作:{:U("Member
+
+[ 2014-12-16T10:26:27+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2014-12-16T10:26:30+08:00 ] 127.0.0.1 /kicker/Home/Detail/%7B:U(%22Member/Cart/Add%22)%7D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+ERR: 非法操作:{:U("Member
+
+[ 2014-12-16T10:26:57+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:27:00+08:00 ] 127.0.0.1 /kicker/Home/Detail/__PUBLIC__/null
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003001s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+ERR: 非法操作:__PUBLIC__
+
+[ 2014-12-16T10:29:52+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:29:56+08:00 ] 127.0.0.1 /kicker/Home/Detail/__PUBLIC__/null
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.001001s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+ERR: 非法操作:__PUBLIC__
+
+[ 2014-12-16T10:30:57+08:00 ] 127.0.0.1 /kicker/Home/Detail/__PUBLIC__/null
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+ERR: 非法操作:__PUBLIC__
+
+[ 2014-12-16T10:30:58+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2014-12-16T10:31:01+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2014-12-16T10:31:04+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=11
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 3 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2014-12-16T10:31:08+08:00 ] 127.0.0.1 /kicker/Home/Detail/__PUBLIC__/null
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 11 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+ERR: 非法操作:__PUBLIC__
+
+[ 2014-12-16T10:32:01+08:00 ] 127.0.0.1 /kicker/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:32:06+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005001s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.005000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.001001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:35:08+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.001001s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 11 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:35:11+08:00 ] 127.0.0.1 /kicker/Home/Detail/%7B:U(%22Member/Cart/Add%22)%7D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 11 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+ERR: 非法操作:{:U("Member
+
+[ 2014-12-16T10:35:12+08:00 ] 127.0.0.1 /kicker/Home/Detail/%7B:U(%22Member/Cart/Add%22)%7D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003001s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 11 LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+ERR: 非法操作:{:U("Member
+
+[ 2014-12-16T10:35:14+08:00 ] 127.0.0.1 /kicker/Home/Detail/%7B:U(%22Member/Cart/Add%22)%7D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 11 LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+ERR: 非法操作:{:U("Member
+
+[ 2014-12-16T10:35:14+08:00 ] 127.0.0.1 /kicker/Home/Detail/%7B:U(%22Member/Cart/Add%22)%7D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 11 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+ERR: 非法操作:{:U("Member
+
+[ 2014-12-16T10:36:45+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.001001s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 11 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2014-12-16T10:36:56+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 11 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:36:58+08:00 ] 127.0.0.1 /kicker/Home/Detail/%7B:U(%22Member/Cart/clearCart%22)%7D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 11 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+ERR: 非法操作:{:U("Member
+
+[ 2014-12-16T10:38:14+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 11 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:39:29+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.010000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:39:36+08:00 ] 127.0.0.1 /kicker/Home/Detail/__PUBLIC__/null
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+ERR: 非法操作:__PUBLIC__
+
+[ 2014-12-16T10:40:23+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:40:33+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.005001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:40:42+08:00 ] 127.0.0.1 /kicker/Home/Detail/__PUBLIC__/null
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.001001s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+ERR: 非法操作:__PUBLIC__
+
+[ 2014-12-16T10:43:14+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001001s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:43:20+08:00 ] 127.0.0.1 /kicker/Home/Detail/__PUBLIC__/null
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 83 行.
+NOTIC: [8] Undefined index: price C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 84 行.
+NOTIC: [8] Undefined index: gid C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 85 行.
+NOTIC: [8] Undefined index: goods_img C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 86 行.
+NOTIC: [8] Undefined index: main_title C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 87 行.
+ERR: 非法操作:__PUBLIC__
+
+[ 2014-12-16T10:45:09+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:45:46+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Goods.gid = 3 LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2014-12-16T10:46:27+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2014-12-16T10:48:17+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2014-12-16T10:53:33+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001001s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.003000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.001001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:54:07+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005001s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2014-12-16T10:56:03+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:56:35+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:56:53+08:00 ] 127.0.0.1 /kicker/Home/Detail/__PUBLIC__/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005001s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+ERR: 非法操作:__PUBLIC__
+
+[ 2014-12-16T10:57:36+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:57:38+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=11
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 3 LIMIT 5   [ RunTime:0.001001s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T10:57:42+08:00 ] 127.0.0.1 /kicker/Home/Detail/__PUBLIC__/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+ERR: 非法操作:__PUBLIC__
+
+[ 2014-12-16T10:57:44+08:00 ] 127.0.0.1 /kicker/Home/Detail/%7B:U(%22Member/Cart/getTotalPrice%22)%7D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+ERR: 非法操作:{:U("Member
+
+[ 2014-12-16T10:59:03+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=11
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 3 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T11:00:29+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=11
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 3 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T11:00:44+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.006001s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2014-12-16T11:00:47+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.005001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.023001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2014-12-16T11:00:53+08:00 ] 127.0.0.1 /kicker/Home/Detail/%7B:U(%22Member/Cart/getTotalPrice%22)%7D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: username C:\xampp\htdocs\kicker\Application\Home\Controller\CommonController.class.php 第 10 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT `main_title`,`gid`,`goods_img`,`price` FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_attr C:\xampp\htdocs\kicker\Application\Member\Controller\CartController.class.php 第 82 行.
+ERR: 非法操作:{:U("Member
+
+[ 2014-12-16T11:03:15+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT * FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE `goods_id` = 3 AND Cart.user_id = 4 LIMIT 1   [ RunTime:0.017001s ]
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: INSERT INTO `hy_cart` (`user_id`,`goods_id`,`goods_num`,`goods_attr`) VALUES (4,3,2,'\n									S								') [ RunTime:0.104006s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2014-12-16T11:03:24+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=11
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 3 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T11:03:31+08:00 ] 127.0.0.1 /kicker/Home/Detail/%7B:U(%22Member/Cart/getTotalPrice%22)%7D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.001000s ]
+ERR: 非法操作:{:U("Member
+
+[ 2014-12-16T11:03:39+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2014-12-16T11:03:40+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T11:04:06+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=11
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 3 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004001s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' ORDER BY Comment.time desc  [ RunTime:0.000000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T11:04:09+08:00 ] 127.0.0.1 /kicker/Home/Detail/%7B:U(%22Member/Cart/getTotalPrice%22)%7D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.001000s ]
+ERR: 非法操作:{:U("Member
+
+[ 2014-12-16T11:04:17+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005001s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2014-12-16T11:04:19+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T13:09:35+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=11
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003001s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 3 LIMIT 5   [ RunTime:0.000000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001001s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2014-12-16T13:10:55+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=11
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003001s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 3 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T13:10:57+08:00 ] 127.0.0.1 /kicker/Home/Detail/%7B:U(%22Member/Cart/getTotalPrice%22)%7D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005001s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.001000s ]
+ERR: 非法操作:{:U("Member
+
+[ 2014-12-16T14:21:27+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005001s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T14:32:11+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T16:03:29+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=11
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 11 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004001s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 3 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' ORDER BY Comment.time desc  [ RunTime:0.006001s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '11' LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T16:03:32+08:00 ] 127.0.0.1 /kicker/Home/Detail/index.html?gid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005001s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `gid` = 3 LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` WHERE `cid` = 1 LIMIT 5   [ RunTime:0.001000s ]
+SQL: SELECT `gid`,`main_title`,`goods_img`,`price`,`buy` FROM `hy_goods` ORDER BY buy desc LIMIT 5   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hy_comment` [ RunTime:0.005001s ]
+SQL: SHOW COLUMNS FROM `hy_user` [ RunTime:0.004000s ]
+SQL: SELECT Comment.user_id AS user_id,Comment.goods_id AS goods_id,Comment.time AS time,Comment.content AS content,User.uname AS uname,User.head_image AS head_image FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' ORDER BY Comment.time desc  [ RunTime:0.001000s ]
+SQL: SELECT count(comm_id) as c,sum(rating) as s FROM hy_comment Comment  JOIN hy_user User ON Comment.user_id = User.uid WHERE Comment.goods_id = '3' LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T16:08:07+08:00 ] 127.0.0.1 /kicker/Home/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.005001s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.007000s ]
+SQL: SELECT Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-16T17:54:59+08:00 ] 127.0.0.1 /kicker/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\kicker\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `hy_cart` [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT Cart.cart_id AS cart_id,Cart.goods_num AS goods_num,Cart.goods_attr AS goods_attr,Goods.main_title AS main_title,Goods.gid AS gid,Goods.goods_img AS goods_img,Goods.price AS price FROM hy_cart Cart  JOIN hy_goods Goods ON Cart.goods_id = Goods.gid WHERE Cart.user_id = '4'  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `hy_goods` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 1 LIMIT 8   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 3 LIMIT 8   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hy_goods` WHERE `cid` = 4 LIMIT 8   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

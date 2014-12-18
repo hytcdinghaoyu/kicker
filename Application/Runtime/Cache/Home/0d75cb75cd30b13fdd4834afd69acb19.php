@@ -8,6 +8,7 @@
 <script type="text/javascript" src="/kicker/Public/js/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="/kicker/Public/js/index.js"></script>
 <script type="text/javascript">
+
 	$(function(){
 		//选择尺寸
 		$(".des_item").click(function(){
@@ -63,99 +64,48 @@
 			var top = $(".des_infoComment").offset().top-39;
 			$('body').animate({ scrollTop: top }, 300);
 		});
-
-		/*ajax添加购物车*/
-		$(".cart_btn").click(function(){
-			var gid = $(".gid").html();
-			var gnum = $(".des_input input").val();
-			var size = $(".des_select span").html();
-			//alert(size);
-			if (size == '') {
-				alert('请选择尺寸！');
-				return;
-			};
-			$.ajax({
-				type : 'POST',
-				url : '<?php echo U("Member/Cart/Add");?>',
-				data : {gid : gid , gnum : gnum ,size : size},
-				success : function(res){
-					alert("添加购物车成功！");
-					var total_num = res["total_num"];
-					var total_price = res['total_price'];
-					$(".total_num").html(total_num);				
-					$(".total_price").html(total_price);
-					var html = "";
-					$.each(res['carts'],function(key,val){
-						html += '<li gid='+val.gid+'>';
-						html += '	<a href="" class="pic">';
-						html += '		<img src="/kicker/Public/'+val.goods_img+'">';
-						html += '	</a>';
-						html += '	<p class="tit">'+val.main_title+'</p>';
-						html += '	<div class="prop">';
-						html += '		单价:';
-						html += '		<em>￥'+val.price+'</em>';
-						html += '	数量：';
-						html += '		<em class="gnum">'+val.goods_num+'</em>';
-						html += '	</div>';
-						html += '	<a href="javascript:;" class="del" gid='+val.gid+'></a>';
-						html += '</li>';
-					});
-					$(".no_carts").remove();
-					$(".cart_inner ul").html(html);
-					$(".cart_inner").show();
-				}
-			});
-		});
-		/*删除购物车中的某个商品*/
-		$("body").on("click",".del",function(){
-			var gid = $(this).attr("gid");
-			//ajax删除相应的session
-			$.ajax({
-				type : "POST",
-				url : '<?php echo U("Member/Cart/del");?>',
-				data : {gid : gid},
-				success : function(){				
-					$("li[gid ="+gid+"]").remove();
-					//再次获取商品的总价
-					$.ajax({
-						type : 'POST',
-						url : '<?php echo U("Member/Cart/getTotalPrice");?>',
-						data : {},
-						success : function(res){
-							if (res == false) {
-								$(".total_num").html('0');				
-								$(".total_price").html('0');
-							};
-							var total_num = res["total_num"];
-							var total_price = res['total_price'];
-							$(".total_num").html(total_num);				
-							$(".total_price").html(total_price);
-						}
-					});
-				}
-			});
-		});
-		/*清空购物车*/
-		$("body").on('click','.clear_btn',function(){
-			$.ajax({
-				type : "POST",
-				url : '<?php echo U("Member/Cart/clearCart");?>',
-				data : {},
-				success : function(res){
-					if (res.status == 1) {
-						var html = "";
-						html += '<div class="no_carts">';
-						html += '购物车中还没有商品，去逛逛吧^_^';
-						html += '</div>';
-						$(".cart_inner ul").html('');
-						$(".total_num").html('0');
-						$(".total_price").html('0');
-						$(".cart_inner").prepend(html);
-					};
-				}
-			});
-		});
 	});
+/*添加购物车*/
+function addCart(){
+	var gid = $(".gid").html();
+	var gnum = $(".des_input input").val();
+	var size = $(".des_select span").html();
+	if (size == '') {
+		alert('请选择尺寸！');
+		return;
+	};
+	$.ajax({
+		type : 'POST',
+		url : addCartUrL,
+		data : {gid : gid , gnum : gnum ,size : size},
+		success : function(res){
+			alert("添加购物车成功！");
+			var total_num = res["total_num"];
+			var total_price = res['total_price'];
+			$(".total_num").html(total_num);				
+			$(".total_price").html(total_price);
+			var html = "";
+			$.each(res['carts'],function(key,val){
+				html += '<li gid='+val.gid+'>';
+				html += '	<a href="" class="pic">';
+				html += '		<img src="/kicker/Public/'+val.goods_img+'">';
+				html += '	</a>';
+				html += '	<p class="tit">'+val.main_title+'</p>';
+				html += '	<div class="prop">';
+				html += '		单价:';
+				html += '		<em>￥'+val.price+'</em>';
+				html += '	数量：';
+				html += '		<em class="gnum">'+val.goods_num+'</em>';
+				html += '	</div>';
+				html += '	<a href="javascript:;" class="del" gid='+val.gid+' onclick="delCart('+val.gid+')"></a>';
+				html += '</li>';
+			});
+			$(".no_carts").remove();
+			$(".cart_inner ul").html(html);
+			$(".cart_inner").show();
+		}
+	});
+}
 </script>
 <!--[if IE 6]>
 <script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
@@ -164,6 +114,12 @@
 </head>
 
 <body class="grey">
+<script type="text/javascript">
+	var addCartUrL = '<?php echo U("Member/Cart/Add");?>';
+	var delCartUrl = '<?php echo U("Member/Cart/del");?>';
+	var clearCartUrl = '<?php echo U("Member/Cart/clearCart");?>';
+	var updateUrl = '<?php echo U("Member/Cart/updateGoodsNum");?>';
+</script>
 <div class="headerBar">
 	<div class="topBar">
 		<div class="comWrap">
@@ -208,7 +164,7 @@
 										数量：
 										<em class="gnum"><?php echo ($val["goods_num"]); ?></em>
 									</div>
-									<a href="javascript:;" class="del" gid=<?php echo ($val["gid"]); ?>></a>
+									<a href="javascript:;" class="del" gid=<?php echo ($val["gid"]); ?> onchange="delCart(<?php echo ($val["gid"]); ?>)"></a>
 								</li><?php endforeach; endif; ?>
 							<?php else: ?>
 								<div class="no_carts">
@@ -230,7 +186,7 @@
 							</span>
 						</div>
 						<div class="btns clear">
-							<a href="javascript:;" class="cart_btns clear_btn">清空购物车</a>
+							<a href="javascript:;" class="cart_btns clear_btn" onclick="clearCart()">清空购物车</a>
 							<a href="<?php echo U('Member/Cart/index');?>" class="cart_btns count_btn">立即结算</a>
 						</div>
 					</div>
@@ -373,7 +329,7 @@
 				<div class="shop_buy">
 					<a href="javascript:;" class="buy_btn">立即购买</a>
 					<span class="line"></span>
-					<a href="javascript:;" class="cart_btn">添加购物车</a>
+					<a href="javascript:;" class="cart_btn" onclick="addCart()">添加购物车</a>
 				</div>
 			</div>
 		</div>

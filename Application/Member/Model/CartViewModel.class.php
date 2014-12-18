@@ -6,7 +6,7 @@ namespace Member\Model;
 use Think\Model\ViewModel;
 class CartViewModel extends ViewModel{
 	public $viewFields = array(
-		'Cart' => array('goods_num','goods_attr','user_id'),
+		'Cart' => array('goods_num','goods_attr','user_id','cart_id'),
 		'Goods' => array('main_title','price','goods_img','gid','_on' => 'Cart.goods_id = Goods.gid','_type' => 'INNER'),
 	);
 	/**
@@ -19,7 +19,7 @@ class CartViewModel extends ViewModel{
 			'goods_img',
 			'price',
 		);
-		return $this->field($fields)->where($where)->find();
+		return M('goods')->field($fields)->where($where)->find();
 	}
 	/**
 	 * 添加购物车
@@ -51,15 +51,13 @@ class CartViewModel extends ViewModel{
 	 * 更新购物车商品数量
 	 */
 	public function updateCartNum($where,$num){
-		$this->where($where)->save(array('goods_num'=>$num));
-		return $this->getAffectedRows();
+		return $this->where($where)->save(array('goods_num'=>$num));
 	}
 	
 	/**
 	 * 获取所有购物车的数据
 	 */
 	public function getCartAll($uid){
-		//return $this->viewFields;
 		$fields = array(
 			'main_title',
 			'gid',

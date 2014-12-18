@@ -1,3 +1,11 @@
+<script type="text/javascript">
+	var addCartUrL = '{:U("Member/Cart/Add")}';
+	var delCartUrl = '{:U("Member/Cart/del")}';
+	var clearCartUrl = '{:U("Member/Cart/clearCart")}';
+	var updateUrl = '{:U("Member/Cart/updateGoodsNum")}';
+	var IncUrl = '{:U("Member/Cart/IncCartNum")}';
+	var DecUrl = '{:U("Member/Cart/DecCartNum")}';
+</script>
 <div class="headerBar">
 	<div class="topBar">
 		<div class="comWrap">
@@ -47,7 +55,7 @@
 										数量：
 										<em class="gnum">{$val.goods_num}</em>
 									</div>
-									<a href="javascript:;" class="del" gid={$val.gid}></a>
+									<a href="javascript:;" class="del" gid={$val.gid} onchange="delCart({$val.gid})"></a>
 								</li>
 							</foreach>
 							<else/>
@@ -73,7 +81,7 @@
 							</span>
 						</div>
 						<div class="btns clear">
-							<a href="javascript:;" class="cart_btns clear_btn">清空购物车</a>
+							<a href="javascript:;" class="cart_btns clear_btn" onclick="clearCart()">清空购物车</a>
 							<a href="{:U('Member/Cart/index')}" class="cart_btns count_btn">立即结算</a>
 						</div>
 					</div>

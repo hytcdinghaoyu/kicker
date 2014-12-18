@@ -14,6 +14,14 @@
 </head>
 
 <body>
+<script type="text/javascript">
+	var addCartUrL = '<?php echo U("Member/Cart/Add");?>';
+	var delCartUrl = '<?php echo U("Member/Cart/del");?>';
+	var clearCartUrl = '<?php echo U("Member/Cart/clearCart");?>';
+	var updateUrl = '<?php echo U("Member/Cart/updateGoodsNum");?>';
+	var IncUrl = '<?php echo U("Member/Cart/IncCartNum");?>';
+	var DecUrl = '<?php echo U("Member/Cart/DecCartNum");?>';
+</script>
 <div class="headerBar">
 	<div class="topBar">
 		<div class="comWrap">
@@ -58,7 +66,7 @@
 										数量：
 										<em class="gnum"><?php echo ($val["goods_num"]); ?></em>
 									</div>
-									<a href="javascript:;" class="del" gid=<?php echo ($val["gid"]); ?>></a>
+									<a href="javascript:;" class="del" gid=<?php echo ($val["gid"]); ?> onchange="delCart(<?php echo ($val["gid"]); ?>)"></a>
 								</li><?php endforeach; endif; ?>
 							<?php else: ?>
 								<div class="no_carts">
@@ -80,7 +88,7 @@
 							</span>
 						</div>
 						<div class="btns clear">
-							<a href="javascript:;" class="cart_btns clear_btn">清空购物车</a>
+							<a href="javascript:;" class="cart_btns clear_btn" onclick="clearCart()">清空购物车</a>
 							<a href="<?php echo U('Member/Cart/index');?>" class="cart_btns count_btn">立即结算</a>
 						</div>
 					</div>
