@@ -27,6 +27,31 @@
 			$(".new_address").slideDown();
 		});
 
+		$(".cancel_add").click(function(){
+			$(".new_address").hide();
+		});
+
+		$(".step_radio[is_default='1']").addClass('selected');
+
+		$(".step_radio").click(function(){
+			$(".step_radio").removeClass('selected');
+			$(this).addClass('selected');
+		});
+
+		//复选框
+		$("#all").click(function(){
+			if ($(this).attr('select')=='1') {
+				$(".chk_cart").removeAttr('checked');
+				$(this).attr('select','0');
+			}else{
+				$(".chk_cart").click();
+				$(".chk_cart").attr('checked',true);
+				$(this).attr('select','1');
+			}
+		});
+
+
+
 	});
 /*更新购物车商品数量*/
 function updateCartNum(gid){
@@ -104,6 +129,22 @@ function checkAddress(){
 	$("#addressForm").submit();
 	
 }
+/*添加订单*/
+function addOrder(){
+	var cartIdStr = '';
+	var address_id = $(".selected input").val();
+	var remark = $("#customer_note").val();
+	var total_price = $(".order_price").html();
+	$(".chk_cart:checked").each(function(){
+		cartIdStr += $(this).val()+',';
+	});
+	if (cartIdStr == '') {
+		alert('请勾选需要购买的商品！');
+		return false;
+	}else{
+		location.href = addOrderUrl+"?cartIdStr="+cartIdStr+"&address_id="+address_id+"&remark="+remark+"&total_price="+total_price+"";
+	}
+}
 </script>
 <!--[if IE 6]>
 <script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
@@ -145,6 +186,8 @@ function checkAddress(){
 	var updateUrl = '<?php echo U("Member/Cart/updateGoodsNum");?>';
 	var IncUrl = '<?php echo U("Member/Cart/IncCartNum");?>';
 	var DecUrl = '<?php echo U("Member/Cart/DecCartNum");?>';
+	var getTotalUrl = '<?php echo U("Member/Cart/getTotalPrice");?>';
+	var addOrderUrl = '<?php echo U("Member/Order/addOrder");?>';
 </script>
 <div class="headerBar">
 	<div class="topBar">
@@ -190,7 +233,7 @@ function checkAddress(){
 										数量：
 										<em class="gnum"><?php echo ($val["goods_num"]); ?></em>
 									</div>
-									<a href="javascript:;" class="del" gid=<?php echo ($val["gid"]); ?> onchange="delCart(<?php echo ($val["gid"]); ?>)"></a>
+									<a href="javascript:;" class="del" gid=<?php echo ($val["gid"]); ?> onclick="delCart(<?php echo ($val["gid"]); ?>)"></a>
 								</li><?php endforeach; endif; ?>
 							<?php else: ?>
 								<div class="no_carts">
@@ -309,8 +352,8 @@ function checkAddress(){
 					<div class="step_title"><h3><em class="index">1</em>选择收货地址</h3></div>
 					<div class="step_main" id="addressUl">
 						<div class="clearfix step_radio_wrap">
-							<?php if(is_array($address)): foreach($address as $key=>$val): ?><div class="step_radio selected">
-								<input type="radio" name="billing_address_id" id="billing_address_id_86425" provinceid="2" cityid="2" value="86425" checked=""><label for="addr_1"><span class="city_name"><?php echo ($val["province"]); ?> <?php echo ($val["city"]); ?><em><?php echo ($val["country"]); ?></em><strong class="name">（<em><?php echo ($val["consignee"]); ?></em>收）</strong></span>	<span class="addr_tel"><?php echo ($val["street"]); ?>&nbsp;（<?php echo ($val["consignee"]); ?>&nbsp;收）<em>联系电话：<?php echo ($val["tel"]); ?> </em> 
+							<?php if(is_array($address)): foreach($address as $key=>$val): ?><div class="step_radio" is_default="<?php echo ($val["is_default"]); ?>">
+								<input type="radio" name="billing_address_id" id="billing_address_id_86425" provinceid="2" cityid="2" value="<?php echo ($val["address_id"]); ?>" checked=""><label for="addr_1"><span class="city_name"><?php echo ($val["province"]); ?> <?php echo ($val["city"]); ?><em><?php echo ($val["country"]); ?></em><strong class="name">（<em><?php echo ($val["consignee"]); ?></em>收）</strong></span>	<span class="addr_tel"><?php echo ($val["street"]); ?>&nbsp;（<?php echo ($val["consignee"]); ?>&nbsp;收）<em>联系电话：<?php echo ($val["tel"]); ?> </em> 
 		                        </span></label><div class="btns"><a href="javascript:;" data-addrid="86425" class="btn edit"><span>修改地址</span></a><a href="javascript:;" onclick="saveAddressDefault(86425)" class="btn set_def"><span>设为默认</span></a></div><i class="arrow"></i>
 	                        	</div><?php endforeach; endif; ?>	
                         </div>
@@ -320,6 +363,7 @@ function checkAddress(){
 						<div class="new_address" style="display:none">
 							<form id="addressForm" name="addressForm" action="<?php echo U("Member/Cart/addAddress");?>" method="post" >
 							<input type="button" class="add_input" value="确定" onclick="checkAddress()">
+							<input type="button" class="cancel_add" value="取消">
 							<input type="hidden" name="id" id="id" value="0">
 							<input type="hidden" name="country_id" id="country_id" value="CN">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0"> 
@@ -353,7 +397,7 @@ function checkAddress(){
 									</tr>
 									<tr>
 										<th><label for="telephone_area_code">固定电话：</label></th>
-										<td><input name="telephone_area_code" id="telephone_area_code" type="text" value="" placeholder="区号"><em>-</em><input name="telephone_number" id="telephone_number" type="text" value="" placeholder="电话号码"><em>-</em><input id="telephone_ext" name="telephone_ext" value="" type="text" placeholder="分机号"><em id="telephone_error" class="error_em"></em></td> 
+										<td><input name="telephone_area_code" id="telephone_area_code" type="text" value="" placeholder="区号"><em>-</em><input name="telephone_number" id="telephone_number" type="text" value="" placeholder="电话号码"><em id="telephone_error" class="error_em"></em></td> 
 									</tr>
 								</tbody>
 							</table> 
@@ -420,7 +464,7 @@ function checkAddress(){
 				<div class="cart_order">
 					<ul>
 						<li class="chk">
-							<input type="checkbox" id="all" title="全选" checked>
+							<input type="checkbox" id="all" title="全选" select="1" checked>
 							<label for="all">全选</label>
 						</li>
 						<li class="pic">商品图</li>
@@ -434,7 +478,7 @@ function checkAddress(){
 					<ul class="cart_ul">
 						<?php if(is_array($carts)): foreach($carts as $key=>$val): ?><li class="cart_item">
 							<span class="chk">
-								<input type="checkbox">
+								<input type="checkbox"  class="chk_cart" checked value="<?php echo ($val["cart_id"]); ?>">
 							</span>
 							<div class="pro_info">
 								<div class="pro_props clear">
@@ -470,7 +514,7 @@ function checkAddress(){
 			<span class="order_price"><?php echo ($total_price); ?></span>
 			</div>
 			<div class="cart_buy clear">
-				<a href="" class="cal_btn">现在结账</a>
+				<a href="javascript:;" class="cal_btn" onclick="addOrder()">现在结账</a>
 			</div>
 		</div>		
 	</div>

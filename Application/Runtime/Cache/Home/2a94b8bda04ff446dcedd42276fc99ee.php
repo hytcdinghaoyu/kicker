@@ -21,6 +21,8 @@
 	var updateUrl = '<?php echo U("Member/Cart/updateGoodsNum");?>';
 	var IncUrl = '<?php echo U("Member/Cart/IncCartNum");?>';
 	var DecUrl = '<?php echo U("Member/Cart/DecCartNum");?>';
+	var getTotalUrl = '<?php echo U("Member/Cart/getTotalPrice");?>';
+	var addOrderUrl = '<?php echo U("Member/Order/addOrder");?>';
 </script>
 <div class="headerBar">
 	<div class="topBar">
@@ -66,7 +68,7 @@
 										数量：
 										<em class="gnum"><?php echo ($val["goods_num"]); ?></em>
 									</div>
-									<a href="javascript:;" class="del" gid=<?php echo ($val["gid"]); ?> onchange="delCart(<?php echo ($val["gid"]); ?>)"></a>
+									<a href="javascript:;" class="del" gid=<?php echo ($val["gid"]); ?> onclick="delCart(<?php echo ($val["gid"]); ?>)"></a>
 								</li><?php endforeach; endif; ?>
 							<?php else: ?>
 								<div class="no_carts">

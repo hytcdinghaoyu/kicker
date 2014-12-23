@@ -39,7 +39,7 @@ class CartViewModel extends ViewModel{
 	 * 自增购物车
 	 */
 	public function incCart($id,$num){
-		return $this->table('hy_cart')->where(array('cart_id'=>$id))->setInc('goods_num',$num);
+		return M('cart')->where(array('cart_id'=>$id))->setInc('goods_num',$num);
 	}
 	/**
 	 * 统计购物车总数

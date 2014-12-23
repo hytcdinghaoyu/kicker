@@ -5,6 +5,8 @@
 	var updateUrl = '{:U("Member/Cart/updateGoodsNum")}';
 	var IncUrl = '{:U("Member/Cart/IncCartNum")}';
 	var DecUrl = '{:U("Member/Cart/DecCartNum")}';
+	var getTotalUrl = '{:U("Member/Cart/getTotalPrice")}';
+	var addOrderUrl = '{:U("Member/Order/addOrder")}';
 </script>
 <div class="headerBar">
 	<div class="topBar">
@@ -55,7 +57,7 @@
 										数量：
 										<em class="gnum">{$val.goods_num}</em>
 									</div>
-									<a href="javascript:;" class="del" gid={$val.gid} onchange="delCart({$val.gid})"></a>
+									<a href="javascript:;" class="del" gid={$val.gid} onclick="delCart({$val.gid})"></a>
 								</li>
 							</foreach>
 							<else/>

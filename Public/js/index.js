@@ -40,7 +40,7 @@ function delCart(gid){
 			//再次获取商品的总价
 			$.ajax({
 				type : 'POST',
-				url : '{:U("Member/Cart/getTotalPrice")}',
+				url : getTotalUrl,
 				data : {},
 				success : function(res){
 					if (res == false) {
