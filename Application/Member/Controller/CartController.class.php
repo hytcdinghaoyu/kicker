@@ -49,7 +49,6 @@ class CartController extends Controller{
 	 * 获得购物车的数据
 	 */
 	public  function getCartData(){
-		//$db = D('cart');
 		$db = new \Member\Model\CartViewModel();
 		$result = array();
 		//用户没有登录
@@ -231,9 +230,7 @@ class CartController extends Controller{
 	 * 清空购物车
 	 */
 	public function clearCart(){
-		if (IS_AJAX === false) {
-			exit();
-		}
+		
 		if(is_null($this->uid)) {
 			\Org\Util\Cart::delAll();
 			$this->ajaxReturn(array('status'=>1),'json');
@@ -241,7 +238,11 @@ class CartController extends Controller{
 			$where = array('user_id'=>intval($this->uid));
 			$db = D('Member/CartView');
 			if($db->delCart($where)){
-				$this->ajaxReturn(array('status'=>1),'json');
+				if (IS_AJAX === true) {
+		 			$this->ajaxReturn(array('status'=>1),'json');
+		 		}else{
+		 			return true;
+		 		}
 			}
 		}	
 	}

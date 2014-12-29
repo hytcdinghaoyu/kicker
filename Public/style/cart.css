@@ -1,3 +1,4 @@
+body{background-color: #f9f9f9;}
 .shoppingCart{padding: 10px 0;width: 942px;margin: 0 auto;min-height: 300px;}
 .inner_cart{background-color: #fff;border: 1px solid #f0f0f0;}
 .inner_cart .title{background: #476db9;color: #fff;text-shadow: 0 1px 0 #395ca1;}
@@ -570,7 +571,13 @@ background:-o-linear-gradient(top, #ffffe8 0%,#ffffd1 100%); background:-ms-line
 .orderGifts .giftsLabel{ padding-right:10px;}
 .orderGifts a{ display: inline-block; background: #fff; border: 1px solid #e6e6e6; height: 48px; width: 48px; vertical-align: middle;}
 .orderGifts .addIcon{ display: inline-block; background: url(../images/addIcon.png) no-repeat; height: 49px; width: 14px; vertical-align: middle;}
-
+.btn, .btn span, .btn i {
+display: inline-block;
+background: url(../images/btn_hor.png) no-repeat;
+vertical-align: middle;
+border-width: 0;
+cursor: pointer;
+}
 
 
 

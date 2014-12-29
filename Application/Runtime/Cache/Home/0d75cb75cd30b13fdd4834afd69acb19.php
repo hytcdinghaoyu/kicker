@@ -122,6 +122,7 @@ function addCart(){
 	var IncUrl = '<?php echo U("Member/Cart/IncCartNum");?>';
 	var DecUrl = '<?php echo U("Member/Cart/DecCartNum");?>';
 	var getTotalUrl = '<?php echo U("Member/Cart/getTotalPrice");?>';
+	var addOrderUrl = '<?php echo U("Member/Order/addOrder");?>';
 </script>
 <div class="headerBar">
 	<div class="topBar">

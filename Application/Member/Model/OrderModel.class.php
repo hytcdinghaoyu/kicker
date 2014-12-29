@@ -13,12 +13,14 @@ Class OrderModel extends Model{
 			'remark' => $data['remark'],
 			'status' => 0,
 			'add_time' => time(),
-			'pay_method' => 'Alipay'
+			'pay_method' => 'Alipay',
+			'billno' => date('ymdhis').substr(microtime(),2,4)
 		);
 		$cart_id_str = rtrim($data['cartIdStr'],',');
 		$order_id = $this->data($order)->add();
 		if ($order_id) {
 			$carts = M('cart')->where('cart_id in ('.$cart_id_str.')')->select();
+			$order_total = 0;
 			foreach ($carts as $cart_k => $cart_v) {
 				$price = M('goods')->where(array('gid'=>$cart_v['goods_id']))->getField('price');
 				$data = array(
@@ -28,9 +30,11 @@ Class OrderModel extends Model{
 					'total_money' => $cart_v['goods_num']*$price,
 					'goods_attr' => $cart_v['goods_attr'],
 				);
-				M('order_goods')->data($data)->add();
+				$order_total += $cart_v['goods_num']*$price;
+				M('order_goods')->data($data)->add();		
 			}
-			return true;
+			M('order')->where(array('order_id'=>$order_id))->save(array('total_price'=>$order_total));
+			return $order_id;
 		}
 	}
 

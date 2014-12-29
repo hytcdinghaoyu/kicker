@@ -1,13 +1,13 @@
-<!doctype html>
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>提交订单</title>
-<link type="text/css" rel="stylesheet" href="__PUBLIC__/style/reset.css">
-<link type="text/css" rel="stylesheet" href="__PUBLIC__/style/main.css">
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/base.css">
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/cart.css">
-<script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.js"></script>
+<link type="text/css" rel="stylesheet" href="/kicker/Public/style/reset.css">
+<link type="text/css" rel="stylesheet" href="/kicker/Public/style/main.css">
+<link rel="stylesheet" type="text/css" href="/kicker/Public/style/base.css">
+<link rel="stylesheet" type="text/css" href="/kicker/Public/style/cart.css">
+<script type="text/javascript" src="/kicker/Public/js/jquery-1.10.2.js"></script>
 
 <!--[if IE 6]>
 <script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
@@ -57,7 +57,7 @@
 								
 								<li class="tips"><strong><i></i>请于60分钟内完成支付，逾时系统将取消您的订单！</strong></li>
 								
-								<li class="price">应付总价：<em>¥{$order_total}元</em></li>
+								<li class="price">应付总价：<em>¥<?php echo ($order_total); ?>元</em></li>
 							</ul>
 							
 							<button type="submit" class="btn pay_btn"><span>支付中心支付</span></button>
@@ -77,6 +77,10 @@
 	</div>
 </div>
 <div class="hr_25"></div>
-<include file="./Public/tpl/footer.html"/>
+<div class="footer">
+	<p><a href="#">kicker简介</a><i>|</i><a href="#">kicker公告</a><i>|</i> <a href="#">招纳贤士</a><i>|</i><a href="#">联系我们</a><i>|</i>客服热线：400-675-1234</p>
+	<p>Copyright &copy; 2006 - 2014 kicker权所有&nbsp;&nbsp;&nbsp;京ICP备09037834号&nbsp;&nbsp;&nbsp;京ICP证B1034-8373号&nbsp;&nbsp;&nbsp;某市公安局XX分局备案编号：123456789123</p>
+	<p class="web"><a href="#"><img src="/kicker/Public/images/webLogo.jpg" alt="logo"></a><a href="#"><img src="/kicker/Public/images/webLogo.jpg" alt="logo"></a><a href="#"><img src="/kicker/Public/images/webLogo.jpg" alt="logo"></a><a href="#"><img src="/kicker/Public/images/webLogo.jpg" alt="logo"></a></p>
+</div>
 </body>
 </html>

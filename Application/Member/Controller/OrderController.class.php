@@ -27,11 +27,13 @@ class OrderController extends CommonController{
 			'total_price' => I('total_price'),
 			'user_id' => $this->uid
 		);
-		$db = D('Order')->addOrder($data);
-		if ($db) {
-			var_dump('订单提交成功');
-			die();
-			$this->success('提交订单成功!',U("Member/Order/Payment"));
+		$order_id = D('Order')->addOrder($data);
+		if ($order_id) {
+			//添加订单成功，清空购物车
+			if (A("Member/Cart")->clearCart()) {
+				$this->redirect('Member/Buy/index/?order_id='.$order_id);
+				//$this->success('提交订单成功!',U('Member/Order/Buy?order_id="'.$order_id.'"'));
+			};
 		}
 
 	}
