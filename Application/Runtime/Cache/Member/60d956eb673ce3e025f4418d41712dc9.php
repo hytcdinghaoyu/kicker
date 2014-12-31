@@ -52,16 +52,14 @@
 							<i class="ico success"></i>
 							<h2>感谢您在踢球者商城购物，订单已成功提交！</h2>
 							<ul>
-								<li>订单编号：<a href="http://www.fengbuy.com/account/order/vieworder/order_id/132389/">141949319946960</a><input type="button" value="查看订单" onclick="window.open(this.getAttribute('data-url'), '_blank')" data-url="http://www.fengbuy.com/account/order/vieworder/order_id/132389/"></li>
+								<li>订单编号：<a href="<?php echo U('Member/Order/ViewOrder');?>?order_id=<?php echo ($order_id); ?>">141949319946960</a><input type="button" value="查看订单" onclick="window.open(this.getAttribute('data-url'), '_blank')" data-url="http://www.fengbuy.com/account/order/vieworder/order_id/132389/"></li>
 								<li>支付方式：在线支付</li>
 								
 								<li class="tips"><strong><i></i>请于60分钟内完成支付，逾时系统将取消您的订单！</strong></li>
 								
 								<li class="price">应付总价：<em>¥<?php echo ($order_total); ?>元</em></li>
 							</ul>
-							
-							<button type="submit" class="btn pay_btn"><span>支付中心支付</span></button>
-							
+							<button type="submit" class="btn pay_btn"><span>支付中心支付</span></button>	
 						</form>
 					</div>
 					<div class="info_bottom">您的订单已经在处理中，如果您有任何问题可以与我们联系;<br>电话：400-607-8090（踢球者商城客户服务热线）<br>或【<a href="http://www.fengbuy.com/account/message/index/" target="_blank">联系客服</a>】</div>

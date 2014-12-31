@@ -16,7 +16,7 @@
  <div id="personal_info" class="content"> 
 	<div class="account-content address_manage">
       <div class="title_bar">
-			<h2 id="orderView_order_no">订单号142000685849550 - 等待付款</h2>
+			<h2 id="orderView_order_no">订单号{$billno} - 等待付款</h2>
 						<a href="http://www.fengbuy.com/ucenter-client/index/pay/order_id/133291/key/d656abaeb9454c306bd1d6eb112e1c09" target="_blank" class="btn_n_pay btn btn_mt"><span>现在支付</span></a>
 			<span id="order_countdown" class="countdown" title="订单保留剩余时间"><i></i><em>剩余 58分11秒</em></span>
 						<span class="function_btn">
@@ -70,35 +70,25 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td class="product_img">
-											<a href="#"  target="_blank"><img src="http://www.fengbuy.com/media/catalog/product/cache/1/thumbnail/100x/9df78eab33525d08d6e5fb8d27136e95/h/_/h_2.jpg" >
-											</a>
-										</td>
-										<td>
-											<h2 class="product-name">
-											<a href="#" target="_blank">Innerexile 因乐 capsule 独创斜切断面设计 LED电源显示 双USB 车载充电器-红色
-											</a></h2>
-											选择尺码:红色
-											<br>	
-										</td>
-										<td class="a-right"><span class="cart-price"> <span class="price">¥148</span> </span>
-										</td>
-										<td class="a-center">1</td>
-										<td><span class="cart-price"> <span class="price">¥148</span> </span></td>
-									</tr>
-									<tr>
-										<td class="product_img"><a href="#"  target="_blank"><img src="" ></a>
-										</td>
-										<td>
-											<h2 class="product-name"> <a href="http://www.fengbuy.com/mcdodo-for-ipad-air-6161.html" target="_blank">MCDODO/麦多多 纳米超强防爆钢化玻璃保护膜 高清贴膜 独家AKR表面处理 for iPad Air/2-玻璃膜</a></h2>
-											选择尺码:玻璃膜<br>
-										</td>
-										<td class="a-right"><span class="cart-price"> <span class="price">¥78</span> </span>
-										</td>
-										<td class="a-center">1</td>
-										<td><span class="cart-price"> <span class="price">¥78</span> </span></td>
-									</tr>
+									<foreach name='order_goods' item='val'>
+										<tr>
+											<td class="product_img">
+												<a href="#"  target="_blank"><img src="__PUBLIC__/{$val.goods_img}" >
+												</a>
+											</td>
+											<td>
+												<h2 class="product-name">
+												<a href="#" target="_blank">{$val.main_title}
+												</a></h2>
+												选择尺码:{$val.goods_attr}
+												<br>	
+											</td>
+											<td class="a-right"><span class="cart-price"> <span class="price">¥{$val.price}</span> </span>
+											</td>
+											<td class="a-center">{$val.goods_num}</td>
+											<td><span class="cart-price"> <span class="price">¥{$val.total_money}</span> </span></td>
+										</tr>
+									</foreach>						
 								</tbody>
 							</table>
 						<!-- item list end -->
@@ -108,17 +98,16 @@
 								<tbody>
 									<tr>
 										<th>订单商品小计：</th>
-										<td><span id="summary_subtotal">¥226</span></td>
+										<td><span id="summary_subtotal">¥{$total_price}</span>
+										</td>
 									</tr>
-													                    
-				                    				                    
-				                     				                    				                    				                    				                    <tr>
+							           				                     				                    				                    				                    				                    >
 										<th>运费：</th>
 										<td>+ <span id="summary_shipping_fee">¥0.00</span></td>
 									</tr>
 									<tr>
 										<td colspan="2" class="b">
-											实付金额：<strong class="summary_total">¥226.00</strong>
+											实付金额：<strong class="summary_total">¥{$total_price}</strong>
 											<p><span class="other-info">价格已包含所有费用</span></p>
 										</td>
 									</tr>

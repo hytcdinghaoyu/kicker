@@ -1,8 +1,22 @@
 <?php 
 namespace Member\Model;
 use Think\Model;
-Class OrderModel extends Model{
+Class OrdersModel extends Model{
 
+	/**
+	 * 查询订单
+	 */
+	public function getOrder($user_id){
+		$order = M('orders')->where(array('user_id'=>$user_id))->select();
+		foreach ($order as $order_k => $order_v) {
+			$consignee = M('user_address')->where(array('address_id'=>$order_v['address_id']))->getField('consignee');
+			$order[$order_k]['consignee'] = $consignee;
+			$goods_ids = M('order_goods')->field('goods_ids')->where(array('order_id'=>$order_v['order_id']))->select();
+			foreach ($goods_ids as $ids_k => $ids_v) {
+				# code...
+			}
+		}
+	}
 	/**
 	 * 添加订单
 	 */
@@ -33,7 +47,7 @@ Class OrderModel extends Model{
 				$order_total += $cart_v['goods_num']*$price;
 				M('order_goods')->data($data)->add();		
 			}
-			M('order')->where(array('order_id'=>$order_id))->save(array('total_price'=>$order_total));
+			M('orders')->where(array('order_id'=>$order_id))->save(array('total_price'=>$order_total));
 			return $order_id;
 		}
 	}
@@ -44,6 +58,8 @@ Class OrderModel extends Model{
 	public function delOrder(){
 
 	}
+
+	
 }
 
 

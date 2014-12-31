@@ -15,7 +15,23 @@ class OrderController extends CommonController{
 	}
 
 	public function index(){
+		$order = D('OrdersView')->getOrder();
+		// var_dump($order);
+		// die();
+		$this->display();
+	}
 
+	/**
+	 * 根据订单号查看单个订单信息
+	 */
+	public function viewOrder(){
+		$order_id = I('order_id');
+		$order_goods = D('OrdersView')->getOrderGoods($order_id);
+		$total_price = $order_goods[0]['total_price'];
+		$billno = $order_goods[0]['billno'];
+		$this->assign('billno',$billno);
+		$this->assign('total_price',$total_price);
+		$this->assign('order_goods',$order_goods);
 		$this->display();
 	}
 
@@ -27,7 +43,7 @@ class OrderController extends CommonController{
 			'total_price' => I('total_price'),
 			'user_id' => $this->uid
 		);
-		$order_id = D('Order')->addOrder($data);
+		$order_id = D('Orders')->addOrder($data);
 		if ($order_id) {
 			//添加订单成功，清空购物车
 			if (A("Member/Cart")->clearCart()) {
