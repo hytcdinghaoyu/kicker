@@ -21,9 +21,6 @@
 			<div class="leftArea">
 				<a href="#" class="collection">收藏kicker</a>
 			</div>
-			<div class="rightArea">
-				欢迎来到慕课网！<a href="#">[登录]</a><a href="#">[免费注册]</a>
-			</div>
 		</div>
 	</div>
 	<div class="logoBar">
@@ -52,7 +49,7 @@
 							<i class="ico success"></i>
 							<h2>感谢您在踢球者商城购物，订单已成功提交！</h2>
 							<ul>
-								<li>订单编号：<a href="<?php echo U('Member/Order/ViewOrder');?>?order_id=<?php echo ($order_id); ?>">141949319946960</a><input type="button" value="查看订单" onclick="window.open(this.getAttribute('data-url'), '_blank')" data-url="http://www.fengbuy.com/account/order/vieworder/order_id/132389/"></li>
+								<li>订单编号：<a href="<?php echo U('Member/Order/ViewOrder');?>?order_id=<?php echo ($order_id); ?>">141949319946960</a><input type="button" value="查看订单" onclick="window.open(this.getAttribute('data-url'), '_blank')" data-url="<?php echo U('Member/Order/ViewOrder');?>?order_id=<?php echo ($order_id); ?>"></li>
 								<li>支付方式：在线支付</li>
 								
 								<li class="tips"><strong><i></i>请于60分钟内完成支付，逾时系统将取消您的订单！</strong></li>

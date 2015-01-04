@@ -19,6 +19,8 @@
 	var DecUrl = '<?php echo U("Member/Cart/DecCartNum");?>';
 	var getTotalUrl = '<?php echo U("Member/Cart/getTotalPrice");?>';
 	var addOrderUrl = '<?php echo U("Member/Order/addOrder");?>';
+	var addCollectUrl = '<?php echo U("Member/Collect/addCollect");?>';
+	var delCollectUrl = '<?php echo U("Member/Collect/delCollect");?>';
 </script>
 <div class="headerBar">
 	<div class="topBar">
@@ -230,30 +232,27 @@
 								<tbody>
 									<tr>
 										<td class="product_img">
-											<a href="http://www.fengbuy.com/innerexile-capsule-led-usb-7627.html"  target="_blank"><img src="http://www.fengbuy.com/media/catalog/product/cache/1/thumbnail/100x/9df78eab33525d08d6e5fb8d27136e95/h/_/h_2.jpg" >
+											<a href="#"  target="_blank"><img src="http://www.fengbuy.com/media/catalog/product/cache/1/thumbnail/100x/9df78eab33525d08d6e5fb8d27136e95/h/_/h_2.jpg" >
 											</a>
 										</td>
 										<td>
 											<h2 class="product-name">
 											<a href="#" target="_blank">Innerexile 因乐 capsule 独创斜切断面设计 LED电源显示 双USB 车载充电器-红色
 											</a></h2>
-											选择颜色:红色
-											<br>
-											
+											选择尺码:红色
+											<br>	
 										</td>
 										<td class="a-right"><span class="cart-price"> <span class="price">¥148</span> </span>
 										</td>
 										<td class="a-center">1</td>
 										<td><span class="cart-price"> <span class="price">¥148</span> </span></td>
-										<!--  <td>
-																				</td>-->
 									</tr>
 									<tr>
 										<td class="product_img"><a href="#"  target="_blank"><img src="" ></a>
 										</td>
 										<td>
 											<h2 class="product-name"> <a href="http://www.fengbuy.com/mcdodo-for-ipad-air-6161.html" target="_blank">MCDODO/麦多多 纳米超强防爆钢化玻璃保护膜 高清贴膜 独家AKR表面处理 for iPad Air/2-玻璃膜</a></h2>
-											选择颜色:玻璃膜<br>
+											选择尺码:玻璃膜<br>
 										</td>
 										<td class="a-right"><span class="cart-price"> <span class="price">¥78</span> </span>
 										</td>

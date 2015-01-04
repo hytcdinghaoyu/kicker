@@ -298,11 +298,11 @@
 		                <h2>配送地址</h2>
 		                <div class="box-content">
 		                  <address>
-					                  联系人：欧赔<br>
-					                  地址：天津市天津市河西区的弟弟弟弟<br>
-					                  邮政编码：300000<br>
+					                  联系人：<?php echo ($consignee); ?><br>
+					                  地址：<?php echo ($address_str); ?><br>
+					                  邮政编码：<?php echo ($postcode); ?><br>
 					                  固定电话：-<br>
-					                  移动电话：18352332612		                  </address>
+					                  移动电话：<?php echo ($tel); ?>	                  </address>
 		                </div>
 		              </div>
 		            </div>

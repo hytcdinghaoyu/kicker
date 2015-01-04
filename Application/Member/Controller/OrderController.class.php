@@ -16,8 +16,6 @@ class OrderController extends CommonController{
 
 	public function index(){
 		$order = D('OrdersView')->getOrder();
-		// var_dump($order);
-		// die();
 		$this->display();
 	}
 
@@ -29,12 +27,24 @@ class OrderController extends CommonController{
 		$order_goods = D('OrdersView')->getOrderGoods($order_id);
 		$total_price = $order_goods[0]['total_price'];
 		$billno = $order_goods[0]['billno'];
+		$address = D('OrdersView')->getOrderAddress($order_goods[0]['address_id']);
+		$address_str = $address['province'].$address['city'].$address['country'].$address['street'];
+		$this->assign('address_str',$address_str);
+		$consignee = $address['consignee'];
+		$this->assign('consignee',$consignee);
+		$postcode = $address['postcode'];
+		$this->assign('postcode',$postcode);
+		$tel = $address['tel'];
+		$this->assign('tel',$tel);
 		$this->assign('billno',$billno);
 		$this->assign('total_price',$total_price);
 		$this->assign('order_goods',$order_goods);
 		$this->display();
 	}
 
+	/**
+	 * 添加订单
+	 */
 	public function addOrder(){
 		$data = array(
 			'cartIdStr' => I('cartIdStr'),
@@ -51,6 +61,12 @@ class OrderController extends CommonController{
 				//$this->success('提交订单成功!',U('Member/Order/Buy?order_id="'.$order_id.'"'));
 			};
 		}
+	}
+
+	/**
+	 * 取消订单(假删)
+	 */
+	public function delOrder(){
 
 	}
 }
