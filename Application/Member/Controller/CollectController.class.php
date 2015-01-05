@@ -46,6 +46,9 @@ class CollectController extends CommonController{
 		}
 	}
 
+	/**
+	 * 取消订单
+	 */
 	public function delCollect(){
 		if (IS_AJAX === false) {
 			exit();

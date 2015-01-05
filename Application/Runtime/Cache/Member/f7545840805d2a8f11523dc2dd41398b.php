@@ -19,6 +19,8 @@
 	var DecUrl = '<?php echo U("Member/Cart/DecCartNum");?>';
 	var getTotalUrl = '<?php echo U("Member/Cart/getTotalPrice");?>';
 	var addOrderUrl = '<?php echo U("Member/Order/addOrder");?>';
+	var addCollectUrl = '<?php echo U("Member/Collect/addCollect");?>';
+	var delCollectUrl = '<?php echo U("Member/Collect/delCollect");?>';
 </script>
 <div class="headerBar">
 	<div class="topBar">

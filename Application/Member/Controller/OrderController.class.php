@@ -14,8 +14,22 @@ class OrderController extends CommonController{
 		}
 	}
 
+	/**
+	 * 订单列表
+	 */
 	public function index(){
 		$order = D('OrdersView')->getOrder();
+		$this->display();
+	}
+
+	/**
+	 * 查看历史订单
+	 */
+	public function history(){
+		$his_orders = D('OrdersView')->getHistory($this->uid);
+		$this->assign('his_orders',$his_orders);
+		$order_count = count($his_orders);
+		$this->assign('order_count',$order_count);
 		$this->display();
 	}
 

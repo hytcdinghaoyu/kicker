@@ -31,7 +31,7 @@
 			<div class="stepBox fr">
 				<div class="step"></div>
 				<ul class="step_text">
-					<li class="s01 ">我的购物车</li>
+					<li class="s01">我的购物车</li>
 					<li class="s02">填写核对订单</li>
 					<li class="s03 active">订单提交成功</li>
 				</ul>

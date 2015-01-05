@@ -1,7 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-	<title>订单列表</title>
+	<title>查看单个订单</title>
 	<link type="text/css" rel="stylesheet" href="/kicker/Public/style/reset.css">
 	<link type="text/css" rel="stylesheet" href="/kicker/Public/style/main.css">	
 	<link rel="stylesheet" type="text/css" href="/kicker/Public/style/account.css">
@@ -19,6 +19,8 @@
 	var DecUrl = '<?php echo U("Member/Cart/DecCartNum");?>';
 	var getTotalUrl = '<?php echo U("Member/Cart/getTotalPrice");?>';
 	var addOrderUrl = '<?php echo U("Member/Order/addOrder");?>';
+	var addCollectUrl = '<?php echo U("Member/Collect/addCollect");?>';
+	var delCollectUrl = '<?php echo U("Member/Collect/delCollect");?>';
 </script>
 <div class="headerBar">
 	<div class="topBar">
@@ -272,7 +274,7 @@
 													 </div>
 						</div>
 					</div>
-							 			 <!-- 订单信息 -->
+				<!-- 订单信息 -->
 				<div id="order_info" class="my-account_content box-account order-details">
 					 <dl class="order-info">
 		             <dd>
@@ -294,17 +296,18 @@
 		              </div>
 		            </div>
 		            <div class="col-2">
-		              <div class="box">
-		                <h2>配送地址</h2>
-		                <div class="box-content">
-		                  <address>
-					                  联系人：<?php echo ($consignee); ?><br>
-					                  地址：<?php echo ($address_str); ?><br>
-					                  邮政编码：<?php echo ($postcode); ?><br>
-					                  固定电话：-<br>
-					                  移动电话：<?php echo ($tel); ?>	                  </address>
+		                <div class="box">
+			                <h2>配送地址</h2>
+			                <div class="box-content">
+			                    <address>
+						                  联系人：<?php echo ($consignee); ?><br>
+						                  地址：<?php echo ($address_str); ?><br>
+						                  邮政编码：<?php echo ($postcode); ?><br>
+						                  固定电话：-<br>
+						                  移动电话：<?php echo ($tel); ?>	                  
+						        </address>
+			                </div>
 		                </div>
-		              </div>
 		            </div>
 		          </div>
 		          <div class="col2-set order-info-box clearfix">
@@ -319,8 +322,8 @@
 		                <h2>支付信息</h2>
 		                <div class="box-content">
 		                  <div class="box-content">
-										                  		<p>支付金额: ¥0.00</p>
-			                		                  	  <p>余额支付: ¥0.00 </p>
+								<p>支付金额: ¥0.00</p>
+			                	<p>余额支付: ¥0.00 </p>
 						 </div>
 		                </div>
 		              </div>
@@ -354,7 +357,7 @@
 		  </div>
 		  		  <!-- Bottom Links -->
           <div class="buttons-set">
-            <p class="back-link"><a href="http://www.fengbuy.com/account/order/history//"><small>« </small>返回我的订单</a></p>
+            <p class="back-link"><a href="<?php echo U('Member/Order/history');?>"><small>« </small>返回我的订单</a></p>
           </div>
 
 
@@ -365,7 +368,7 @@
    <!--Sliderbar-->
 	 
 
-<div class="sliderbar">	<div class="slider header_slider">	<div class="header_box">		<span class="up_kuang"></span>		<span><img width="52" height="52" alt="" src="http://q.qlogo.cn/qqapp/100537426/805D716FC702D5C4A2BB774B4CD873E8/100"></span>	</div>	<div class="name"><h3>Hi~QQ用户梅小跳</h3>	</div>	<div class="person_info">		<p><span>会员等级：</span><b>注册会员</b></p>		<p><span>积分：</span>0</p>		<p><span>优惠券：</span>0</p>		<p><span>现金卡：</span>0</p>		<p><span>We券：</span>0</p>	</div></div>	<div class="slider wf_slider">	<div class="title">		<h2><a href="http://www.fengbuy.com/account/order/account/">我的威锋商城</a></h2>	</div>		<div class="slider category_slider">			<ul><li><dl><dt><a href="javascript:;" class="close"></a><a href="javascript:;">交易管理</a></dt><dd><a href="http://www.fengbuy.com/account/order/history/" class="">我的订单</a></dd><dd><a href="http://www.fengbuy.com/account/return/index/" class="">我的退换货</a></dd><dd><a href="http://www.fengbuy.com/account/favorite/index/" class="">我的收藏</a></dd></dl></li><li><dl><dt><a href="javascript:;" class="close"></a><a href="javascript:;">客户服务</a></dt><dd><a id="_FB_myComments" href="http://www.fengbuy.com/account/order/myComments/" class="">商品评价/晒单<span class="reply">新回复<em>(0)</em></span></a></dd><dd><a id="_FB_myConsults" href="http://www.fengbuy.com/account/consult/productConsult/" class="">商品咨询<span class="reply">新回复<em>(0)</em></span></a></dd><dd><a id="_FB_myMessages" href="http://www.fengbuy.com/account/message/index/" class="">我的留言<span class="reply">新回复<em>(0)</em></span></a></dd><dd><a id="_FB_myArrivals" href="http://www.fengbuy.com/account/alerts/index/" class="">到货提醒<span class="reply">新通知<em id="arrivalEm">(0)</em></span></a></dd><dd><a id="_FB_myReduces" href="http://www.fengbuy.com/account/notification/index/" class="">降价通知<span class="reply">新通知<em id="deprreciateEm">(0)</em></span></a></dd></dl></li><li><dl><dt><a href="javascript:;" class="close"></a><a href="javascript:;">账户管理</a></dt><dd><a href="http://www.fengbuy.com/account/accountInfo/accountInfo/" class="">个人账户</a></dd><dd><a href="http://www.fengbuy.com/account/accountInfo/accountAddress/" class="">地址管理</a></dd><dd><a href="http://www.fengbuy.com/account/integral/index/" class="">我的积分</a></dd><dd><a href="http://www.fengbuy.com/account/giftCard/index/" class="">我的优惠券</a></dd><dd><a href="http://www.fengbuy.com/account/cashCard/index/" class="">我的现金卡</a></dd><dd><a href="http://www.fengbuy.com/account/mylevel/index/" class="">我的会员等级</a></dd><dd><a href="http://www.fengbuy.com/account/prize/index/" class="">我的奖品</a></dd><dd><a href="http://www.fengbuy.com/account/try/index/" class=""><em class="tips new">New</em>我的试用</a></dd></dl></li>			</ul>		</div></div><script type="text/javascript">jQuery(function($){var rtype=/(open|close)/i,getData=function(dt){var parentDl=dt.data('parent_dl')||dt.parent(),minHeight=dt.data('min_height')||dt.height(),maxHeight=dt.data('max_height')||parentDl.height();if(!dt.data('parent_dl')){dt.data('parent_dl',parentDl);dt.data('min_height',minHeight);dt.data('max_height',maxHeight);}return{parentDl:parentDl,minHeight:minHeight,maxHeight:maxHeight};},maxLength=13,rchs=/[^\u0000-\u00ff]/g,shell=$('.category_slider');shell.click(function(e){var isOpen,data,tar=e.target,dt=$(tar).parent();if(rtype.test(tar.className)&&dt[0].nodeName.toUpperCase()==='DT'){isOpen=RegExp.$1.toLowerCase()==='close';(data=getData(dt)).parentDl.animate({height:isOpen?data.minHeight:data.maxHeight});tar.className=isOpen?'open':'close';e.preventDefault();}});});</script></div></div>
+<div class="sliderbar">	<div class="slider header_slider">	<div class="header_box">		<span class="up_kuang"></span>		<span><img width="52" height="52" alt="" src="http://q.qlogo.cn/qqapp/100537426/805D716FC702D5C4A2BB774B4CD873E8/100"></span>	</div>	<div class="name"><h3>Hi~QQ用户梅小跳</h3>	</div>	<div class="person_info">		<p><span>会员等级：</span><b>注册会员</b></p>		<p><span>积分：</span>0</p>		<p><span>优惠券：</span>0</p>		<p><span>现金卡：</span>0</p>		<p><span>We券：</span>0</p>	</div></div>	<div class="slider wf_slider">	<div class="title">		<h2><a href="http://www.fengbuy.com/account/order/account/">我的kicker商城</a></h2>	</div>		<div class="slider category_slider">			<ul><li><dl><dt><a href="javascript:;" class="close"></a><a href="javascript:;">交易管理</a></dt><dd><a href="<?php echo U('Member/Order/index');?>" class="">我的订单</a></dd><dd><a href="http://www.fengbuy.com/account/return/index/" class="">我的退换货</a></dd><dd><a href="<?php echo U('Member/Collect/index');?>" class="">我的收藏</a></dd></dl></li><li><dl><dt><a href="javascript:;" class="close"></a><a href="javascript:;">客户服务</a></dt><dd><a id="_FB_myComments" href="<?php echo U('Member/Order/Comments');?>" class="">商品评价/晒单<span class="reply">新回复<em>(0)</em></span></a></dd><dd><a id="_FB_myConsults" href="http://www.fengbuy.com/account/consult/productConsult/" class="">商品咨询<span class="reply">新回复<em>(0)</em></span></a></dd><dd><a id="_FB_myMessages" href="http://www.fengbuy.com/account/message/index/" class="">我的留言<span class="reply">新回复<em>(0)</em></span></a></dd><dd><a id="_FB_myArrivals" href="http://www.fengbuy.com/account/alerts/index/" class="">到货提醒<span class="reply">新通知<em id="arrivalEm">(0)</em></span></a></dd><dd><a id="_FB_myReduces" href="http://www.fengbuy.com/account/notification/index/" class="">降价通知<span class="reply">新通知<em id="deprreciateEm">(0)</em></span></a></dd></dl></li><li><dl><dt><a href="javascript:;" class="close"></a><a href="javascript:;">账户管理</a></dt><dd><a href="http://www.fengbuy.com/account/accountInfo/accountInfo/" class="">个人账户</a></dd><dd><a href="http://www.fengbuy.com/account/accountInfo/accountAddress/" class="">地址管理</a></dd><dd><a href="http://www.fengbuy.com/account/integral/index/" class="">我的积分</a></dd><dd><a href="http://www.fengbuy.com/account/giftCard/index/" class="">我的优惠券</a></dd><dd><a href="http://www.fengbuy.com/account/cashCard/index/" class="">我的现金卡</a></dd><dd><a href="http://www.fengbuy.com/account/mylevel/index/" class="">我的会员等级</a></dd><dd><a href="http://www.fengbuy.com/account/prize/index/" class="">我的奖品</a></dd><dd><a href="http://www.fengbuy.com/account/try/index/" class=""><em class="tips new">New</em>我的试用</a></dd></dl></li>			</ul>		</div></div><script type="text/javascript">jQuery(function($){var rtype=/(open|close)/i,getData=function(dt){var parentDl=dt.data('parent_dl')||dt.parent(),minHeight=dt.data('min_height')||dt.height(),maxHeight=dt.data('max_height')||parentDl.height();if(!dt.data('parent_dl')){dt.data('parent_dl',parentDl);dt.data('min_height',minHeight);dt.data('max_height',maxHeight);}return{parentDl:parentDl,minHeight:minHeight,maxHeight:maxHeight};},maxLength=13,rchs=/[^\u0000-\u00ff]/g,shell=$('.category_slider');shell.click(function(e){var isOpen,data,tar=e.target,dt=$(tar).parent();if(rtype.test(tar.className)&&dt[0].nodeName.toUpperCase()==='DT'){isOpen=RegExp.$1.toLowerCase()==='close';(data=getData(dt)).parentDl.animate({height:isOpen?data.minHeight:data.maxHeight});tar.className=isOpen?'open':'close';e.preventDefault();}});});</script></div></div>
 <div class="hr_25"></div>
 <div class="footer">
 	<p><a href="#">kicker简介</a><i>|</i><a href="#">kicker公告</a><i>|</i> <a href="#">招纳贤士</a><i>|</i><a href="#">联系我们</a><i>|</i>客服热线：400-675-1234</p>
