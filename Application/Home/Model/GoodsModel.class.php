@@ -32,13 +32,13 @@ Class GoodsModel extends Model{
 	/**
 	 * 筛选商品
 	 */
-	public function filterGoods($cid,$band,$size,$minprice,$maxprice,$order,$sort,$page){
+	public function filterGoods($cid,$band,$size,$minprice,$maxprice,$order,$sort,$keyword,$page){
 		$where = "";
 		$order_str="";
 		if (!empty($cid)) {
 			$where = "cid=".$cid;
 		}else{
-			$where = "cid=3";
+			$where = "cid in (1,3,4)";
 		}
 		if (!empty($band)) {
 			$where .= ' and band ="'.$band.'"';
@@ -55,6 +55,9 @@ Class GoodsModel extends Model{
 		if (!empty($page)) {
 			$page = 3*(intval($page)-1);
 			$limit = $page.',3';
+		}
+		if (!empty($keyword)) {
+			$where .= ' and main_title like "%'.$keyword.'%"';
 		}
 		//return $where;
 		return $this->field('gid,main_title,price,goods_img,buy')->where($where)->order($order_str)->limit($limit)->select();

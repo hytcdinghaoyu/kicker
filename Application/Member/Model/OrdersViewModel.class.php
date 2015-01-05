@@ -47,6 +47,9 @@ Class OrdersViewModel extends ViewModel{
 		return $this->where(array('oid'=>$order_id))->select();
 	}
 
+	/**
+	 * 获取地址信息
+	 */
 	public function getOrderAddress($address_id){
 		return M('user_address')->field('province,city,country,street,tel,postcode,consignee')->where(array('address_id'=>$address_id))->find();
 	}

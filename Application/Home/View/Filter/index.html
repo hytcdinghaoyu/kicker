@@ -16,6 +16,7 @@
 		order = $(".order").html();
 		sort = $(".sort").html();
 		page = $(".cur_page").html();
+		keyword = $(".keyword").html();
 		if (sort == "asc") {
 			$(".price_btn span").html("∧");
 		}else{
@@ -51,7 +52,7 @@ var cid = "";
 var order="";
 var sort="";
 var page = "1";
-
+var keyword = "";
 function buildFilterUrl(){
 
 	var url = "?cid="+cid;
@@ -72,6 +73,9 @@ function buildFilterUrl(){
 	};
 	if (page != "") {
 		url += "&page=" + page;
+	};
+	if (keyword != "") {
+		url += "&k="+keyword;
 	};
 	return filter_url+url;
 }
@@ -145,6 +149,7 @@ function next_page(){
 		<div class="leftNav vertical">
 			<h3 class="nav_title">分类目录</h3>
 			<div class="cur_cid" style="display:none;">{$cur_cid}</div>
+			<div class="keyword" style="display:none;">{$keyword}</div>
 			<div class="nav_cont">
 				<h3 cid="1"><a href="{:U("Home/filter/index")}?cid=1&page=1">球衣</a></h3>
 				<ul class="navCont_list clearfix">

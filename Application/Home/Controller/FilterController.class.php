@@ -27,12 +27,19 @@ Class FilterController extends CommonController{
 		//分页
 		$page = I('page');
 		$this->assign("page",$page);
+
+		//关键词
+		$keyword = I('k');
+		$this->assign('keyword',$keyword);
+
 		/**
 		 * 筛选商品
 		 */
 		$db = D("goods");
-		$goods_count = count($db->filterGoods($cid,$band,$size,$min_price,$max_price,$order,$sort));
-		$goods = $db->filterGoods($cid,$band,$size,$min_price,$max_price,$order,$sort,$page);
+		$goods_count = count($db->filterGoods($cid,$band,$size,$min_price,$max_price,$order,$sort,$keyword));
+		$goods = $db->filterGoods($cid,$band,$size,$min_price,$max_price,$order,$sort,$keyword,$page);
+		// var_dump($goods);
+		// die();
 		$page_num = getPageNum($goods_count);
 		$page_arr = getPageArr($page_num);
 		$this->assign("page_arr",$page_arr);

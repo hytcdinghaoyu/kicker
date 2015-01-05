@@ -24,12 +24,6 @@ class CartController extends Controller{
 			$this->redirect("Member/login/index");
 		}
 		if(IS_AJAX === false){
-			// $this->assign('cart',$data[0]);
-			// $this->assign('total',$data[1]);
-			// $db = K('user');
-			// $address = $db->getAddress($this->uid);
-			// $this->assign('address', $address);
-			//$this->writeCart();
 			$carts = $this->getCartData();
 			$address = $this->getAddress();
 			$this->assign('address',$address);

@@ -73,12 +73,12 @@
 									<foreach name='order_goods' item='val'>
 										<tr>
 											<td class="product_img">
-												<a href="#"  target="_blank"><img src="__PUBLIC__/{$val.goods_img}" >
+												<a href="{:U('Home/Detail/index')}?gid={$val.gid}"  target="_blank"><img src="__PUBLIC__/{$val.goods_img}" >
 												</a>
 											</td>
 											<td>
 												<h2 class="product-name">
-												<a href="#" target="_blank">{$val.main_title}
+												<a href="{:U('Home/Detail/index')}?gid={$val.gid}" target="_blank">{$val.main_title}
 												</a></h2>
 												选择尺码:{$val.goods_attr}
 												<br>	
