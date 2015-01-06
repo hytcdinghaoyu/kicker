@@ -179,7 +179,31 @@ function addOrder(){
 		</div>
 	</div>
 </div> -->
+<script type="text/javascript" src="/kicker/Public/js/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="/kicker/Public/style/jquery-ui.css">
 <script type="text/javascript">
+$(function() {
+    var availableTags = [
+      "巴萨",
+      "曼联",
+      "曼城",
+      "切尔西",
+      "米兰",  
+      "阿森纳",
+      "阿贾克斯",
+      "足球鞋",
+      "短袖球衣",
+      "足球",
+      "美津浓",
+      "内马尔",
+      "C罗",
+      "梅西",
+      "碎丁足球鞋"
+    ];
+    $(".search_text" ).autocomplete({
+      source: availableTags
+    });
+ });
 	var addCartUrL = '<?php echo U("Member/Cart/Add");?>';
 	var delCartUrl = '<?php echo U("Member/Cart/del");?>';
 	var clearCartUrl = '<?php echo U("Member/Cart/clearCart");?>';
@@ -190,6 +214,7 @@ function addOrder(){
 	var addOrderUrl = '<?php echo U("Member/Order/addOrder");?>';
 	var addCollectUrl = '<?php echo U("Member/Collect/addCollect");?>';
 	var delCollectUrl = '<?php echo U("Member/Collect/delCollect");?>';
+
 function countCart(){
 	var obj = $(".cart_inner li").html();
 	if (obj == undefined) {
@@ -197,7 +222,15 @@ function countCart(){
 	}else{
 		window.location.href='<?php echo U("Member/Cart/index");?>';
 	}
-	
+}
+/*搜索关键词*/
+function searchKeyword(){
+	var keyword = $(".search_text").val();
+	if (keyword == "") {
+		alert('请输入关键词');
+	}else{
+		window.location.href='<?php echo U("Home/Filter/index");?>?k='+keyword+'&page=1';
+	}
 }
 </script>
 <div class="headerBar">
@@ -208,7 +241,7 @@ function countCart(){
 			</div>
 			<div class="rightNav">
 				<?php if($userIsLogin): ?><div>欢迎您：<?php echo ($userName); ?></div>
-					<div><a href=":U('Member/index/index')">[个人中心]</a></div>
+					<div><a href="<?php echo U('Member/Order/history');?>">[个人中心]</a></div>
 					<div><a href="<?php echo U('Member/Login/logout');?>">[注销]</a></div>
 					<?php else: ?>	
 						<!--登录注册-->
@@ -222,8 +255,8 @@ function countCart(){
 			<div class="logo fl">
 			</div>
 			<div class="search_box fl">
-				<input type="text" class="search_text fl">
-				<input type="button" value="搜 索" class="search_btn fr">
+				<input type="text" class="search_text fl" onkeydown="javascript:if(event.keyCode==13) searchKeyword();">
+				<input type="button" value="搜 索" class="search_btn fr" onclick="searchKeyword()">
 			</div>
 			<div class="shopCar fr">
 				<span class="shopText fl">购物车</span>
@@ -308,33 +341,6 @@ function countCart(){
 								<a href="#">文字啊</a><a href="#">文字字啊</a><a href="#">文字字字啊</a><a href="#">文字啊</a><a href="#">文字</a><a href="#">文字啊</a>
 							</dd>
 						</dl>
-						<dl class="shopList_item">
-							<dt>电脑装机</dt>
-							<dd>
-								<a href="#">文字啊</a><a href="#">文字字啊</a><a href="#">文字字字啊</a><a href="#">文字啊</a><a href="#">文字</a><a href="#">文字啊</a><a href="#">文字啊</a><a href="#">文字字啊</a><a href="#">文字字字啊</a><a href="#">文字啊</a><a href="#">文字</a><a href="#">文字啊</a><a href="#">文字啊</a>
-							</dd>
-						</dl>
-						<dl class="shopList_item">
-							<dt>电脑装机</dt>
-							<dd>
-								<a href="#">文字啊</a><a href="#">文字字啊</a><a href="#">文字字字啊</a><a href="#">文字啊</a><a href="#">文字</a><a href="#">文字啊</a><a href="#">文字啊</a><a href="#">文字字啊</a><a href="#">文字字字啊</a><a href="#">文字啊</a><a href="#">文字</a><a href="#">文字啊</a><a href="#">文字啊</a>
-							</dd>
-						</dl>
-						<dl class="shopList_item">
-							<dt>电脑装机</dt>
-							<dd>
-								<a href="#">文字啊</a><a href="#">文字字啊</a><a href="#">文字字字啊</a><a href="#">文字啊</a><a href="#">文字</a><a href="#">文字啊</a><a href="#">文字啊</a><a href="#">文字字啊</a><a href="#">文字字字啊</a><a href="#">文字啊</a><a href="#">文字</a><a href="#">文字啊</a><a href="#">文字啊</a>
-							</dd>
-						</dl>
-						<dl class="shopList_item">
-							<dt>电脑装机</dt>
-							<dd>
-								<a href="#">文字啊</a><a href="#">文字字啊</a><a href="#">文字字字啊</a><a href="#">文字啊</a><a href="#">文字</a><a href="#">文字啊</a><a href="#">文字啊</a><a href="#">文字字啊</a><a href="#">文字字字啊</a><a href="#">文字啊</a><a href="#">文字</a><a href="#">文字啊</a><a href="#">文字啊</a>
-							</dd>
-						</dl>
-						<div class="shopList_links">
-							<a href="#">文字测试内容等等<span></span></a><a href="#">文字容等等<span></span></a>
-						</div>
 					</div>
 				</div>
 			</div>

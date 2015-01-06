@@ -3,18 +3,6 @@ namespace Member\Controller;
 use Think\Controller;
 class CollectController extends CommonController{
 
-	private $uid = null;
-
-	/**
-	 * 初始化
-	 */
-	public function _initialize(){
-		if(isset($_SESSION['userid'])){
-			$this->uid = $_SESSION["userid"];
-		}else{
-			$this->redirect('Member/Login/index');
-		}
-	}
 
 	/**
 	 * 页面显示

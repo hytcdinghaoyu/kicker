@@ -1,7 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-	<title>历史订单</title>
+	<title>个人中心</title>
 	<link type="text/css" rel="stylesheet" href="/kicker/Public/style/reset.css">
 	<link type="text/css" rel="stylesheet" href="/kicker/Public/style/main.css">	
 	<link rel="stylesheet" type="text/css" href="/kicker/Public/style/account.css">
@@ -188,70 +188,159 @@ function searchKeyword(){
 	</div>
 </div>
 <div id="container" class="clearfix wrap container">
-	<!--Main-->
-	<div id="personal_info" class="content"> 
-		<!-- Crumb --> 
-		<div class="crumb">
-			<ul>
-				<div class="crumb"><ul><li class="home"><a href="./"></a></li><li class="step_arrow"></li><li><a href="<?php echo U('Member/Order/account');?>">我的kicker商城</a></li><li class="step_arrow"></li><li class="cur"><a href="<?php echo U('Member/Order/history');?>">我的订单</a></li></ul><span class="r"></span></div>	
-			</ul>
-		</div>
-		
-		<!--商品咨询-->
-		<div class="account-content address_manage">
-			<div class="title_bar">
-				<h2>我的订单</h2>
+		<!--Main-->
+		<div id="personal_info" class="content">
+			<!-- Crumb -->
+			<div class="crumb">
+				<ul>
+					<li class="home"><a href="<?php echo U('Home/Index/index');?>"></a></li>
+					<li class="step_arrow"></li>
+					<li><a href="<?php echo U('Member/Order/account');?>">我的kicker商城</a></li>
+					<li class="step_arrow"></li>
+					<li>个人首页</li>
+				</ul>
 			</div>
-			<div class="personal_account clearfix">
-				<div class="commodity_consult" id="mycomments_shell">
-					<div class="order_search">
-						查询商品或订单
-						<input name="history_keyword" id="history_keyword" type="text" value="" onkeydown="javascript:if(event.keyCode==13) searchAction();">
-						<a href="javascript:void(0);" id="serchOrder" class="btn"><span>查  询</span></a>
-					</div>
-					<!--tab 导航-->
-					<div class="tab_nav nav_top">
-						<ul>
-							<li><a href="javascript:void(0);" id="history" class="" onclick="jQuery('#history_keyword').val(''); keyword = '' ;refreshDisplayHistory();">近一个月订单</a></li>
-              				<li><a href="javascript:void(0);" id="historyBefore" onclick="jQuery('#history_keyword').val(''); keyword = '' ;refreshDisplayHistoryBefore();" class="">以往的订单</a></li>
-              				<li><a href="javascript:void(0);" id="historyCancel" onclick="jQuery('#history_keyword').val(''); keyword = '' ;refreshDisplayHistoryCancel();" class="current">已取消订单</a></li>
-						</ul>
-					</div>
 			
-				<div class="box-collateral order_list"> 
-					<table class="data-table my-orders-table">
-						<thead>
-							<tr>
-								<th>订单号</th>
-<!--								<th>类型</th>-->
-								<th>日期</th>
-								<th>商品</th>
-								<th>收货人</th>
-								<th><span class="nobr">订单金额</span></th>
-								<th><span class="nobr">订单状态</span></th>
-								<th>支付方式</th>
-								<th>&nbsp;</th>
-							</tr>
-						</thead>
-						<tbody id="orderHistory">
-							<?php if(is_array($his_orders)): foreach($his_orders as $key=>$val): ?><tr><td class="order_number"><a href="<?php echo U('Member/Order/viewOrder');?>?order_id=<?php echo ($key); ?>" target="_blank"><?php echo ($val["billno"]); ?><br><p>查看</p></a></td>	<td width="75"><?php echo (date('Y-m-d H:i:s',$val["add_time"])); ?></td>	
-								<td class="order_p_img">
-									<?php if(is_array($val["goods_info"])): foreach($val["goods_info"] as $key=>$goods_v): ?><a href="<?php echo U('Home/Detail/index');?>?gid=<?php echo ($goods_v["gid"]); ?>" target="_blank" title="<?php echo ($goods_v["main_title"]); ?>"><img src="/kicker/Public/<?php echo ($goods_v["goods_img"]); ?>" alt="<?php echo ($goods_v["main_title"]); ?>" title="<?php echo ($goods_v["main_title"]); ?>"></a><?php endforeach; endif; ?>							
-								</td>	
-								<td><span class="price"><?php echo ($val["consignee"]); ?></span></td>	<td>¥<?php echo ($val["total_price"]); ?></td>	<td>订单取消</td>	<td>在线支付</td>	<td class="last" width="80">	</td>
-								</tr><?php endforeach; endif; ?>						
-						</tbody>
-					</table>
-					<!--订单总数-->
-					<p class="order_total" id="history_amount" style="display: block;">共<?php echo ($order_count); ?>个订单</p>	
+			<div class="account-content">
+				<!--个人详细资料-->
+				<div class="account_cover clearfix">
+					<div class="avatar"><img src="http://q.qlogo.cn/qqapp/100537426/805D716FC702D5C4A2BB774B4CD873E8/100"> <a href="http://passport.feng.com/?r=user/avatar" target="_blank">上传我的头像</a></div>
+					<div class="welcome-msg">
+							<div class="hello">
+								<span>(上一次登录时间：2015-01-05 15:36:44)</span>
+								<strong>QQ用户梅小跳</strong>欢迎您回来！
+							</div>
+							<div id="leagure" class="leagure" style="width: 753px;">
+								<span class="name"><em><img src="http://www.fengbuy.com/media/customer/customerlevel/ce4fcb1f-f5d6-7274-bef7-cfc50d1414ed.png" height="20" width="20" alt="注册会员"></em>注册会员</span>
+								<p class="desc" style="width: 622px;"><span>累计消费金额0.00元，购买0次，继续消费1元或再购买1次，即可升为初级会员</span></p>
+								<span class="arrow_btn" title="收起"><i class="arrow"></i></span>
+							</div>
+							<!-- 查询余额 -->
+							<div class="ccye">
+								<div class="ccye_inner">
+									<div class="label"><a id="accountBalance" href="javaScript:;" class=""><span>查询余额</span><i></i></a></div>
+									<!--验证码-->
+									<div id="code_box" class="code_box" style="display: none;">
+										<p><span class="close"><a href="#" onclick="closeBox();">关闭</a></span></p>
+										<p class="show_balance">
+											<span>验证码</span>
+											<span class="money_input"><input id="validateCode" type="text" placeholder="" onkeydown="javascript:if(event.keyCode==13) EnterPress();"></span>
+											<a id="queryBalance" href="#" class="recharge_btn">查询</a>
+										</p>
+										<p class="alert">不区分大小写</p>
+										<p><a class="code_num" href="#"><img id="validateCodeImg" src="http://www.fengbuy.com/ucenter-client/index/validateCode/?0.08289262373000383" width="100" height="35"></a><a class="change_alink" href="javaScript:;" onclick="refreshValidateCode();">换一个</a></p>
+									</div>
+									
+									<!--充值跳转页面-->
+									<div id="balance_box" class="code_box" style="display: none;">
+										<p><span class="close"><a href="javaScript:;" onclick="closeBox();">关闭</a></span></p>
+										<p class="show_balance">
+											<span>账户余额：¥<em id="balance"></em>元</span>
+											</p><p><a href="http://pay.feng.com/index.php?r=site/login" class="balance_inquiries" target="_blank">余额充值</a></p>
+										<p></p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!--提醒/消费/合计-->
+						<div class="info">
+							<div id="info-wrap">
+								<table width="100%" cellspacing="0" cellpadding="0" border="0" id="info-table">
+									<tbody>
+										<tr>
+											<th>相关提醒</th>
+												<td>
+													<ul>
+														<li><a href="http://www.fengbuy.com/checkout/cart/">我的购物车<strong id="account_cartQty">（3）</strong>件</a></li>
+														<li><a href="http://www.fengbuy.com/account/order/myComments/">需要评价<strong id="account_evaluationQty">（0）</strong>件</a></li>
+														<li><a href="http://www.fengbuy.com/account/order/history/">三个月买入了<strong id="account_lastThreeMonthsQty">（0）</strong>件</a></li>
+														<li><a href="http://www.fengbuy.com/account/return/index/">退货<strong id="account_returnedQty">（0）</strong>件</a></li>
+														<li><a href="http://www.fengbuy.com/account/return/index/">换货<strong id="account_exchangeQty">（0）</strong>件</a></li>
+													</ul>
+												</td>
+										</tr>
+										<tr>
+											<th>优惠工具</th>
+												<td>
+													<ul>
+														<li><a href="http://www.fengbuy.com/account/integral/index/">现有积分<strong>0</strong>分</a></li>
+														<li><a href="http://www.fengbuy.com/account/giftCard/index/">优惠券<strong>0</strong>张</a></li>
+														<li><a href="http://www.fengbuy.com/account/cashCard/index/">现金卡<strong>0</strong>张</a></li>
+														<li><a href="#">We券<strong>0</strong>张</a></li>
+													</ul>
+												</td>
+										</tr>
+										<tr class="last">
+											<th>消费合计</th>
+												<td>
+													<ul>
+														<li>总消费 ¥ <strong>0.00</strong>元</li>
+														<li>退货合计 ¥ <strong>0</strong>元</li>
+<!--														<li>换货差额合计 &yen; <strong>0</strong>元</li>-->
+													</ul>
+												</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
 				</div>
+					
+				<!--最近订单-->
+				<div class="my-account_content" id="mycomments_shell">
+				<div class="title_tab">
+					<span>订单详情</span>
+				</div>
+				<!--最近订单与订单评价-->
+                <div class="order_evaluation">
+				<div class="order_list">
+                  <div class="title">
+                    <h2>最近的订单</h2> 
+				  </div>					
+                  <table class="data-table" id="my-review-table">
+                    <thead>
+                      <tr class="first last">
+                        <th>订单号</th>
+                        <th>日期</th>
+                        <th>收货人</th>
+                        <th>订单金额</th>
+                        <th>状态</th>
+						<th>支付方式</th>
+						<th></th>
+                      </tr>
+                    </thead>
+                    <tbody id="orderHistory">
+                    	<?php if(is_array($his_orders)): foreach($his_orders as $key=>$val): ?><tr><td><a href="<?php echo U('Member/Order/viewOrder');?>?order_id=<?php echo ($key); ?>"><?php echo ($val["billno"]); ?></a></td>	<td><?php echo (date('Y-m-d H:i:s',$val["add_time"])); ?></td>	<td><?php echo ($val["consignee"]); ?></td>	<td>¥<?php echo ($val["total_price"]); ?></td>	<td>订单取消</td>	<td>在线支付</td>	<td class="last"><a href="<?php echo U('Member/Order/viewOrder');?>?order_id=<?php echo ($key); ?>" class="btn_copera btn"><span>查看订单</span></a></td>
+		                    </tr><?php endforeach; endif; ?>                 
+                    </tbody>
+                  </table>
+				</div>
+				  
+				  <div class="order_list">
+				  <div class="title">
+                    <h2>等待评价的订单</h2> 
+					</div>
+                  <table class="data-table" id="my-review-table">
+                    <thead>
+                      <tr class="first last">
+                        <th>订单号</th>
+                        <th>日期</th>
+                        <th>收货人</th>
+                        <th>订单金额</th>
+                        <th>状态</th>
+						<th>支付方式</th>
+						<th></th>
+                      </tr>
+                    </thead>
+                    <tbody id="evaluationItemsList"><tr><td colspan="7" align="center">没有待评商品</td></tr></tbody>
+                  </table>
+				  </div>
+				  
+                </div>
 			</div>
-			</div>   
-			<!--分页-->
-			<div class="pager prepaid_mt25">
-			<div class="page_list"><a href="javascript:void(0)" title="上一页" class="prev disabled"><span>«</span></a><a href="javascript:void(0)" title="第1页" onclick="return changePage(1,3,this)" class="current"><span>1</span></a><a href="javascript:void(0)" title="下一页" class="next_page disabled"><span>»</span></a><span class="page_jump">到<input type="text" onkeydown="javascript:if(event.keyCode==13){changePage(this.value);}" title="输入页码，回车快速跳转">页</span></div></div>   
+			</div>		
 		</div>
-  </div>
    <!--Sliderbar-->
 	 
 

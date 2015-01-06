@@ -3,22 +3,12 @@ namespace Member\Controller;
 use Think\Controller;
 class OrderController extends CommonController{
 
-	private $uid = null;
-
 	/**
-	 * 初始化
+	 * 个人中心
 	 */
-	public function _initialize(){
-		if(isset($_SESSION['userid'])){
-			$this->uid = $_SESSION["userid"];
-		}
-	}
-
-	/**
-	 * 订单列表
-	 */
-	public function index(){
-		$order = D('OrdersView')->getOrder();
+	public function account(){
+		$his_orders = D('OrdersView')->getHistory($this->uid);
+		$this->assign('his_orders',$his_orders);
 		$this->display();
 	}
 
