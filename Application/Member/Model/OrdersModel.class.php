@@ -2,21 +2,6 @@
 namespace Member\Model;
 use Think\Model;
 Class OrdersModel extends Model{
-
-	/**
-	 * 查询订单
-	 */
-	public function getOrder($user_id){
-		$order = M('orders')->where(array('user_id'=>$user_id))->select();
-		foreach ($order as $order_k => $order_v) {
-			$consignee = M('user_address')->where(array('address_id'=>$order_v['address_id']))->getField('consignee');
-			$order[$order_k]['consignee'] = $consignee;
-			$goods_ids = M('order_goods')->field('goods_ids')->where(array('order_id'=>$order_v['order_id']))->select();
-			foreach ($goods_ids as $ids_k => $ids_v) {
-				# code...
-			}
-		}
-	}
 	
 	/**
 	 * 添加订单
@@ -29,7 +14,7 @@ Class OrdersModel extends Model{
 			'status' => 0,
 			'add_time' => time(),
 			'pay_method' => 'Alipay',
-			'billno' => date('ymdhis').substr(microtime(),2,4)
+			'billno' => 'HY'.time()
 		);
 		$cart_id_str = rtrim($data['cartIdStr'],',');
 		$order_id = $this->data($order)->add();

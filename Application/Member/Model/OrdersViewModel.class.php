@@ -37,6 +37,7 @@ Class OrdersViewModel extends ViewModel{
 			$orders[$order_goods_v['oid']]['goods_info'][$order_goods_k]['main_title'] = $order_goods_v['main_title'];
 			$orders[$order_goods_v['oid']]['goods_info'][$order_goods_k]['gid'] = $order_goods_v['gid'];
 		}
+		krsort($orders);
 		return $orders;
 	}
 
