@@ -25,7 +25,7 @@ Class OrdersViewModel extends ViewModel{
 		$orders = array();
 		$order_goods = $this->where(array('user_id'=>$uid))->select();
 		foreach ($order_goods as $order_goods_k => $order_goods_v) {
-			if (!array_key_exists($order_goods_v['oid'], $orders)) {
+			if (!array_key_exists($order_goods_v['oid'], $orders)){
 				$orders[$order_goods_v['oid']]['billno'] = $order_goods_v['billno'];
 				$orders[$order_goods_v['oid']]['add_time'] = $order_goods_v['add_time'];
 				$orders[$order_goods_v['oid']]['consignee'] = M('user_address')->where(array('address_id'=>$order_goods_v['address_id']))->getField('consignee');

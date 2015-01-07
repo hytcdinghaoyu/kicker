@@ -107,6 +107,25 @@ function addCart(){
 		}
 	});
 }
+
+/*立即购买*/
+function buyGood(){
+	var gid = $(".gid").html();
+	var gnum = $(".des_input input").val();
+	var size = $(".des_select span").html();
+	if (size == '') {
+		alert('请选择尺寸！');
+		return;
+	};
+	$.ajax({
+		type : 'POST',
+		url : addCartUrL,
+		data : {gid : gid , gnum : gnum ,size : size},
+		success : function(res){
+			window.location.href = '<?php echo U("Member/Cart/index");?>';
+		}
+	});
+}
 /*添加收藏*/
 function addCollect(gid){
 	$.ajax({
@@ -369,7 +388,7 @@ function searchKeyword(){
 					已选择尺寸：<span></span>
 				</div>
 				<div class="shop_buy">
-					<a href="javascript:;" class="buy_btn">立即购买</a>
+					<a href="javascript:;" class="buy_btn" onclick="buyGood()">立即购买</a>
 					<span class="line"></span>
 					<a href="javascript:;" class="cart_btn" onclick="addCart()">添加购物车</a>
 					<a href="javascript:;" class="collect" onclick="addCollect(<?php echo ($goods_id); ?>)">

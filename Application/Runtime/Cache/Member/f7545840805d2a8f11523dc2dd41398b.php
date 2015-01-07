@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="/kicker/Public/style/base2.css">
 	<link rel="stylesheet" type="text/css" href="/kicker/Public/style/cart.css">
 	<script type="text/javascript" src="/kicker/Public/js/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="/kicker/Public/js/index.js"></script>
 </head>
 <body>
 <script type="text/javascript" src="/kicker/Public/js/jquery-ui.js"></script>

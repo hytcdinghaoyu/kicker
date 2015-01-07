@@ -269,6 +269,7 @@ class CartController extends Controller{
 			$this->ajaxReturn($data,'json');
 		}
 	}
+
 	/**
 	 * 添加收货地址
 	 */
@@ -291,6 +292,7 @@ class CartController extends Controller{
 			$this->success('添加收货地址成功',U('Member/cart/index'));
 		}
 	}
+	
 	/**
 	 * 获得收货地址
 	 */
