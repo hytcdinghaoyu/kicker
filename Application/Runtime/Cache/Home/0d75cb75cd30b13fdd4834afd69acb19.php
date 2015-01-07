@@ -5,11 +5,15 @@
 <title>商品介绍</title>
 <link type="text/css" rel="stylesheet" href="/kicker/Public/style/reset.css">
 <link type="text/css" rel="stylesheet" href="/kicker/Public/style/main.css">
+<link rel="stylesheet" type="text/css" href="/kicker/Public/style/lrtk.css">
 <script type="text/javascript" src="/kicker/Public/js/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="/kicker/Public/js/index.js"></script>
+<script type="text/javascript" src="/kicker/Public/js/jquery.zoomy0.5.js"></script>
 <script type="text/javascript">
 
 	$(function(){
+
+		$(".big a").css("height","400px");
 		//选择尺寸
 		$(".des_item").click(function(){
 			var attr = $(this).html();
@@ -39,6 +43,7 @@
 			$(this).find("img").addClass("active");
 			$(".big").hide();
 			$(".big[mid="+mid+"]").show();
+			$(".big a").css({"height":"400px","width":"400px"});
 		});
 
 		//滚动条
@@ -64,8 +69,11 @@
 			var top = $(".des_infoComment").offset().top-39;
 			$('body').animate({ scrollTop: top }, 300);
 		});
-	});
 
+		$('.zoom').zoomy();
+
+
+	});
 /*添加购物车*/
 function addCart(){
 	var gid = $(".gid").html();
@@ -333,7 +341,7 @@ function searchKeyword(){
 <div class="userPosition comWrap">
 	<strong><a href="<?php echo U("Home/Index/index");?>">首页</a></strong>
 	<span>&nbsp;&gt;&nbsp;</span>
-	<a href="#">平板电脑</a>
+	<a href="#">分类</a>
 	<span>&nbsp;&gt;&nbsp;</span>
 	<div class="gid" style="display:none;"><?php echo ($goods_id); ?></div>
 	<em><?php echo ($title); ?></em>
@@ -342,8 +350,10 @@ function searchKeyword(){
 	<div class="description clearfix">
 		<div class="leftArea">
 			<div class="description_imgs">				
-					<?php if(is_array($big_img)): foreach($big_img as $key=>$val): ?><div class="big" mid="<?php echo ($key); ?>" style="display:none;">
-							<img src="<?php echo ($val); ?>">
+					<?php if(is_array($img_arr)): foreach($img_arr as $key=>$val): ?><div class="big" mid="<?php echo ($key); ?>" style="display:none;">
+							<a href="<?php echo ($val["large_img"]); ?>" class="zoom">
+							<img src="<?php echo ($val["big_img"]); ?>">
+							</a>
 						</div><?php endforeach; endif; ?>								
 				<ul class="des_smimg clearfix">
 					<?php if(is_array($sm_img)): foreach($sm_img as $key=>$val): ?><li mid="<?php echo ($key); ?>" class="sm_li"><a href="javascript:;"><img src="<?php echo ($val); ?>"></a></li><?php endforeach; endif; ?>					

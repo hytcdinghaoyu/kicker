@@ -5,11 +5,15 @@
 <title>商品介绍</title>
 <link type="text/css" rel="stylesheet" href="__PUBLIC__/style/reset.css">
 <link type="text/css" rel="stylesheet" href="__PUBLIC__/style/main.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/lrtk.css">
 <script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.zoomy0.5.js"></script>
 <script type="text/javascript">
 
 	$(function(){
+
+		$(".big a").css("height","400px");
 		//选择尺寸
 		$(".des_item").click(function(){
 			var attr = $(this).html();
@@ -39,6 +43,7 @@
 			$(this).find("img").addClass("active");
 			$(".big").hide();
 			$(".big[mid="+mid+"]").show();
+			$(".big a").css({"height":"400px","width":"400px"});
 		});
 
 		//滚动条
@@ -64,8 +69,11 @@
 			var top = $(".des_infoComment").offset().top-39;
 			$('body').animate({ scrollTop: top }, 300);
 		});
-	});
 
+		$('.zoom').zoomy();
+
+
+	});
 /*添加购物车*/
 function addCart(){
 	var gid = $(".gid").html();
@@ -158,7 +166,7 @@ function addCollect(gid){
 <div class="userPosition comWrap">
 	<strong><a href="{:U("Home/Index/index")}">首页</a></strong>
 	<span>&nbsp;&gt;&nbsp;</span>
-	<a href="#">平板电脑</a>
+	<a href="#">分类</a>
 	<span>&nbsp;&gt;&nbsp;</span>
 	<div class="gid" style="display:none;">{$goods_id}</div>
 	<em>{$title}</em>
@@ -167,9 +175,11 @@ function addCollect(gid){
 	<div class="description clearfix">
 		<div class="leftArea">
 			<div class="description_imgs">				
-					<foreach name="big_img" item="val" key="key">
+					<foreach name="img_arr" item="val" key="key">
 						<div class="big" mid="{$key}" style="display:none;">
-							<img src="{$val}">
+							<a href="{$val.large_img}" class="zoom">
+							<img src="{$val.big_img}">
+							</a>
 						</div>
 					</foreach>								
 				<ul class="des_smimg clearfix">
