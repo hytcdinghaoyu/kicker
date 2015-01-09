@@ -73,7 +73,7 @@ function searchKeyword(){
 			</div>
 			<div class="rightNav">
 				<?php if($userIsLogin): ?><div>欢迎您：<?php echo ($userName); ?></div>
-					<div><a href="<?php echo U('Member/Order/history');?>">[个人中心]</a></div>
+					<div><a href="<?php echo U('Member/Order/account');?>">[个人中心]</a></div>
 					<div><a href="<?php echo U('Member/Login/logout');?>">[注销]</a></div>
 					<?php else: ?>	
 						<!--登录注册-->

@@ -18,7 +18,15 @@ Class DetailController extends CommonController{
 
 		//商品图片
 		$big_img = explode(',',$goods_detail["big_images"]);
-		$this->assign("big_img",$big_img);
+		$large_img = explode(',',$goods_detail["large_images"]);
+		
+		$img_arr = array();
+		foreach ($big_img as $key => $value) {
+			$img_arr[$key]['big_img'] = $value;
+			$img_arr[$key]['large_img'] = $large_img[$key];
+		}
+
+		$this->assign("img_arr",$img_arr);
 		$sm_img = explode(',',$goods_detail["sm_images"]);
 		$this->assign("sm_img",$sm_img);
 

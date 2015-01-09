@@ -7,8 +7,49 @@
 	<link rel="stylesheet" type="text/css" href="/kicker/Public/style/account.css">
 	<link rel="stylesheet" type="text/css" href="/kicker/Public/style/base2.css">
 	<link rel="stylesheet" type="text/css" href="/kicker/Public/style/cart.css">
+	<link rel="stylesheet" type="text/css" href="/kicker/Public/style/uploadify.css">
 	<script type="text/javascript" src="/kicker/Public/js/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="/kicker/Public/js/swfobject.js"></script>
+	<script type="text/javascript" src="/kicker/Public/js/jquery.uploadify.min.js"></script>
 	<script type="text/javascript" src="/kicker/Public/js/index.js"></script>
+<script type="text/javascript">
+var uploadifyUrl = '<?php echo U("Member/Index/uploadHeadImage");?>';
+$(function(){
+
+	/*图片上传*/
+	$("#uploadify").uploadify({
+        'uploader': '/kicker/Public/js/uploadify.swf',
+        'script': uploadifyUrl,
+        'cancelImg': '/kicker/Public/js/cancel.png',
+        'folder': '/kicker/Public/uploads/headimages',
+        'queueID': 'fileQueue',
+        'fileTypeExts': '*.gif;*.jpg;*.png',
+        'auto': false,
+        'multi': false,
+        onComplete: function (event, ID, fileObj, response, data) {
+            // var ext = fileObj.filePath.substring(fileObj.filePath.lastIndexOf('.')).toLowerCase();
+            // var extname = ".jpg|.png|.gif";
+            // alert(ext);
+            if (response=='1') {
+            	alert('上传成功！');
+            	//alert(fileObj.filePath);
+            	var filePath = fileObj.filePath;
+            	$(".avatar img").attr('src',filePath);
+            }else{
+            	alert('文件类型不正确');
+            }
+            //alert(response);
+            return false;
+            // if (extname.search(ext) != -1) {
+            //     $("#originalImg").attr("src", fileObj.filePath);
+            //     $("#previewImg").attr("src", fileObj.filePath);
+            // } else {
+            //     alert("请上传[.jpg|.png|.gif]格式图片！");
+            // }
+        }
+    });
+});
+</script>
 </head>
 <body>
 <script type="text/javascript" src="/kicker/Public/js/jquery-ui.js"></script>
@@ -73,7 +114,7 @@ function searchKeyword(){
 			</div>
 			<div class="rightNav">
 				<?php if($userIsLogin): ?><div>欢迎您：<?php echo ($userName); ?></div>
-					<div><a href="<?php echo U('Member/Order/history');?>">[个人中心]</a></div>
+					<div><a href="<?php echo U('Member/Order/account');?>">[个人中心]</a></div>
 					<div><a href="<?php echo U('Member/Login/logout');?>">[注销]</a></div>
 					<?php else: ?>	
 						<!--登录注册-->
@@ -204,7 +245,15 @@ function searchKeyword(){
 			<div class="account-content">
 				<!--个人详细资料-->
 				<div class="account_cover clearfix">
-					<div class="avatar"><img src="http://q.qlogo.cn/qqapp/100537426/805D716FC702D5C4A2BB774B4CD873E8/100"> <a href="http://passport.feng.com/?r=user/avatar" target="_blank">上传我的头像</a></div>
+					<div class="avatar">
+					<img src="http://q.qlogo.cn/qqapp/100537426/805D716FC702D5C4A2BB774B4CD873E8/100"> 		
+					 <form id="form_upload">
+		                <input type="file" name="uploadify" id="uploadify" />
+		               	<a href="javascript:$('#uploadify').uploadifyUpload()" class="upload">上传头像</a>
+		              	<a href="javascript:$('#uploadify').uploadifyClearQueue()" class="upload"> 取消上传</a>
+		                <div id="fileQueue" style="height:70px; overflow:auto;"></div>
+		            </form>
+					</div>
 					<div class="welcome-msg">
 							<div class="hello">
 								<span>(上一次登录时间：2015-01-05 15:36:44)</span>

@@ -26,6 +26,8 @@ $(function(){
 		$(".cart_inner").hide();
 	});
 
+	
+
 })
 
 
