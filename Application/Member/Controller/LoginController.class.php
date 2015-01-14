@@ -38,7 +38,6 @@ Class LoginController extends Controller{
 	//生成验证码
 	Public function verify(){
 		ob_clean();
-
 		$config = array(
 			'fontSize' =>14,
 			'length' => 4,
@@ -46,7 +45,6 @@ Class LoginController extends Controller{
 			'imageH' => 38
 
 		);
-
 		$Verify = new \Think\Verify($config);
 		$Verify->entry();
 	}

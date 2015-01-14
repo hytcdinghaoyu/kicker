@@ -1,155 +1,104 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>-.-</title>
-<link rel="stylesheet" href="style/backstage.css">
-</head>
+<include file="./Public/tpl/admintop.html" />
+<include file="./Public/tpl/adminleft.html" />
+<!-- Content (Right Column) -->
+		<div id="content" class="box">
 
-<body>
-    <div class="head">
-            <div class="logo fl"><a href="#"></a></div>
-            <h3 class="head_text fr">慕课电子商务后台管理系统</h3>
-    </div>
-    <div class="operation_user clearfix">
-        <div class="link fl"><a href="#">慕课</a><span>&gt;&gt;</span><a href="#">商品管理</a><span>&gt;&gt;</span>商品修改</div>
-        <div class="link fr">
-            <a href="#" class="icon icon_i">首页</a><span></span><a href="#" class="icon icon_j">前进</a><span></span><a href="#" class="icon icon_t">后退</a><span></span><a href="#" class="icon icon_n">刷新</a><span></span><a href="#" class="icon icon_e">退出</a>
-        </div>
-    </div>
-    <div class="content clearfix">
-        <div class="main">
-            <!--右侧内容-->
-            <div class="cont">
-                <div class="title">产品管理</div>
-                <div class="details">
-                    <div class="details_operation clearfix">
-                        <div class="bui_select">
-                            <input type="button" value="添&nbsp;&nbsp;加" class="add">
-                        </div>
-                        <div class="fr">
-                            <div class="text">
-                                <span>商品名称：</span>
-                                <div class="bui_select">
-                                    <select name="" id="" class="select">
-                                        <option value="1">测试内容</option>
-                                        <option value="1">测试内容</option>
-                                        <option value="1">测试内容</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="text">
-                                <span>上架时间：</span>
-                                <div class="bui_select">
-                                    <select name="" id="" class="select">
-                                        <option value="1">测试内容</option>
-                                        <option value="1">测试内容</option>
-                                        <option value="1">测试内容</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="text">
-                                <span>搜索</span>
-                                <input type="text" value="" class="search">
-                            </div>
-                        </div>
-                    </div>
-                    <!--表格-->
-                    <table class="table" cellspacing="0" cellpadding="0">
-                        <thead>
-                            <tr>
-                                <th width="15%">编号</th>
-                                <th width="25%">标题</th>
-                                <th width="35%">来源</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <!--这里的id和for里面的c1 需要循环出来-->
-                                <td><input type="checkbox" id="c1" class="check"><label for="c1" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c2" class="check"><label for="c2" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c3" class="check"><label for="c3" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c4" class="check"><label for="c4" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c5" class="check"><label for="c5" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c6" class="check"><label for="c6" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c7" class="check"><label for="c7" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c8" class="check"><label for="c8" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c9" class="check"><label for="c9" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+			<h1>欢迎使用EasyCart系统</h1>
+            <!--<p class="msg info">提示：</p>-->	
+            <div class="tabs box">
+				<ul>
+					<li><a href="#tab01"><span>欢迎使用</span></a></li>
+					<li><a href="#tab02"><span>服务器信息</span></a></li>
+					<li><a href="#tab03"><span>程序发布</span></a></li>
+					<li><a href="#tab04"><span>安装使用</span></a></li>
+				</ul>
+			</div> 
+			
+			<div id="tab01">
+			<p><img src="__PUBLIC__/skin/admin/step.jpg" border="0" usemap="#Map" />
+              <map name="Map" id="Map">
+                <area shape="rect" coords="153,14,277,52" href="{:U('Type/catelist')}" />
+                <area shape="rect" coords="295,15,415,52" href="{:U('Cate/add')}" />
+                <area shape="rect" coords="432,15,556,52" href="{:U('Cate/catelist')}" />
+                <area shape="rect" coords="570,14,694,53" href="{:U('Products/add')}" />
+                <area shape="rect" coords="710,14,836,53" href="{:U('Products/productslist')}" />
+              </map>
+            </p>
+			本站共有 <a href="{:U('Products/productslist')}">{$product_count|default=0}</a> 个产品 , <a href="{:U('Cate/catelist')}">{$cate_count|default=0}</a> 个类别<br/>
+			今天共新增了 <a href="{:U('Orders/orderslist')}">{$order_count|default=0}</a> 个订单 , <a href="{:U('Members/memberslist')}">{$member_count|default=0}</a> 个会员  , <a href="{:U('Products_ask/index')}">{$ask_count|default=0}</a> 个留言 , {$cart_count|default=0} 个购物车 , 登录了 <a href="{:U('Members/memberslist')}">{$member_last_login_count|default=0}</a> 个会员 , {$orders_status1|default=0} 个未付款 , {$orders_status2|default=0} 个已付款 <br/>
+			本周共新增了 <a href="{:U('Orders/orderslist')}">{$week_order_count|default=0}</a> 个订单 , <a href="{:U('Members/memberslist')}">{$week_member_count|default=0}</a> 个会员 , <a href="{:U('Products_ask/index')}">{$week_ask_count|default=0}</a> 个留言 <br/>
+			本月共新增了 <a href="{:U('Orders/orderslist')}">{$month_order_count|default=0}</a> 个订单 , <a href="{:U('Members/memberslist')}">{$month_member_count|default=0}</a> 个会员 , <a href="{:U('Products_ask/index')}">{$month_ask_count|default=0}</a> 个留言 <br/>
+            </div> 
+            <div id="tab02">
+            <form action="{:U('Info/doInsert')}" name="myform" method="post">
+            <table width="100%">
+                    <tr>
+						<td colspan="2" >服务器信息:
+					    </td>
+					</tr>
+                    <tr>
+						<td style="width:220px;">操作系统:</td>
+						<td>{$info['操作系统']}</td>
+					</tr>
+                    <tr>
+						<td style="width:220px;">运行环境:</td>
+						<td>{$info['运行环境']}</td>
+					</tr>
+                    <tr>
+						<td style="width:220px;">PHP运行方式:</td>
+						<td>{$info['PHP运行方式']}</td>
+					</tr>
+                    <tr>
+						<td style="width:220px;">版本:</td>
+						<td>{$info['版本']}</td>
+					</tr>
+                    <tr>
+						<td style="width:220px;">上传附件限制:</td>
+						<td>{$info['上传附件限制']}</td>
+					</tr>
+                    <tr>
+						<td style="width:220px;">执行时间限制:</td>
+						<td>{$info['执行时间限制']}</td>
+					</tr>
+                    <tr>
+						<td style="width:220px;">服务器时间:</td>
+						<td>{$info['服务器时间']}</td>
+					</tr>
+                    <tr>
+						<td style="width:220px;">北京时间:</td>
+						<td>{$info['北京时间']}</td>
+					</tr>
+                    <tr>
+						<td style="width:220px;">服务器域名/IP:</td>
+						<td>{$info['服务器域名/IP']}</td>
+					</tr>
+                    <tr>
+						<td style="width:220px;">剩余空间:</td>
+						<td>{$info['剩余空间']}</td>
+					</tr>
+                    <tr>
+						<td style="width:220px;">register_globals:</td>
+						<td>{$info['register_globals']}</td>
+					</tr>
+                    <tr>
+						<td style="width:220px;">magic_quotes_gpc:</td>
+						<td>{$info['magic_quotes_gpc']}</td>
+					</tr>
+                    <tr>
+						<td style="width:220px;">magic_quotes_runtime:</td>
+						<td>{$info['magic_quotes_runtime']}</td>
+					</tr>
+                                       
+               
+                    
+            </table>
+            </form>
+            </div> 
+            <div id="tab03">
+            <script type="text/javascript" src="http://www.0594trade.com/api.php?mod=js&bid=68"></script>
             </div>
-        </div>
-        <!--左侧列表-->
-        <div class="menu">
-            <div class="cont">
-                <div class="title">管理员</div>
-                <ul class="mList">
-                    <li>
-                        <h3><span>-</span>商品管理</h3>
-                        <dl>
-                            <dd><a href="#">商品修改</a></dd>
-                            <dd><a href="#">商品分类</a></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <h3><span>+</span>订单管理</h3>
-                        <dl>
-                            <dd><a href="#">订单修改</a></dd>
-                            <dd><a href="#">订单又修改</a></dd>
-                            <dd><a href="#">订单总是修改</a></dd>
-                            <dd><a href="#">测试内容你看着改</a></dd>
-                        </dl>
-                    </li>
-                </ul>
+            <div id="tab04">
+            <script type="text/javascript" src="http://www.0594trade.com/api.php?mod=js&bid=70"></script>
             </div>
-        </div>
-
-    </div>
-</body>
-</html>
+		</div> <!-- /content -->
+<include file="./Public/tpl/adminfooter.html" />
