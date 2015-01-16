@@ -1,10 +1,10 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-//use Think\ORG\Util;
 class AdminLoginController extends Controller {
 
-    public function adminlogin() {
+
+	public function adminlogin() {
 		//echo Session::get(C('USER_AUTH_KEY'));
 		$map['username']=$_COOKIE['username'];
 		$map['password']=$_COOKIE['password'];
@@ -12,11 +12,12 @@ class AdminLoginController extends Controller {
 	         $this->doCookies();
 	    }      
 		
-		if (! $_SESSION[C('USER_AUTH_KEY')]) {
-			$this->display();
+		if (!$_SESSION[C('USER_AUTH_KEY')]) {
+			$this->display ();
 		} else {
-			$this->redirect ( 'Admin/Index/Index' );
+			$this->redirect ( 'Admin/Index' );
 		}
+
 	}
 
     //生成验证码
@@ -64,30 +65,22 @@ class AdminLoginController extends Controller {
 		$_SESSION['email'] = $authInfo['email'];
 		$_SESSION['loginUserName'] = !empty($authInfo ['nickname'])?$authInfo ['nickname']:$authInfo['account'];
 		$_SESSION['login_count'] = $authInfo['login_count'];
-		// Session::set ( C ( 'USER_AUTH_KEY' ), $authInfo ['id'] );
-		// Session::set ( 'email', $authInfo ['email'] );
-		// Session::set ( 'loginUserName', !empty($authInfo ['nickname'])?$authInfo ['nickname']:$authInfo['account'] );
-		// Session::set ( 'login_count', $authInfo ['login_count'] );
 		if($authInfo['isadministrator']==1){
 			$_SESSION['administrator'] = true;
-			//Session::set ( 'administrator', true );
 		}
-		\Org\Util\Rbac::saveAccessList ();
-		
+		\Org\Util\Rbac::saveAccessList ();	
 		if($_POST['chcookies']){
 			setcookie("username", $_POST ['account'], time()+3600*24*30);
 			setcookie("password", $_POST ['password'], time()+3600*24*30);
-		}
-		
+		}		
 		$this->success ( '登录成功！',U('Admin/Index/index'));
 	}
 
 	public function doCookies() {
-			$map ['account'] =$_COOKIE['username'];
-			$map ['status'] = array ('gt', 0 );
-			
-			import ( '@.ORG.RBAC' );
-			$authInfo = RBAC::authenticate ( $map );
+		$map ['account'] =$_COOKIE['username'];
+		$map ['status'] = array ('gt', 0 );
+		
+		$authInfo = \Org\Util\Rbac::authenticate ( $map );
 		if (! $authInfo) {
 				$this->error ( '登录错误：可能这个账户已被禁用！' );
 		}
@@ -95,21 +88,30 @@ class AdminLoginController extends Controller {
 			$this->error ( '登录失败：密码错误！' );
 		}
 		
-		
-		
-		$model=D('User');
-		$model->find($authInfo ['id']);
-		$model->last_login_time=time();
-		$model->last_login_ip=get_client_ip();
-		$model->save();
-		Session::set ( C ( 'USER_AUTH_KEY' ), $authInfo ['id'] );
-		Session::set ( 'email', $authInfo ['email'] );
-		Session::set ( 'loginUserName', !empty($authInfo ['nickname'])?$authInfo ['nickname']:$authInfo['account'] );
-		Session::set ( 'login_count', $authInfo ['login_count'] );
+		//记录登录时间和ip
+		$data = array(
+			'last_login_time' => time(),
+			'last_login_ip' => get_client_ip(),
+		);
+		M('User_admin')->where(array('id'=>$authInfo ['id']))->save($data);
+
+		$_SESSION[C('USER_AUTH_KEY')] =  $authInfo ['id'];
+		$_SESSION['email'] = $authInfo['email'];
+		$_SESSION['loginUserName'] = !empty($authInfo ['nickname'])?$authInfo ['nickname']:$authInfo['account'];
+		$_SESSION['login_count'] = $authInfo['login_count'];
 		if($authInfo['isadministrator']==1){
-			Session::set ( 'administrator', true );
+			$_SESSION['administrator'] = true;
 		}
-		RBAC::saveAccessList ();
-		$this->redirect ( 'Admin/Index' );
+		\Org\Util\Rbac::saveAccessList ();	
+		$this->redirect ( 'Admin/Index/index' );
+	}
+
+	/**
+	 * 注销用户
+	 */
+	public function LogOut(){
+		session_unset();
+		session_destroy();
+		$this->success('退出成功',U("Admin/Index/index"));
 	}
 }

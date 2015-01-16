@@ -59,7 +59,7 @@
 
 		</p>
 
-		<p class="f-right">User: <strong><a href="#"><?php echo ($userName); ?></a></strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><a href="<?php echo U('Index/loginOut');?>" id="logout">Log out</a></strong></p>
+		<p class="f-right">User: <strong><a href="#"><?php echo ($userName); ?></a></strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><a href="<?php echo U('Admin/AdminLogin/logOut');?>" id="logout">Log out</a></strong></p>
 
 	</div> <!--  /tray -->
 
