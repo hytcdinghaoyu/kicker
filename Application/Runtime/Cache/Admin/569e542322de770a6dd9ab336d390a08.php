@@ -224,107 +224,153 @@ $('#aside ul.box>li>a').click(function(){
 	$(this).parent().children('ul').toggle('fast').parent().siblings().children('ul').slideUp('fast');
 });
 </script>
+<script type="text/javascript">
+function delall(){
+	var id=$('input:checkbox[name^=id]:checked').map(function(){
+		return $(this).val();
+	}).get().join(",");
+	if(!id){
+		alert('请选择要删除的项!');
+	}else{
+		$.post("<?php echo U('Orders/delete');?>","id="+id);
+		$('input[name^=id]:checked').parent().parent().remove();
+	}
+}
+function print_all(){
+	var id=$('input:checkbox[name^=id]:checked').map(function(){
+		return $(this).val();
+	}).get().join(",");
+	if(!id){
+		alert('请选择要打印的项!');
+	}else{
+		$('form[name=tempform] input:hidden[name=id]').val(id);
+		$('form[name=tempform]').attr('action','<?php echo U('Orders/printall');?>').submit();
+	}
+}
+function export_order(){
+	var id=$('input:checkbox[name^=id]:checked').map(function(){
+		return $(this).val();
+	}).get().join(",");
+	if(!id){
+		alert('请选择要导出的订单!');
+	}else{
+		$('form[name=tempform] input:hidden[name=id]').val(id);
+		$('form[name=tempform]').attr({
+		'action':'<?php echo U('Orders/export');?>',
+		'target':'_blank'
+		}).submit();
+	}
+}
+function excel(){
+	var id=$('input:checkbox[name^=id]:checked').map(function(){
+		return $(this).val();
+	}).get().join(",");
+	if(!id){
+		alert('请选择要导出的订单!');
+	}else{
+		$('form[name=tempform] input:hidden[name=id]').val(id);
+		$('form[name=tempform]').attr({
+		'action':'<?php echo U('Orders/excel');?>',
+		'target':'_blank'
+		}).submit();
+	}
+}
+function set_orders_status(){
+	var id=$('input:checkbox[name^=id]:checked').map(function(){
+		return $(this).val();
+	}).get().join(",");
+	if(!id){
+		alert('请选择订单!');
+	}else{
+		$('form[name=orders_status] input:hidden[name=id]').val(id);
+		$('form[name=orders_status]').submit();
+	}
+}
+
+$(document).ready (
+function(){
+
+	$("a[name^='del_']").click(
+	function(){
+		var answer = confirm("确认要删除吗?");
+		if(answer){
+			window.location = $(this).attr("href");
+
+		}
+		else{
+
+			$(this).attr("href","javascript:void(0);");
+
+		}
+
+	}
+	);
+	$("#checkAll").click(
+	function () {
+		$("input:checkbox[name^=id]").attr("checked",this.checked);
+	}
+	);
+}
+);
+
+</script>
 <!-- Content (Right Column) -->
 		<div id="content" class="box">
-
-			<h1>欢迎使用EasyCart系统</h1>
-            <!--<p class="msg info">提示：</p>-->	
-            <div class="tabs box">
-				<ul>
-					<li><a href="#tab01"><span>欢迎使用</span></a></li>
-					<li><a href="#tab02"><span>服务器信息</span></a></li>
-					<li><a href="#tab03"><span>程序发布</span></a></li>
-					<li><a href="#tab04"><span>安装使用</span></a></li>
-				</ul>
-			</div> 
-			
-			<div id="tab01">
-			<p><img src="/kicker/Public/skin/admin/step.jpg" border="0" usemap="#Map" />
-              <map name="Map" id="Map">
-                <area shape="rect" coords="153,14,277,52" href="<?php echo U('Type/catelist');?>" />
-                <area shape="rect" coords="295,15,415,52" href="<?php echo U('Cate/add');?>" />
-                <area shape="rect" coords="432,15,556,52" href="<?php echo U('Cate/catelist');?>" />
-                <area shape="rect" coords="570,14,694,53" href="<?php echo U('Products/add');?>" />
-                <area shape="rect" coords="710,14,836,53" href="<?php echo U('Products/productslist');?>" />
-              </map>
-            </p>
-			本站共有 <a href="<?php echo U('Products/productslist');?>"><?php echo ((isset($product_count) && ($product_count !== ""))?($product_count):0); ?></a> 个产品 , <a href="<?php echo U('Cate/catelist');?>"><?php echo ((isset($cate_count) && ($cate_count !== ""))?($cate_count):0); ?></a> 个类别<br/>
-			今天共新增了 <a href="<?php echo U('Orders/orderslist');?>"><?php echo ((isset($order_count) && ($order_count !== ""))?($order_count):0); ?></a> 个订单 , <a href="<?php echo U('Members/memberslist');?>"><?php echo ((isset($member_count) && ($member_count !== ""))?($member_count):0); ?></a> 个会员  , <a href="<?php echo U('Products_ask/index');?>"><?php echo ((isset($ask_count) && ($ask_count !== ""))?($ask_count):0); ?></a> 个留言 , <?php echo ((isset($cart_count) && ($cart_count !== ""))?($cart_count):0); ?> 个购物车 , 登录了 <a href="<?php echo U('Members/memberslist');?>"><?php echo ((isset($member_last_login_count) && ($member_last_login_count !== ""))?($member_last_login_count):0); ?></a> 个会员 , <?php echo ((isset($orders_status1) && ($orders_status1 !== ""))?($orders_status1):0); ?> 个未付款 , <?php echo ((isset($orders_status2) && ($orders_status2 !== ""))?($orders_status2):0); ?> 个已付款 <br/>
-			本周共新增了 <a href="<?php echo U('Orders/orderslist');?>"><?php echo ((isset($week_order_count) && ($week_order_count !== ""))?($week_order_count):0); ?></a> 个订单 , <a href="<?php echo U('Members/memberslist');?>"><?php echo ((isset($week_member_count) && ($week_member_count !== ""))?($week_member_count):0); ?></a> 个会员 , <a href="<?php echo U('Products_ask/index');?>"><?php echo ((isset($week_ask_count) && ($week_ask_count !== ""))?($week_ask_count):0); ?></a> 个留言 <br/>
-			本月共新增了 <a href="<?php echo U('Orders/orderslist');?>"><?php echo ((isset($month_order_count) && ($month_order_count !== ""))?($month_order_count):0); ?></a> 个订单 , <a href="<?php echo U('Members/memberslist');?>"><?php echo ((isset($month_member_count) && ($month_member_count !== ""))?($month_member_count):0); ?></a> 个会员 , <a href="<?php echo U('Products_ask/index');?>"><?php echo ((isset($month_ask_count) && ($month_ask_count !== ""))?($month_ask_count):0); ?></a> 个留言 <br/>
-            </div> 
-            <div id="tab02">
-            <form action="<?php echo U('Info/doInsert');?>" name="myform" method="post">
-            <table width="100%">
-                    <tr>
-						<td colspan="2" >服务器信息:
-					    </td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">操作系统:</td>
-						<td><?php echo ($info['操作系统']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">运行环境:</td>
-						<td><?php echo ($info['运行环境']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">PHP运行方式:</td>
-						<td><?php echo ($info['PHP运行方式']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">版本:</td>
-						<td><?php echo ($info['版本']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">上传附件限制:</td>
-						<td><?php echo ($info['上传附件限制']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">执行时间限制:</td>
-						<td><?php echo ($info['执行时间限制']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">服务器时间:</td>
-						<td><?php echo ($info['服务器时间']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">北京时间:</td>
-						<td><?php echo ($info['北京时间']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">服务器域名/IP:</td>
-						<td><?php echo ($info['服务器域名/IP']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">剩余空间:</td>
-						<td><?php echo ($info['剩余空间']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">register_globals:</td>
-						<td><?php echo ($info['register_globals']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">magic_quotes_gpc:</td>
-						<td><?php echo ($info['magic_quotes_gpc']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">magic_quotes_runtime:</td>
-						<td><?php echo ($info['magic_quotes_runtime']); ?></td>
-					</tr>
-                                       
-               
-                    
-            </table>
+			<h1>订单管理</h1>
+            <p class="msg info">提示：</p>
+            	 <p id="btn-create" class="box">
+            <form action="<?php echo U('Orders/orderslist');?>" method="get" >
+            订单号:<input type="text" size="20" name="sn" class="input-text" value="" />
+            <input type="submit" value="搜索" />
             </form>
-            </div> 
-            <div id="tab03">
-            <script type="text/javascript" src="http://www.0594trade.com/api.php?mod=js&bid=68"></script>
-            </div>
-            <div id="tab04">
-            <script type="text/javascript" src="http://www.0594trade.com/api.php?mod=js&bid=70"></script>
-            </div>
+            </p>
+            <table width="100%">
+				<tr pid="0">
+				    <th style="text-align:center" width="6%"><input type="checkbox" id="checkAll"/> ID</th>
+				    <th style="text-align:center" width="10%">编号</th>
+				    <th style="text-align:center" width="13%">创建时间</th>
+                    <th style="text-align:center" width="7%">金额</th>
+                    <th style="text-align:center" width="10%">付款方式</th>
+                    <th style="text-align:center" width="5%">状态</th>
+                    <th style="text-align:center" width="17%">会员帐号</th>              
+                    <th style="text-align:center" >操作</th>
+				</tr>
+                <?php if(is_array($order_list)): foreach($order_list as $key=>$val): ?><tr >
+                    <td style="text-align:left" ><input type="checkbox" name="id[]" value="<?php echo ($val["oid"]); ?>" /> <a href="<?php echo u('Orders/edit',array('id'=>$vo['id']));?>"><?php echo ($val["oid"]); ?></a></td>
+				    <td style="text-align:left" id="classname" ><?php echo ($val["billno"]); ?></td>
+				    <td style="text-align:left" ><?php echo (date('Y-m-d H:i:s',$val["add_time"])); ?></td>
+                    <td style="text-align:left" >￥<?php echo ($val["total_price"]); ?></td>
+                    <td style="text-align:left" ><?php echo ($val["pay_method"]); ?></td>
+                    <td style="text-align:left" ><?php echo ($val["status"]); ?></td>
+                    <td style="text-align:left" ><?php echo ($val["user_name"]); ?></td>
+                    <td style="text-align:center" ><a href="<?php echo U('Orders/orders',array('id'=>$vo['id']));?>"><img src="/kicker/Public/skin/admin/order.jpg" title="订单详情" /></a>&nbsp;<a href="<?php echo U('Orders/delivery',array('id'=>$vo['id']));?>"><img src="/kicker/Public/skin/admin/pei.jpg" title="配货"/></a>&nbsp;<a href="<?php echo u('Orders/edit',array('id'=>$vo['id']));?>"><img src="/kicker/Public/skin/admin/see_at.jpg" title="查看" /></a>&nbsp;<a href="<?php echo u('Orders/sendgoods',array('id'=>$vo['id']));?>"><img src="/kicker/Public/skin/admin/send_pro.jpg"  title="发货"  /></a>&nbsp;<a href="<?php echo u('Orders/dispBills',array('id'=>$vo['id']));?>"><img src="/kicker/Public/skin/admin/print.jpg" title="打印发货单" /></a>&nbsp;<a name="del_<?php echo ($vo["id"]); ?>"  href="<?php echo u('Orders/Delete',array('id'=>$vo['id']));?>" ><img src="/kicker/Public/skin/admin/out_del.jpg" title="移除"  /></a>&nbsp;<a href="###" onclick="window.open('<?php echo U('Orders/word',array('id'=>$vo['id']));?>');"><img src="/kicker/Public/skin/admin/out.jpg" title="导出"  /></a></td>
+                </tr><?php endforeach; endif; ?>
+			</table>
+			
+			 <form name="orders_status" method="post" action="<?php echo U('Orders/orders_status','','',false);?>">
+			 <p class="t-left">
+			 <input type="button" value="批量删除" onclick="delall();" />
+			 状态:
+			 <select name="orders_status" onchange="set_orders_status();" >
+                        <option value="">-请选择-</option> 
+                        
+                        <option value="1" ><?php echo L("orders_status_1");?></option> 
+                        <option value="2" ><?php echo L("orders_status_2");?></option> 
+                        <option value="3" ><?php echo L("orders_status_3");?></option> 
+                        <option value="4" ><?php echo L("orders_status_4");?></option> 
+                        
+                        </select>
+                       <input type="hidden" value="" name="id"/>
+			 </p></form>
+			 <form name="tempform" method="post" >
+			 <input type="hidden" value="" name="id" />
+			 <input type="button" value="批量打印" onclick="print_all()" />
+			 <input type="button"  value="导出订单数据" onclick="export_order()" />
+			 <input type="button"  value="导出订单列表" onclick="excel()" />
+			</form>
+            <p class="t-right"><?php echo ($show); ?></p>
 		</div> <!-- /content -->
+
 	</div> <!-- /cols -->
 	<hr class="noscreen" />
 

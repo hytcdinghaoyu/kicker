@@ -112,6 +112,6 @@ class AdminLoginController extends Controller {
 	public function LogOut(){
 		session_unset();
 		session_destroy();
-		$this->success('退出成功',U("Admin/Index/index"));
+		$this->success('退出成功',U("Admin/AdminLogin/adminlogin"));
 	}
 }

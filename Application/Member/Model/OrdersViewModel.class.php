@@ -7,7 +7,7 @@ Class OrdersViewModel extends ViewModel{
 	 */
 	public $viewFields = array(
 		'Order_goods' => array('goods_num','goods_attr','total_money'),
-		'Orders' => array('order_id'=>'oid','billno','add_time','total_price','status','pay_method','address_id','_on'=>'Order_goods.order_id = Orders.order_id'),
+		'Orders' => array('user_id','order_id'=>'oid','billno','add_time','total_price','status','pay_method','address_id','_on'=>'Order_goods.order_id = Orders.order_id'),
 		'Goods' => array('gid','main_title','goods_img','price','_on'=>'Order_goods.goods_id = Goods.gid'),
 	);
 
@@ -16,6 +16,17 @@ Class OrdersViewModel extends ViewModel{
 	 */
 	public function getOrder($uid){
 		return $this->select();
+	}
+
+	/**
+	 * 获取所有订单
+	 */
+	public function getAllOrders(){
+		$orders = $this->field('oid,billno,add_time,total_price,pay_method,status,user_id')->select();
+		foreach ($orders as $order_k => $order_v) {
+			$orders[$order_k]['user_name'] = M('User')->where(array('uid'=>$order_v['user_id']))->getField('uname');
+		}
+		return $orders;
 	}
 
 	/**
