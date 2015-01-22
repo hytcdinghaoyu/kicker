@@ -2,6 +2,7 @@
 namespace Member\Model;
 use Think\Model\ViewModel;
 Class OrdersViewModel extends ViewModel{
+	
 	/**
 	 * 定义订单视图模型
 	 */
@@ -22,15 +23,24 @@ Class OrdersViewModel extends ViewModel{
 	 * 获取所有订单
 	 */
 	public function getAllOrders(){
-		$orders = $this->field('oid,billno,add_time,total_price,pay_method,status,user_id')->select();
-		foreach ($orders as $order_k => $order_v) {
-			$orders[$order_k]['user_name'] = M('User')->where(array('uid'=>$order_v['user_id']))->getField('uname');
+		$orders = array();
+		$order_goods = $this->field('oid,billno,add_time,total_price,pay_method,status,user_id')->where(array('is_delete'=>0))->select();
+		foreach ($order_goods as $order_goods_k => $order_goods_v) {
+			if (!array_key_exists($order_goods_v['oid'], $orders)){
+				$orders[$order_goods_v['oid']]['billno'] = $order_goods_v['billno'];
+				$orders[$order_goods_v['oid']]['add_time'] = $order_goods_v['add_time'];
+				$orders[$order_goods_v['oid']]['user_name'] = M('User')->where(array('uid'=>$order_goods_v['user_id']))->getField('uname');
+				$orders[$order_goods_v['oid']]['status'] = $order_goods_v['status'];
+				$orders[$order_goods_v['oid']]['total_price'] = $order_goods_v['total_price'];
+				$orders[$order_goods_v['oid']]['pay_method'] = $order_goods_v['pay_method'];
+			}
 		}
+		krsort($orders);
 		return $orders;
 	}
 
 	/**
-	 * 获取历史订单
+	 * 获取某会员的历史订单
 	 */
 	public function getHistory($uid){
 		$orders = array();

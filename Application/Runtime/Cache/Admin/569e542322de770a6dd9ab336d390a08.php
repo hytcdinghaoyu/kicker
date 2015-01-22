@@ -292,17 +292,12 @@ function(){
 
 	$("a[name^='del_']").click(
 	function(){
-		var answer = confirm("确认要删除吗?");
-		if(answer){
+		if(confirm("确认要删除吗?")){
 			window.location = $(this).attr("href");
-
 		}
 		else{
-
-			$(this).attr("href","javascript:void(0);");
-
+			return false;
 		}
-
 	}
 	);
 	$("#checkAll").click(
@@ -336,14 +331,14 @@ function(){
                     <th style="text-align:center" >操作</th>
 				</tr>
                 <?php if(is_array($order_list)): foreach($order_list as $key=>$val): ?><tr >
-                    <td style="text-align:left" ><input type="checkbox" name="id[]" value="<?php echo ($val["oid"]); ?>" /> <a href="<?php echo u('Orders/edit',array('id'=>$vo['id']));?>"><?php echo ($val["oid"]); ?></a></td>
+                    <td style="text-align:left" ><input type="checkbox" name="id[]" value="<?php echo ($val["oid"]); ?>" /> <a href="<?php echo U('Orders/edit',array('id'=>$val.oid));?>"><?php echo ($key); ?></a></td>
 				    <td style="text-align:left" id="classname" ><?php echo ($val["billno"]); ?></td>
 				    <td style="text-align:left" ><?php echo (date('Y-m-d H:i:s',$val["add_time"])); ?></td>
                     <td style="text-align:left" >￥<?php echo ($val["total_price"]); ?></td>
                     <td style="text-align:left" ><?php echo ($val["pay_method"]); ?></td>
                     <td style="text-align:left" ><?php echo ($val["status"]); ?></td>
                     <td style="text-align:left" ><?php echo ($val["user_name"]); ?></td>
-                    <td style="text-align:center" ><a href="<?php echo U('Orders/orders',array('id'=>$vo['id']));?>"><img src="/kicker/Public/skin/admin/order.jpg" title="订单详情" /></a>&nbsp;<a href="<?php echo U('Orders/delivery',array('id'=>$vo['id']));?>"><img src="/kicker/Public/skin/admin/pei.jpg" title="配货"/></a>&nbsp;<a href="<?php echo u('Orders/edit',array('id'=>$vo['id']));?>"><img src="/kicker/Public/skin/admin/see_at.jpg" title="查看" /></a>&nbsp;<a href="<?php echo u('Orders/sendgoods',array('id'=>$vo['id']));?>"><img src="/kicker/Public/skin/admin/send_pro.jpg"  title="发货"  /></a>&nbsp;<a href="<?php echo u('Orders/dispBills',array('id'=>$vo['id']));?>"><img src="/kicker/Public/skin/admin/print.jpg" title="打印发货单" /></a>&nbsp;<a name="del_<?php echo ($vo["id"]); ?>"  href="<?php echo u('Orders/Delete',array('id'=>$vo['id']));?>" ><img src="/kicker/Public/skin/admin/out_del.jpg" title="移除"  /></a>&nbsp;<a href="###" onclick="window.open('<?php echo U('Orders/word',array('id'=>$vo['id']));?>');"><img src="/kicker/Public/skin/admin/out.jpg" title="导出"  /></a></td>
+                    <td style="text-align:center" ><a href="<?php echo U('Orders/ordersDetail',array('id'=>$key));?>"><img src="/kicker/Public/skin/admin/order.jpg" title="订单详情" /></a>&nbsp;<a href="<?php echo U('Orders/delivery',array('id'=>$val.oid));?>"><img src="/kicker/Public/skin/admin/pei.jpg" title="配货"/></a>&nbsp;<a href="<?php echo u('Orders/edit',array('id'=>$val.oid));?>"><img src="/kicker/Public/skin/admin/see_at.jpg" title="查看" /></a>&nbsp;<a href="<?php echo u('Orders/sendgoods',array('id'=>$val.oid));?>"><img src="/kicker/Public/skin/admin/send_pro.jpg"  title="发货"  /></a>&nbsp;<a href="<?php echo u('Orders/dispBills',array('id'=>$val.oid));?>"><img src="/kicker/Public/skin/admin/print.jpg" title="打印发货单" /></a>&nbsp;<a name="del_<?php echo ($val["oid"]); ?>"  href="<?php echo U('Orders/delOrder',array('id'=>$key));?>" ><img src="/kicker/Public/skin/admin/out_del.jpg" title="移除"  /></a>&nbsp;<a href="###" onclick="window.open('<?php echo U('Orders/word',array('id'=>$val.oid));?>');"><img src="/kicker/Public/skin/admin/out.jpg" title="导出"  /></a></td>
                 </tr><?php endforeach; endif; ?>
 			</table>
 			
@@ -352,16 +347,15 @@ function(){
 			 <input type="button" value="批量删除" onclick="delall();" />
 			 状态:
 			 <select name="orders_status" onchange="set_orders_status();" >
-                        <option value="">-请选择-</option> 
-                        
-                        <option value="1" ><?php echo L("orders_status_1");?></option> 
-                        <option value="2" ><?php echo L("orders_status_2");?></option> 
-                        <option value="3" ><?php echo L("orders_status_3");?></option> 
-                        <option value="4" ><?php echo L("orders_status_4");?></option> 
-                        
-                        </select>
+                    <option value="">-请选择-</option>                        
+                    <option value="1" ><?php echo L("orders_status_1");?></option> 
+                    <option value="2" ><?php echo L("orders_status_2");?></option> 
+                    <option value="3" ><?php echo L("orders_status_3");?></option> 
+                    <option value="4" ><?php echo L("orders_status_4");?></option>                        
+            </select>
                        <input type="hidden" value="" name="id"/>
-			 </p></form>
+			 </p>
+			 </form>
 			 <form name="tempform" method="post" >
 			 <input type="hidden" value="" name="id" />
 			 <input type="button" value="批量打印" onclick="print_all()" />

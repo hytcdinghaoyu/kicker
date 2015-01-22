@@ -7,8 +7,8 @@ return array(
 	'ADMIN_AUTH_KEY'			=>'administrator',
 	'USER_AUTH_MODEL'		=>'User_admin',	// 默认验证数据表模型
 	'AUTH_PWD_ENCODER'		=>'md5',	// 用户认证密码加密方式
-	'USER_AUTH_GATEWAY'	=>'/AdminPublic-adminlogin',	// 默认认证网关
-	'NOT_AUTH_MODULE'		=>'AdminPublic',		// 默认无需认证模块
+	'USER_AUTH_GATEWAY'	=>'/Admin/AdminLogin/adminlogin',	// 默认认证网关
+	'NOT_AUTH_MODULE'		=>'AdminLogin',		// 默认无需认证模块
 	'REQUIRE_AUTH_MODULE'=>'',		// 默认需要认证模块
 	'NOT_AUTH_ACTION'		=>'',		// 默认无需认证操作
 	'REQUIRE_AUTH_ACTION'=>'',		// 默认需要认证操作
