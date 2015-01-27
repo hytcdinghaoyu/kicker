@@ -330,7 +330,7 @@ function(){
                     <th style="text-align:center" width="17%">会员帐号</th>              
                     <th style="text-align:center" >操作</th>
 				</tr>
-                <?php if(is_array($order_list)): foreach($order_list as $key=>$val): ?><tr >
+                <?php if(is_array($order_list)): foreach($order_list as $key=>$val): ?><tr>
                     <td style="text-align:left" ><input type="checkbox" name="id[]" value="<?php echo ($val["oid"]); ?>" /> <a href="<?php echo U('Orders/edit',array('id'=>$val.oid));?>"><?php echo ($key); ?></a></td>
 				    <td style="text-align:left" id="classname" ><?php echo ($val["billno"]); ?></td>
 				    <td style="text-align:left" ><?php echo (date('Y-m-d H:i:s',$val["add_time"])); ?></td>

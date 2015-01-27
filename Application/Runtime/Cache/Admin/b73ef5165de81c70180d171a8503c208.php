@@ -224,107 +224,214 @@ $('#aside ul.box>li>a').click(function(){
 	$(this).parent().children('ul').toggle('fast').parent().siblings().children('ul').slideUp('fast');
 });
 </script>
+<script type="text/javascript">
+function attr(){
+	$("#listform").attr("action","<?php echo U('Products/attredit');?>");
+	$("#listform").submit();
+}
+function sortUpdate(){
+	$("#listform").attr("action","<?php echo U('Products/doSortUpdate');?>");
+	$("#listform").submit();
+}
+function delprodcuts(){
+	var id=$('input:checkbox[name^=id]:checked').map(function(){
+		return $(this).val();
+	}).get().join(",");
+	if(!id){
+		alert('请选择要删除的项!');
+	}else{
+		$.post("<?php echo U('Products/Delete');?>","id="+id);
+		$('input:checkbox[name^=id]:checked').parent().parent().remove();
+	}
+}
+function moveProdcutsToBrand(){
+	var id=$('input:checkbox[name^=id]:checked').map(function(){
+		return $(this).val();
+	}).get().join(",");
+	if(!id){
+		alert('请选择要转移的产品!');
+	}else{
+		$('form[name=movetobrand] input:hidden[name=id]').val(id);
+		$('form[name=movetobrand]').submit();
+	}
+}
+function moveprodcuts(){
+	var id=$('input:checkbox[name^=id]:checked').map(function(){
+		return $(this).val();
+	}).get().join(",");
+	if(!id){
+		alert('请选择要转移的产品!');
+	}else{
+		$('form[name=move] input:hidden[name=id]').val(id);
+		$('form[name=move]').submit();
+	}
+}
+
+function setstatus(id,type,_this){
+	$.post("<?php echo U('Goods/setStatus');?>",{'id':id,'type':type},function(data){
+		//alert(data);
+		$(_this).html(data);
+		//$('img',_this).attr('src',data);
+	},'json');
+}
+function setstatus2(form){
+
+	var id=$('input:checkbox[name^=id]:checked').map(function(){
+		return $(this).val();
+	}).get().join(",");
+	if(!id){
+		alert('请选择要设置的项!');
+		return false;
+	}else{
+		$("input:hidden[name=id]",form).val(id);
+		form.submit();
+	}
+}
+$(document).ready (
+function(){
+	$('input:checkbox[name^=id]').each(function(i,el){
+		var id=$(this).val();
+		$(this).parent().next().children('a').click(function(){
+			if(!$(this).next().length){
+				$this=$(this);
+				$(this).after("<p><textarea>"+$(this).text()+"</textarea><br/><input type='button' class='save' value='保存'/><input type='button' class='cannel' value='取消'/></p>");
+
+				$(this).siblings().find('input.cannel').click(function(){
+					$(this).parent('p').remove();
+				});
+				$(this).siblings().find('input.save').click(function(){
+					$.post("<?php echo U('Products/rename');?>",{ 'id':id,'name':$(this).siblings('textarea').val() },function(data,status){
+						if(!data.status){
+							alert(data.info);
+						}else{
+							$this.text(data['data'].name).siblings('p').remove();
+						}
+					},'json');
+				});
+			}
+			return false;
+		});
+	}).parents('tr').mouseover(function(){
+		$(this).css('background-color','#E6F7D4');
+	}).mouseout(function(){
+		$(this).css('background-color','#fff');
+	});
+
+	$("a[name^='del_']").click(
+	function(){
+		var answer = confirm("确认要删除吗?");
+		if(answer){
+			window.location = $(this).attr("href");
+
+		}
+		else{
+
+			$(this).attr("href","javascript:void(0);");
+
+		}
+
+	}
+	);
+	$("#checkAll").click(
+	function () {
+		$("input:checkbox[name^=id]").attr("checked",this.checked);
+	}
+	);
+	$(".preview").preview();
+	$("#cateid").val("<?php echo ((isset($cateid) && ($cateid !== ""))?($cateid):''); ?>");
+}
+);
+
+</script>
 <!-- Content (Right Column) -->
 		<div id="content" class="box">
 
-			<h1>欢迎使用EasyCart系统</h1>
-            <!--<p class="msg info">提示：</p>-->	
-            <div class="tabs box">
-				<ul>
-					<li><a href="#tab01"><span>欢迎使用</span></a></li>
-					<li><a href="#tab02"><span>服务器信息</span></a></li>
-					<li><a href="#tab03"><span>程序发布</span></a></li>
-					<li><a href="#tab04"><span>安装使用</span></a></li>
-				</ul>
-			</div> 
-			
-			<div id="tab01">
-			<p><img src="/kicker/Public/skin/admin/step.jpg" border="0" usemap="#Map" />
-              <map name="Map" id="Map">
-                <area shape="rect" coords="153,14,277,52" href="<?php echo U('Type/catelist');?>" />
-                <area shape="rect" coords="295,15,415,52" href="<?php echo U('Cate/add');?>" />
-                <area shape="rect" coords="432,15,556,52" href="<?php echo U('Cate/catelist');?>" />
-                <area shape="rect" coords="570,14,694,53" href="<?php echo U('Products/add');?>" />
-                <area shape="rect" coords="710,14,836,53" href="<?php echo U('Products/productslist');?>" />
-              </map>
+			<h1>产品管理</h1>
+            <p class="msg info">提示：</p>
+            	
+            <p id="btn-create" class="box">
+              <a href="<?php echo U('Products/add');?>">添加新产品</a>
             </p>
-			本站共有 <a href="<?php echo U('Products/productslist');?>"><?php echo ((isset($product_count) && ($product_count !== ""))?($product_count):0); ?></a> 个产品 , <a href="<?php echo U('Cate/catelist');?>"><?php echo ((isset($cate_count) && ($cate_count !== ""))?($cate_count):0); ?></a> 个类别<br/>
-			今天共新增了 <a href="<?php echo U('Orders/orderslist');?>"><?php echo ((isset($order_count) && ($order_count !== ""))?($order_count):0); ?></a> 个订单 , <a href="<?php echo U('Members/memberslist');?>"><?php echo ((isset($member_count) && ($member_count !== ""))?($member_count):0); ?></a> 个会员  , <a href="<?php echo U('Products_ask/index');?>"><?php echo ((isset($ask_count) && ($ask_count !== ""))?($ask_count):0); ?></a> 个留言 , <?php echo ((isset($cart_count) && ($cart_count !== ""))?($cart_count):0); ?> 个购物车 , 登录了 <a href="<?php echo U('Members/memberslist');?>"><?php echo ((isset($member_last_login_count) && ($member_last_login_count !== ""))?($member_last_login_count):0); ?></a> 个会员 , <?php echo ((isset($orders_status1) && ($orders_status1 !== ""))?($orders_status1):0); ?> 个未付款 , <?php echo ((isset($orders_status2) && ($orders_status2 !== ""))?($orders_status2):0); ?> 个已付款 <br/>
-			本周共新增了 <a href="<?php echo U('Orders/orderslist');?>"><?php echo ((isset($week_order_count) && ($week_order_count !== ""))?($week_order_count):0); ?></a> 个订单 , <a href="<?php echo U('Members/memberslist');?>"><?php echo ((isset($week_member_count) && ($week_member_count !== ""))?($week_member_count):0); ?></a> 个会员 , <a href="<?php echo U('Products_ask/index');?>"><?php echo ((isset($week_ask_count) && ($week_ask_count !== ""))?($week_ask_count):0); ?></a> 个留言 <br/>
-			本月共新增了 <a href="<?php echo U('Orders/orderslist');?>"><?php echo ((isset($month_order_count) && ($month_order_count !== ""))?($month_order_count):0); ?></a> 个订单 , <a href="<?php echo U('Members/memberslist');?>"><?php echo ((isset($month_member_count) && ($month_member_count !== ""))?($month_member_count):0); ?></a> 个会员 , <a href="<?php echo U('Products_ask/index');?>"><?php echo ((isset($month_ask_count) && ($month_ask_count !== ""))?($month_ask_count):0); ?></a> 个留言 <br/>
-            </div> 
-            <div id="tab02">
-            <form action="<?php echo U('Info/doInsert');?>" name="myform" method="post">
-            <table width="100%">
-                    <tr>
-						<td colspan="2" >服务器信息:
-					    </td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">操作系统:</td>
-						<td><?php echo ($info['操作系统']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">运行环境:</td>
-						<td><?php echo ($info['运行环境']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">PHP运行方式:</td>
-						<td><?php echo ($info['PHP运行方式']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">版本:</td>
-						<td><?php echo ($info['版本']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">上传附件限制:</td>
-						<td><?php echo ($info['上传附件限制']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">执行时间限制:</td>
-						<td><?php echo ($info['执行时间限制']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">服务器时间:</td>
-						<td><?php echo ($info['服务器时间']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">北京时间:</td>
-						<td><?php echo ($info['北京时间']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">服务器域名/IP:</td>
-						<td><?php echo ($info['服务器域名/IP']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">剩余空间:</td>
-						<td><?php echo ($info['剩余空间']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">register_globals:</td>
-						<td><?php echo ($info['register_globals']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">magic_quotes_gpc:</td>
-						<td><?php echo ($info['magic_quotes_gpc']); ?></td>
-					</tr>
-                    <tr>
-						<td style="width:220px;">magic_quotes_runtime:</td>
-						<td><?php echo ($info['magic_quotes_runtime']); ?></td>
-					</tr>
-                                       
-               
-                    
-            </table>
+            <p id="btn-create" class="box">
+            <form action="<?php echo U('Products/productslist');?>" method="get" >
+            产品名称:<input type="text" size="20" name="name" class="input-text" value="" />分类<select id='cateid' name="cateid" class="input-text" >
+                        <option value="">请选择...</option> 
+                        <option value="isnew">最新产品</option>
+                        <option value="ishot">热卖产品</option>
+                        <option value="isrec">推荐产品</option>
+                        <option value="isprice">特价产品</option>
+                        <option value="isdown">下架产品</option>
+                        <?php if(is_array($catetree)): $i = 0; $__LIST__ = $catetree;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo['id']); ?>"><?php echo class_str_insert($vo['deep'],"&nbsp;&nbsp;&nbsp;"); echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+                        
+                        </select>
+                        <input type="submit" value="搜索" />
             </form>
-            </div> 
-            <div id="tab03">
-            <script type="text/javascript" src="http://www.0594trade.com/api.php?mod=js&bid=68"></script>
-            </div>
-            <div id="tab04">
-            <script type="text/javascript" src="http://www.0594trade.com/api.php?mod=js&bid=70"></script>
-            </div>
+            </p>
+            
+            <p> <form action="<?php echo U('Products/move');?>" method="post" name='move' >
+            移到分类:<select name="cateid" class="input-text" >
+                        <option value="">请选择...</option>
+                        <?php if(is_array($catetree)): $i = 0; $__LIST__ = $catetree;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo['id']); ?>"><?php echo class_str_insert($vo['deep'],"&nbsp;&nbsp;&nbsp;"); echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+                        </select>
+                        <input type="hidden" name="id" value="" />
+                        <input type="button" value="移动" onclick="return moveprodcuts();"/>
+            </form></p>
+             <p> <form action="<?php echo U('Products/movetobrand');?>" method="post" name='movetobrand' >
+            移到品牌:<select name="brandid" class="input-text" >
+                        <option value="0">最上级...</option>
+                        <?php if(is_array($brandtree)): $i = 0; $__LIST__ = $brandtree;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo['id']); ?>"><?php echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+                        </select>
+                        <input type="hidden" name="id" value="" />
+                        <input type="button" value="移动" onclick="return moveProdcutsToBrand();"/>
+            </form></p>
+            <form action="#" method="post" id="listform">
+            <table width="100%">
+				<tr pid="0">
+				    <th style="text-align:center" width="7%"><input type="checkbox" id="checkAll"/> ID</th>
+				    <th style="text-align:center" width="25%">名称</th>
+				    <th style="text-align:center" width="15%">排序</th>
+                    <th style="text-align:center" width="5%">最新</th>
+                    <th style="text-align:center" width="5%">热卖</th>
+                    <th style="text-align:center" width="5%">推荐</th>
+                    <th style="text-align:center" width="5%">特价</th>                
+                    <th style="text-align:center" width="5%">下架</th>                
+                    <th style="text-align:center" width="5%">SEO</th>                
+                    <th style="text-align:center" >操作</th>
+				</tr>
+                <?php if(is_array($goods_list)): foreach($goods_list as $key=>$val): ?><tr >
+                    <td style="text-align:left" ><input type="checkbox" name="id[]" value="<?php echo ($val["gid"]); ?>" /> <a href="<?php echo u('Products/edit',array('id'=>$val['gid']));?>"><?php echo ($val["gid"]); ?></a></td>
+				    <td style="text-align:left" id="classname" >
+				    <a class="preview" href="/kicker/Public/<?php echo ($val["goods_img"]); ?>" title="<?php echo ($val["main_title"]); ?>"><?php echo ($val["main_title"]); ?></a>
+				    </td>
+				    <td style="text-align:left" ><input type="text" value="<?php echo ($vo['sort']); ?>" name="sort[<?php echo ($vo["gid"]); ?>]" size="5"/></td>
+                    <td style="text-align:left" ><a href="javascript:void();" onclick="javascript:setstatus(<?php echo ($val['gid']); ?>,'is_new',this);"><?php echo getStatus($val['is_new'],true);?></a></td>
+                    <td style="text-align:left" ><a href="javascript:void();" onclick="javascript:setstatus(<?php echo ($val['gid']); ?>,'is_hot',this);"><?php echo getStatus($val['is_hot'],true);?></a></td>
+                    <td style="text-align:left" ><a href="javascript:void();" onclick="javascript:setstatus(<?php echo ($val['gid']); ?>,'is_rec',this);"><?php echo getStatus($val['is_rec'],true);?></a></td>
+                    <td style="text-align:left" ><a href="javascript:void();" onclick="javascript:setstatus(<?php echo ($val['gid']); ?>,'is_price',this);"><?php echo getStatus($val['is_price'],true);?></a></td>
+                    <td style="text-align:left" ><a href="javascript:void();" onclick="javascript:setstatus(<?php echo ($val['gid']); ?>,'is_down',this);"><?php echo getStatus($val['is_down'],true);?></a></td>
+                    <td style="text-align:left" ><?php echo is_seo('Products',$vo['id']);?></td>
+                    <td style="text-align:center" ><a href="<?php echo u('Products/attredit',array('id'=>$vo['id']));?>"><img src="/kicker/Public/skin/admin/ati_edit.jpg" title="属性编辑"/></a>&nbsp;<a href="<?php echo u('Products/edit',array('id'=>$val['gid']));?>"><img src="/kicker/Public/skin/admin/pro_edit.jpg" title="编辑" /></a>&nbsp;<a name="del_<?php echo ($val["gid"]); ?>"  href="<?php echo u('Products/Delete',array('id'=>$vo['id']));?>" ><img src="/kicker/Public/skin/admin/out_del.jpg"  title="删除"/></a></td>
+                </tr><?php endforeach; endif; ?>
+				
+			</table></form>
+            <p class="t-left">
+            <input type="button" value="编辑属性" onclick="attr();" /> 
+            <input type="button" value="更新排序" onclick="sortUpdate();"/>
+            <input type="button" value="删除产品" onclick="delprodcuts();" />
+            <form method="get" action="">每页显示：<input type="text" name="listRows" value="<?php echo ($listRows); ?>" size="5"/><INPUT TYPE="submit" value="更改"></form>
+            
+            <form method="post" action="<?php echo U('Products/SetStatus2','','',false);?>" >
+            批量设置:
+            <input type="checkbox" value="1" name="reverse"/>反向 
+            <input type="button" onclick="this.form.action+='-type-isnew';return setstatus2(this.form);" value="最新"/>
+            <input type="button" onclick="this.form.action+='-type-ishot';return setstatus2(this.form);" value="热卖"/>
+            <input type="button" onclick="this.form.action+='-type-isrec';return setstatus2(this.form);" value="推荐"/>
+            <input type="button" onclick="this.form.action+='-type-isprice';return setstatus2(this.form);" value="特价"/>
+            <input type="hidden" value="" name="id"/></form></p>
+            <p class="t-right"><?php echo ($show); ?></p>
+            
 		</div> <!-- /content -->
+
 	</div> <!-- /cols -->
 	<hr class="noscreen" />
 

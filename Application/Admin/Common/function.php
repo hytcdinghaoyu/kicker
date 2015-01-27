@@ -355,19 +355,19 @@ function getStatus($status, $imageShow = false) {
 	switch ($status) {
 		case 0 :
 			$showText = '禁用';
-			$showImg = '<IMG SRC="'.__PUBLIC__.'/skin/images/mod_0.gif" WIDTH="15" HEIGHT="15" BORDER="0" ALT="禁用">';
+			$showImg = '<IMG SRC="'.__ROOT__.'/Public/skin/images/mod_0.gif" WIDTH="15" HEIGHT="15" BORDER="0" ALT="禁用">';
 			break;
 		case 2 :
 			$showText = '待审';
-			$showImg = '<IMG SRC="'.__PUBLIC__.'/skin/images/prected.gif" WIDTH="15" HEIGHT="15" BORDER="0" ALT="待审">';
+			$showImg = '<IMG SRC="'.__ROOT__.'/Public/skin/images/prected.gif" WIDTH="15" HEIGHT="15" BORDER="0" ALT="待审">';
 			break;
 		case - 1 :
 			$showText = '删除';
-			$showImg = '<IMG SRC="'.__PUBLIC__.'/skin/images/del.gif" WIDTH="15" HEIGHT="15" BORDER="0" ALT="删除">';
+			$showImg = '<IMG SRC="'.__ROOT__.'/Public/skin/images/del.gif" WIDTH="15" HEIGHT="15" BORDER="0" ALT="删除">';
 			break;
 		case 1 :
 			$showText = '正常';
-			$showImg = '<IMG SRC="'.__PUBLIC__.'/skin/images/mod_1.gif" WIDTH="15" HEIGHT="15" BORDER="0" ALT="正常">';
+			$showImg = '<IMG SRC="'.__ROOT__.'/Public/skin/images/mod_1.gif" WIDTH="15" HEIGHT="15" BORDER="0" ALT="正常">';
 
 	}
 	return ($imageShow === true) ?  $showImg  : $showText;
