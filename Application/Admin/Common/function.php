@@ -728,10 +728,14 @@ function get_country($id){
 	$list=$dao->where("countries_id=".$id)->find();
 	return $list['countries_name'];
 }
-function get_orders_status($id){
-	$dao=D("Orders");
-	$status=$dao->field("orders_status")->where("id=".$id)->find();
-	return L("orders_status_".$status["orders_status"]);
+function get_orders_status($status){
+	switch ($status) {
+		case "0": return "已付款";break;
+		case "1": return "等待中";break;
+		case "2": return "处理中";break;
+		case "3": return "已发货";break;
+		case "4": return "已关闭";break;
+	}
 }
 function get_members_name($id){
 	$dao=D("Members");

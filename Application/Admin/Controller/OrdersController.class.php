@@ -34,6 +34,37 @@ class OrdersController extends AdminCommonController{
 			$this->success('删除订单成功!');
 		}
 	}
+
+	/**
+	 * 批量删除订单(假删)
+	 */
+	function batch_del_orders(){
+		$ids = I('id');
+		$map['order_id'] = array('in',$ids);
+		if (M('Orders')->where($map)->save(array('is_delete'=>1))) {
+			$this->ajaxReturn('删除订单成功！','json');
+		}else{
+			$this->ajaxReturn('删除订单失败！','json');
+		}
+	}
+
+	/**
+	 * 批量更改订单状态
+	 */
+	function do_orders_status(){
+
+		if (IS_POST === false) {
+			exit();
+		}
+		$ids = I('id');
+		$order_status = I('orders_status');
+		$map['order_id'] = array('in',$ids);
+		if (M('Orders')->where($map)->save(array('status'=>$order_status))) {
+			$this->success('修改订单状态成功！');
+		}else{
+			$this->error('修改订单状态失败！');
+		}
+	}
 	
 }
 

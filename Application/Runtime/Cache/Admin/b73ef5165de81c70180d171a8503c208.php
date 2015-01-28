@@ -269,9 +269,7 @@ function moveprodcuts(){
 
 function setstatus(id,type,_this){
 	$.post("<?php echo U('Goods/setStatus');?>",{'id':id,'type':type},function(data){
-		//alert(data);
 		$(_this).html(data);
-		//$('img',_this).attr('src',data);
 	},'json');
 }
 function setstatus2(form){
