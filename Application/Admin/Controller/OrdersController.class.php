@@ -6,7 +6,8 @@ class OrdersController extends AdminCommonController{
 	 * 显示订单列表
 	 */
 	function orderslist() {
-		$order_list = D("Member/OrdersView")->getAllOrders();
+		$billno = I('sn');
+		$order_list = D("Member/OrdersView")->getAllOrders($billno);
 		$this->assign('order_list',$order_list);
 		$this->display();
 	}
@@ -39,6 +40,10 @@ class OrdersController extends AdminCommonController{
 	 * 批量删除订单(假删)
 	 */
 	function batch_del_orders(){
+
+		if (IS_AJAX === false) {
+			exit();
+		}
 		$ids = I('id');
 		$map['order_id'] = array('in',$ids);
 		if (M('Orders')->where($map)->save(array('is_delete'=>1))) {
