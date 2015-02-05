@@ -22,12 +22,16 @@ Class OrdersViewModel extends ViewModel{
 	/**
 	 * 获取所有订单
 	 */
-	public function getAllOrders($billno){
+	public function getAllOrders($filter){
 		$orders = array();
 		$where = "is_delete = 0";
-		if (!empty($billno)) {
-			$where .= " and billno like'%".$billno."%'";
+		if (!empty($filter['billno'])) {
+			$where .= " and billno like '%".$filter['billno']."%'";
 		}
+		if (!empty($filter['order_id'])) {
+			$where .= " and Orders.order_id in (".$filter['order_id'].")";
+		}
+
 		$order_goods = $this->field('oid,billno,add_time,total_price,pay_method,status,user_id')->where($where)->select();
 		foreach ($order_goods as $order_goods_k => $order_goods_v) {
 			if (!array_key_exists($order_goods_v['oid'], $orders)){
