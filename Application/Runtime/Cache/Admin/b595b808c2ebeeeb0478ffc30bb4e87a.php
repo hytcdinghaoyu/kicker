@@ -38,7 +38,7 @@
 		//$("#listform tbody").selectable();
 	});
 	</script>
-	<title><?php echo C('SYSTEM_NAME'); echo C('SYSTEM_VAR');?></title>
+	<title>kicker商城后台</title>
 </head>
 
 <body>
@@ -55,7 +55,7 @@
 				<a href="#" rel="2col" class="styleswitch ico-col2" title="Display two columns"><img src="/kicker/Public/skin/design/switcher-2col.gif" alt="2 Columns" /></a>
 			</span>
 
-			项目名称: <strong><?php echo C('SYSTEM_NAME');?></strong>
+			项目名称: <strong>kicker后台管理系统</strong>
 
 		</p>
 
@@ -97,8 +97,7 @@
 
 			<div class="padding box">
 
-				<!-- Logo (Max. width = 200px) -->
-				<p id="logo"><a href="/kicker/" target="_blank" ><img src="/kicker/Public/skin/admin/easy_logo.jpg" alt="Our logo" title="Visit Site" style=" border:none;" /></a></p>
+				
 
 				<!-- Search -->
 				<form action="<?php echo U('Products/productslist');?>" method="get">
@@ -122,7 +121,7 @@
 				</form>
 
 				<!-- Create a new project -->
-				<p id="btn-create" class="box"><a href="<?php echo U('Products/add');?>"><span>添加产品</span></a></p>
+				<p id="btn-create" class="box"><a href="<?php echo U('Goods/add');?>"><span>添加产品</span></a></p>
 
 			</div> <!-- /padding -->
 
@@ -227,7 +226,7 @@ $('#aside ul.box>li>a').click(function(){
 <!-- Content (Right Column) -->
 		<div id="content" class="box">
 
-			<h1>欢迎使用EasyCart系统</h1>
+			<h1>欢迎使用kicker后台管理系统</h1>
             <!--<p class="msg info">提示：</p>-->	
             <div class="tabs box">
 				<ul>
@@ -244,8 +243,8 @@ $('#aside ul.box>li>a').click(function(){
                 <area shape="rect" coords="153,14,277,52" href="<?php echo U('Type/catelist');?>" />
                 <area shape="rect" coords="295,15,415,52" href="<?php echo U('Cate/add');?>" />
                 <area shape="rect" coords="432,15,556,52" href="<?php echo U('Cate/catelist');?>" />
-                <area shape="rect" coords="570,14,694,53" href="<?php echo U('Products/add');?>" />
-                <area shape="rect" coords="710,14,836,53" href="<?php echo U('Products/productslist');?>" />
+                <area shape="rect" coords="570,14,694,53" href="<?php echo U('Goods/add');?>" />
+                <area shape="rect" coords="710,14,836,53" href="<?php echo U('Goods/goodslist');?>" />
               </map>
             </p>
 			本站共有 <a href="<?php echo U('Products/productslist');?>"><?php echo ((isset($product_count) && ($product_count !== ""))?($product_count):0); ?></a> 个产品 , <a href="<?php echo U('Cate/catelist');?>"><?php echo ((isset($cate_count) && ($cate_count !== ""))?($cate_count):0); ?></a> 个类别<br/>

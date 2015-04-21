@@ -38,7 +38,7 @@
 		//$("#listform tbody").selectable();
 	});
 	</script>
-	<title><?php echo C('SYSTEM_NAME'); echo C('SYSTEM_VAR');?></title>
+	<title>kicker商城后台</title>
 </head>
 
 <body>
@@ -55,7 +55,7 @@
 				<a href="#" rel="2col" class="styleswitch ico-col2" title="Display two columns"><img src="/kicker/Public/skin/design/switcher-2col.gif" alt="2 Columns" /></a>
 			</span>
 
-			项目名称: <strong><?php echo C('SYSTEM_NAME');?></strong>
+			项目名称: <strong>kicker后台管理系统</strong>
 
 		</p>
 
@@ -97,8 +97,7 @@
 
 			<div class="padding box">
 
-				<!-- Logo (Max. width = 200px) -->
-				<p id="logo"><a href="/kicker/" target="_blank" ><img src="/kicker/Public/skin/admin/easy_logo.jpg" alt="Our logo" title="Visit Site" style=" border:none;" /></a></p>
+				
 
 				<!-- Search -->
 				<form action="<?php echo U('Products/productslist');?>" method="get">
@@ -122,7 +121,7 @@
 				</form>
 
 				<!-- Create a new project -->
-				<p id="btn-create" class="box"><a href="<?php echo U('Products/add');?>"><span>添加产品</span></a></p>
+				<p id="btn-create" class="box"><a href="<?php echo U('Goods/add');?>"><span>添加产品</span></a></p>
 
 			</div> <!-- /padding -->
 

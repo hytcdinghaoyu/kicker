@@ -223,150 +223,230 @@ $('#aside ul.box>li>a').click(function(){
 	$(this).parent().children('ul').toggle('fast').parent().siblings().children('ul').slideUp('fast');
 });
 </script>
-<script type="text/javascript">
-function delall(){
-	var id=$('input:checkbox[name^=id]:checked').map(function(){
-		return $(this).val();
-	}).get().join(",");
-	if(!id){
-		alert('请选择要删除的项!');
-	}else{
-		$.post("<?php echo U('Orders/batch_del_orders');?>","id="+id,function(data){
-			alert(data);
-			$('input[name^=id]:checked').parent().parent().remove();
-		});
-		
-	}
-}
-function print_all(){
-	var id=$('input:checkbox[name^=id]:checked').map(function(){
-		return $(this).val();
-	}).get().join(",");
-	if(!id){
-		alert('请选择要打印的项!');
-	}else{
-		$('form[name=tempform] input:hidden[name=id]').val(id);
-		$('form[name=tempform]').attr('action','<?php echo U('Orders/printall');?>').submit();
-	}
-}
-function export_order(){
-	var id=$('input:checkbox[name^=id]:checked').map(function(){
-		return $(this).val();
-	}).get().join(",");
-	if(!id){
-		alert('请选择要导出的订单!');
-	}else{
-		$('form[name=tempform] input:hidden[name=id]').val(id);
-		$('form[name=tempform]').attr({
-		'action':'<?php echo U('Orders/export');?>',
-		'target':'_blank'
-		}).submit();
-	}
-}
-function excel(){
-	var id=$('input:checkbox[name^=id]:checked').map(function(){
-		return $(this).val();
-	}).get().join(",");
-	if(!id){
-		alert('请选择要导出的订单!');
-	}else{
-		$('form[name=tempform] input:hidden[name=id]').val(id);
-		$('form[name=tempform]').attr({
-		'action':'<?php echo U('Orders/excel');?>',
-		'target':'_blank'
-		}).submit();
-	}
-}
-function set_orders_status(){
-	var id=$('input:checkbox[name^=id]:checked').map(function(){
-		return $(this).val();
-	}).get().join(",");
-	if(!id){
-		alert('请选择订单!');
-	}else{
-		$('form[name=orders_status] input:hidden[name=id]').val(id);
-		$('form[name=orders_status]').submit();
-	}
-}
 
+<link href="/kicker/Public/skin/css/swfupload.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/kicker/Public/skin/Js/swfupload.js"></script>
+<script type="text/javascript" src="/kicker/Public/skin/Js/swfupload.queue.js"></script>
+<script type="text/javascript" src="/kicker/Public/skin/Js/fileprogress.js"></script>
+<script type="text/javascript" src="/kicker/Public/skin/Js/handlers.js"></script>
+<script language="javascript">
+
+var swfu;
+function ajaxFileUpload(fileToUpload,timestamp)
+{
+
+	$("#loading")
+	.ajaxStart(function(){
+		$(this).show();
+	})
+	.ajaxComplete(function(){
+		$(this).hide();
+	});
+
+	$.ajaxFileUpload
+	(
+	{
+		url:"<?php echo U('Goods/upload');?>",
+		secureuri:false,
+		fileElementId:fileToUpload,
+		dataType: 'json',
+		success: function (data, status)
+		{			
+			if (status=='success'){
+				$("#msg").text(data.info);
+				$("#goods_img").val(data.data['savename']);
+			}
+			else{
+				$("#msg").text(data.info);
+
+				$("#fileToUpload_look_"+timestamp).attr("href","."+data.data['savename']);
+				$("#fileToUpload_look_"+timestamp).show();
+				$("#fileToUpload_look_"+timestamp).preview();
+				$("#fileToUpload_url_"+timestamp).val(data.data['savename']);
+			}
+
+
+		},
+		error: function (data, status, e)
+		{
+			alert(e);
+		}
+	}
+	)
+	return false;
+
+}
 $(document).ready (
 function(){
 
-	$("a[name^='del_']").click(
-	function(){
-		if(confirm("确认要删除吗?")){
-			window.location = $(this).attr("href");
-		}
-		else{
-			return false;
-		}
-	}
-	);
-	$("#checkAll").click(
-	function () {
-		$("input:checkbox[name^=id]").attr("checked",this.checked);
-	}
-	);
-}
-);
+	var settings = {
+		flash_url : "/kicker/Public/skin/Js/swfupload.swf",
+		upload_url: "<?php echo U('Goods/upload');?>",
+		post_params: {"PHPSESSID" : "<?php echo session_id(); ?>"},
+		file_size_limit : "100 MB",
+		file_types : "*.jpg;*.gif;*.png;*.bmp",
+		file_types_description : "图片",
+		file_upload_limit : 10000000000,  //配置上传个数
+		file_queue_limit : 0,
+		custom_settings : {
+			progressTarget : "fsUploadProgress",
+			cancelButtonId : "btnCancel"
+		},
+		debug: false,
 
+		// Button settings
+		button_image_url: "/kicker/Public/skin/images/TestImageNoText_65x29.png",
+		button_width: "65",
+		button_height: "29",
+		button_placeholder_id: "spanButtonPlaceHolder",
+		button_text: '<span class="theFont">浏览</span>',
+		button_text_style: ".theFont { font-size: 16; }",
+		button_text_left_padding: 12,
+		button_text_top_padding: 3,
+
+		file_queued_handler : fileQueued,
+		file_queue_error_handler : fileQueueError,
+		file_dialog_complete_handler : fileDialogComplete,
+		upload_start_handler : uploadStart,
+		upload_progress_handler : uploadProgress,
+		upload_error_handler : uploadError,
+		upload_success_handler : uploadSuccess,
+		upload_complete_handler : uploadComplete,
+		queue_complete_handler : queueComplete
+	};
+
+	swfu = new SWFUpload(settings);
+	$("#img_add").click(function(){
+		var timestamp = Date.parse(new Date());
+		var str="<p class='t-left'><input type='hidden'  name='timestamp[]' value='"+timestamp+"' /><input type='hidden' id='fileToUpload_url_"+timestamp+"' name='imgurl[]' value='' />描述：<input type='text' size='20' name='img_desc[]' class='input-text' />&nbsp排序：<input type='text' size='5' name='sort[]' class='input-text' />&nbsp图片：<input type='file' id='fileToUpload_"+timestamp+"' name='fileToUpload[]' class='input-text' /><input type='radio' name='isIndex'  class='input-text' value='"+timestamp+"'>封面&nbsp;&nbsp;<input class='input-submit' id='upload'  type='button' name='upload' value='上传' onClick=\"return ajaxFileUpload('fileToUpload_"+timestamp+"','"+timestamp+"');\" />&nbsp;<a id='fileToUpload_look_"+timestamp+"' href='javascript:void(0);' style='display:none;'  target='_blank'><img ' src='/kicker/Public/skin/images/look.jpg' width='15' height='15' ></a></p>";
+		$("#img_html").html($("#img_html").html()+str);
+
+	});
+});
 </script>
 <!-- Content (Right Column) -->
 		<div id="content" class="box">
-			<h1>订单管理</h1>
-            <p class="msg info">提示：</p>
-            	 <p id="btn-create" class="box">
-            <form action="<?php echo U('Orders/orderslist');?>" method="get" >
-            订单号:<input type="text" size="20" name="sn" class="input-text" value="" />
-            <input type="submit" value="搜索" />
-            </form>
-            </p>
-            <table width="100%">
-				<tr pid="0">
-				    <th style="text-align:center" width="6%"><input type="checkbox" id="checkAll"/> ID</th>
-				    <th style="text-align:center" width="10%">编号</th>
-				    <th style="text-align:center" width="13%">创建时间</th>
-                    <th style="text-align:center" width="7%">金额</th>
-                    <th style="text-align:center" width="10%">付款方式</th>
-                    <th style="text-align:center" width="5%">状态</th>
-                    <th style="text-align:center" width="17%">会员帐号</th>              
-                    <th style="text-align:center" >操作</th>
-				</tr>
-                <?php if(is_array($order_list)): foreach($order_list as $key=>$val): ?><tr>
-                    <td style="text-align:left" ><input type="checkbox" name="id[]" value="<?php echo ($key); ?>" /> <a href="<?php echo U('Orders/edit',array('id'=>$val.oid));?>"><?php echo ($key); ?></a></td>
-				    <td style="text-align:left" id="classname" ><?php echo ($val["billno"]); ?></td>
-				    <td style="text-align:left" ><?php echo (date('Y-m-d H:i:s',$val["add_time"])); ?></td>
-                    <td style="text-align:left" >￥<?php echo ($val["total_price"]); ?></td>
-                    <td style="text-align:left" ><?php echo ($val["pay_method"]); ?></td>
-                    <td style="text-align:left" ><?php echo get_orders_status($val['status']);?></td>
-                    <td style="text-align:left" ><?php echo ($val["user_name"]); ?></td>
-                    <td style="text-align:center" ><a href="<?php echo U('Orders/ordersDetail',array('id'=>$key));?>"><img src="/kicker/Public/skin/admin/order.jpg" title="订单详情" /></a>&nbsp;<a href="<?php echo U('Orders/delivery',array('id'=>$val.oid));?>"><img src="/kicker/Public/skin/admin/pei.jpg" title="配货"/></a>&nbsp;<a href="<?php echo u('Orders/edit',array('id'=>$val.oid));?>"><img src="/kicker/Public/skin/admin/see_at.jpg" title="查看" /></a>&nbsp;<a href="<?php echo u('Orders/sendgoods',array('id'=>$val.oid));?>"><img src="/kicker/Public/skin/admin/send_pro.jpg"  title="发货"  /></a>&nbsp;<a href="<?php echo u('Orders/dispBills',array('id'=>$val.oid));?>"><img src="/kicker/Public/skin/admin/print.jpg" title="打印发货单" /></a>&nbsp;<a name="del_<?php echo ($val["oid"]); ?>"  href="<?php echo U('Orders/delOrder',array('id'=>$key));?>" ><img src="/kicker/Public/skin/admin/out_del.jpg" title="移除"  /></a>&nbsp;<a href="###" onclick="window.open('<?php echo U('Orders/word',array('id'=>$val.oid));?>');"><img src="/kicker/Public/skin/admin/out.jpg" title="导出"  /></a></td>
-                </tr><?php endforeach; endif; ?>
-			</table>
-			
-			 <form name="orders_status" method="post" action="<?php echo U('Orders/do_orders_status','','',false);?>">
-			 <p class="t-left">
-			 <input type="button" value="批量删除" onclick="delall();" />
-			 状态:
-			 <select name="orders_status" onchange="set_orders_status();" >
-                    <option value="">-请选择-</option>                        
-                    <option value="1" >等待中</option> 
-                    <option value="2" >处理中</option> 
-                    <option value="3" >已发货</option> 
-                    <option value="4" >已关闭</option>                        
-            </select>
-                       <input type="hidden" value="" name="id"/>
-			 </p>
-			 </form>
-			 <form name="tempform" method="post" >
-			 <input type="hidden" value="" name="id" />
-			 <input type="button" value="批量打印" onclick="print_all()" />
-			 <input type="button"  value="导出订单数据" onclick="export_order()" />
-			 <input type="button"  value="导出订单列表" onclick="excel()" />
-			</form>
-            <p class="t-right"><?php echo ($show); ?></p>
-		</div> <!-- /content -->
 
+			<h1>添加新产品</h1>
+            <p class="msg info">提示：<label id="msg"></label><span id="loading" style="display:none;"><img   src="/kicker/Public/skin/images/loading.gif" style="height:20px;">上传中...</span></p>
+            	
+            <p id="btn-create" class="box">
+              <a href="<?php echo U('Goods/goodslist');?>">产品列表</a>
+            </p>
+            <!-- Tabs -->
+			<div class="tabs box">
+				<ul>
+					<li><a href="#tab01"><span>通用信息</span></a></li>
+					<li><a href="#tab02"><span>详细描述</span></a></li>
+					<li><a href="#tab03"><span>商品相册</span></a></li>
+				</ul>
+			</div> <!-- /tabs -->
+			 <form action="<?php echo U('Goods/Insert');?>" name="myform" method="post" enctype="multipart/form-data">
+            <div id="tab01">
+           
+            <table class="nostyle">
+                    <tr>
+						<td style="width:120px;">产品名称(必填):</td>
+						<td><input type="text" size="40" name="name" class="input-text" value="" /></td>
+					</tr>
+                    <tr>
+						<td style="width:120px;">副标题:</td>
+						<td><input type="text" size="40" name="sub_title" class="input-text" value="" /></td>
+					</tr>
+                    <tr>
+						<td style="width:120px;">价格:</td>
+						<td><input type="text" size="40" name="price" class="input-text" value="" /></td>
+					</tr>
+					<tr>
+						<td style="width:120px;">成本价:</td>
+						<td><input type="text" size="40" name="costprice" class="input-text" value="" /></td>
+					</tr>
+					<tr>
+						<td style="width:120px;">重量(g):</td>
+						<td><input type="text" size="40" name="weight" class="input-text" value="" /></td>
+					</tr>
+                    <tr>
+						<td style="width:120px;">产品分类(必填):</td>
+						<td>
+                        <select name="cateid" class="input-text" >
+                        <option value="1">球衣</option>
+                        <option value="3">球鞋</option>
+                        <option value="4">足球</option>
+                        </select>
+                        </td>
+					</tr>
+                     <tr>
+						<td style="width:120px;">品牌:</td>
+						<td>
+                        <select name="brand" class="input-text" >
+                        <option value="nike">耐克</option>
+                        <option value="adidas">阿迪达斯</option>
+                        <option value="mizuno">美津浓</option>
+                        <option value="puma">彪马</option>
+                        </select>
+                        </td>
+					</tr>
+                    <tr>
+						<td style="width:120px;">尺码:</td>
+						<td><input type="text" size="40" name="attr" class="input-text" value="" />"以","号分隔</td>
+					</tr>
+                    
+                    <tr>
+						<td style="width:120px;">最新产品:</td>
+						<td><input type="radio" value="1"  name="isnew" class="input-text"  />是<input type="radio" value="0"  name="isnew" class="input-text"  checked/>否</td>
+					</tr>
+                    <tr>
+						<td style="width:120px;">热卖产品:</td>
+						<td><input type="radio" value="1"  name="ishot" class="input-text"  />是<input type="radio" value="0"  name="ishot" class="input-text"  checked/>否</td>
+					</tr>
+                    <tr>
+						<td style="width:120px;">推荐产品:</td>
+						<td><input type="radio" value="1"  name="isrec" class="input-text"  />是<input type="radio" value="0"  name="isrec" class="input-text"  checked/>否</td>
+					</tr>
+                    <tr>
+						<td style="width:120px;">特价产品:</td>
+						<td><input type="radio" value="1"  name="isprice" class="input-text"  />是<input type="radio" value="0"  name="isprice" class="input-text"  checked/>否</td>
+					</tr>
+                    <tr>
+						<td style="width:120px;">下架:</td>
+						<td><input type="radio" value="1"  name="isdown" class="input-text"  />是<input type="radio" value="0"  name="isdown" class="input-text"  checked/>否</td>
+					</tr>
+                    
+            </table>
+            </div>
+            <div id="tab02">
+            <!-- 编辑器调用开始 --><script type="text/javascript" src="/kicker/Public/Js/FCKeditor/fckeditor.js"></script><textarea id="remark" name="remark"></textarea><script type="text/javascript"> var oFCKeditor = new FCKeditor( "remark","100%","400x" ) ; oFCKeditor.BasePath = "/kicker/Public/Js/FCKeditor/" ; oFCKeditor.ReplaceTextarea() ;function resetEditor(){setContents("remark",document.getElementById("remark").value)}; function saveEditor(){document.getElementById("remark").value = getContents("remark");} function InsertHTML(html){ var oEditor = FCKeditorAPI.GetInstance("remark") ;if (oEditor.EditMode == FCK_EDITMODE_WYSIWYG ){oEditor.InsertHtml(html) ;}else	alert( "FCK必须处于WYSIWYG模式!" ) ;}</script> <!-- 编辑器调用结束 -->
+            </div>
+            <div id="tab03">
+            <table class="nostyle">
+           
+            <tr><td>
+            <p class="t-left">
+            <input type="hidden"  name="timestamp[]" value="0" />
+            <input type="hidden" id="fileToUpload_url_0" name="imgurl[]" value="" />
+            <input type="hidden" id="goods_img" name="goods_img" value="" />
+            描述：<input type="text" size="20" name="img_desc[]" class="input-text" />
+            排序：<input type="text" size="5" name="sort[]" class="input-text" />
+            图片：<input type="file" id="fileToUpload" name="fileToUpload[]" class="input-text" /><input type="radio" name="isIndex" checked class="input-text" value="0">
+            封面 
+             <input class="input-submit" id="upload"  type="button" name="upload" value="上传" onClick="return ajaxFileUpload('fileToUpload','0');" />
+             &nbsp;<a id="img_add" href="javascript:void(0);" title="/kicker/Public/skin/images/look.jpg"><img src="/kicker/Public/skin/images/add.jpg" width="15" height="15"></a>
+             <a id='fileToUpload_look_0' href='javascript:void(0);' target="_blank" style='display:none;'><img  src='/kicker/Public/skin/images/look.jpg' width='15' height='15' ></a></p>
+            <label id="img_html" style="width:100%;">
+            </label>
+           </td></tr>
+            <label id="picmsg"></label>
+           </td></tr>
+           </table>
+           
+            </div>
+
+            <p class="t-right"><input type="submit" class="input-submit" value="添加" /></p>
+            </form>
+		</div> <!-- /content -->
+		 <?php if(!empty($_GET['cateid'])): ?><script language="javascript" type="text/javascript">
+            document.myform.cateid.value="<?php echo ($_GET['cateid']); ?>";
+			</script><?php endif; ?>
 	</div> <!-- /cols -->
 	<hr class="noscreen" />
 
