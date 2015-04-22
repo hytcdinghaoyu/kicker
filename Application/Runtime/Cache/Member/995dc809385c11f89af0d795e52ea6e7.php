@@ -100,11 +100,11 @@ $(function(){
 					</dd>
 					<dd class="other_account">
 						<span>联合登陆：</span>
-						<a href="http://www.fengbuy.com/third/qq/login/" class="qq" title="使用QQ登录" target="_blank"><i></i>QQ登陆</a>
+						<a href="#" class="qq" title="使用QQ登录" target="_blank"><i></i>QQ登陆</a>
 						<!--
 						<a href="#" class="sina" title="使用新浪微博登录">新浪微博</a>
 						-->
-						<a href="http://www.fengbuy.com/third/alipay/login/" class="alipay" title="使用支付宝账号登录" target="_blank"><i></i>支付宝登陆</a>
+						<a href="#" class="alipay" title="使用支付宝账号登录" target="_blank"><i></i>支付宝登陆</a>
 					</dd>
 					<dd class="tips">
 						<span id="remember_tips">为了账户安全，请勿在公用电脑上勾选此项。</span>
@@ -120,6 +120,6 @@ $(function(){
 </div>
 <div id="login_footer">
 <div class="top"><div class="wrap">欢迎访问踢球者商城</div></div>
-<div class="cp"><div class="wrap"><em class="fr"> <!-- <a href="#">关于我们</a>| --><a href="http://www.fengbuy.com/others?id=19" target="_blank">联系我们</a>|<!-- <a href="#">广告服务</a>| <a href="#">人才招聘</a>|--><a href="http://www.feng.com" target="_blank">踢球者社区</a>|<!-- <a href="#">商品评价</a>| --><a href="http://www.fengbuy.com/others?id=20" target="_blank">友情链接</a></em><strong>&copy; 2012 FENGBUY</strong>  备案编号：1101081681 粤ICP证070359号</div></div>
+<div class="cp"><div class="wrap"><em class="fr"> <!-- <a href="#">关于我们</a>| --><a href="#" target="_blank">联系我们</a>|<!-- <a href="#">广告服务</a>| <a href="#">人才招聘</a>|--><a href="#" target="_blank">踢球者社区</a>|<!-- <a href="#">商品评价</a>| --><a href="#" target="_blank">友情链接</a></em><strong>&copy; 2012 kicker</strong></div></div>
 </div></body>
 </html>

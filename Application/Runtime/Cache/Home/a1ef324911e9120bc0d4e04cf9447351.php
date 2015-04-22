@@ -204,7 +204,7 @@ function searchKeyword(){
 			</div>
 			<div class="rightNav">
 				<?php if($userIsLogin): ?><div>欢迎您：<?php echo ($userName); ?></div>
-					<div><a href="<?php echo U('Member/Order/history');?>">[个人中心]</a></div>
+					<div><a href="<?php echo U('Member/Order/account');?>">[个人中心]</a></div>
 					<div><a href="<?php echo U('Member/Login/logout');?>">[注销]</a></div>
 					<?php else: ?>	
 						<!--登录注册-->
@@ -276,24 +276,13 @@ function searchKeyword(){
 				<h3><a href="<?php echo U("Home/index/index");?>">全部商品分类</a><i class="shopClass_icon"></i></h3>
 				<div class="shopClass_show">
 					<dl class="shopClass_item">
-						<dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-						<dd><a href="#">荣耀3X</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
+						<a href="<?php echo U("Home/Filter/index");?>?cid=1&page=1" class="navA">球衣</a>
 					</dl>
 					<dl class="shopClass_item">
-						<dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-						<dd><a href="#">荣耀3X</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
+						<a href="<?php echo U("Home/Filter/index");?>?cid=3&page=1" class="navA">球鞋</a>
 					</dl>
 					<dl class="shopClass_item">
-						<dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-						<dd><a href="#">荣耀3X</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
-					</dl>
-					<dl class="shopClass_item">
-						<dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-						<dd><a href="#">荣耀3X</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
-					</dl>
-					<dl class="shopClass_item">
-						<dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-						<dd><a href="#">荣耀3X</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
+						<a href="<?php echo U("Home/Filter/index");?>?cid=4&page=1" class="navA">足球</a>
 					</dl>
 				</div>
 				<div class="shopClass_list hide">

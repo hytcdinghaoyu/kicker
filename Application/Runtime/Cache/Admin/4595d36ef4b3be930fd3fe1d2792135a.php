@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>EasyCart</title>
+<title>kicker后台管理</title>
 <link href="/kicker/Public/skin/admin/login.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,7 +26,6 @@
      <div style="margin:15px 0px 0px 120px"><input type="checkbox" name="chcookies" id="chcookies" value="1"> 记住密码</input></div>
 </div>
 <div style="clear:both"></div>
-<!--<p class="buttom_link">Don't have an account? <a href="#">Create now!</a> | <a href="#">Forgot password?</a></p>-->
 </div>
 </form>
 </div>
