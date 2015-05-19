@@ -1,19 +1,23 @@
 /* CSS Document */
-
-body {font-family: "Times New Roman", Times, serif;font-size: 14px;line-height: 150%;margin: 0;padding: 0; background:url(../admin/line_02.png) repeat-x;}
-#easycart-login{margin:0px; padding:0px;  height:730px;}
-.form-login{ position:relative;left:550px; top:265px; padding:0px; width:320px;}
-.form-item label {display: block;font-weight: bold;}
-div.form-item input, div.form-login .form-item input, div.form-password .form-item input {margin-top:3px;width: 295px;}
+input{boder:0;outline: none;}
+body {font-family: "Times New Roman", Times, serif;font-size: 14px;line-height: 150%;margin: 0;padding: 0;background: url(../admin/admin_bg.jpg) no-repeat center top;
+width: 100%;
+height: 100%;
+position: fixed;
+background-size: 100%;}
+#easycart-login{margin:0px; padding-top:180px; }
+.form-login{ width:320px;margin: 0 auto;padding: 15px 10px 15px 35px;background-color: #fff;border-radius: 8px;box-shadow: 1px 1px 13px #A54444;}
+.form-item{margin-top: 10px;}
+div.form-item input, div.form-login .form-item input, div.form-password .form-item input {margin-top:3px;width:100%;}
 div.form-item #input{ float:left; margin-top:3px; width:150px;background:url(../admin/buttom_put.png) no-repeat; _background:#FFFFFF;} 
-input[type="text"], input[type="password"], textarea {background:url(../admin/buttom_bg.png) no-repeat;font-size: 14px;width:313px;height:33px;border:none; line-height:33px; padding-left:5px;}
+input[type="text"], input[type="password"], textarea {background:url(../admin/buttom_bg.png) no-repeat;font-size: 14px;width:313px;height:33px;border:none; line-height:33px;}
 #edit-submit{margin-top:7px; padding:0px; float:left; font-weight:bold;height:35px;line-height:35px;}
 .form-required{color:#FF0000;}
 .img{ float:right; display:block;padding-right:60px;}
 .buttom_link{margin-top:30px; padding:0px;}
 .buttom_link a{color:#000000; text-decoration:none;}
 .buttom_link a:hover{color:#FF0000; text-decoration:underline;}
-#center{margin:0px auto; width:1439px; }
+#center{margin:0px auto; width:100%; }
 .login{ float:left; clear:both;}
 
 #test{margin:8px 0px; float:right; display:inline; list-style:none;}

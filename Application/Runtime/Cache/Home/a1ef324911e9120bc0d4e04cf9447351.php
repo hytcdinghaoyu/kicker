@@ -285,24 +285,12 @@ function searchKeyword(){
 						<a href="<?php echo U("Home/Filter/index");?>?cid=4&page=1" class="navA">足球</a>
 					</dl>
 				</div>
-				<div class="shopClass_list hide">
-					<div class="shopClass_cont">
-						<dl class="shopList_item">
-							<dt>电脑装机</dt>
-							<dd>
-								<a href="#">文字啊</a><a href="#">文字字啊</a><a href="#">文字字字啊</a><a href="#">文字啊</a><a href="#">文字</a><a href="#">文字啊</a>
-							</dd>
-						</dl>
-					</div>
-				</div>
 			</div>
 			<ul class="nav fl">
-				<li><a href="#" class="active">数码城</a></li>
-				<li><a href="#">天黑黑</a></li>
-				<li><a href="#">团购</a></li>
-				<li><a href="#">发现</a></li>
-				<li><a href="#">二手特卖</a></li>
-				<li><a href="#">名品会</a></li>
+				<li><a href="#" class="active">最球迷</a></li>
+				<li><a href="#">懂球帝</a></li>
+				<li><a href="#">ez足球装备</a></li>
+				<li><a href="#">BalaBala</a></li>
 			</ul>
 		</div>
 	</div>

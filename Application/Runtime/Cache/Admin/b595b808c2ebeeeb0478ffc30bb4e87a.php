@@ -74,13 +74,10 @@
 
 		<ul class="box">
 			<li id="menu-active"><a href="<?php echo U('Admin/Index/index');?>"><span>首页</span></a></li> <!-- Active -->
-			<li><a href="<?php echo U('Admin/Ad/adlist');?>"><span>广告管理</span></a></li>
 			<li><a href="<?php echo U('Admin/Orders/orderslist');?>"><span>订单管理</span></a></li>
 			<li><a href="<?php echo U('Admin/Members/memberslist');?>"><span>会员管理</span></a></li>
 			<li><a href="<?php echo U('Admin/Cate/catelist');?>"><span>类别管理</span></a></li>
 			<li><a href="<?php echo U('Admin/Goods/goodslist');?>"><span>产品管理</span></a></li>
-			<li><a href="<?php echo U('Admin/Article/articlelist');?>"><span>文章管理</span></a></li>
-            <li><a href="<?php echo U('Admin/Setting/Cache');?>"><span>更新缓存</span></a></li>
 		</ul>
 
 	</div> <!-- /header -->

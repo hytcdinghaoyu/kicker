@@ -6,12 +6,14 @@
 <link type="text/css" rel="stylesheet" href="/kicker/Public/style/reset.css">
 <link type="text/css" rel="stylesheet" href="/kicker/Public/style/main.css">
 <link rel="stylesheet" type="text/css" href="/kicker/Public/style/lrtk.css">
-<script type="text/javascript" src="/kicker/Public/js/jquery-1.10.2.js"></script>
+<link rel="stylesheet" type="text/css" href="/kicker/Public/style/jqzoom.css">
+<script src="http://libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript" src="/kicker/Public/js/index.js"></script>
-<script type="text/javascript" src="/kicker/Public/js/jquery.zoomy0.5.js"></script>
+<script type="text/javascript" src="/kicker/Public/js/jqzoom.pack.1.0.1.js"></script>
 <script type="text/javascript">
 
 	$(function(){
+		
 
 		$(".big a").css("height","400px");
 		//选择尺寸
@@ -41,8 +43,8 @@
 			var mid = $(this).attr("mid");
 			$(".des_smimg img").removeClass("active");
 			$(this).find("img").addClass("active");
-			$(".big").hide();
-			$(".big[mid="+mid+"]").show();
+			$(".big").css({"opacity":"0","z-index":"0"});
+			$(".big[mid="+mid+"]").css({"z-index":"99","opacity":"1"});
 			$(".big a").css({"height":"400px","width":"400px"});
 		});
 
@@ -70,8 +72,18 @@
 			$('body').animate({ scrollTop: top }, 300);
 		});
 
-		$('.zoom').zoomy();
+       
+		var options =
+		{
+		zoomWidth: 300, //放大镜的宽度
+		zoomHeight: 300,//放大镜的高度
+		zoomType:'reverse'
+		};
+		$(".jqzoom").jqzoom(options);
 
+		// $(".big").css({"opacity":"0","z-index":"0"});
+		// $(".big[mid=0]").css({"z-index":"99","opacity":"1"});
+		$(".sm_li[mid=0]").click();
 
 	});
 /*添加购物车*/
@@ -296,44 +308,21 @@ function searchKeyword(){
 				<h3><a href="<?php echo U("Home/index/index");?>">全部商品分类</a><i class="shopClass_icon"></i></h3>
 				<div class="shopClass_show">
 					<dl class="shopClass_item">
-						<dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-						<dd><a href="#">荣耀3X</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
+						<a href="<?php echo U("Home/Filter/index");?>?cid=1&page=1" class="navA">球衣</a>
 					</dl>
 					<dl class="shopClass_item">
-						<dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-						<dd><a href="#">荣耀3X</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
+						<a href="<?php echo U("Home/Filter/index");?>?cid=3&page=1" class="navA">球鞋</a>
 					</dl>
 					<dl class="shopClass_item">
-						<dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-						<dd><a href="#">荣耀3X</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
+						<a href="<?php echo U("Home/Filter/index");?>?cid=4&page=1" class="navA">足球</a>
 					</dl>
-					<dl class="shopClass_item">
-						<dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-						<dd><a href="#">荣耀3X</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
-					</dl>
-					<dl class="shopClass_item">
-						<dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-						<dd><a href="#">荣耀3X</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
-					</dl>
-				</div>
-				<div class="shopClass_list hide">
-					<div class="shopClass_cont">
-						<dl class="shopList_item">
-							<dt>电脑装机</dt>
-							<dd>
-								<a href="#">文字啊</a><a href="#">文字字啊</a><a href="#">文字字字啊</a><a href="#">文字啊</a><a href="#">文字</a><a href="#">文字啊</a>
-							</dd>
-						</dl>
-					</div>
 				</div>
 			</div>
 			<ul class="nav fl">
-				<li><a href="#" class="active">数码城</a></li>
-				<li><a href="#">天黑黑</a></li>
-				<li><a href="#">团购</a></li>
-				<li><a href="#">发现</a></li>
-				<li><a href="#">二手特卖</a></li>
-				<li><a href="#">名品会</a></li>
+				<li><a href="#" class="active">最球迷</a></li>
+				<li><a href="#">懂球帝</a></li>
+				<li><a href="#">ez足球装备</a></li>
+				<li><a href="#">BalaBala</a></li>
 			</ul>
 		</div>
 	</div>
@@ -350,9 +339,9 @@ function searchKeyword(){
 	<div class="description clearfix">
 		<div class="leftArea">
 			<div class="description_imgs">				
-					<?php if(is_array($img_arr)): foreach($img_arr as $key=>$val): ?><div class="big" mid="<?php echo ($key); ?>" style="display:none;">
-							<a href="<?php echo ($val["large_img"]); ?>" class="zoom">
-							<img src="<?php echo ($val["big_img"]); ?>">
+					<?php if(is_array($img_arr)): foreach($img_arr as $key=>$val): ?><div id="content" class="big" mid="<?php echo ($key); ?>" >
+							<a href="<?php echo ($val["large_img"]); ?>" class="jqzoom" title="原图">
+								<img src="<?php echo ($val["big_img"]); ?>" title="原图">
 							</a>
 						</div><?php endforeach; endif; ?>								
 				<ul class="des_smimg clearfix">

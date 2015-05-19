@@ -11,19 +11,15 @@
 <form action="{:U('AdminLogin/doLogin')}" method="post">
 <div class="form-login">
 <div class="form-item">
- <label>管理员帐号:<span class="form-required">*</span></label>
- <input type="text"  tabindex="1"  size="60" id="edit-name" name="account" maxlength="60" value="{$login.username}">
+ <input placeholder="管理员账号" type="text"  tabindex="1"  size="60" id="edit-name" name="account" maxlength="60" value="{$login.username}">
 </div>
 <div class="form-item">
- <label>管理员密码:<span title="" class="form-required">*</span></label>
- <input type="password"  tabindex="2" size="60" id="edit-pass" name="password" value="{$login.password}">
+ <input placeholder="管理员密码" type="password"  tabindex="2" size="60" id="edit-pass" name="password" value="{$login.password}">
 </div>
 <div class="form-item">
- <label>验证码:<span title="" class="form-required">*</span></label>
-  <input name="verify" type="text" tabindex="3"  id="input">
+  <input placeholder="验证码" name="verify" type="text" tabindex="3"  id="input">
  <span class="img"><img src="{:U('AdminLogin/verify')}" onclick="this.src='{:U('AdminLogin/verify','','',false)}?rnd='+new Date().getTime();" /></span></div>
 <div class="login"><input type="submit" class="form-submit" tabindex="4" value="进入管理中心" id="edit-submit">
-     <div style="margin:15px 0px 0px 120px"><input type="checkbox" name="chcookies" id="chcookies" value="1"> 记住密码</input></div>
 </div>
 <div style="clear:both"></div>
 </div>

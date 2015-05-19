@@ -6,12 +6,14 @@
 <link type="text/css" rel="stylesheet" href="__PUBLIC__/style/reset.css">
 <link type="text/css" rel="stylesheet" href="__PUBLIC__/style/main.css">
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/lrtk.css">
-<script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/jqzoom.css">
+<script src="http://libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/jquery.zoomy0.5.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jqzoom.pack.1.0.1.js"></script>
 <script type="text/javascript">
 
 	$(function(){
+		
 
 		$(".big a").css("height","400px");
 		//选择尺寸
@@ -41,8 +43,8 @@
 			var mid = $(this).attr("mid");
 			$(".des_smimg img").removeClass("active");
 			$(this).find("img").addClass("active");
-			$(".big").hide();
-			$(".big[mid="+mid+"]").show();
+			$(".big").css({"opacity":"0","z-index":"0"});
+			$(".big[mid="+mid+"]").css({"z-index":"99","opacity":"1"});
 			$(".big a").css({"height":"400px","width":"400px"});
 		});
 
@@ -70,8 +72,18 @@
 			$('body').animate({ scrollTop: top }, 300);
 		});
 
-		$('.zoom').zoomy();
+       
+		var options =
+		{
+		zoomWidth: 300, //放大镜的宽度
+		zoomHeight: 300,//放大镜的高度
+		zoomType:'reverse'
+		};
+		$(".jqzoom").jqzoom(options);
 
+		// $(".big").css({"opacity":"0","z-index":"0"});
+		// $(".big[mid=0]").css({"z-index":"99","opacity":"1"});
+		$(".sm_li[mid=0]").click();
 
 	});
 /*添加购物车*/
@@ -176,9 +188,9 @@ function addCollect(gid){
 		<div class="leftArea">
 			<div class="description_imgs">				
 					<foreach name="img_arr" item="val" key="key">
-						<div class="big" mid="{$key}" style="display:none;">
-							<a href="{$val.large_img}" class="zoom">
-							<img src="{$val.big_img}">
+						<div id="content" class="big" mid="{$key}" >
+							<a href="{$val.large_img}" class="jqzoom" title="原图">
+								<img src="{$val.big_img}" title="原图">
 							</a>
 						</div>
 					</foreach>								
